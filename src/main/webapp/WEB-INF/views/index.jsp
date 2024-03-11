@@ -10,17 +10,14 @@
     <title>메인</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-villa-agency.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="resources/css/fontawesome.css">
+    <link rel="stylesheet" href="resources/css/templatemo-villa-agency.css">
+    <link rel="stylesheet" href="resources/css/owl.css">
+    <link rel="stylesheet" href="resources/css/animate.css">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-    
-   
-    
   </head>
 <body>
 
@@ -201,7 +198,7 @@
       <div class="row">
         <div class="col-lg-10 offset-lg-1">
           <div class="video-frame">
-            <img src="assets/images/dune5.jpg" alt="듄">
+            <img src="resources/images/dune5.jpg" alt="듄">
             <a href="https://youtu.be/81JOj5-xNGc?si=XlZvYAZQJjee7N6d" target="_blank"><i class="fa fa-play"></i></a>
           </div>
         </div>
@@ -255,7 +252,7 @@
       <div class="row">
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="property-details.html"><img src="assets/images/pamyo_p.jpg" alt="파묘포스터"></a>
+            <a href="property-details.html"><img src="resources/images/pamyo_p.jpg" alt="파묘포스터"></a>
             <span class="category">1</span>
             <h6>15</h6>
             <h4><a href="property-details.html">파묘</a></h4>
@@ -270,7 +267,7 @@
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="property-details.html"><img src="assets/images/wonka_p.jpg" alt="웡카포스터"></a>
+            <a href="property-details.html"><img src="resources/images/wonka_p.jpg" alt="웡카포스터"></a>
             <span class="category">2</span>
             <h6>ALL</h6>
             <h4><a href="property-details.html">웡카</a></h4>
@@ -285,7 +282,7 @@
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="property-details.html"><img src="assets/images/dune_p2.jpg" alt="듄2포스터"></a>
+            <a href="property-details.html"><img src="resources/images/dune_p2.jpg" alt="듄2포스터"></a>
             <span class="category">3</span>
             <h6>12</h6>
             <h4><a href="property-details.html">듄: 파트2</a></h4>
@@ -300,7 +297,7 @@
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="property-details.html"><img src="assets/images/sopoong_p.jpg" alt="소풍포스터"></a>
+            <a href="property-details.html"><img src="resources/images/sopoong_p.jpg" alt="소풍포스터"></a>
             <span class="category">4</span>
             <h6>12</h6>
             <h4><a href="property-details.html">소풍</a></h4>
@@ -315,7 +312,7 @@
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="property-details.html"><img src="assets/images/kal_p.jpg" alt="귀칼포스터"></a>
+            <a href="property-details.html"><img src="resources/images/kal_p.jpg" alt="귀칼포스터"></a>
             <span class="category">5</span>
             <h6>15</h6>
             <h4><a href="property-details.html">귀멸의 칼날: 인연의 기적, 그리고 합동 강화 훈련으로</a></h4>
@@ -330,7 +327,7 @@
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="property-details.html"><img src="assets/images/simin_p.jpg" alt="시민덕희포스터"></a>
+            <a href="property-details.html"><img src="resources/images/simin_p.jpg" alt="시민덕희포스터"></a>
             <span class="category">6</span>
             <h6>15</h6>
             <h4><a href="property-details.html">시민덕희</a></h4>
@@ -362,7 +359,7 @@
       <div class="row">
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="property-details.html"><img src="assets/images/pop_p.jpg" alt=""></a>
+            <a href="property-details.html"><img src="resources/images/pop_p.jpg" alt=""></a>
             <span class="category">15</span>
             <h6>D-14</h6>
             <h4><a href="property-details.html">밥 말리: 원 러브</a></h4>
@@ -378,7 +375,7 @@
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="property-details.html"><img src="assets/images/land_p.jpg" alt=""></a>
+            <a href="property-details.html"><img src="resources/images/land_p.jpg" alt=""></a>
             <span class="category">15</span>
             <h6>D-14</h6>
             <h4><a href="property-details.html">랜드 오브 배드</a></h4>
@@ -394,7 +391,7 @@
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="property-details.html"><img src="assets/images/love_p.jpg" alt=""></a>
+            <a href="property-details.html"><img src="resources/images/love_p.jpg" alt=""></a>
             <span class="category">15</span>
             <h6>D-20</h6>
             <h4><a href="property-details.html">왓츠 러브</a></h4>
@@ -410,7 +407,7 @@
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="property-details.html"><img src="assets/images/fast_p.jpg" alt=""></a>
+            <a href="property-details.html"><img src="resources/images/fast_p.jpg" alt=""></a>
             <span class="category">15</span>
             <h6>D-6</h6>
             <h4><a href="property-details.html">패스트 라이브즈</a></h4>
@@ -426,7 +423,7 @@
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="property-details.html"><img src="assets/images/pool_p.jpg" alt=""></a>
+            <a href="property-details.html"><img src="resources/images/pool_p.jpg" alt=""></a>
             <span class="category">15</span>
             <h6>D-6</h6>
             <h4><a href="property-details.html">가여운 것들</a></h4>
@@ -442,7 +439,7 @@
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="property-details.html"><img src="assets/images/spy_p.jpg" alt="시민덕희포스터"></a>
+            <a href="property-details.html"><img src="resources/images/spy_p.jpg" alt="시민덕희포스터"></a>
             <span class="category">15</span>
             <h6>D-20</h6>
             <h4><a href="property-details.html">극장판 스파이 패밀리 코드 : 화이트</a></h4>
@@ -546,12 +543,12 @@
 
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-  <script src="assets/js/isotope.min.js"></script>
-  <script src="assets/js/owl-carousel.js"></script>
-  <script src="assets/js/counter.js"></script>
-  <script src="assets/js/custom.js"></script>
+  <script src="resources/jquery/jquery.min.js"></script>
+  <script src="resources/bootstrap/js/bootstrap.min.js"></script>
+  <script src="resources/js/isotope.min.js"></script>
+  <script src="resources/js/owl-carousel.js"></script>
+  <script src="resources/js/counter.js"></script>
+  <script src="resources/js/custom.js"></script>
 
 
   </body>
