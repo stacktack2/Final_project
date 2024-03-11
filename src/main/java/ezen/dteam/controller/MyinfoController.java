@@ -1,9 +1,6 @@
 package ezen.dteam.controller;
 
-import java.util.Locale;
-
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -11,25 +8,25 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class MyinfoController {
 	
 	@RequestMapping(value = "/myinfo", method = RequestMethod.GET)
-	public String myinfo(Locale locale, Model model) {
+	public String myinfo() {
 		
 		return "myInfo/myTicketing";
 	}
 	
 	@RequestMapping(value = "/myinfo", method = RequestMethod.POST)
-	public String myinfoPOST(Locale locale, Model model) {
+	public String myinfoPOST() {
 		
 		return "myInfo/myTicketing";
 	}
 	
 	@RequestMapping(value = "/changeMyinfo", method = RequestMethod.GET)
-	public String changeMyinfo(Locale locale, Model model) {
+	public String changeMyinfo() {
 		
 		return "myInfo/changeMyinfo";
 	}
 	
 	@RequestMapping(value = "/changeMyinfo", method = RequestMethod.POST)
-	public String changeMyinfoPOST(Locale locale, Model model) {
+	public String changeMyinfoPOST() {
 		
 		return "myInfo/changeMyinfo";
 	}
