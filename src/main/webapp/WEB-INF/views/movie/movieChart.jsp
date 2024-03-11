@@ -7,16 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <title>무비차트</title>
+    <title>현재상영작</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-villa-agency.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="resources/css/fontawesome.css">
+    <link rel="stylesheet" href="resources/css/templatemo-villa-agency.css">
+    <link rel="stylesheet" href="resources/css/owl.css">
+    <link rel="stylesheet" href="resources/css/animate.css">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
     
   </head>
@@ -118,7 +118,7 @@
       
         <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 adv">
           <div class="item">
-            <a href="property-details.html"><img src="assets/images/pamyo_p.jpg" alt="파묘포스터"></a>
+            <a href="property-details.html"><img src="resources/images/pamyo_p.jpg" alt="파묘포스터"></a>
             <span class="category">1</span>
             <h6>15</h6>
             <h4><a href="property-details.html">파묘</a></h4>
@@ -133,7 +133,7 @@
         </div>
         <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 str">
           <div class="item">
-            <a href="property-details.html"><img src="assets/images/wonka_p.jpg" alt="웡카포스터"></a>
+            <a href="property-details.html"><img src="resources/images/wonka_p.jpg" alt="웡카포스터"></a>
             <span class="category">2</span>
             <h6>ALL</h6>
             <h4><a href="property-details.html">웡카</a></h4>
@@ -148,7 +148,7 @@
         </div>
         <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 adv rac">
           <div class="item">
-            <a href="property-details.html"><img src="assets/images/wonka_p.jpg" alt="웡카포스터"></a>
+            <a href="property-details.html"><img src="resources/images/wonka_p.jpg" alt="웡카포스터"></a>
             <span class="category">2</span>
             <h6>ALL</h6>
             <h4><a href="property-details.html">웡카</a></h4>
@@ -163,7 +163,7 @@
         </div>
         <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 str">
           <div class="item">
-            <a href="property-details.html"><img src="assets/images/wonka_p.jpg" alt="웡카포스터"></a>
+            <a href="property-details.html"><img src="resources/images/wonka_p.jpg" alt="웡카포스터"></a>
             <span class="category">2</span>
             <h6>ALL</h6>
             <h4><a href="property-details.html">웡카</a></h4>
@@ -178,7 +178,7 @@
         </div>
         <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 rac str">
           <div class="item">
-            <a href="property-details.html"><img src="assets/images/wonka_p.jpg" alt="웡카포스터"></a>
+            <a href="property-details.html"><img src="resources/images/wonka_p.jpg" alt="웡카포스터"></a>
             <span class="category">2</span>
             <h6>ALL</h6>
             <h4><a href="property-details.html">웡카</a></h4>
@@ -193,7 +193,7 @@
         </div>
         <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 rac adv">
           <div class="item">
-            <a href="property-details.html"><img src="assets/images/wonka_p.jpg" alt="웡카포스터"></a>
+            <a href="property-details.html"><img src="resources/images/wonka_p.jpg" alt="웡카포스터"></a>
             <span class="category">2</span>
             <h6>ALL</h6>
             <h4><a href="property-details.html">웡카</a></h4>
@@ -208,7 +208,7 @@
         </div>
         <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 rac str">
           <div class="item">
-            <a href="property-details.html"><img src="assets/images/wonka_p.jpg" alt="웡카포스터"></a>
+            <a href="property-details.html"><img src="resources/images/wonka_p.jpg" alt="웡카포스터"></a>
             <span class="category">2</span>
             <h6>ALL</h6>
             <h4><a href="property-details.html">웡카</a></h4>
@@ -223,7 +223,7 @@
         </div>
         <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 rac adv">
           <div class="item">
-            <a href="property-details.html"><img src="assets/images/wonka_p.jpg" alt="웡카포스터"></a>
+            <a href="property-details.html"><img src="resources/images/wonka_p.jpg" alt="웡카포스터"></a>
             <span class="category">2</span>
             <h6>ALL</h6>
             <h4><a href="property-details.html">웡카</a></h4>
@@ -238,7 +238,7 @@
         </div>
         <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 rac adv">
           <div class="item">
-            <a href="property-details.html"><img src="assets/images/wonka_p.jpg" alt="웡카포스터"></a>
+            <a href="property-details.html"><img src="resources/images/wonka_p.jpg" alt="웡카포스터"></a>
             <span class="category">2</span>
             <h6>ALL</h6>
             <h4><a href="property-details.html">웡카</a></h4>
@@ -278,12 +278,12 @@
 
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-  <script src="assets/js/isotope.min.js"></script>
-  <script src="assets/js/owl-carousel.js"></script>
-  <script src="assets/js/counter.js"></script>
-  <script src="assets/js/custom.js"></script>
+  <script src="resources/jquery/jquery.min.js"></script>
+  <script src="resources/bootstrap/js/bootstrap.min.js"></script>
+  <script src="resources/js/isotope.min.js"></script>
+  <script src="resources/js/owl-carousel.js"></script>
+  <script src="resources/js/counter.js"></script>
+  <script src="resources/js/custom.js"></script>
 
   </body>
 </html>

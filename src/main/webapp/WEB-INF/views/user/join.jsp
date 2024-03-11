@@ -19,7 +19,7 @@
   class="light-style layout-menu-fixed"
   dir="ltr"
   data-theme="theme-default"
-  data-assets-path="assets/"
+  data-assets-path="resources/"
   data-template="vertical-menu-template-free"
 >
   <head>
@@ -34,26 +34,23 @@
     <meta name="description" content="" />
 
     <!-- Core CSS -->
-    <link rel="stylesheet" href="vendor/css/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="vendor/css/theme-default.css" class="template-customizer-theme-css" />
-    <link rel="stylesheet" href="vender/css/demo.css" />
+    <link rel="stylesheet" href="resources/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="resources/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="resources/css/demo.css" />
 
     <!-- Vendors CSS -->
-    <link rel="stylesheet" href="vendor/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="resources/perfect-scrollbar/perfect-scrollbar.css" />
 
     <!-- Page CSS -->
 
     <!-- Helpers -->
-    <script src="vendor/js/helpers.js"></script>
+    <script src="resources/js/helpers.js"></script>
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-    <script src="assets/js/config.js"></script>
+    <script src="resources/js/config.js"></script>
   </head>
-
   <body>
-    
-
           <!-- Content wrapper -->
           <div class="content-wrapper">
             <!-- Content -->
@@ -70,7 +67,7 @@
                     <div class="card-body">
                       <div class="d-flex align-items-start align-items-sm-center gap-4">
                         <img
-                          src="assets/images/kal_p.jpg"
+                          src="resources/images/kal_p.jpg"
                           alt="user-avatar"
                           class="d-block rounded"
                           height="100"
@@ -301,21 +298,21 @@
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
-    <script src="vendor/jquery/jquery.js"></script>
-    <script src="vendor/popper/popper.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.js"></script>
-    <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="resources/jquery/jquery.js"></script>
+    <script src="resources/popper/popper.js"></script>
+    <script src="resources/bootstrap/js/bootstrap.js"></script>
+    <script src="resources/perfect-scrollbar/perfect-scrollbar.js"></script>
 
-    <script src="vendor/js/menu.js"></script>
+    <script src="resources/js/menu.js"></script>
     <!-- endbuild -->
 
     <!-- Vendors JS -->
 
     <!-- Main JS -->
-    <script src="assets/js/main.js"></script>
+    <script src="resources/js/main.js"></script>
 
     <!-- Page JS -->
-    <script src="assets/js/pages-account-settings-account.js"></script>
+    <script src="resources/js/pages-account-settings-account.js"></script>
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
