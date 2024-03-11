@@ -10,13 +10,13 @@
     <title>상세보기</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-villa-agency.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="resources/css/fontawesome.css">
+    <link rel="stylesheet" href="resources/css/templatemo-villa-agency.css">
+    <link rel="stylesheet" href="resources/css/owl.css">
+    <link rel="stylesheet" href="resources/css/animate.css">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
     
   </head>
@@ -88,7 +88,7 @@
     <div class="container">
       <div class="row">
           <div class="col-lg-6 main-image detailimg">
-            <img src="assets/images/dune_p2.jpg" alt="듄2포스터">
+            <img src="resources/images/dune_p2.jpg" alt="듄2포스터">
           </div>
           <div class="col-lg-6 main-content">
             <span class="category age">12세</span>
@@ -172,12 +172,12 @@
 
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-  <script src="assets/js/isotope.min.js"></script>
-  <script src="assets/js/owl-carousel.js"></script>
-  <script src="assets/js/counter.js"></script>
-  <script src="assets/js/custom.js"></script>
+  <script src="resources/jquery/jquery.min.js"></script>
+  <script src="resources/bootstrap/js/bootstrap.min.js"></script>
+  <script src="resources/js/isotope.min.js"></script>
+  <script src="resources/js/owl-carousel.js"></script>
+  <script src="resources/js/counter.js"></script>
+  <script src="resources/js/custom.js"></script>
 
   </body>
 </html>
