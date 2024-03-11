@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
+	
     <title>메인</title>
 
     <!-- Bootstrap core CSS -->
@@ -43,14 +43,12 @@
   <!-- 로그인 -->
   <!-- Vertically Centered Modal -->
                         <!-- Button trigger modal -->
-                        <button
-                          type="button"
-                          class="btn btn-primary"
+                        <a
                           data-bs-toggle="modal"
                           data-bs-target="#modalCenter"
                         >
                           모달 로그인 클릭
-                        </button>
+                        </a>
 
                         <!-- Modal -->
                         <div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
@@ -252,91 +250,91 @@
       <div class="row">
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="property-details.html"><img src="resources/images/pamyo_p.jpg" alt="파묘포스터"></a>
-            <span class="category">1</span>
-            <h6>15</h6>
-            <h4><a href="property-details.html">파묘</a></h4>
+            <img src="resources/images/pamyo_p.jpg" alt="파묘포스터">
+            <span class="category">15</span>
+            <h6>1위</h6>
+            <h4>파묘</h4>
             <ul>
               <li>상영시간: <span>134분</span></li>
             </ul>
             <div class="main-button">
               <a href="movieView.html">상세보기</a>
-              <a href="property-details.html">예매하기</a>
+              <a href="#">예매하기</a>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="property-details.html"><img src="resources/images/wonka_p.jpg" alt="웡카포스터"></a>
-            <span class="category">2</span>
-            <h6>ALL</h6>
-            <h4><a href="property-details.html">웡카</a></h4>
+            <img src="resources/images/wonka_p.jpg" alt="웡카포스터">
+            <span class="category">ALL</span>
+            <h6>2위</h6>
+            <h4>웡카</h4>
             <ul>
               <li>상영시간: <span>116분</span></li>
             </ul>
             <div class="main-button">
-              <a href="#">상세보기</a>
-              <a href="property-details.html">예매하기</a>
+              <a href="movieView.html">상세보기</a>
+              <a href="#">예매하기</a>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="property-details.html"><img src="resources/images/dune_p2.jpg" alt="듄2포스터"></a>
-            <span class="category">3</span>
-            <h6>12</h6>
-            <h4><a href="property-details.html">듄: 파트2</a></h4>
+            <img src="resources/images/dune_p2.jpg" alt="듄2포스터">
+            <span class="category">12</span>
+            <h6>3위</h6>
+            <h4>듄: 파트2</h4>
             <ul>
               <li>상영시간: <span>165분</span></li>
             </ul>
             <div class="main-button">
-              <a href="#">상세보기</a>
-              <a href="property-details.html">예매하기</a>
+              <a href="movieView.html">상세보기</a>
+              <a href="#">예매하기</a>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="property-details.html"><img src="resources/images/sopoong_p.jpg" alt="소풍포스터"></a>
-            <span class="category">4</span>
-            <h6>12</h6>
-            <h4><a href="property-details.html">소풍</a></h4>
+            <img src="resources/images/sopoong_p.jpg" alt="소풍포스터">
+            <span class="category">12</span>
+            <h6>4위</h6>
+            <h4>소풍</h4>
             <ul>
               <li>상영시간: <span>113분</span></li>
             </ul>
             <div class="main-button">
-              <a href="#">상세보기</a>
-              <a href="property-details.html">예매하기</a>
+              <a href="movieView.html">상세보기</a>
+              <a href="#">예매하기</a>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="property-details.html"><img src="resources/images/kal_p.jpg" alt="귀칼포스터"></a>
-            <span class="category">5</span>
-            <h6>15</h6>
-            <h4><a href="property-details.html">귀멸의 칼날: 인연의 기적, 그리고 합동 강화 훈련으로</a></h4>
+            <img src="resources/images/kal_p.jpg" alt="귀칼포스터">
+            <span class="category">15</span>
+            <h6>5위</h6>
+            <h4>귀멸의 칼날: 인연의 기적, 그리고 합동 강화 훈련으로</h4>
             <ul>
               <li>상영시간: <span>103분</span></li>
             </ul>
             <div class="main-button">
-              <a href="#">상세보기</a>
-              <a href="property-details.html">예매하기</a>
+              <a href="movieView.html">상세보기</a>
+              <a href="#">예매하기</a>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="property-details.html"><img src="resources/images/simin_p.jpg" alt="시민덕희포스터"></a>
-            <span class="category">6</span>
-            <h6>15</h6>
-            <h4><a href="property-details.html">시민덕희</a></h4>
+            <img src="resources/images/simin_p.jpg" alt="시민덕희포스터">
+            <span class="category">15</span>
+            <h6>6위</h6>
+            <h4>시민덕희</h4>
             <ul>
               <li>상영시간: <span>114분</span></li>
             </ul>
             <div class="main-button">
-              <a href="#">상세보기</a>
-              <a href="property-details.html">예매하기</a>
+              <a href="movieView.html">상세보기</a>
+              <a href="#">예매하기</a>
             </div>
           </div>
         </div>
@@ -359,7 +357,7 @@
       <div class="row">
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="property-details.html"><img src="resources/images/pop_p.jpg" alt=""></a>
+            <img src="resources/images/pop_p.jpg" alt="">
             <span class="category">15</span>
             <h6>D-14</h6>
             <h4><a href="property-details.html">밥 말리: 원 러브</a></h4>
