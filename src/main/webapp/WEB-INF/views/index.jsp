@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 	
-    <title>메인</title>
+    <title>dflix</title>
 
     <!-- Bootstrap core CSS -->
     <link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -30,10 +30,10 @@
         </div>
         <div class="col-lg-4 col-md-4">
           <ul class="topmenu">
-            <li><a href="join.html">회원가입 </a> | </li>
-            <li><a href="login.html">로그인</a> | </li>
-            <li><a href="#">내정보</a> | </li>
-            <li><a href="#">고객센터</a></li>
+            <li><a href="join">회원가입 </a> | </li>
+            <li><a href="login">로그인</a> | </li>
+            <li><a href="myinfo">내정보</a> | </li>
+            <li><a href="service">고객센터</a></li>
           </ul>
         </div>
       </div>
@@ -105,8 +105,6 @@
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </div>
                     
   <!-- 헤더 -->
   <header class="header-area header-sticky">
@@ -114,8 +112,8 @@
         <div class="row">
             <div class="col-12">
                 <nav class="main-nav">
-                    <a href="index.html" class="logo">
-                        <h1>CINEMA</h1>
+                    <a href="" class="logo">
+						<h1>DFLIX</h1>
                     </a>
                     <!-- 네비메뉴 -->
                     <ul class="nav">
