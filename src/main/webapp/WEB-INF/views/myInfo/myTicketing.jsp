@@ -43,7 +43,7 @@
       <div class="row">
           <div class="col-12">
               <nav class="main-nav">
-                  <a href="" class="logo">
+                  <a href="/dflix" class="logo">
 					<h1>DFLIX</h1>
                   </a>
                   <!-- 네비메뉴 -->
