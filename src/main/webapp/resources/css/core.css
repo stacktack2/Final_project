@@ -51,7 +51,7 @@
 
 /*회원가입*/
 .block{display:block !important;}
-.reinput{display:inline !important; width:80% !important; }
+.reinput{display:inline !important; width:75% !important; }
 .right{float:right !important;}
 .center{text-align:center !important;}
 .toplogo{margin-bottom:50px !important;}
