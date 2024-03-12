@@ -109,7 +109,7 @@ img {
   width: 100%;
   overflow: hidden;
 }
-/*¸Þ´ºÈ£¹ö½Ã µå·Ó*/
+/*ï¿½Þ´ï¿½È£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½*/
 ul.nav li.dropdown:hover > ul.dropdown-menu {
     display: block;
     margin: 0;
@@ -139,6 +139,14 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 Global Styles
 --------------------------------------------- 
 */
+
+.ulbg-whtie{
+	background: white !important;
+}
+.item-hover:hover{
+	--bs-dropdown-link-hover-bg: #dee2e5 !important;
+}
+
 html,
 body {
   font-family: 'Poppins', sans-serif;
@@ -458,10 +466,6 @@ Header Style
   position: relative;
   z-index: 999;
   margin-right:50px;
-}
-
-.header-area .main-nav .nav li:last-child {
-  padding-right: 0px;
 }
 
 .header-area .main-nav .nav li {
