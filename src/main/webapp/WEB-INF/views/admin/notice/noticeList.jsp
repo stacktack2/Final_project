@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<h2>관리자공지목록</h2>
 </body>
 </html>
