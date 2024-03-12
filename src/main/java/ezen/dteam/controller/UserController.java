@@ -18,5 +18,15 @@ public class UserController {
 		
 		return "user/join";
 	}
+	@RequestMapping(value = "/findId", method = RequestMethod.GET)
+	public String findId() {
+		
+		return "user/findId";
+	}
+	@RequestMapping(value = "/findPw", method = RequestMethod.GET)
+	public String findPw() {
+		
+		return "user/findPw";
+	}
 	
 }

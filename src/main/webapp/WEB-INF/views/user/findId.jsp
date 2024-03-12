@@ -1,79 +1,113 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>아이디 찾기</title>
-<link href="resources/css/styles.css" rel="stylesheet" />
-<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-<script src="resources/js/jquery-3.7.1.min.js"></script>
-<script src="resources/js/common.js"></script>
+<html
+  lang="ko"
+  class="light-style customizer-hide"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="resources/"
+  data-template="vertical-menu-template-free"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
 
-</head>
-<body>
-	<div id="layoutAuthentication">
-		<div id="layoutAuthentication_content">
-			<main>
-				<div class="container">
-					<div class="row justify-content-center">
-						<div class="col-lg-5">
-							<div class="card shadow-lg border-0 rounded-lg mt-5">
-								<div class="card-header">
-									<h3 class="text-center font-weight-light my-4">아이디 찾기</h3>
-								</div>
-								<div class="card-body">
-									<div class="small mb-3 text-muted">
-										<span class="block">* 이름과 생년월일과 연락처를 입력하고 아이디 찾기 버튼을 눌러주세요.</span> 
-										<span class="block">* 생년월일은 8글자로 입력해주세요.(ex 19990101)</span>  
-										<span class="block">* 연락처는 '-'와 공백없이 입력해주세요.(ex 01011111111)</span> 
-										<span class="block">* 사용자를 선택해주세요.</span>
-									</div>
-									<form method="post" action="#" name="searchIdForm" id="searchIdForm" onsubmit="return false;">
-										<div class="form-floating mb-3">
-											<input class="form-control" id="inputName" name="inputName" type="text" placeholder="이름" />
-											<label for="inputName">이름</label>
-										</div>
-										<div class="form-floating mb-3">
-											<input class="form-control" id="inputBirth" name="inputBirth" type="text" placeholder="생년월일" />
-											<label for="inputBirth">생년월일</label>
-										</div>
-										<div class="form-floating mb-3">
-											<input class="form-control" id="inputPhone" name="inputPhone" placeholder="연락처" />
-											<label for="inputPhone">연락처</label>
-										</div>
-										<div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-											<button type="button" class="btn btn-primary mx-auto" onclick="searchId();">아이디 찾기</button>
-										</div>
-									</form>
-								</div>
-								<div
-									class="card-footer text-center py-3 d-flex align-items-center">
-									<div class="searchbtn small findId mx-auto">
-										<a href="login.html">로그인</a>
-									</div>
-									<div class="small findPw mx-auto">
-										<a href="findpw.html">비밀번호 찾기</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</main>
-		</div>
-		<div id="layoutAuthentication_footer">
-			<footer class="py-4 bg-light mt-auto">
-				<div class="container-fluid px-4">
-					<div
-						class="d-flex align-items-center justify-content-between small">
-						<div class="text-muted">Copyright &copy; CINEMA 2024</div>
-					</div>
-				</div>
-			</footer>
-		</div>
-	</div>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-	<script src="resources/js/scripts.js"></script>
-</body>
+    <title>아이디 찾기</title>
+
+    <meta name="description" content="" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="resources/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="resources/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="resources/css/demo.css" />
+    <link rel="stylesheet" href="resources/css/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="resources/css/page-auth.css" />
+    <!-- JS -->
+    <script src="resources/js/helpers.js"></script>
+	<script src="resources/js/config.js"></script>
+  </head>
+
+  <body>
+    <!-- Content -->
+    <div class="container-xxl">
+      <div class="authentication-wrapper authentication-basic container-p-y">
+        <div class="authentication-inner py-4">
+          <!-- Forgot id -->
+          <div class="card">
+            <div class="card-body">
+              <!-- Logo -->
+              <div class="app-brand justify-content-center">
+                <a href="index" class="app-brand-link gap-2">
+                  <span class="app-brand-text demo text-body fw-bolder">dflix</span>
+                </a>
+              </div>
+              <!-- /Logo -->
+              
+
+              <form id="formAuthentication" class="mb-3" action="index" method="POST">
+                <div class="mb-3">
+                  <label for="inputName" class="form-label">이름</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputName"
+                    name="inputName"
+                    autofocus
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="inputBirth" class="form-label">생년월일</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputBirth"
+                    name="inputBirth"
+                    autofocus
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="inputPhone" class="form-label">연락처</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputPhone"
+                    name="inputPhone"
+                    autofocus
+                  />
+                </div>
+                <button class="btn btn-primary d-grid w-100">아이디 찾기</button>
+              </form>
+              <div class="text-center">
+                <a href="login" class="d-flex align-items-center justify-content-center">
+                  	로그인으로 돌아가기
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- / Content -->
+
+    <!-- JS -->
+    <script src="resources/jquery/jquery.js"></script>
+    <script src="resources/js/popper.js"></script>
+    <script src="resources/bootstrap/js/bootstrap.js"></script>
+    <script src="resources/js/perfect-scrollbar.js"></script>
+    <script src="resources/js/menu.js"></script>
+    <script src="resources/js/main.js"></script>
+
+  </body>
 </html>
