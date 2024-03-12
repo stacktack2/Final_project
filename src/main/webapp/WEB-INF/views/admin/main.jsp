@@ -20,7 +20,6 @@
     <title>관리자 메인</title>
 
     <meta name="description" content="" />
-
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -29,28 +28,18 @@
       rel="stylesheet"
     />
 
-    <!-- Icons. Uncomment required icon fonts -->
-    <link rel="stylesheet" href="resources/fonts/boxicons.css" />
-
-    <!-- Core CSS -->
-    <link rel="stylesheet" href="resources/css/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="resources/css/theme-default.css" class="template-customizer-theme-css" />
-    <link rel="stylesheet" href="resources/css/demo.css" />
-
-    <!-- Vendors CSS -->
-    <link rel="stylesheet" href="resources/css/perfect-scrollbar.css" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/demo.css" />
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/perfect-scrollbar.css" />
 
 	<!-- 차트css -->
-    <link rel="stylesheet" href="resources/css/apex-charts.css" />
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/apex-charts.css" />
 
-    <!-- Page CSS -->
-
-    <!-- Helpers -->
-    <script src="resources/js/helpers.js"></script>
-
-    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
-    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-    <script src="resources/js/config.js"></script>
+    <!-- JS -->
+    <script src="<%=request.getContextPath() %>/resources/js/helpers.js"></script>
+   <script src="<%=request.getContextPath() %>/resources/js/config.js"></script>
   </head>
 
   <body>
@@ -58,108 +47,7 @@
     <div class="layout-wrapper layout-content-navbar">
       <div class="layout-container">
       
-        <!-- 좌측 메뉴바 -->
-        <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
-          <div class="app-brand demo">
-            <a href="index.html" class="app-brand-link">
-              <span class="app-brand-text demo menu-text fw-bolder ms-2">dflix</span>
-            </a>
-            <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
-              <i class="bx bx-chevron-left bx-sm align-middle"></i>
-            </a>
-          </div>
-
-          <div class="menu-inner-shadow"></div>
-
-          <ul class="menu-inner py-1">
-            <!-- 관리자메인 -->
-            <li class="menu-item active">
-              <a href="index.html" class="menu-link">
-                <div data-i18n="Analytics">관리자 메인</div>
-              </a>
-            </li>
-
-            <!-- 영화관리 -->
-            <li class="menu-item">
-              <a href="#" class="menu-link menu-toggle">
-                <div data-i18n="Layouts">영화관리</div>
-              </a>
-
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="#" class="menu-link">
-                    <div data-i18n="Without menu">서브메뉴 1</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="#" class="menu-link">
-                    <div data-i18n="Without navbar">서브메뉴 2</div>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            
-            <!-- 극장관리 -->
-            <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <div data-i18n="Layouts">극장관리</div>
-              </a>
-
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="#" class="menu-link">
-                    <div data-i18n="Without menu">서브메뉴 1</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="#" class="menu-link">
-                    <div data-i18n="Without navbar">서브메뉴 2</div>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            
-            <!-- 공지관리 -->
-            <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <div data-i18n="Layouts">공지관리</div>
-              </a>
-
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="#" class="menu-link">
-                    <div data-i18n="Without menu">서브메뉴 1</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="#" class="menu-link">
-                    <div data-i18n="Without navbar">서브메뉴 2</div>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            
-            <!-- 문의관리 -->
-            <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <div data-i18n="Layouts">문의관리</div>
-              </a>
-
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="#" class="menu-link">
-                    <div data-i18n="Without menu">서브메뉴 1</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="#" class="menu-link">
-                    <div data-i18n="Without navbar">서브메뉴 2</div>
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </aside>
+       <%@ include file="../include/nav/adminNav.jsp" %>
 
         <!-- 본문 컨테이너 -->
         <div class="layout-page">
@@ -341,18 +229,7 @@
               </div>
             </div>
             <!-- /본문끝 -->
-
-            <!-- Footer -->
-            <footer class="content-footer footer bg-footer-theme">
-              <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-                <div class="mb-2 mb-md-0">
-					Copyright © 2024 CINEMA Co. All rights reserved. 
-                </div>
-              </div>
-            </footer>
-            <!-- / Footer -->
-
-            <div class="content-backdrop fade"></div>
+			<%@ include file="../include/footer/adminFooter.jsp" %>
           </div>
           <!-- Content wrapper -->
         </div>
@@ -363,26 +240,6 @@
       
     </div>
     <!-- / Layout wrapper -->
-
-
-    <!-- Core JS -->
-    <!-- build:js assets/vendor/js/core.js -->
-    <script src="resources/jquery/jquery.js"></script>
-    <script src="resources/popper/popper.js"></script>
-    <script src="resources/bootstrap/js/bootstrap.js"></script>
-    <script src="resources/js/perfect-scrollbar.js"></script>
-
-    <script src="resources/js/menu.js"></script>
-    <!-- endbuild -->
-
-    <!-- Vendors JS -->
-    <script src="resources/js/apexcharts.js"></script>
-
-    <!-- Main JS -->
-    <script src="resources/js/main.js"></script>
-
-    <!-- Page JS -->
-    <script src="resources/js/dashboards-analytics.js"></script>
 
   </body>
 </html>
