@@ -39,14 +39,24 @@
 
     <!-- JS -->
     <script src="<%=request.getContextPath() %>/resources/js/helpers.js"></script>
-   <script src="<%=request.getContextPath() %>/resources/js/config.js"></script>
+    <script src="<%=request.getContextPath() %>/resources/js/config.js"></script>
+   
+   
+   
+   
+   
+   
+   
+   
   </head>
 
   <body>
+  
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
       <div class="layout-container">
-      
+       
+       
        <%@ include file="../include/nav/adminNav.jsp" %>
 
         <!-- 본문 컨테이너 -->
