@@ -17,11 +17,11 @@
   
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
-  <script src="resources/jquery/jquery.min.js"></script>
-  <script src="resources/bootstrap/js/bootstrap.min.js"></script>
-  <script src="resources/js/isotope.min.js"></script>
-  <script src="resources/js/owl-carousel.js"></script>
-  <script src="resources/js/counter.js"></script>
-  <script src="resources/js/custom.js"></script>
+  <script src="<%=request.getContextPath() %>/resources/jquery/jquery.min.js"></script>
+  <script src="<%=request.getContextPath() %>/resources/bootstrap/js/bootstrap.min.js"></script>
+  <script src="<%=request.getContextPath() %>/resources/js/isotope.min.js"></script>
+  <script src="<%=request.getContextPath() %>/resources/js/owl-carousel.js"></script>
+  <script src="<%=request.getContextPath() %>/resources/js/counter.js"></script>
+  <script src="<%=request.getContextPath() %>/resources/js/custom.js"></script>
 </body>
 </html>
