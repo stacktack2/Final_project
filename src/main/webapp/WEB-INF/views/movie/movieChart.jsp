@@ -9,10 +9,8 @@
 
     <title>현재상영작</title>
 
-    <!-- Bootstrap core CSS -->
+    <!-- CSS -->
     <link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Additional CSS Files -->
     <link rel="stylesheet" href="resources/css/fontawesome.css">
     <link rel="stylesheet" href="resources/css/templatemo-villa-agency.css">
     <link rel="stylesheet" href="resources/css/owl.css">
@@ -21,69 +19,7 @@
     
   </head>
 <body>
-
-  
-<!--최상단 -->
-  <div class="sub-header">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-8">
-        </div>
-        <div class="col-lg-4 col-md-4">
-          <ul class="topmenu">
-            <li><a href="#">회원가입 </a> | </li>
-            <li><a href="#" target="_blank">로그인</a> | </li>
-            <li><a href="#">내정보</a> | </li>
-            <li><a href="#">고객센터</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-
-  
-
-  <!-- 헤더 -->
-  <header class="header-area header-sticky">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <nav class="main-nav">
-                    <a href="index.html" class="logo">
-                        <h1>CINEMA</h1>
-                    </a>
-                    <!-- 네비메뉴 -->
-                    <ul class="nav">
-                      <li class="dropdown">
-                      	<a  href="#" data-bs-toggle="dropdown collapse" aria-expanded="false">영화</a>
-                      	<ul class="dropdown-menu dropdown-menu-dark">
-                      		<li><a class="dropdown-item" href="#">무비차트</a></li>
-                      		<li><a class="dropdown-item" href="nowmovie.html">상영예정작</a></li>
-                      	</ul>
-                      </li>
-                      <li class="dropdown">
-                      	<a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">예매</a>
-                      	<ul class="dropdown-menu dropdown-menu-dark">
-                      		<li><a class="dropdown-item" href="#">예매하기</a></li>
-                      		<li><a class="dropdown-item" href="#">예매조회</a></li>
-                      	</ul>
-                      </li>
-                      <li class="dropdown">
-                      	<a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">극장</a>
-                      	<ul class="dropdown-menu dropdown-menu-dark">
-                      		<li><a class="dropdown-item" href="#">전주극장</a></li>
-                      		<li><a class="dropdown-item" href="#">익산극장</a></li>
-                      		<li><a class="dropdown-item" href="#">군산극장</a></li>
-                      	</ul>
-                      </li>
-                      <li></li>
-                  </ul>   
-                </nav>
-            </div>
-        </div>
-    </div>
-  </header>
+  <%@ include file="../include/nav/userNav.jsp" %>
   
 <!-- 배너 -->
   <div class="page-heading header-text">
@@ -267,23 +203,7 @@
     </div>
   </div>
 
-<!-- 푸터 -->
-  <footer>
-    <div class="container">
-      <div class="col-lg-8">
-        <p>Copyright © 2024 CINEMA Co. All rights reserved. </p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Scripts -->
-  <!-- Bootstrap core JavaScript -->
-  <script src="resources/jquery/jquery.min.js"></script>
-  <script src="resources/bootstrap/js/bootstrap.min.js"></script>
-  <script src="resources/js/isotope.min.js"></script>
-  <script src="resources/js/owl-carousel.js"></script>
-  <script src="resources/js/counter.js"></script>
-  <script src="resources/js/custom.js"></script>
+<%@ include file="../include/footer/userFooter.jsp" %>
 
   </body>
 </html>

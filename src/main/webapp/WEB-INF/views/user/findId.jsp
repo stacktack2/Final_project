@@ -15,10 +15,9 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
-
     <title>아이디 찾기</title>
-
     <meta name="description" content="" />
+    
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -33,17 +32,19 @@
     <link rel="stylesheet" href="resources/css/demo.css" />
     <link rel="stylesheet" href="resources/css/perfect-scrollbar.css" />
     <link rel="stylesheet" href="resources/css/page-auth.css" />
+    
     <!-- JS -->
     <script src="resources/js/helpers.js"></script>
 	<script src="resources/js/config.js"></script>
+  
   </head>
-
   <body>
     <!-- Content -->
     <div class="container-xxl">
       <div class="authentication-wrapper authentication-basic container-p-y">
         <div class="authentication-inner py-4">
-          <!-- Forgot id -->
+         
+         <!-- Forgot id -->
           <div class="card">
             <div class="card-body">
               <!-- Logo -->
@@ -54,7 +55,6 @@
               </div>
               <!-- /Logo -->
               
-
               <form id="formAuthentication" class="mb-3" action="index" method="POST">
                 <div class="mb-3">
                   <label for="inputName" class="form-label">이름</label>
@@ -98,7 +98,6 @@
         </div>
       </div>
     </div>
-
     <!-- / Content -->
 
     <!-- JS -->
@@ -108,6 +107,5 @@
     <script src="resources/js/perfect-scrollbar.js"></script>
     <script src="resources/js/menu.js"></script>
     <script src="resources/js/main.js"></script>
-
   </body>
 </html>
