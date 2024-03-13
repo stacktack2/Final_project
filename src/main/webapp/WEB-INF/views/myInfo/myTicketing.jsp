@@ -8,16 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 	
     <title>내 정보</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="resources/css/fontawesome.css">
-    <link rel="stylesheet" href="resources/css/myinfo.css">
-    <link rel="stylesheet" href="resources/css/owl.css">
-    <link rel="stylesheet" href="resources/css/animate.css">
-    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    <%@ include file="../include/header/myinfoHeader.jsp" %>
   </head>
 <body>
 <!--최상단 -->
@@ -29,8 +20,8 @@
       <div class="col-lg-4 col-md-4">
         <ul class="topmenu">
           <li><a href="login">로그아웃</a> | </li>
-          <li><a href="myinfo">내정보</a> | </li>
-          <li><a href="serviceCenter/noticeList">고객센터</a></li>
+          <li><a href="<%=request.getContextPath() %>/myinfo">내정보</a> | </li>
+          <li><a href="<%=request.getContextPath() %>/serviceCenter/noticeList">고객센터</a></li>
         </ul>
       </div>
     </div>
@@ -148,6 +139,23 @@
     		</div>
     		<!-- 본문내용 -->
     		<div class="myinfo-detail">
+				<div class="sect-mycgv-reserve movielog col3">
+					<div class="box-polaroid">
+						<div class="box-inner preegg">
+							<a href="http://www.cgv.co.kr/user/movielog/">
+								<h3>인기있는 영화</h3>
+									<span>가장 재밌는 영화 <br>순위를 알고 싶다면?</span>
+							</a>
+						</div>
+						<div class="box-inner watched">
+							<a href="http://www.cgv.co.kr/user/movielog/watched.aspx" title="내가 본 영화">
+								<h3>기대되는 영화</h3>
+									<span>보고 싶은 영화가 <br>있다면? 예매하자</span>
+							</a>
+						</div>
+				    </div>
+				</div>
+				<!-- My 예매내역 -->
     			<div class="myTicketing-tit">
     				<h3>MY 예매내역</h3>
 					<p><em>0건</em></p>
@@ -160,24 +168,7 @@
     	</div>
     </div>
   </div>
-<!-- 푸터 -->
-  <footer>
-    <div class="container">
-      <div class="col-lg-8">
-        <p>Copyright © 2024 CINEMA Co. All rights reserved. </p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Scripts -->
-  <!-- Bootstrap core JavaScript -->
-  <script src="resources/jquery/jquery.min.js"></script>
-  <script src="resources/bootstrap/js/bootstrap.min.js"></script>
-  <script src="resources/js/isotope.min.js"></script>
-  <script src="resources/js/owl-carousel.js"></script>
-  <script src="resources/js/counter.js"></script>
-  <script src="resources/js/custom.js"></script>
-
-
+	<!-- 푸터 -->
+	<%@ include file="../include/footer/userFooter.jsp" %>
   </body>
 </html>

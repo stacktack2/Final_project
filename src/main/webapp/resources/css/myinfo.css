@@ -284,6 +284,43 @@ Global Styles
 	width: 752px;
 }
 
+.sect-mycgv-reserve {
+    margin-bottom: 30px;
+}
+
+.sect-mycgv-reserve .box-polaroid {
+    background-color: #f8f8f8;
+    border: 1px solid #333;
+    display: flex;
+}
+
+.sect-mycgv-reserve.movielog.col3 .box-inner.preegg {
+    background: url("../profileImg/icon_movie.png") no-repeat 50% 16px;
+    width: 376px;
+}
+
+.sect-mycgv-reserve.movielog.col3 .box-inner a {
+    display: inline-block;
+    padding: 50px 0 16px;
+    width: 100%;
+}
+
+.sect-mycgv-reserve.movielog.col3 h3 {
+    background: none;
+    color: #000;
+    font-size: 16px;
+    margin: 0 auto 2px;
+    line-height: 20px;
+    height: auto;
+    text-align: center;
+}
+
+.sect-mycgv-reserve.movielog.col3 .box-inner.watched {
+    background: url("../profileImg/icon_watched.png") no-repeat 50% 16px;
+    width: 376px;
+}
+
+
 .myTicketing-tit {
 	overflow: hidden;
     position: relative;
@@ -334,6 +371,8 @@ Global Styles
 .box-inner{
 	padding: 26px;
 }
+
+
 
 /* 내정보 변경 */
 
