@@ -40,23 +40,12 @@
     <!-- JS -->
     <script src="<%=request.getContextPath() %>/resources/js/helpers.js"></script>
     <script src="<%=request.getContextPath() %>/resources/js/config.js"></script>
-   
-   
-   
-   
-   
-   
-   
-   
   </head>
-
   <body>
   
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
       <div class="layout-container">
-       
-       
        <%@ include file="../include/nav/adminNav.jsp" %>
 
         <!-- 본문 컨테이너 -->
@@ -65,11 +54,8 @@
           <!-- Content wrapper -->
           <div class="content-wrapper">
             <!-- 본문 -->
-
             <div class="container-xxl flex-grow-1 container-p-y">
-            <!-- 첫번째 줄 : row 당 한 행씩 내려옵니다 -->
               <div class="row">
-
                 <!-- 관람객 합계 -->
                 <div class="col-12 col-lg-8 order-2 order-md-3 order-lg-2 mb-4">
                   <div class="card">
@@ -127,9 +113,7 @@
                     </div>
                   </div>
                 </div>
-
               </div>
-              
               <!-- 두번째 줄 -->
               <div class="row">
               
