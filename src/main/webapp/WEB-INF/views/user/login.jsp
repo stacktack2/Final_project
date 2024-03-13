@@ -27,14 +27,14 @@
     />
 
     <!-- CSS -->
-    <link rel="stylesheet" href="resources/css/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="resources/css/theme-default.css" class="template-customizer-theme-css" />
-    <link rel="stylesheet" href="resources/css/demo.css" />
-    <link rel="stylesheet" href="resources/css/perfect-scrollbar.css" />
-    <link rel="stylesheet" href="resources/css/page-auth.css" />
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/demo.css" />
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/page-auth.css" />
     <!-- JS -->
-    <script src="resources/js/helpers.js"></script>
-	<script src="resources/js/config.js"></script>
+    <script src="<%=request.getContextPath() %>/resources/js/helpers.js"></script>
+	<script src="<%=request.getContextPath() %>/resources/js/config.js"></script>
   </head>
 
   <body>
@@ -47,14 +47,11 @@
             <div class="card-body">
               <!-- Logo -->
               <div class="app-brand justify-content-center">
-                <a href="index" class="app-brand-link gap-2">
+                <a href="<%=request.getContextPath() %>/" class="app-brand-link gap-2">
                   <span class="app-brand-text demo text-body fw-bolder">dflix</span>
                 </a>
               </div>
               <!-- /Logo -->
-              <h4 class="mb-2 center">로그인</h4>
-              <p class="mb-4"></p>
-
               <form id="formAuthentication" class="mb-3" action="#" method="POST">
                 
                 <div class="mb-3">
@@ -116,12 +113,12 @@
 
 
     <!-- JS -->
-    <script src="resources/jquery/jquery.js"></script>
-    <script src="resources/js/popper.js"></script>
-    <script src="resources/bootstrap/js/bootstrap.js"></script>
-    <script src="resources/js/perfect-scrollbar.js"></script>
-    <script src="resources/js/menu.js"></script>
-    <script src="resources/js/main.js"></script>
+    <script src="<%=request.getContextPath() %>/resources/jquery/jquery.js"></script>
+    <script src="<%=request.getContextPath() %>/resources/js/popper.js"></script>
+    <script src="<%=request.getContextPath() %>/resources/bootstrap/js/bootstrap.js"></script>
+    <script src="<%=request.getContextPath() %>/resources/js/perfect-scrollbar.js"></script>
+    <script src="<%=request.getContextPath() %>/resources/js/menu.js"></script>
+    <script src="<%=request.getContextPath() %>/resources/js/main.js"></script>
 
   </body>
 </html>
