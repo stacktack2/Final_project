@@ -9,11 +9,11 @@
 	
     <title>dflix</title>
 
-    <link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="resources/css/fontawesome.css">
-    <link rel="stylesheet" href="resources/css/templatemo-villa-agency.css">
-    <link rel="stylesheet" href="resources/css/owl.css">
-    <link rel="stylesheet" href="resources/css/animate.css">
+    <link href="<%=request.getContextPath() %>/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/fontawesome.css">
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/templatemo-villa-agency.css">
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/owl.css">
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/animate.css">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
   </head>
 <body>
@@ -62,7 +62,7 @@
       <div class="row">
         <div class="col-lg-10 offset-lg-1">
           <div class="video-frame">
-            <img src="resources/images/dune5.jpg" alt="듄">
+            <img src="<%=request.getContextPath() %>/resources/images/dune5.jpg" alt="듄">
             <a href="https://youtu.be/81JOj5-xNGc?si=XlZvYAZQJjee7N6d" target="_blank"><i class="fa fa-play"></i></a>
           </div>
         </div>
@@ -111,12 +111,12 @@
             <h2>현재상영작</h2>
           </div>
         </div>
-        <a href="#" class="more">더보기 ></a>
+        <a href="<%=request.getContextPath() %>/movie/movieChart" class="more">더보기 ></a>
       </div>
       <div class="row">
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <img src="resources/images/pamyo_p.jpg" alt="파묘포스터">
+            <img src="<%=request.getContextPath() %>/resources/images/pamyo_p.jpg" alt="파묘포스터">
             <span class="category">15</span>
             <h6>1위</h6>
             <h4>파묘</h4>
@@ -124,14 +124,14 @@
               <li>상영시간: <span>134분</span></li>
             </ul>
             <div class="main-button">
-              <a href="movie/movieView">상세보기</a>
+              <a href="<%=request.getContextPath() %>/movie/movieView">상세보기</a>
               <a href="#">예매하기</a>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <img src="resources/images/wonka_p.jpg" alt="웡카포스터">
+            <img src="<%=request.getContextPath() %>/resources/images/wonka_p.jpg" alt="웡카포스터">
             <span class="category">ALL</span>
             <h6>2위</h6>
             <h4>웡카</h4>
@@ -139,14 +139,14 @@
               <li>상영시간: <span>116분</span></li>
             </ul>
             <div class="main-button">
-              <a href="movie/movieView">상세보기</a>
+              <a href="<%=request.getContextPath() %>/movie/movieView">상세보기</a>
               <a href="#">예매하기</a>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <img src="resources/images/dune_p2.jpg" alt="듄2포스터">
+            <img src="<%=request.getContextPath() %>/resources/images/dune_p2.jpg" alt="듄2포스터">
             <span class="category">12</span>
             <h6>3위</h6>
             <h4>듄: 파트2</h4>
@@ -154,14 +154,14 @@
               <li>상영시간: <span>165분</span></li>
             </ul>
             <div class="main-button">
-              <a href="movie/movieView">상세보기</a>
+              <a href="<%=request.getContextPath() %>/movie/movieView">상세보기</a>
               <a href="#">예매하기</a>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <img src="resources/images/sopoong_p.jpg" alt="소풍포스터">
+            <img src="<%=request.getContextPath() %>/resources/images/sopoong_p.jpg" alt="소풍포스터">
             <span class="category">12</span>
             <h6>4위</h6>
             <h4>소풍</h4>
@@ -169,7 +169,7 @@
               <li>상영시간: <span>113분</span></li>
             </ul>
             <div class="main-button">
-              <a href="movie/movieView">상세보기</a>
+              <a href="<%=request.getContextPath() %>/movie/movieView">상세보기</a>
               <a href="#">예매하기</a>
             </div>
           </div>
@@ -184,14 +184,14 @@
               <li>상영시간: <span>103분</span></li>
             </ul>
             <div class="main-button">
-              <a href="movie/movieView">상세보기</a>
+              <a href="<%=request.getContextPath() %>/movie/movieView">상세보기</a>
               <a href="#">예매하기</a>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <img src="resources/images/simin_p.jpg" alt="시민덕희포스터">
+            <img src="<%=request.getContextPath() %>/resources/images/simin_p.jpg" alt="시민덕희포스터">
             <span class="category">15</span>
             <h6>6위</h6>
             <h4>시민덕희</h4>
@@ -199,7 +199,7 @@
               <li>상영시간: <span>114분</span></li>
             </ul>
             <div class="main-button">
-              <a href="movie/movieView">상세보기</a>
+              <a href="<%=request.getContextPath() %>/movie/movieView">상세보기</a>
               <a href="#">예매하기</a>
             </div>
           </div>
@@ -218,101 +218,101 @@
             <h2>상영예정작</h2>
           </div>
         </div>
-        <a href="nowmovie.html" class="more">더보기></a>
+        <a href="<%=request.getContextPath() %>/movie/movieSchedule" class="more">더보기></a>
       </div>
       <div class="row">
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <img src="resources/images/pop_p.jpg" alt="">
+            <img src="<%=request.getContextPath() %>/resources/images/pop_p.jpg" alt="">
             <span class="category">15</span>
             <h6>D-14</h6>
-            <h4><a href="property-details.html">밥 말리: 원 러브</a></h4>
+            <h4>밥 말리: 원 러브</h4>
             <ul>
               <li>상영시간: <span>107분</span></li>
               <li>개봉일: <span>2024.03.14</span></li>
             </ul>
             <div class="main-button">
-              <a href="movie/movieView">상세보기</a>
+              <a href="<%=request.getContextPath() %>/movie/movieView">상세보기</a>
               <a href="#">예매하기</a>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="property-details.html"><img src="resources/images/land_p.jpg" alt=""></a>
+            <img src="<%=request.getContextPath() %>/resources/images/land_p.jpg" alt="포스터">
             <span class="category">15</span>
             <h6>D-14</h6>
-            <h4><a href="property-details.html">랜드 오브 배드</a></h4>
+            <h4>랜드 오브 배드</h4>
             <ul>
               <li>상영시간: <span>116분</span></li>
               <li>개봉일: <span>2024.03.14</span></li>
             </ul>
             <div class="main-button">
-              <a href="movie/movieView">상세보기</a>
+              <a href="<%=request.getContextPath() %>/movie/movieView">상세보기</a>
               <a href="#">예매하기</a>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="property-details.html"><img src="resources/images/love_p.jpg" alt=""></a>
+            <img src="<%=request.getContextPath() %>/resources/images/love_p.jpg" alt="">
             <span class="category">15</span>
             <h6>D-20</h6>
-            <h4><a href="property-details.html">왓츠 러브</a></h4>
+            <h4>왓츠 러브</h4>
             <ul>
               <li>상영시간: <span>165분</span></li>
               <li>개봉일: <span>2024.03.20</span></li>
             </ul>
             <div class="main-button">
-              <a href="movie/movieView">상세보기</a>
-              <a href="movie/movieView">예매하기</a>
+              <a href="<%=request.getContextPath() %>/movie/movieView">상세보기</a>
+              <a href="#">예매하기</a>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="property-details.html"><img src="resources/images/fast_p.jpg" alt=""></a>
+            <img src="<%=request.getContextPath() %>/resources/images/fast_p.jpg" alt="">
             <span class="category">15</span>
             <h6>D-6</h6>
-            <h4><a href="property-details.html">패스트 라이브즈</a></h4>
+            <h4>패스트 라이브즈</h4>
             <ul>
               <li>상영시간: <span>113분</span></li>
               <li>개봉일: <span>2024.03.06</span></li>
             </ul>
             <div class="main-button">
-              <a href="movie/movieView">상세보기</a>
+              <a href="<%=request.getContextPath() %>/movie/movieView">상세보기</a>
               <a href="#">예매하기</a>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="property-details.html"><img src="resources/images/pool_p.jpg" alt=""></a>
+            <img src="<%=request.getContextPath() %>/resources/images/pool_p.jpg" alt="">
             <span class="category">15</span>
             <h6>D-6</h6>
-            <h4><a href="property-details.html">가여운 것들</a></h4>
+            <h4>가여운 것들</h4>
             <ul>
               <li>상영시간: <span>103분</span></li>
               <li>개봉일: <span>2024.03.06</span></li>
             </ul>
             <div class="main-button">
-              <a href="movie/movieView">상세보기</a>
+              <a href="<%=request.getContextPath() %>/movie/movieView">상세보기</a>
               <a href="#">예매하기</a>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="property-details.html"><img src="resources/images/spy_p.jpg" alt="시민덕희포스터"></a>
+            <img src="<%=request.getContextPath() %>/resources/images/spy_p.jpg" alt="시민덕희포스터">
             <span class="category">15</span>
             <h6>D-20</h6>
-            <h4><a href="property-details.html">극장판 스파이 패밀리 코드 : 화이트</a></h4>
+            <h4>극장판 스파이 패밀리 코드 : 화이트</h4>
             <ul>
               <li>상영시간: <span>114분</span></li>
               <li>개봉일: <span>2024.03.20</span></li>
             </ul>
             <div class="main-button">
-              <a href="movie/movieView">상세보기</a>
+              <a href="<%=request.getContextPath() %>/movie/movieView">상세보기</a>
               <a href="#">예매하기</a>
             </div>
           </div>
@@ -341,8 +341,7 @@
         <div class="col-lg-10 offset-lg-1">
         	<!-- 지도 -->
           <div id="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12469.776493332698!2d-80.14036379941481!3d25.907788681148624!2m3!1f357.26927939317244!2f20.870722720054623!3f0!3m2!1i1024!2i768!4f35!3m3!1m2!1s0x88d9add4b4ac788f%3A0xe77469d09480fcdb!2sSunny%20Isles%20Beach!5e1!3m2!1sen!2sth!4v1642869952544!5m2!1sen!2sth" width="100%" height="500px" frameborder="0" style="border:0; border-radius: 10px; box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);" allowfullscreen=""></iframe>
-          </div>
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25873.92121563474!2d127.11292625642456!3d35.843114464841335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357023cf24351681%3A0x7b826dc435477ec4!2zQ0dWIOyghOyjvOqzoOyCrA!5e0!3m2!1sko!2skr!4v1710292440378!5m2!1sko!2skr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>          </div>
           <div class="row">
             <div class="col-lg-6">
 				주차 3시간 무료

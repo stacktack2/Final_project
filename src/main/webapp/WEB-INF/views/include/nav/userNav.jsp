@@ -12,11 +12,11 @@
 				<div class="col-lg-8 col-md-8"></div>
 				<div class="col-lg-4 col-md-4">
 					<ul class="topmenu">
-						<li><a href="join">회원가입 </a> |</li>
-						<li><a href="login">로그인</a> |</li>
+						<li><a href="<%=request.getContextPath() %>/user/join">회원가입 </a> |</li>
+						<li><a href="<%=request.getContextPath() %>/user/login">로그인</a> |</li>
 						<li><a href="<%=request.getContextPath() %>/myinfo">내정보</a> |</li>
-						<li><a href="service">고객센터</a></li>
-					</ul>
+						<li><a href="<%=request.getContextPath() %>/serviceCenter">고객센터</a></li>
+</ul>
 				</div>
 			</div>
 		</div>
@@ -28,7 +28,7 @@
 			<div class="row">
 				<div class="col-12">
 					<nav class="main-nav">
-						<a href="#" class="logo">
+						<a href="<%=request.getContextPath() %>/" class="logo">
 							<h1>DFLIX</h1>
 						</a>
 						<!-- 네비메뉴 -->
@@ -36,14 +36,14 @@
 							<li class="dropdown"><a href="#"
 								data-bs-toggle="dropdown collapse" aria-expanded="false">영화</a>
 								<ul class="dropdown-menu dropdown-menu-dark">
-									<li><a class="dropdown-item" href="movie/movieChart">무비차트</a></li>
-									<li><a class="dropdown-item" href="movie/movieSchedule">상영예정작</a></li>
+									<li><a class="dropdown-item" href="<%=request.getContextPath() %>/movie/movieChart">무비차트</a></li>
+									<li><a class="dropdown-item" href="<%=request.getContextPath() %>/movie/movieSchedule">상영예정작</a></li>
 								</ul></li>
 							<li class="dropdown"><a href="#" role="button"
 								data-bs-toggle="dropdown" aria-expanded="false">예매</a>
 								<ul class="dropdown-menu dropdown-menu-dark">
-									<li><a class="dropdown-item" href="#">예매하기</a></li>
-									<li><a class="dropdown-item" href="#">예매조회</a></li>
+									<li><a class="dropdown-item" href="<%=request.getContextPath() %>/ticket/ticketing">예매하기</a></li>
+									<li><a class="dropdown-item" href="<%=request.getContextPath() %>/ticket">빠른예매</a></li>
 								</ul></li>
 							<li class="dropdown"><a href="#" role="button"
 								data-bs-toggle="dropdown" aria-expanded="false">극장</a>
