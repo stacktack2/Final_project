@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class ServiceCenterController {
 	
-	//1.°í°´¼¾ÅÍ - °øÁö
+	//1.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½
 	@RequestMapping(value = "/noticeList", method = RequestMethod.GET)
 	public String noticeList() {
 		
@@ -22,7 +22,7 @@ public class ServiceCenterController {
 	}
 	
 	
-	//2.°í°´¼¾ÅÍ- ¹®ÀÇ
+	//2.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½- ï¿½ï¿½ï¿½ï¿½
 	@RequestMapping(value = "/inquiryList", method = RequestMethod.GET)
 	public String inquiryList() {
 		
@@ -36,7 +36,7 @@ public class ServiceCenterController {
 	}
 	
 	
-	//°í°´¼¾ÅÍ- ¹®ÀÇ- ÀÛ¼º
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½- ï¿½ï¿½ï¿½ï¿½- ï¿½Û¼ï¿½
 	@RequestMapping(value = "/inquiryWrite", method = RequestMethod.GET)
 	public String inquiryWrite() {
 		
@@ -50,7 +50,7 @@ public class ServiceCenterController {
 	}
 	
 	
-	//°í°´¼¾ÅÍ- ¹®ÀÇ- ¼öÁ¤
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½- ï¿½ï¿½ï¿½ï¿½- ï¿½ï¿½ï¿½ï¿½
 	@RequestMapping(value = "/inquiryModify", method = RequestMethod.GET)
 	public String inquiryModify() {
 		

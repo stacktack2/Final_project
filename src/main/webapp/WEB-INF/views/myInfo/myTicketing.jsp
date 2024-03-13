@@ -14,7 +14,7 @@
 
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="resources/css/fontawesome.css">
-    <link rel="stylesheet" href="resources/css/templatemo-villa-agency.css">
+    <link rel="stylesheet" href="resources/css/myinfo.css">
     <link rel="stylesheet" href="resources/css/owl.css">
     <link rel="stylesheet" href="resources/css/animate.css">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
@@ -30,7 +30,7 @@
         <ul class="topmenu">
           <li><a href="login">로그아웃</a> | </li>
           <li><a href="myinfo">내정보</a> | </li>
-          <li><a href="service">고객센터</a></li>
+          <li><a href="serviceCenter/noticeList">고객센터</a></li>
         </ul>
       </div>
     </div>
@@ -82,13 +82,84 @@
   </div>
 </header>
 
-  
-<!-- 슬라이드배너 -->
-<nav>
-	<div>나의 예매내역</div>
-	<div>개인정보 변경</div>
-	<div>회원탈퇴</div>
-</nav>
+<!-- body -->
+  <div class="properties section">
+    <div class="myinfo-container">
+    	<!-- 프로필 -->
+    	<div class="profile">
+    		<div class="profile-img">
+    			<img alt="프로필사진" src="resources/profileImg/nomal.png">
+    		</div>
+    		<div class="profile-box">
+    			<strong>이준택님</strong>
+    			<em>cotaek2</em>
+    			<span>
+    				닉네임 : 
+    				<i>닉네임을 설정해주세요.</i>
+    			</span>
+    		</div>
+    	<!-- 극장 선택 -->
+    	<div class="favorite-theater">
+   			<ul class="theaters">
+   				<li>
+   					<a href="#">
+   						<span>1<em>순위</em></span>
+   						전주극장
+   					</a>
+   				</li>
+   			</ul>
+   			<ul class="theaters">
+   				<li>
+   					<a href="#">
+   						<span>2<em>순위</em></span>
+   						익산극장
+   					</a>
+   				</li>
+   			</ul>
+   			<ul class="theaters">
+   				<li>
+   					<a href="#">
+   						<span>3<em>순위</em></span>
+   						군산극장
+   					</a>
+   				</li>
+   			</ul>
+    	</div>
+    	</div>
+    	<!-- 내 정보 내역 -->
+    	<div class="myinfo-content">
+    		<!-- 서브메뉴 -->
+    		<div class="myinfo-submenu">
+    			<ul>
+    				<li>
+    					<a href="myinfo">나의 예매내역</a>
+    				</li>
+    			</ul>
+    			<ul>
+    				<li>
+    					<a href="changeMyinfo">개인정보 변경</a>
+    				</li>
+    			</ul>
+    			<ul>
+    				<li>
+    					<a href="withdrawal">회원탈퇴</a>
+    				</li>
+    			</ul>
+    		</div>
+    		<!-- 본문내용 -->
+    		<div class="myinfo-detail">
+    			<div class="myTicketing-tit">
+    				<h3>MY 예매내역</h3>
+					<p><em>0건</em></p>
+					<span>예매번호로만 티켓을 찾을 수 있으니 반드시 확인 부탁드립니다.</span>
+				</div>
+				<div class="myTicketing-box">
+					<div class="box-inner"> 고객님의 최근 예매내역이 존재하지 않습니다. </div>
+				</div>
+    		</div>
+    	</div>
+    </div>
+  </div>
 <!-- 푸터 -->
   <footer>
     <div class="container">
