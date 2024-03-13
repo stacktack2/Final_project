@@ -10,13 +10,13 @@
     <title>내 정보</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="<%=request.getContextPath() %>/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/fontawesome.css">
-    <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/myinfo.css">
-    <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/owl.css">
-    <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/animate.css">
+    <link rel="stylesheet" href="resources/css/fontawesome.css">
+    <link rel="stylesheet" href="resources/css/myinfo.css">
+    <link rel="stylesheet" href="resources/css/owl.css">
+    <link rel="stylesheet" href="resources/css/animate.css">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
   </head>
 <body>
@@ -29,8 +29,8 @@
       <div class="col-lg-4 col-md-4">
         <ul class="topmenu">
           <li><a href="login">로그아웃</a> | </li>
-          <li><a href="<%=request.getContextPath() %>/myinfo">내정보</a> | </li>
-          <li><a href="<%=request.getContextPath() %>/serviceCenter/noticeList">고객센터</a></li>
+          <li><a href="myinfo">내정보</a> | </li>
+          <li><a href="serviceCenter/noticeList">고객센터</a></li>
         </ul>
       </div>
     </div>
