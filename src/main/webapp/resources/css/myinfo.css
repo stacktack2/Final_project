@@ -254,6 +254,7 @@ Global Styles
 .myinfo-content{
 	margin-top: 25px;
 	padding-top: 25px;
+	display: flex;
 }
 
 .myinfo-submenu{
@@ -377,6 +378,89 @@ Global Styles
 }
 
 /* 내정보 변경 */
+
+.changeMyinfo-frm-div{
+	padding: 10px 10px;
+}
+
+.changeMyinfo-tit {
+	overflow: hidden;
+    position: relative;
+    line-height: 34px;
+}
+
+.changeMyinfo-tit > h3 {
+	float: left;
+    height: 34px;
+    margin: 0;
+    background-image: none;
+    color: #222;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 34px;
+    text-align: left;
+}
+
+.changeMyinfo-tit p {
+	float: left;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+
+
+.changeMyinfo-tit > p > em {
+	font-style: nomal;
+}
+
+.changeMyinfo-tit > span{
+	position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    color: #666;
+    text-align: left;
+    line-height: 1.2;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.changeMyinfo-box{
+	position: relative;
+    border: 1px solid #cbcbcb;
+}
+
+
+.frm-div{
+	width: 100%;
+	margin-bottom: 1rem !important;
+	
+}
+
+.frm-label {
+	font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: inherit;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+    margin-left: 15px;
+    margin-top: 10px;
+    position: absolute;
+    background-color: #fff;
+    padding: 5px;
+}
+
+.frm-label span{
+	margin-right: 5px;
+	color: red;
+}
+
+.frm-input{
+	margin-top: 25px;
+	margin-right: 5px;
+    display: inline-block;
+    width: 50%;
+}
 
 
 /* 기존 css 코드 */

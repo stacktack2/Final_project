@@ -7,17 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 	
-    <title>내 정보</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="resources/css/fontawesome.css">
-    <link rel="stylesheet" href="resources/css/myinfo.css">
-    <link rel="stylesheet" href="resources/css/owl.css">
-    <link rel="stylesheet" href="resources/css/animate.css">
-    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    <title>내 정보 변경</title>
+    <%@ include file="../include/header/myinfoHeader.jsp" %>
   </head>
 <body>
 <!--최상단 -->
@@ -29,8 +20,8 @@
       <div class="col-lg-4 col-md-4">
         <ul class="topmenu">
           <li><a href="login">로그아웃</a> | </li>
-          <li><a href="myinfo">내정보</a> | </li>
-          <li><a href="serviceCenter/noticeList">고객센터</a></li>
+          <li><a href="<%=request.getContextPath() %>/myinfo">내정보</a> | </li>
+          <li><a href="<%=request.getContextPath() %>/serviceCenter/noticeList">고객센터</a></li>
         </ul>
       </div>
     </div>
@@ -148,96 +139,83 @@
     		</div>
     		<!-- 본문내용 -->
     		<div class="myinfo-detail">
-    			<div class="myTicketing-tit">
+    			<div class="changeMyinfo-tit">
     				<h3>내 정보 변경</h3>
 					<span>이메일 변경 시 이메일 인증 해주시기 바랍니다.</span>
 				</div>
-				<div class="myTicketing-box">
+				<div class="changeMyinfo-box">
 					<form id="formAccountSettings" action="#" method="POST" onsubmit="return false">
-                        <div class="row">
+					<div class="changeMyinfo-frm-div">
+						<!-- 아이디 -->
+						<div class="frm-div">
+							<label for="mid" class="frm-label"><span>*</span>아이디</label>
+                            <input class="form-control frm-input" type="text"
+                              		id="mid" name="mid" autofocus/>
+							<button type="button" class="btn btn-sm btn-outline-primary">중복확인</button>
+						</div>
                         
-                          <div class="mb-3 col-md-6">
-                            <label for="mid" class="form-label block">아이디</label>
-                            <input
-                              class="form-control reinput"
-                              type="text"
-                              id="mid"
-                              name="mid"
-                              autofocus
-                            />
-                           <button type="button" class="btn btn-sm btn-outline-primary">중복확인</button>
-                          </div>
-                          
-                          <div class="mb-3 col-md-6">
-                            <label for="mname" class="form-label">이름</label>
-                            <input class="form-control" type="text" name="mname" id="mname" />
-                          </div>
-                          
-                          <div class="mb-3 col-md-6">
-                            <label for="password" class="form-label">비밀번호</label>
-                            <input
-                              type="password"
-                              class="form-control"
-                              id="password"
-                              name="password"
-                            />
-                          </div>
-                          <div class="mb-3 col-md-6">
-                            <label for="passwordRe" class="form-label">비밀번호 확인</label>
-                            <input
-                              type="password"
-                              class="form-control"
-                              id="passwordRe"
-                              name="passwordRe"
-                            />
-                          </div>
-                          
+                        <!-- 이름 -->  
+						<div class="frm-div">
+							<label for="mname" class="frm-label"><span>*</span>이름</label>
+							<input class="form-control frm-input" type="text" 
+									id="mname" name="mname"/>
+						</div>
+                        
+                        <!-- 비밀번호 -->  
+						<div class="frm-div">
+							<label for="password" class="frm-label"><span>*</span>비밀번호</label>
+							<input class="form-control frm-input" type="password"  
+									id="password" name="password"/>
+						</div>
+						
+						<!-- 비밀번호 변경 -->
 						<div class="mb-3 col-md-6">
-                            <label for="mnicknm" class="form-label block">닉네임</label>
-                            <input class="form-control reinput" type="text" name="mnicknm" id="mnicknm" />
-                            <button type="button" class="btn btn-sm btn-outline-primary">중복확인</button>
-                          </div>
-                          
-                          <div class="mb-3 col-md-6">
-                            <label for="email" class="form-label block">E-mail</label>
-                            <input
-                              class="form-control reinput"
-                              type="email"
-                              id="email"
-                              name="email"
-                            />
-                            <button type="button" class="btn btn-sm btn-outline-primary">중복확인</button>
-                          </div>
-                          
-
-                          <div class="mb-3 col-md-6">
-                            <label class="form-label" for="mphone">휴대폰번호</label>
-                            <div class="input-group input-group-merge">
-                              <input
-                                type="text"
-                                id="mphone"
-                                name="mphone"
-                                class="form-control"
-                              />
-                            </div>
-                          </div>
-                          
-                          <div class="mb-3 col-md-6">
-                            <label class="form-label" for="gender">성별</label>
-                            <select id="gender" class="select2 form-select">
-                              <option value="">선택</option>
-                              <option value="M">남</option>
-                              <option value="F">여</option>
-                            </select>
-                          </div>
-
+							<label for="passwordRe" class="form-label"><span>*</span>비밀번호 확인</label>
+							<input class="form-control" type="password"
+									id="passwordRe" name="passwordRe"/>
+						</div>
                         
+                        <!-- 닉네임 -->  
+						<div class="mb-3 col-md-6">
+                            <label for="mnicknm" class="form-label block"><span>*</span>닉네임</label>
+                            <input class="form-control reinput" type="text" 
+                            		id="mnicknm" name="mnicknm"/>
+                            <button type="button" class="btn btn-sm btn-outline-primary">중복확인</button>
+						</div>
+						
+						<!-- email -->
+						<div class="mb-3 col-md-6">
+							<label for="email" class="form-label block"><span>*</span>E-mail</label>
+							<input class="form-control reinput" type="email"
+									id="email" name="email"/>
+                            <button type="button" class="btn btn-sm btn-outline-primary">중복확인</button>
+						</div>
+                          
+						<!-- 휴대폰번호 -->
+						<div class="mb-3 col-md-6">
+							<label class="form-label" for="mphone"><span>*</span>휴대폰번호</label>
+							<div class="input-group input-group-merge">
+								<input class="form-control" type="text" id="mphone" name="mphone"/>
+							</div>
+						</div>
+                        
+                        <!-- 성별 -->  
+						<div class="mb-3 col-md-6">
+							<label class="form-label" for="gender"><span>*</span>성별</label>
+							<select id="gender" class="select2 form-select">
+								<option value="">선택</option>
+								<option value="M">남</option>
+								<option value="F">여</option>
+							</select>
+						</div>
+
+                        <!-- 개인정보 변경 버튼 -->
                         <div class="mt-2">
-                          <button type="submit" class="btn btn-primary me-2">회원가입</button>
+                          <button type="submit" class="btn btn-primary me-2">변경</button>
                           <button type="reset" class="btn btn-outline-secondary">취소</button>
                         </div>
-                        </div>
-                     </form>
+					</div>
+					</form>
 				</div>
     		</div>
     	</div>

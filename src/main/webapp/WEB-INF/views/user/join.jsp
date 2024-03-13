@@ -136,6 +136,7 @@
                           <button type="submit" class="btn btn-primary me-2">회원가입</button>
                           <button type="reset" class="btn btn-outline-secondary">취소</button>
                         </div>
+                       	</div>
                       </form>
                   </div>
 
@@ -149,10 +150,6 @@
           <!-- Content wrapper -->
         </div>
         <!-- / Layout page -->
-      </div>
-
-    </div>
-    <!-- / Layout wrapper -->
 
 
     <!-- JS -->
