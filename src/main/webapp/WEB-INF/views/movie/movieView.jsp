@@ -7,16 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <title>상세보기</title>
+    <title>영화 상세보기</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<%=request.getContextPath() %>/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="resources/css/fontawesome.css">
-    <link rel="stylesheet" href="resources/css/templatemo-villa-agency.css">
-    <link rel="stylesheet" href="resources/css/owl.css">
-    <link rel="stylesheet" href="resources/css/animate.css">
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/fontawesome.css">
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/templatemo-villa-agency.css">
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/owl.css">
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/animate.css">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
     
   </head>
@@ -29,7 +29,7 @@
     <div class="container">
       <div class="row">
           <div class="col-lg-6 main-image detailimg">
-            <img src="resources/images/dune_p2.jpg" alt="듄2포스터">
+            <img src="<%=request.getContextPath() %>/resources/images/dune_p2.jpg" alt="듄2포스터">
           </div>
           <div class="col-lg-6 main-content">
             <span class="category age">12세</span>
@@ -87,7 +87,7 @@
               </h2>
               <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                영상들
+                	영상들
                 </div>
               </div>
             </div>
