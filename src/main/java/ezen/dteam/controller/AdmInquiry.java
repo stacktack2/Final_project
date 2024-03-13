@@ -23,31 +23,5 @@ public class AdmInquiry {
 	
 	
 	
-	@RequestMapping(value = "/inquiryWrite", method = RequestMethod.GET)
-	public String inquiryWrite() {
-		
-		return "/admin/inquiry/inquiryWrite";
-	}
-	
-	@RequestMapping(value = "/inquiryWrite", method = RequestMethod.POST)
-	public String inquiryWriteOk() {
-		
-		return "redirect:/";
-	}
-	
-	
-	
-	
-	@RequestMapping(value = "/inquiryModify", method = RequestMethod.GET)
-	public String inquiryModify() {
-		
-		return "/admin/inquiry/inquiryModify";
-	}
-	
-	@RequestMapping(value = "/inquiryModify", method = RequestMethod.POST)
-	public String inquiryModifyOk() {
-		
-		return "redirect:/";
-	}
 	
 }
