@@ -300,9 +300,10 @@ Global Styles
 }
 
 .sect-mycgv-reserve.movielog.col3 .box-inner a {
-    display: inline-block;
+    display: inline-flex;
     padding: 50px 0 16px;
     width: 100%;
+    flex-direction: column;
 }
 
 .sect-mycgv-reserve.movielog.col3 h3 {
@@ -313,6 +314,9 @@ Global Styles
     line-height: 20px;
     height: auto;
     text-align: center;
+}
+.sect-mycgv-reserve.movielog.col3 span {
+	text-align: center;
 }
 
 .sect-mycgv-reserve.movielog.col3 .box-inner.watched {

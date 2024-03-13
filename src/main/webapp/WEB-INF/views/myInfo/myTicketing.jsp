@@ -144,13 +144,13 @@
 						<div class="box-inner preegg">
 							<a href="http://www.cgv.co.kr/user/movielog/">
 								<h3>인기있는 영화</h3>
-									<span>가장 재밌는 영화 <br>순위를 알고 싶다면?</span>
+								<span>가장 재밌는 영화 <br>순위를 알고 싶다면?</span>
 							</a>
 						</div>
 						<div class="box-inner watched">
 							<a href="http://www.cgv.co.kr/user/movielog/watched.aspx" title="내가 본 영화">
 								<h3>기대되는 영화</h3>
-									<span>보고 싶은 영화가 <br>있다면? 예매하자</span>
+								<span>보고 싶은 영화가 <br>있다면? 예매하자</span>
 							</a>
 						</div>
 				    </div>
