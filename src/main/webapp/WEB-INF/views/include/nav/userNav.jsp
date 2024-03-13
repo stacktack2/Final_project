@@ -14,7 +14,7 @@
 					<ul class="topmenu">
 						<li><a href="join">회원가입 </a> |</li>
 						<li><a href="login">로그인</a> |</li>
-						<li><a href="myinfo">내정보</a> |</li>
+						<li><a href="<%=request.getContextPath() %>/myinfo">내정보</a> |</li>
 						<li><a href="service">고객센터</a></li>
 					</ul>
 				</div>
