@@ -30,7 +30,7 @@
         <ul class="topmenu">
           <li><a href="login">로그아웃</a> | </li>
           <li><a href="myinfo">내정보</a> | </li>
-          <li><a href="serviceCenter">고객센터</a></li>
+          <li><a href="serviceCenter/noticeList">고객센터</a></li>
         </ul>
       </div>
     </div>
@@ -142,7 +142,7 @@
     			</ul>
     			<ul>
     				<li>
-    					<a>회원탈퇴</a>
+    					<a href="withdrawal">회원탈퇴</a>
     				</li>
     			</ul>
     		</div>

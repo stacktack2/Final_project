@@ -254,7 +254,6 @@ Global Styles
 .myinfo-content{
 	margin-top: 25px;
 	padding-top: 25px;
-	height: 
 }
 
 .myinfo-submenu{
@@ -282,8 +281,7 @@ Global Styles
 
 .myinfo-detail{
 	width: 752px;
-    display: inline-block;
-    overflow: hidden;
+    float: right;
 }
 
 .myTicketing-tit {
