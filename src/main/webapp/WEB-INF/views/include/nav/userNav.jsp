@@ -16,7 +16,7 @@
 						<li><a href="<%=request.getContextPath() %>/user/login">로그인</a> |</li>
 						<li><a href="<%=request.getContextPath() %>/myinfo">내정보</a> |</li>
 						<li><a href="<%=request.getContextPath() %>/serviceCenter">고객센터</a></li>
-					</ul>
+</ul>
 				</div>
 			</div>
 		</div>
