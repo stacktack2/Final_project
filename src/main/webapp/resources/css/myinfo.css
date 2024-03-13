@@ -254,7 +254,7 @@ Global Styles
 .myinfo-content{
 	margin-top: 25px;
 	padding-top: 25px;
-	height: 
+	display: flex;
 }
 
 .myinfo-submenu{
@@ -282,8 +282,6 @@ Global Styles
 
 .myinfo-detail{
 	width: 752px;
-    display: inline-block;
-    overflow: hidden;
 }
 
 .myTicketing-tit {
@@ -336,6 +334,10 @@ Global Styles
 .box-inner{
 	padding: 26px;
 }
+
+/* 내정보 변경 */
+
+
 
 /* 기존 css 코드 */
 .ulbg-whtie{
