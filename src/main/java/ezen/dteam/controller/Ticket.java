@@ -4,20 +4,20 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-@RequestMapping(value="/movie")
+@RequestMapping(value="/ticket")
 @Controller
 public class Ticket {
 
-	@RequestMapping(value="/movieChart", method=RequestMethod.GET)
+	@RequestMapping(value="/ticketing", method=RequestMethod.GET)
 	public String movieChart() {
-		return "movie/movieChart";
+		return "ticket/ticketing";
 	}
-	@RequestMapping(value="/movieSchedule", method=RequestMethod.GET)
+	@RequestMapping(value="/ticketSeat", method=RequestMethod.GET)
 	public String movieSchedule() {
-		return "movie/movieSchedule";
+		return "ticket/ticketSeat";
 	}
-	@RequestMapping(value="/movieView", method=RequestMethod.GET)
+	@RequestMapping(value="/payment", method=RequestMethod.GET)
 	public String movieView() {
-		return "movie/movieView";
+		return "ticket/payment";
 	}
 }

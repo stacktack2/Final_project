@@ -7,71 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 	
-    <title>내 정보</title>
+    <title>내 정보 | 영화속으로 Dflix</title>
     <%@ include file="../include/header/myinfoHeader.jsp" %>
   </head>
 <body>
-<!--최상단 -->
-<div class="sub-header">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-8">
-      </div>
-      <div class="col-lg-4 col-md-4">
-        <ul class="topmenu">
-          <li><a href="login">로그아웃</a> | </li>
-          <li><a href="<%=request.getContextPath() %>/myinfo">내정보</a> | </li>
-          <li><a href="<%=request.getContextPath() %>/serviceCenter/noticeList">고객센터</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-                 
-<!-- 헤더 -->
-<header class="header-area header-sticky">
-  <div class="container">
-      <div class="row">
-          <div class="col-12">
-              <nav class="main-nav">
-                  <a href="/dflix" class="logo">
-					<h1>DFLIX</h1>
-                  </a>
-                  <!-- 네비메뉴 -->
-                  <ul class="nav">
-                    <li class="dropdown">
-                    	<a  href="#" data-bs-toggle="dropdown collapse" aria-expanded="false">영화</a>
-                    	<ul class="dropdown-menu dropdown-menu-dark ulbg-whtie">
-                    		<li><a class="dropdown-item item-hover" href="movieChart">무비차트</a></li>
-                    		<li><a class="dropdown-item item-hover" href="movieSchedule">상영예정작</a></li>
-                    	</ul>
-                    </li>
-                    <li class="dropdown">
-                    	<a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">예매</a>
-                    	<ul class="dropdown-menu dropdown-menu-dark ulbg-whtie">
-                    		<li><a class="dropdown-item item-hover" href="#">예매하기</a></li>
-                    		<li><a class="dropdown-item item-hover" href="#">예매조회</a></li>
-                    	</ul>
-                    </li>
-                    <li class="dropdown">
-                    	<a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">극장</a>
-                    	<ul class="dropdown-menu dropdown-menu-dark ulbg-whtie">
-                    		<li><a class="dropdown-item item-hover" href="#">전주극장</a></li>
-                    		<li><a class="dropdown-item item-hover" href="#">익산극장</a></li>
-                    		<li><a class="dropdown-item item-hover" href="#">군산극장</a></li>
-                    	</ul>
-                    </li>
-                    <li></li>
-                </ul>
-                    <form class="d-flex" role="search">
-		        <input class="form-control me-2 searchinput" type="search" placeholder="Search" aria-label="Search">
-		        <button class="btn btn-outline-success searchbtn" type="submit">Search</button>
-		      </form>   
-              </nav>
-          </div>
-      </div>
-  </div>
-</header>
+<%@ include file="../include/nav/userNav.jsp" %>
 
 <!-- body -->
   <div class="properties section">

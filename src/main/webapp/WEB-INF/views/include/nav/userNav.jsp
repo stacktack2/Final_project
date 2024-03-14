@@ -15,7 +15,7 @@
 						<li><a href="<%=request.getContextPath() %>/user/join">회원가입 </a> |</li>
 						<li><a href="<%=request.getContextPath() %>/user/login">로그인</a> |</li>
 						<li><a href="<%=request.getContextPath() %>/myinfo">내정보</a> |</li>
-						<li><a href="<%=request.getContextPath() %>/serviceCenter">고객센터</a></li>
+						<li><a href="<%=request.getContextPath() %>/serviceCenter/noticeList">고객센터</a></li>
 </ul>
 				</div>
 			</div>
@@ -33,17 +33,17 @@
 						</a>
 						<!-- 네비메뉴 -->
 						<ul class="nav">
-							<li class="dropdown"><a href="#"
+							<li class="dropdown"><a href="<%=request.getContextPath() %>/movie/movieChart"
 								data-bs-toggle="dropdown collapse" aria-expanded="false">영화</a>
 								<ul class="dropdown-menu dropdown-menu-dark ulbg-whtie">
 									<li><a class="dropdown-item item-hover" href="<%=request.getContextPath() %>/movie/movieChart">무비차트</a></li>
 									<li><a class="dropdown-item item-hover" href="<%=request.getContextPath() %>/movie/movieSchedule">상영예정작</a></li>
 								</ul></li>
-							<li class="dropdown"><a href="#" role="button"
+							<li class="dropdown"><a href="<%=request.getContextPath() %>/ticket/ticketing" role="button"
 								data-bs-toggle="dropdown" aria-expanded="false">예매</a>
 								<ul class="dropdown-menu dropdown-menu-dark ulbg-whtie">
-									<li><a class="dropdown-item item-hover" href="<%=request.getContextPath() %>/ticket/ticketing">예매하기</a></li>
-									<li><a class="dropdown-item item-hover" href="<%=request.getContextPath() %>/ticket">빠른예매</a></li>
+									<li><a class="dropdown-item item-hover" href="<%=request.getContextPath() %>/ticket/ticketing">빠른예매</a></li>
+									<li><a class="dropdown-item item-hover" href="<%=request.getContextPath() %>/theater">상영스케쥴</a></li>
 								</ul></li>
 							<li class="dropdown"><a href="#" role="button"
 								data-bs-toggle="dropdown" aria-expanded="false">극장</a>
