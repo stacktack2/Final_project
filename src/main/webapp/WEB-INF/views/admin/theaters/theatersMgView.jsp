@@ -191,11 +191,6 @@
     <script src="<%=request.getContextPath()%>/resources/js/menu.js"></script>
     <!-- endbuild -->
 
-    <!-- Vendors JS -->
-
-    <!-- Main JS -->
-    <script src="<%=request.getContextPath() %>/resources/js/main.js"></script>
-
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
