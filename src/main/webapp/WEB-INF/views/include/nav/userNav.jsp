@@ -35,21 +35,21 @@
 						<ul class="nav">
 							<li class="dropdown"><a href="#"
 								data-bs-toggle="dropdown collapse" aria-expanded="false">영화</a>
-								<ul class="dropdown-menu dropdown-menu-dark">
-									<li><a class="dropdown-item" href="<%=request.getContextPath() %>/movie/movieChart">무비차트</a></li>
-									<li><a class="dropdown-item" href="<%=request.getContextPath() %>/movie/movieSchedule">상영예정작</a></li>
+								<ul class="dropdown-menu dropdown-menu-dark ulbg-whtie">
+									<li><a class="dropdown-item item-hover" href="<%=request.getContextPath() %>/movie/movieChart">무비차트</a></li>
+									<li><a class="dropdown-item item-hover" href="<%=request.getContextPath() %>/movie/movieSchedule">상영예정작</a></li>
 								</ul></li>
 							<li class="dropdown"><a href="#" role="button"
 								data-bs-toggle="dropdown" aria-expanded="false">예매</a>
-								<ul class="dropdown-menu dropdown-menu-dark">
-									<li><a class="dropdown-item" href="<%=request.getContextPath() %>/ticket/ticketing">예매하기</a></li>
-									<li><a class="dropdown-item" href="<%=request.getContextPath() %>/ticket">빠른예매</a></li>
+								<ul class="dropdown-menu dropdown-menu-dark ulbg-whtie">
+									<li><a class="dropdown-item item-hover" href="<%=request.getContextPath() %>/ticket/ticketing">예매하기</a></li>
+									<li><a class="dropdown-item item-hover" href="<%=request.getContextPath() %>/ticket">빠른예매</a></li>
 								</ul></li>
 							<li class="dropdown"><a href="#" role="button"
 								data-bs-toggle="dropdown" aria-expanded="false">극장</a>
-								<ul class="dropdown-menu dropdown-menu-dark">
-									<li><a class="dropdown-item" href="#">전주극장</a></li>
-									<li><a class="dropdown-item" href="#">익산극장</a></li>
+								<ul class="dropdown-menu dropdown-menu-dark ulbg-whtie">
+									<li><a class="dropdown-item item-hover" href="#">전주극장</a></li>
+									<li><a class="dropdown-item item-hover" href="#">익산극장</a></li>
 								</ul></li>
 							<li></li>
 						</ul>

@@ -249,6 +249,14 @@ body {
   color: #fff;
 }
 
+.ulbg-whtie{
+	background: white !important;
+}
+
+.item-hover:hover{
+	--bs-dropdown-link-hover-bg: #dee2e5 !important;
+}
+
 /* 
 ---------------------------------------------
 Pre-loader Style

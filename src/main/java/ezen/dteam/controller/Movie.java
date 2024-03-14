@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @RequestMapping(value="/movie")
 @Controller
-public class MovieController {
+public class Movie {
 
 	@RequestMapping(value="/movieChart", method=RequestMethod.GET)
 	public String movieChart() {

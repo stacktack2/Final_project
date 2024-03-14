@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @RequestMapping(value = "/serviceCenter")
 @Controller
-public class ServiceCenterController {
+public class ServiceCenter {
 	
 	//1.������ - ����
 	@RequestMapping(value = "/noticeList", method = RequestMethod.GET)

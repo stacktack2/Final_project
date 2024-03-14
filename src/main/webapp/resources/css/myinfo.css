@@ -139,6 +139,8 @@ Global Styles
 --------------------------------------------- 
 */
 
+
+
 /* 내정보 컨테이너 */
 .myinfo-container{
 	position: relative;
@@ -379,7 +381,7 @@ Global Styles
 
 /* 내정보 변경 */
 .changeMyinfo-frm-div{
-	padding: 10px 10px;
+	padding: 15px 10px 15px 15px;
 }
 
 .changeMyinfo-tit {
@@ -390,7 +392,7 @@ Global Styles
 
 .changeMyinfo-tit > h3 {
 	float: left;
-    height: 34px;
+    height: 40px;
     margin: 0;
     background-image: none;
     color: #222;
@@ -398,6 +400,8 @@ Global Styles
     font-size: 17px;
     line-height: 34px;
     text-align: left;
+    margin-left: 10px;
+    font-weight: bold;
 }
 
 .changeMyinfo-tit p {
@@ -426,7 +430,6 @@ Global Styles
 
 .changeMyinfo-box{
 	position: relative;
-    border: 1px solid #cbcbcb;
 }
 
 
@@ -437,16 +440,13 @@ Global Styles
 }
 
 .frm-label {
-	font-size: 1rem;
+    font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: inherit;
-    margin-bottom: 0.5rem;
-    display: inline-block;
-    margin-left: 15px;
-    margin-top: 10px;
+    margin-bottom: 5px;
+    margin-left: 0px;
+    margin-top: 5px;
     position: absolute;
-    background-color: #fff;
-    padding: 5px;
 }
 
 .frm-label span{
@@ -454,9 +454,16 @@ Global Styles
 	color: red;
 }
 
-.frm-input{
-	margin-top: 25px;
-	margin-right: 5px;
+.frm-input {
+    margin-top: 35px;
+    margin-right: 5px;
+    display: inline-block;
+    width: 50%;
+}
+
+.frm-select {
+	margin-top: 35px;
+    margin-right: 5px;
     display: inline-block;
     width: 50%;
 }
@@ -465,6 +472,7 @@ Global Styles
 .ulbg-whtie{
 	background: white !important;
 }
+
 .item-hover:hover{
 	--bs-dropdown-link-hover-bg: #dee2e5 !important;
 }
@@ -485,7 +493,7 @@ body {
 }
 
 .section {
-  margin-top: 120px;
+  margin-top: 100px;
 }
 
 .section-heading {
@@ -749,6 +757,7 @@ Header Style
   -moz-transition: all .5s ease 0s;
   -o-transition: all .5s ease 0s;
   transition: all .5s ease 0s;
+  border-bottom: 0.5px solid #eeeeee;
 }
 
 .header-area .main-nav {

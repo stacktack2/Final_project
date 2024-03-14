@@ -11,67 +11,7 @@
     <%@ include file="../include/header/myinfoHeader.jsp" %>
   </head>
 <body>
-<!--최상단 -->
-<div class="sub-header">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-8">
-      </div>
-      <div class="col-lg-4 col-md-4">
-        <ul class="topmenu">
-          <li><a href="login">로그아웃</a> | </li>
-          <li><a href="<%=request.getContextPath() %>/myinfo">내정보</a> | </li>
-          <li><a href="<%=request.getContextPath() %>/serviceCenter/noticeList">고객센터</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-                 
-<!-- 헤더 -->
-<header class="header-area header-sticky">
-  <div class="container">
-      <div class="row">
-          <div class="col-12">
-              <nav class="main-nav">
-                  <a href="/dflix" class="logo">
-					<h1>DFLIX</h1>
-                  </a>
-                  <!-- 네비메뉴 -->
-                  <ul class="nav">
-                    <li class="dropdown">
-                    	<a  href="#" data-bs-toggle="dropdown collapse" aria-expanded="false">영화</a>
-                    	<ul class="dropdown-menu dropdown-menu-dark ulbg-whtie">
-                    		<li><a class="dropdown-item item-hover" href="movieChart">무비차트</a></li>
-                    		<li><a class="dropdown-item item-hover" href="movieSchedule">상영예정작</a></li>
-                    	</ul>
-                    </li>
-                    <li class="dropdown">
-                    	<a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">예매</a>
-                    	<ul class="dropdown-menu dropdown-menu-dark ulbg-whtie">
-                    		<li><a class="dropdown-item item-hover" href="#">예매하기</a></li>
-                    		<li><a class="dropdown-item item-hover" href="#">예매조회</a></li>
-                    	</ul>
-                    </li>
-                    <li class="dropdown">
-                    	<a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">극장</a>
-                    	<ul class="dropdown-menu dropdown-menu-dark ulbg-whtie">
-                    		<li><a class="dropdown-item item-hover" href="#">전주극장</a></li>
-                    		<li><a class="dropdown-item item-hover" href="#">익산극장</a></li>
-                    		<li><a class="dropdown-item item-hover" href="#">군산극장</a></li>
-                    	</ul>
-                    </li>
-                    <li></li>
-                </ul>
-                    <form class="d-flex" role="search">
-		        <input class="form-control me-2 searchinput" type="search" placeholder="Search" aria-label="Search">
-		        <button class="btn btn-outline-success searchbtn" type="submit">Search</button>
-		      </form>   
-              </nav>
-          </div>
-      </div>
-  </div>
-</header>
+<%@ include file="../include/nav/userNav.jsp" %>
 
 <!-- body -->
   <div class="properties section">
@@ -169,40 +109,38 @@
 						</div>
 						
 						<!-- 비밀번호 변경 -->
-						<div class="mb-3 col-md-6">
-							<label for="passwordRe" class="form-label"><span>*</span>비밀번호 확인</label>
-							<input class="form-control" type="password"
+						<div class="frm-div">
+							<label for="passwordRe" class="frm-label"><span>*</span>비밀번호 확인</label>
+							<input class="form-control frm-input" type="password"
 									id="passwordRe" name="passwordRe"/>
 						</div>
                         
                         <!-- 닉네임 -->  
-						<div class="mb-3 col-md-6">
-                            <label for="mnicknm" class="form-label block"><span>*</span>닉네임</label>
-                            <input class="form-control reinput" type="text" 
+						<div class="frm-div">
+                            <label for="mnicknm" class="frm-label"><span>*</span>닉네임</label>
+                            <input class="form-control frm-input" type="text" 
                             		id="mnicknm" name="mnicknm"/>
                             <button type="button" class="btn btn-sm btn-outline-primary">중복확인</button>
 						</div>
 						
 						<!-- email -->
-						<div class="mb-3 col-md-6">
-							<label for="email" class="form-label block"><span>*</span>E-mail</label>
-							<input class="form-control reinput" type="email"
+						<div class="frm-div">
+							<label for="email" class="frm-label"><span>*</span>E-mail</label>
+							<input class="form-control frm-input" type="email"
 									id="email" name="email"/>
                             <button type="button" class="btn btn-sm btn-outline-primary">중복확인</button>
 						</div>
                           
 						<!-- 휴대폰번호 -->
-						<div class="mb-3 col-md-6">
-							<label class="form-label" for="mphone"><span>*</span>휴대폰번호</label>
-							<div class="input-group input-group-merge">
-								<input class="form-control" type="text" id="mphone" name="mphone"/>
-							</div>
+						<div class="frm-div">
+							<label for="mphone" class="frm-label"><span>*</span>휴대폰번호</label>
+							<input class="form-control frm-input" type="text" id="mphone" name="mphone"/>
 						</div>
                         
                         <!-- 성별 -->  
-						<div class="mb-3 col-md-6">
-							<label class="form-label" for="gender"><span>*</span>성별</label>
-							<select id="gender" class="select2 form-select">
+						<div class="frm-div">
+							<label for="gender" class="frm-label"><span>*</span>성별</label>
+							<select id="gender" class="select2 form-select frm-select">
 								<option value="">선택</option>
 								<option value="M">남</option>
 								<option value="F">여</option>
