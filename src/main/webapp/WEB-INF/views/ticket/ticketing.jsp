@@ -15,23 +15,64 @@
 <%@ include file="../include/nav/userNav.jsp" %>
 	<!-- contanier -->
 	<div id="tikect-container">
-		<div class="navi">
+		<!-- 네비 -->
+		<div class="tk-navi">
 			<div class="right">
-				<div class="button">
-					<a>
-						<span>상영시간표</span>
-					</a>
+				<a class="button-schedule" href="<%=request.getContextPath()%>/#">
+					<span>상영시간표</span>
+				</a>
+				<a class="button-reset">
+					<span>예매 다시하기</span>
+				</a>
+			</div>
+		</div>
+		<!-- 섹션 -->
+		<div class="tk-section">
+			<!-- 섹션 movie -->
+			<div class="tk-section-movie">
+				<!-- movie 헤드 -->
+				<div class="section-movie-head">
+					<h3 class="">영화</h3>
 				</div>
-				<div class="button">
-					<a>
-						<span>예매 다시하기</span>
-					</a>
+				<!-- movie 바디 -->
+				<div class="section-movie-body">
+					<div class="movie-body-select">
+						<div class="sortmenu">
+							<a href="" onclick="rankSelect();return false;" 
+								id="" class="rank-select background-on">예매율순</a>
+							<a href="" onclick="abcSelect();return false;" 
+								id="" class="abc-select">가나다순</a>
+						</div>
+						<div></div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
-  
 <%@ include file="../include/footer/userFooter.jsp" %>
+<script>
+	window.onload = function(){
+		removeBackgroundImage();
+	}
+	
+	function removeBackgroundImage() {
+		let abcSelect = document.getElementsByClassName("abc-select")[0];
+		let rankSelect = document.getElementsByClassName("rank-select")[0];
+		
+        abcSelect.style.backgroundImage = "none";
+    }
+
+	function rankSelect() {
+		let rankSelect = document.getElementsByClassName("rank-select")[0];
+		
+		rankSelect.style.backgroundImage = "initial";
+	}
+	
+	function abcSelect() {
+		let abcSelect = document.getElementsByClassName("abc-select")[0];
+		
+		abcSelect.style.backgroundImage = "initial";
+	}
+</script>
 </body>
 </html>
