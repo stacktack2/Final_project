@@ -35,18 +35,73 @@ document.addEventListener("DOMContentLoaded", function() {
 	let listItems = document.querySelectorAll('.movie-list-ul li');
 
 	listItems.forEach(function(item) {
-		item.addEventListener('click', function() {
-			let previousSelectedItem = document.querySelector('.selected');
-			let listSpan = item.querySelector('.text');
-			let listSpanWhite = item.querySelector('.textWhite');
-
-			if (previousSelectedItem && listSpanWhite) {
-				previousSelectedItem.classList.remove('selected');
-				listSpanWhite.classList.replace('textWhite', 'text');
-			}
-			
-			listSpan.classList.replace('text', 'textWhite');
-			item.classList.add('selected');
-		});
-	});
+        item.addEventListener('click', function() {
+            let previousSelectedItem = document.querySelector('.selected-movie');
+            let textSpan = item.querySelector('.text');
+            
+            if (previousSelectedItem) {
+                previousSelectedItem.classList.remove('selected-movie');
+                let textWhiteSpan = previousSelectedItem.querySelector('.textWhite');
+                
+                if(textWhiteSpan){
+                	textWhiteSpan.classList.replace('textWhite','text');
+            	}
+                
+                
+            }
+            
+            textSpan.classList.replace('text', 'textWhite');
+            item.classList.add('selected-movie');
+        });
+    });
 });
+    
+document.addEventListener("DOMContentLoaded", function() {
+	let listItems = document.querySelectorAll('.theater-list-ul li');
+
+	listItems.forEach(function(item) {
+            item.addEventListener('click', function() {
+                let previousSelectedItem = document.querySelector('.selected-theater');
+                let textSpan = item.querySelector('.text');
+                
+                if (previousSelectedItem) {
+                    previousSelectedItem.classList.remove('selected-theater');
+                    let textWhiteSpan = previousSelectedItem.querySelector('.textWhite');
+                    
+	                if(textWhiteSpan){
+	                	textWhiteSpan.classList.replace('textWhite','text');
+	            	}
+                    
+                    
+                }
+                
+                textSpan.classList.replace('text', 'textWhite');
+                item.classList.add('selected-theater');
+            });
+        });
+    });
+    
+document.addEventListener("DOMContentLoaded", function() {
+	let listItems = document.querySelectorAll('.date-list-ul li');
+
+	listItems.forEach(function(item) {
+            item.addEventListener('click', function() {
+                let previousSelectedItem = document.querySelector('.selected-date-day');
+                let textSpan = item.querySelector('.text');
+                
+                if (previousSelectedItem) {
+                    previousSelectedItem.classList.remove('selected-date-day');
+                    let textWhiteSpan = previousSelectedItem.querySelector('.textWhite');
+                    
+	                if(textWhiteSpan){
+	                	textWhiteSpan.classList.replace('textWhite','text');
+	            	}
+                    
+                    
+                }
+                
+                textSpan.classList.replace('text', 'textWhite');
+                item.classList.add('selected-date-day');
+            });
+        });
+    });

@@ -78,6 +78,61 @@
 					</div>
 				</div>
 			</div>
+			<!-- 섹션 theater -->
+			<div class="tk-section-theater">
+				<!-- theater 헤드 -->
+				<div class="section-theater-head">
+					<h3 class="">극장</h3>
+				</div>
+				<!-- theater 바디 -->
+				<div class="section-theater-body">
+					<div class="theater-body-select">
+						<div class="theater-list">
+							<ul class="theater-list-ul">
+								<li class="">
+									<a href="#" onclick="return false;" title="전주극장">
+										<span class="text">전주극장</span>
+									</a>
+								</li>
+								<li class="">
+									<a href="#" onclick="return false;" title="익산극장">
+										<span class="text">익산극장</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 섹션 date -->
+			<div class="tk-section-date">
+				<!-- date 헤드 -->
+				<div class="section-date-head">
+					<h3 class="">날짜</h3>
+				</div>
+				<!-- date 바디 -->
+				<div class="section-date-body">
+					<div class="date-body-select">
+						<div class="date-list">
+							<ul class="date-list-ul">
+								<li class="date-yearMonth">
+									<div>
+										<span class="year">2024</span>
+										<span class="month">3</span>
+									</div>
+								</li>
+								<li class="date-day">
+									<a href="#" onclick="return false;">
+										<span class="dayweek">금</span>
+										<span class="day">15</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 <%@ include file="../include/footer/userFooter.jsp" %>
