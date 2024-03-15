@@ -646,12 +646,10 @@ img {
 .time-option {
     float: left;
     width: 306px;
-    margin-top: 19px;
-    margin-left: 20px;
+    margin-top: 15px;
     height: 23px;
-    line-height: 32px;
+    line-height: 20px;
     font-size: 12px;
-    border-bottom: solid 2px #cfcdc3;
     background: url(../ticketImages/sortmenu_border_bottom.png) repeat-x bottom;
 }
 
@@ -671,18 +669,45 @@ img {
     background: url(http://img.cgv.co.kr/CGV_RIA/Ticket/image/reservation/icon/icon_morning_night.png) no-repeat left;
     background-position: 0 -20px;
 }
-    
-    
-    
-    
 
-.background-on{
-	background: url(../ticketImages/sortmenu_btn_on.png) no-repeat 50% 100%;
+.time-list {
+    float: left;
+    width: 306px;
+    height: 88%;
+    margin-top: 5px;
+    overflow: hidden
+}
+    
+.time-theater {
+    float: left;
+    width: 306px;
+    border-bottom: solid 2px #cfcdc3;
+    overflow: hidden;
 }
 
-.sortmenu > a{
-	color: #333;
+.time-theater .title {
+    font-family: 'Tahoma', '돋움', dotum, Nanum Gothic, sans-serif;
 }
+
+.time-theater .title span.name {
+    color: #b54d15;
+    font-size: 12px;
+    font-weight: bold;
+    margin-right: 6px;
+}
+
+.time-theater .title span.floor {
+    color: #333;
+    font-size: 12px;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.time-theater .title span.seatcount {
+    color: #666;
+    font-size: 12px;
+}
+
 
 /*占쌨댐옙호占쏙옙占쏙옙 占쏙옙占�*/
 ul.nav li.dropdown:hover > ul.dropdown-menu {

@@ -349,6 +349,48 @@
 							<span class="morning">모닝</span>
 							<span class="night">심야</span>
 						</div>
+						<div class="time-list">
+								<div class="time-theater" screen_cd="009" movie_cd="20035761">
+								<span class="title">
+									<span class="name">IMAX 2D</span>
+									<span class="floor">IMAX관</span>
+									<span class="seatcount">(총303석)</span>
+								</span>
+								<ul>
+									<li data-index="0" data-remain_seat="303" play_start_tm="0730" screen_cd="009" movie_cd="20035761" play_num="1" class="morning">
+										<a class="button" href="#" onclick="screenTimeClickListener(event);return false;" title="">
+											<span class="time">
+												<span>07:30</span>
+											</span>
+											<span class="count">165석</span>
+											<div class="sreader">종료시간 10:26</div>
+											<span class="sreader mod"> 조조</span>
+										</a>
+									</li>
+									<li data-index="1" data-remain_seat="303" play_start_tm="1045" screen_cd="009" movie_cd="20035761" play_num="2">
+										<a class="button" href="#" onclick="screenTimeClickListener(event);return false;" title="">
+											<span class="time">
+												<span>10:45</span>
+											</span>
+											<span class="count">75석</span>
+											<div class="sreader">종료시간 13:41</div>
+											<span class="sreader mod"></span>
+										</a>
+									</li>
+									<li data-index="2" data-remain_seat="303" play_start_tm="1400" screen_cd="009" movie_cd="20035761" play_num="3">
+										<a class="button" href="#" onclick="screenTimeClickListener(event);return false;">
+											<span class="time">
+												<span>14:00</span>
+											</span>
+											<span class="count">52석</span>
+											<div class="sreader">종료시간 16:56</div>
+											<span class="sreader mod"></span>
+										</a>
+									</li>
+								</ul>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>		
