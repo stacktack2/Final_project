@@ -38,11 +38,12 @@ document.addEventListener("DOMContentLoaded", function() {
 		item.addEventListener('click', function() {
 			let previousSelectedItem = document.querySelector('.selected');
 			let listSpan = item.querySelector('.text');
+			let listSpanWhite = item.querySelector('.textWhite');
 
-			if (previousSelectedItem) {
+			if (previousSelectedItem && listSpanWhite) {
 				previousSelectedItem.classList.remove('selected');
+				listSpanWhite.classList.replace('textWhite', 'text');
 			}
-			listSpan.classList.replace('textWhite', 'text');
 			
 			listSpan.classList.replace('text', 'textWhite');
 			item.classList.add('selected');
