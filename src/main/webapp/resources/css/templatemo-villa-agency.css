@@ -258,6 +258,76 @@ img {
     padding: 0 5px;
 }
 
+.movie-list {
+    float: left;
+    width: 254px;
+    margin-top: 3px;
+    height: 84%;
+}
+
+.movieAge{
+	position: relative;
+    top: -1px;
+    margin: 0 6px;
+    vertical-align: middle;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-size: cover;
+    text-indent: -9999px;
+    overflow: hidden;
+}
+
+.movie-list > ul > li > a{
+    width: 240px;
+    height: 32px;
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    vertical-align: middle;
+    line-height: 30px;
+    margin: 1px;
+}
+
+.movie-list > ul > li > a span.text {
+    color: #333;
+    font-weight: bold;
+    padding-right: 5px;
+}
+
+.movie-list > ul > li > a span.textWhite {
+    color: #fff;
+    font-weight: bold;
+    padding-right: 5px;
+}
+
+
+.movie-list > ul > li {
+    clear: both;
+    float: left;
+    width: 244px;
+    height: 36px;
+    line-height: 36px;
+    margin-bottom: 2px;
+    position: relative;
+}
+
+.selected{
+	background-color: #333;
+    width: 242px;
+    height: 33px;
+    line-height: 33px;
+    border: 1px solid #000;
+}
+
+.selected a{
+	border: 1px solid #5c5c5c;
+    line-height: 29px;
+    margin: 1px;
+}
+
+
 /*占쌨댐옙호占쏙옙占쏙옙 占쏙옙占�*/
 ul.nav li.dropdown:hover > ul.dropdown-menu {
     display: block;

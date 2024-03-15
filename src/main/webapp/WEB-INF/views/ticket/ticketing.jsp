@@ -39,40 +39,48 @@
 					<div class="movie-body-select">
 						<div class="sortmenu">
 							<a href="" onclick="rankSelect();return false;" 
-								id="" class="rank-select background-on">예매율순</a>
+								id="rank" class="rank-select background-on">예매율순</a>
 							<a href="" onclick="abcSelect();return false;" 
-								id="" class="abc-select">가나다순</a>
+								id="abc" class="abc-select">가나다순</a>
 						</div>
-						<div></div>
+						<div class="movie-list">
+							<ul class="movie-list-ul">
+								<li class="">
+									<a href="#" onclick="return false;" title="듄-파트2">
+										<i class="movieAge">12</i>
+										<span class="text">듄-파트2</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+								<li class="">
+									<a href="#" onclick="return false;" title="듄-파트2">
+										<i class="movieAge">all</i>
+										<span class="text">듄-파트22222</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+								<li class="">
+									<a href="#" onclick="return false;" title="듄-파트2">
+										<i class="movieAge">15</i>
+										<span class="text">듄-파트2123123</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+								<li class="">
+									<a href="#" onclick="return false;" title="듄-파트2">
+										<i class="movieAge">18</i>
+										<span class="text">듄-파트2123123123</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 <%@ include file="../include/footer/userFooter.jsp" %>
-<script>
-	window.onload = function(){
-		removeBackgroundImage();
-	}
-	
-	function removeBackgroundImage() {
-		let abcSelect = document.getElementsByClassName("abc-select")[0];
-		let rankSelect = document.getElementsByClassName("rank-select")[0];
-		
-        abcSelect.style.backgroundImage = "none";
-    }
-
-	function rankSelect() {
-		let rankSelect = document.getElementsByClassName("rank-select")[0];
-		
-		rankSelect.style.backgroundImage = "initial";
-	}
-	
-	function abcSelect() {
-		let abcSelect = document.getElementsByClassName("abc-select")[0];
-		
-		abcSelect.style.backgroundImage = "initial";
-	}
-</script>
+<script src="<%=request.getContextPath() %>/resources/js/ticketing.js"></script>
 </body>
 </html>
