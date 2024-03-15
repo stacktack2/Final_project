@@ -38,19 +38,19 @@ document.addEventListener("DOMContentLoaded", function() {
         item.addEventListener('click', function() {
             let previousSelectedItem = document.querySelector('.selected-movie');
             let textSpan = item.querySelector('.text');
-            
+           
             if (previousSelectedItem) {
                 previousSelectedItem.classList.remove('selected-movie');
-                let textWhiteSpan = previousSelectedItem.querySelector('.textWhite');
+                let textWhiteSpan = previousSelectedItem.querySelector('.white');
                 
                 if(textWhiteSpan){
-                	textWhiteSpan.classList.replace('textWhite','text');
+                	textWhiteSpan.classList.remove('white');
             	}
                 
                 
             }
             
-            textSpan.classList.replace('text', 'textWhite');
+            textSpan.classList.add('white');
             item.classList.add('selected-movie');
         });
     });
@@ -66,42 +66,99 @@ document.addEventListener("DOMContentLoaded", function() {
                 
                 if (previousSelectedItem) {
                     previousSelectedItem.classList.remove('selected-theater');
-                    let textWhiteSpan = previousSelectedItem.querySelector('.textWhite');
+                    let textWhiteSpan = previousSelectedItem.querySelector('.white');
                     
 	                if(textWhiteSpan){
-	                	textWhiteSpan.classList.replace('textWhite','text');
+	                	textWhiteSpan.classList.remove('white');
 	            	}
-                    
                     
                 }
                 
-                textSpan.classList.replace('text', 'textWhite');
+                textSpan.classList.add('white');
                 item.classList.add('selected-theater');
             });
         });
     });
-    
+
+document.addEventListener("DOMContentLoaded", function() {
+    let listItems = document.querySelectorAll('.date-list-ul li');
+
+    listItems.forEach(function(item) {
+        item.addEventListener('click', function() {
+            let previousSelectedItem = document.querySelector('.selected-date-day');
+            let whiteSpans = previousSelectedItem ? previousSelectedItem.querySelectorAll('.white') : [];
+
+            // 이전에 선택된 요소의 클래스와 하위 요소 클래스 제거
+            if (previousSelectedItem) {
+                previousSelectedItem.classList.remove('selected-date-day');
+                whiteSpans.forEach(span => span.classList.remove('white'));
+            }
+
+            // 클릭한 요소에 클래스 추가
+            item.classList.add('selected-date-day');
+
+            // 클릭한 요소의 하위 요소에 클래스 추가
+            let dayWeek = item.querySelector('.dayWeek');
+            let day = item.querySelector('.day');
+            let satDayWeek = item.querySelector('.satDayWeek');
+            let satDay = item.querySelector('.satDay');
+            let sunDayWeek = item.querySelector('.sunDayWeek');
+            let sunDay = item.querySelector('.sunDay');
+
+            if (dayWeek && day) {
+                dayWeek.classList.add('white');
+                day.classList.add('white');
+            } else if (satDayWeek && satDay) {
+                satDayWeek.classList.add('white');
+                satDay.classList.add('white');
+            } else if (sunDayWeek && sunDay) {
+                sunDayWeek.classList.add('white');
+                sunDay.classList.add('white');
+            }
+        });
+    });
+});
+
+
+/*
 document.addEventListener("DOMContentLoaded", function() {
 	let listItems = document.querySelectorAll('.date-list-ul li');
 
 	listItems.forEach(function(item) {
             item.addEventListener('click', function() {
                 let previousSelectedItem = document.querySelector('.selected-date-day');
-                let textSpan = item.querySelector('.text');
                 
-                if (previousSelectedItem) {
-                    previousSelectedItem.classList.remove('selected-date-day');
-                    let textWhiteSpan = previousSelectedItem.querySelector('.textWhite');
-                    
-	                if(textWhiteSpan){
-	                	textWhiteSpan.classList.replace('textWhite','text');
-	            	}
-                    
-                    
+                let dayWeek = item.querySelector('.dayWeek');
+                let day = item.querySelector('.day');
+                
+                let satDayWeek = item.querySelector('.satDayWeek');
+                let satDay = item.querySelector('.satDay');
+                
+                let sunDayWeek = item.querySelector('.sunDayWeek');
+                let sunDay = item.querySelector('.sunDay');
+                
+                if(previousSelectedItem){
+                	previousSelectedItem.classList.remove('selected-date-day');
+                	let whiteSpans = previousSelectedItem.querySelectorAll('.white');
+    
+				    whiteSpans.forEach(function(span) {
+				        span.classList.remove('white');
+				    });
                 }
-                
-                textSpan.classList.replace('text', 'textWhite');
-                item.classList.add('selected-date-day');
+				
+				if(dayWeek && day){
+                	dayWeek.classList.add('white');
+                	day.classList.add('white');
+                }else if(satDayWeek && satDay){
+                	satDayWeek.classList.add('white');
+                	satDay.classList.add('white');
+                }else if(sunDayWeek && sunDay){
+                	sunDayWeek.classList.add('white');
+                	sunDay.classList.add('white');
+                }
+				
+				item.classList.add('selected-date-day');
             });
         });
     });
+*/

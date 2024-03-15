@@ -145,6 +145,7 @@ img {
 #tikect-container .tk-navi > div.right {
     float: right;
     margin-top: 30px;
+    margin-bottom: 30px;
 	display: inline-flex;
 }
 
@@ -161,7 +162,6 @@ img {
 }
 
 .button-reset {
-    margin-right: 15px;
     font-weight: bold;
     border: 1px solid black;
     border-radius: 7%;
@@ -403,16 +403,11 @@ img {
 
 .selected-theater{
 	background-color: #333;
-    width: 223px;
-    height: 33px;
-    line-height: 33px;
     border: 1px solid #000;
 }
 
 .selected-theater a{
 	border: 1px solid #5c5c5c;
-    line-height: 29px;
-    margin: 1px;
 }
 
 
@@ -441,15 +436,15 @@ img {
 }
 
 .section-date-body{
-	margin-left: 20px;
+	margin-left: 5px;
     margin-top: 9px;
-    width: 61px;
+    width: 81px;
     height: 558px;
 }
 
 .date-list {
     float: left;
-    width: 61px;
+    width: 81px;
     margin-top: 3px;
     height: 84%;
 }
@@ -487,13 +482,13 @@ img {
 }
 
 .date-day {
-    margin-left: 10px;
+    margin-left: 7px;
     position: relative;
     clear: both;
     float: left;
     width: 64px;
     height: 35px;
-    line-height: 35px;
+    line-height: 30px;
     margin-bottom: 1px;
 }
 
@@ -504,34 +499,35 @@ img {
     vertical-align: middle;
     padding-left: 8px;
     padding-right: 7px;
-    margin-left: 0;
-}
-/*
-.date-day {
-    float: left;
-    width: 64px;
-    margin-top: 3px;
-    height: 84%;
+    margin-left: 1px;
+    margin-top: 1px;
 }
 
-.date-day > a{
-    width: 64px;
-    height: 35px;
-    display: block;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    vertical-align: middle;
-    line-height: 30px;
-    margin: 1px;
-} */
-
-.date-day a span.dayweek {
-    float: left;
+.date-day a span.dayWeek {
+   float: left;
     color: #333;
-    font-size: 12px;
-    padding-top: 2px;
+    font-size: 13px;
+    padding-top: 1px;
     cursor: pointer;
+    font-weight: bold;
+}
+
+.date-day a span.satDayWeek {
+   float: left;
+    color: blue;
+    font-size: 13px;
+    padding-top: 1px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.date-day a span.sunDayWeek {
+   float: left;
+    color: red;
+    font-size: 13px;
+    padding-top: 1px;
+    cursor: pointer;
+    font-weight: bold;
 }
 
 .date-day a span.day {
@@ -543,22 +539,150 @@ img {
     cursor: pointer;
 }
 
+.date-day a span.satDay {
+    float: right;
+    color: blue;
+    font-family: Verdana;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.date-day a span.sunDay {
+    float: right;
+    color: red;
+    font-family: Verdana;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 .selected-date-day{
 	background-color: #333;
-    width: 223px;
-    height: 33px;
-    line-height: 33px;
     border: 1px solid #000;
 }
 
 .selected-date-day a{
 	border: 1px solid #5c5c5c;
-    line-height: 29px;
-    margin: 1px;
 }
 
+.white{
+	color: white !important;
+}
 
+.movie-list {
+    height: 497px;
+    overflow: auto;
+    overflow-x: hidden;
+}
 
+.movie-list::-webkit-scrollbar {
+    width: 6px; /* 스크롤바의 너비 */
+}
+
+/* 스크롤바의 막대부분 */
+.movie-list::-webkit-scrollbar-thumb {
+    background-color: #888; /* 스크롤바의 색상 */
+    border-radius: 10px;
+}
+
+/* 스크롤바의 트랙(스크롤바를 따라 이동하는 부분) */
+.movie-list::-webkit-scrollbar-track {
+    background-color: #f2f0e5; /* 스크롤바 트랙의 색상 */
+}
+
+.date-list-ul {
+    height: 540px;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.date-list-ul::-webkit-scrollbar {
+    width: 6px; /* 스크롤바의 너비 */
+}
+
+/* 스크롤바의 막대부분 */
+.date-list-ul::-webkit-scrollbar-thumb {
+    background-color: #888; /* 스크롤바의 색상 */
+    border-radius: 10px;
+}
+
+/* 스크롤바의 트랙(스크롤바를 따라 이동하는 부분) */
+.date-list-ul::-webkit-scrollbar-track {
+    background-color: #f2f0e5; /* 스크롤바 트랙의 색상 */
+}
+
+#tikect-container .tk-section-time{
+	width: 346px;
+    position: relative;
+    height: 100%;
+    margin-left: 2px;
+    background-color: #f2f0e5;
+}
+
+#tikect-container .section-time-head{
+	position: relative;
+	width: 346px;
+	height: 33px;
+	background-color: #333333;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#tikect-container .section-time-head > h3{
+	color: #d6d6d6;
+	font-size: 16px;
+	text-align: center;
+}
+
+.time-body-select{
+	margin-left: 20px;
+    margin-top: 9px;
+    width: 254px;
+    height: 100%;
+}
+
+.time-option {
+    float: left;
+    width: 306px;
+    margin-top: 19px;
+    margin-left: 20px;
+    height: 23px;
+    line-height: 32px;
+    font-size: 12px;
+    border-bottom: solid 2px #cfcdc3;
+    background: url(../ticketImages/sortmenu_border_bottom.png) repeat-x bottom;
+}
+
+.time-option span.morning {
+    float: left;
+    height: 14px;
+    padding-left: 18px;
+    background: url(http://img.cgv.co.kr/CGV_RIA/Ticket/image/reservation/icon/icon_morning_night.png) no-repeat left;
+    background-position: 0 0;
+}
+
+.time-option span.night {
+    float: left;
+    height: 14px;
+    padding-left: 14px;
+    margin-left: 14px;
+    background: url(http://img.cgv.co.kr/CGV_RIA/Ticket/image/reservation/icon/icon_morning_night.png) no-repeat left;
+    background-position: 0 -20px;
+}
+    
+    
+    
+    
+
+.background-on{
+	background: url(../ticketImages/sortmenu_btn_on.png) no-repeat 50% 100%;
+}
+
+.sortmenu > a{
+	color: #333;
+}
 
 /*占쌨댐옙호占쏙옙占쏙옙 占쏙옙占�*/
 ul.nav li.dropdown:hover > ul.dropdown-menu {

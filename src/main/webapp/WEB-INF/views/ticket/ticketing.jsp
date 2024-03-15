@@ -18,7 +18,7 @@
 		<!-- 네비 -->
 		<div class="tk-navi">
 			<div class="right">
-				<a class="button-schedule" href="<%=request.getContextPath()%>/#">
+				<a class="button-schedule" href="<%=request.getContextPath()%>/theater">
 					<span>상영시간표</span>
 				</a>
 				<a class="button-reset">
@@ -45,6 +45,90 @@
 						</div>
 						<div class="movie-list">
 							<ul class="movie-list-ul">
+								<li class="">
+									<a href="#" onclick="return false;" title="듄-파트2">
+										<i class="movieAge">12</i>
+										<span class="text">듄-파트2</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+								<li class="">
+									<a href="#" onclick="return false;" title="듄-파트2">
+										<i class="movieAge">all</i>
+										<span class="text">듄-파트22222</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+								<li class="">
+									<a href="#" onclick="return false;" title="듄-파트2">
+										<i class="movieAge">15</i>
+										<span class="text">듄-파트2123123</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+								<li class="">
+									<a href="#" onclick="return false;" title="듄-파트2">
+										<i class="movieAge">18</i>
+										<span class="text">듄-파트2123123123</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+								<li class="">
+									<a href="#" onclick="return false;" title="듄-파트2">
+										<i class="movieAge">12</i>
+										<span class="text">듄-파트2</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+								<li class="">
+									<a href="#" onclick="return false;" title="듄-파트2">
+										<i class="movieAge">all</i>
+										<span class="text">듄-파트22222</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+								<li class="">
+									<a href="#" onclick="return false;" title="듄-파트2">
+										<i class="movieAge">15</i>
+										<span class="text">듄-파트2123123</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+								<li class="">
+									<a href="#" onclick="return false;" title="듄-파트2">
+										<i class="movieAge">18</i>
+										<span class="text">듄-파트2123123123</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+								<li class="">
+									<a href="#" onclick="return false;" title="듄-파트2">
+										<i class="movieAge">12</i>
+										<span class="text">듄-파트2</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+								<li class="">
+									<a href="#" onclick="return false;" title="듄-파트2">
+										<i class="movieAge">all</i>
+										<span class="text">듄-파트22222</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+								<li class="">
+									<a href="#" onclick="return false;" title="듄-파트2">
+										<i class="movieAge">15</i>
+										<span class="text">듄-파트2123123</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+								<li class="">
+									<a href="#" onclick="return false;" title="듄-파트2">
+										<i class="movieAge">18</i>
+										<span class="text">듄-파트2123123123</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
 								<li class="">
 									<a href="#" onclick="return false;" title="듄-파트2">
 										<i class="movieAge">12</i>
@@ -123,8 +207,127 @@
 								</li>
 								<li class="date-day">
 									<a href="#" onclick="return false;">
-										<span class="dayweek">금</span>
+										<span class="dayWeek">금</span>
 										<span class="day">15</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+								<li class="date-day">
+									<a href="#" onclick="return false;">
+										<span class="satDayWeek">토</span>
+										<span class="satDay">16</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+								<li class="date-day">
+									<a href="#" onclick="return false;">
+										<span class="sunDayWeek">일</span>
+										<span class="sunDay">17</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+								<li class="date-day">
+									<a href="#" onclick="return false;">
+										<span class="dayWeek">금</span>
+										<span class="day">15</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+								<li class="date-day">
+									<a href="#" onclick="return false;">
+										<span class="satDayWeek">토</span>
+										<span class="satDay">16</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+								<li class="date-day">
+									<a href="#" onclick="return false;">
+										<span class="sunDayWeek">일</span>
+										<span class="sunDay">17</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+								<li class="date-day">
+									<a href="#" onclick="return false;">
+										<span class="dayWeek">금</span>
+										<span class="day">15</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+								<li class="date-day">
+									<a href="#" onclick="return false;">
+										<span class="satDayWeek">토</span>
+										<span class="satDay">16</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+								<li class="date-day">
+									<a href="#" onclick="return false;">
+										<span class="sunDayWeek">일</span>
+										<span class="sunDay">17</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+								<li class="date-day">
+									<a href="#" onclick="return false;">
+										<span class="dayWeek">금</span>
+										<span class="day">15</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+								<li class="date-day">
+									<a href="#" onclick="return false;">
+										<span class="satDayWeek">토</span>
+										<span class="satDay">16</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+								<li class="date-day">
+									<a href="#" onclick="return false;">
+										<span class="sunDayWeek">일</span>
+										<span class="sunDay">17</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+								<li class="date-day">
+									<a href="#" onclick="return false;">
+										<span class="dayWeek">금</span>
+										<span class="day">15</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+								<li class="date-day">
+									<a href="#" onclick="return false;">
+										<span class="satDayWeek">토</span>
+										<span class="satDay">16</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+								<li class="date-day">
+									<a href="#" onclick="return false;">
+										<span class="sunDayWeek">일</span>
+										<span class="sunDay">17</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+								<li class="date-day">
+									<a href="#" onclick="return false;">
+										<span class="dayWeek">금</span>
+										<span class="day">15</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+								<li class="date-day">
+									<a href="#" onclick="return false;">
+										<span class="satDayWeek">토</span>
+										<span class="satDay">16</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+								<li class="date-day">
+									<a href="#" onclick="return false;">
+										<span class="sunDayWeek">일</span>
+										<span class="sunDay">17</span>
 										<span class="sreader"></span>
 									</a>
 								</li>
@@ -133,6 +336,22 @@
 					</div>
 				</div>
 			</div>
+			<!-- 섹션 time -->
+			<div class="tk-section-time">
+				<!-- time 헤드 -->
+				<div class="section-time-head">
+					<h3 class="">시간</h3>
+				</div>
+				<!-- time 바디 -->
+				<div class="section-time-body">
+					<div class="time-body-select">
+						<div class="time-option">
+							<span class="morning">모닝</span>
+							<span class="night">심야</span>
+						</div>
+					</div>
+				</div>
+			</div>		
 		</div>
 	</div>
 <%@ include file="../include/footer/userFooter.jsp" %>
