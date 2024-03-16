@@ -708,6 +708,80 @@ img {
     font-size: 12px;
 }
 
+.time-theater ul {
+    width: 309px;
+    margin-top: 10px;
+    margin-bottom: 6px;
+    overflow: hidden;
+}
+
+.time-theater ul li {
+  position: relative;
+  float: left;
+  line-height: 25px;
+  padding-bottom: 9px;
+}
+
+.time-theater ul li a {
+    position: relative;
+    float: left;
+    height: 25px;
+    line-height: 25px;
+    padding-bottom: 9px;
+}
+
+.time-theater ul li a span.time {
+    float: left;
+    width: 51px;
+    height: 25px;
+    line-height: 25px;
+    color: #333;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: Verdana;
+}
+
+.time-theater ul li a span.time {
+    width: 49px;
+    height: 23px;
+    line-height: 22px;
+    border: 1px solid #d6d3ce;
+    background-image: none;
+    background-color: #f2f0e5;
+    float: left;
+    padding-left: 4px;
+}
+
+/* 시간 마감 및 좌석 마감 시 disabled*/
+.time-theater ul li.disabled a span.time {
+    color: #666;
+    text-decoration: line-through;
+    background-image: none;
+}
+
+.time-theater ul li a span.time span {
+    display: block;
+}
+
+.time-theater ul li a span.count {
+    float: left;
+    width: 49px;
+    height: 20px;
+    line-height: 25px;
+    text-align: left;
+    color: #3d7c35;
+    font-size: 12px;
+    padding-left: 3px;
+    overflow: hidden;
+}
+
+.sreader {
+    display: block;
+    position: absolute;
+    left: -10000px;
+}
+
+
 
 /*占쌨댐옙호占쏙옙占쏙옙 占쏙옙占�*/
 ul.nav li.dropdown:hover > ul.dropdown-menu {
