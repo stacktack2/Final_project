@@ -119,46 +119,32 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-
-/*
 document.addEventListener("DOMContentLoaded", function() {
-	let listItems = document.querySelectorAll('.date-list-ul li');
+	let listItems = document.querySelectorAll('.time');
 
 	listItems.forEach(function(item) {
             item.addEventListener('click', function() {
-                let previousSelectedItem = document.querySelector('.selected-date-day');
+                let previousSelectedItem = document.querySelector('.selected-time-theater');
+                let textSpan = item.querySelector('span');
+
+                console.log(previousSelectedItem);
+                console.log(textSpan);
                 
-                let dayWeek = item.querySelector('.dayWeek');
-                let day = item.querySelector('.day');
-                
-                let satDayWeek = item.querySelector('.satDayWeek');
-                let satDay = item.querySelector('.satDay');
-                
-                let sunDayWeek = item.querySelector('.sunDayWeek');
-                let sunDay = item.querySelector('.sunDay');
-                
-                if(previousSelectedItem){
-                	previousSelectedItem.classList.remove('selected-date-day');
-                	let whiteSpans = previousSelectedItem.querySelectorAll('.white');
-    
-				    whiteSpans.forEach(function(span) {
-				        span.classList.remove('white');
-				    });
+                if (previousSelectedItem) {
+                    previousSelectedItem.classList.remove('selected-time-theater');
+                    let textWhiteSpan = previousSelectedItem.querySelector('.white');
+                    
+	                if(textWhiteSpan){
+	                	textWhiteSpan.classList.remove('white');
+                        textWhiteSpan.classList.remove('selected-time-theater-span');
+	            	}
                 }
-				
-				if(dayWeek && day){
-                	dayWeek.classList.add('white');
-                	day.classList.add('white');
-                }else if(satDayWeek && satDay){
-                	satDayWeek.classList.add('white');
-                	satDay.classList.add('white');
-                }else if(sunDayWeek && sunDay){
-                	sunDayWeek.classList.add('white');
-                	sunDay.classList.add('white');
-                }
-				
-				item.classList.add('selected-date-day');
+
+                item.classList.add('selected-time-theater');
+                textSpan.classList.add('white');
+                textSpan.classList.add('selected-time-theater-span');
+                
             });
         });
     });
-*/
+
