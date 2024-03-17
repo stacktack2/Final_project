@@ -980,6 +980,48 @@ img {
     padding-top: 30px;
 }
 
+/* ticketSeat css */
+#tikect-container .seat-section {
+	position: relative;
+    width: 996px;
+    height: 600px;
+    background-color: #d4d3c9;
+    display: inline-flex;
+    flex-direction: column;
+}
+
+#tikect-container .seat-section-bg{
+	width: 992px;
+	position: relative;
+    height: 100%;
+    margin-left: 2px;
+    background-color: #f2f0e5;
+}
+
+#tikect-container .seat-section-head{
+	position: relative;
+	width: 992px;
+	height: 33px;
+	background-color: #333333;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#tikect-container .seat-section-head > h3{
+	color: #d6d6d6;
+	font-size: 16px;
+	text-align: center;
+}
+
+.person_screen {
+    position: relative;
+    border-bottom: 2px solid #d4d3c9;
+    display: inline-block;
+    padding: 17px 0 3px 0;
+    width: 100%;
+}
+
 /*占쌨댐옙호占쏙옙占쏙옙 占쏙옙占�*/
 ul.nav li.dropdown:hover > ul.dropdown-menu {
     display: block;
