@@ -31,6 +31,8 @@ document.addEventListener("DOMContentLoaded", function() {
 	});
 });
 
+
+
 document.addEventListener("DOMContentLoaded", function() {
 	let listItems = document.querySelectorAll('.movie-list-ul li');
 
@@ -38,6 +40,7 @@ document.addEventListener("DOMContentLoaded", function() {
         item.addEventListener('click', function() {
             let previousSelectedItem = document.querySelector('.selected-movie');
             let textSpan = item.querySelector('.text');
+            let textValue = item.querySelector('.text');
            
             if (previousSelectedItem) {
                 previousSelectedItem.classList.remove('selected-movie');
@@ -46,12 +49,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 if(textWhiteSpan){
                 	textWhiteSpan.classList.remove('white');
             	}
-                
-                
             }
             
             textSpan.classList.add('white');
             item.classList.add('selected-movie');
+            console.log(textValue);
         });
     });
 });
@@ -147,4 +149,3 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
     });
-

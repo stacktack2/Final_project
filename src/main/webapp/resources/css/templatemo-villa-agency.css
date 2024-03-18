@@ -949,7 +949,7 @@ img {
 	background: url(../ticketImages/btn-nonCheck.png) no-repeat 50% 15px;
 }
 
-.btn-right > span:last-child{
+.btn-right > span{
 	color: lightgrey;
     text-align: center;
     font-weight: bold;
@@ -1014,13 +1014,594 @@ img {
 	text-align: center;
 }
 
+.section-seat-body{
+	height: auto;
+	width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
 .person_screen {
     position: relative;
     border-bottom: 2px solid #d4d3c9;
     display: inline-block;
-    padding: 17px 0 3px 0;
+    padding: 17px 0 10px 0;
     width: 100%;
 }
+
+.person-number{
+	width: 460px;
+	position: relative;
+	overflow: hidden;
+	height: 140px;
+	float: left;
+	display: block;
+}
+
+.pn-container{
+	margin-left: 25px;
+    padding-right: 18px;
+    border-right: 1px solid #d4d3c9;
+    display: inline-block;
+}
+
+.max-personNumber{
+	padding-bottom: 5px;
+    text-align: right;
+    font-size: 11px !important;
+    color: red;
+}
+
+/* 성인 */
+.group_adult {
+    float: left;
+    margin-bottom: 8px;
+}
+
+.group_adult span.title {
+    float: left;
+    width: 55px;
+    height: 22px;
+    line-height: 22px;
+    color: #666;
+    letter-spacing: -0.1em;
+}
+
+.group_adult ul {
+    float: left;
+    width: auto;
+    height: 22px;
+    line-height: 22px;
+    overflow: hidden;
+    display: flex;
+}
+
+/* 선택되면 바뀌는 css */
+.group_adult ul li.selected {
+    border-color: #000;
+    background-color: #333;
+}
+
+/* 선택되면 바뀌는 css */
+.group_adult ul li.selected a {
+    margin: 1px;
+    border: 1px solid #5c5c5c;
+    width: 16px;
+    height: 16px;
+    line-height: 15px;
+    font-family: 'Tahoma', '돋움', dotum, Nanum Gothic, sans-serif;
+}
+
+.group_adult ul li {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    border: 1px solid #d6d3ce;
+    background-color: #f2f0e5;
+    margin-right: 8px;
+}
+
+.group_adult ul li a {
+    display: block;
+    height: 100%;
+    color: #333;
+    font-family: Verdana;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    font-family: 'Tahoma', '돋움', dotum, Nanum Gothic, sans-serif;
+}
+
+/* 청소년 */
+.group_youth {
+    float: left;
+    margin-bottom: 8px;
+}
+
+.group_youth span.title {
+    float: left;
+    width: 55px;
+    height: 22px;
+    line-height: 22px;
+    color: #666;
+    letter-spacing: -0.1em;
+}
+
+.group_youth ul {
+    float: left;
+    width: auto;
+    height: 22px;
+    line-height: 22px;
+    overflow: hidden;
+    display: flex;
+}
+
+/* 선택되면 바뀌는 css */
+.group_youth ul li.selected {
+    border-color: #000;
+    background-color: #333;
+}
+
+/* 선택되면 바뀌는 css */
+.group_youth ul li.selected a {
+    margin: 1px;
+    border: 1px solid #5c5c5c;
+    width: 16px;
+    height: 16px;
+    line-height: 15px;
+    font-family: 'Tahoma', '돋움', dotum, Nanum Gothic, sans-serif;
+}
+
+.group_youth ul li {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    border: 1px solid #d6d3ce;
+    background-color: #f2f0e5;
+    margin-right: 8px;
+}
+
+.group_youth ul li a {
+    display: block;
+    height: 100%;
+    color: #333;
+    font-family: Verdana;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    font-family: 'Tahoma', '돋움', dotum, Nanum Gothic, sans-serif;
+}
+
+/* 경로 */
+.group_senior {
+    float: left;
+    margin-bottom: 8px;
+}
+
+.group_senior span.title {
+    float: left;
+    width: 55px;
+    height: 22px;
+    line-height: 22px;
+    color: #666;
+    letter-spacing: -0.1em;
+}
+
+.group_senior ul {
+    float: left;
+    width: auto;
+    height: 22px;
+    line-height: 22px;
+    overflow: hidden;
+    display: flex;
+}
+
+/* 선택되면 바뀌는 css */
+.group_senior ul li.selected {
+    border-color: #000;
+    background-color: #333;
+}
+
+/* 선택되면 바뀌는 css */
+.group_senior ul li.selected a {
+    margin: 1px;
+    border: 1px solid #5c5c5c;
+    width: 16px;
+    height: 15px;
+    line-height: 15px;
+    font-family: 'Tahoma', '돋움', dotum, Nanum Gothic, sans-serif;
+}
+
+.group_senior ul li {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    border: 1px solid #d6d3ce;
+    background-color: #f2f0e5;
+    margin-right: 8px;
+}
+
+.group_senior ul li a {
+    display: block;
+    height: 100%;
+    color: #333;
+    font-family: Verdana;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    font-family: 'Tahoma', '돋움', dotum, Nanum Gothic, sans-serif;
+}
+
+/* 우대 */
+.group_special {
+    float: left;
+    margin-bottom: 8px;
+}
+
+.group_special span.title {
+    float: left;
+    width: 55px;
+    height: 22px;
+    line-height: 22px;
+    color: #666;
+    letter-spacing: -0.1em;
+}
+
+.group_special ul {
+    float: left;
+    width: auto;
+    height: 22px;
+    line-height: 22px;
+    overflow: hidden;
+    display: flex;
+}
+
+/* 선택되면 바뀌는 css */
+.group_special ul li.selected {
+    border-color: #000;
+    background-color: #333;
+}
+
+/* 선택되면 바뀌는 css */
+.group_special ul li.selected a {
+    margin: 1px;
+    border: 1px solid #5c5c5c;
+    width: 16px;
+    height: 15px;
+    line-height: 15px;
+    font-family: 'Tahoma', '돋움', dotum, Nanum Gothic, sans-serif;
+}
+
+.group_special ul li {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    border: 1px solid #d6d3ce;
+    background-color: #f2f0e5;
+    margin-right: 8px;
+}
+
+.group_special ul li a {
+    display: block;
+    height: 100%;
+    color: #333;
+    font-family: Verdana;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    font-family: 'Tahoma', '돋움', dotum, Nanum Gothic, sans-serif;
+}
+
+#reservarionDiscountInfo {
+    display: block;
+    width: 84px;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    border: 1px solid #745447;
+    background-color: #926f60;
+    border-radius: 3px;
+    color: #fff;
+    padding: 0 5px;
+    font-size: 11px;
+}
+
+#reservarionDiscountInfo {
+    position: absolute;
+    bottom: 3px;
+    right: 20px;
+}
+
+#user-select-info{
+	position: relative;
+    letter-spacing: -1px;
+    display: block;
+    width: 500px;
+    height: 100%;
+    float: inline-start;
+    overflow: visible;
+    background: transparent;
+    margin-top: 1px;
+    margin-left: 10px;
+}
+
+.theater-info{
+	font-size: 13px;
+}
+
+#user-select-info p.theater-info span {
+    font-size: 1.1em;
+    padding: 0 11px 0 10px;
+    border-right: 1px solid #ccc;
+    max-width: 200px;
+    height: 23px;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#user-select-info p.theater-info .seatNum .restNum {
+    color: #CA4D10;
+}
+
+#user-select-info p.theater-info .seatNum .totalNum {
+    font-weight: normal;
+}
+
+#user-select-info p.playYMD-info {
+    display: inline-block;
+    line-height: 1.2em;
+    margin-top: 12px;
+    color: #5a5a5a;
+}
+
+#user-select-info p.playYMD-info {
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 1.6em;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+#user-select-info p.playYMD-info b {
+    display: block;
+    float: left;
+    line-height: 20px;
+    font-weight: bold;
+}
+
+#user-select-info p.playYMD-info b.exe {
+    font-size: 0.9em;
+    margin: 0 7px 0 5px;
+    line-height: 15px;
+}
+
+/* 마우스 블락 */
+.mouse_block {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    opacity: 0.4;
+}
+
+.theater_minimap {
+    position: relative;
+    width: auto;
+    padding-top: 20px;
+}
+
+.theater_minimap .theater {
+    margin-left: 20px;
+    width: 818px;
+    height: 365px;
+    position: relative;
+}
+
+.theater_minimap .theater .screen {
+    width: 100%;
+    height: 25px;
+    margin: 0 auto;
+    line-height: 25px;
+    text-align: center;
+    background: url(../ticketImages/screen_bg.png) repeat-x left;
+}
+
+.theater_minimap .theater .screen .text {
+    width: 57px;
+    height: 25px;
+    display: inline-block;
+    zoom: 1;
+    font-weight: bold;
+    color: #858585;
+}
+
+.theater_minimap .theater .seats {
+	width: 256px;
+	height:192px;
+    position: relative;
+    margin: 56px auto 40px auto;
+}
+
+.theater_minimap .theater .seats .row .label {
+    position: absolute;
+    left: 0px;
+    margin-bottom: 1px;
+    width: 15px;
+    height: 14px;
+    line-height: 14px;
+    border-top: 1px solid #d4d3c9;
+    font-size: 11px;
+    font-family: Verdana;
+    font-weight: bold;
+    text-align: center;
+}
+
+.theater_minimap .theater .seats .row {
+    position: absolute;
+    height: 15px;
+    line-height: 15px;
+}
+
+.theater_minimap .theater .seats .row .seat {
+    position: absolute;
+    width: 16px;
+    height: 15px;
+}
+
+.theater_minimap .theater .seats .row .seat a {
+    display: block;
+    height: 100%;
+    cursor: pointer;
+    letter-spacing: -1px;
+}
+
+.theater_minimap .theater .seats .row .seat.handicap a .no {
+    background-color: #5d822e;
+    background-position: -75px 0;
+}
+
+.theater_minimap .theater .seats .row .seat a .no {
+	display: block;
+    width: 15px;
+    height: 15px;
+    line-height: 15px;
+    overflow: hidden;
+    text-align: center;
+    color: #fff;
+    font-size: 10px;
+    background-color: #666;
+    background-position: 1000px 1000px;
+}
+
+.theater_minimap .theater .seats .row .seat.rating_economy a .no {
+    width: 15px;
+    height: 15px;
+    line-height: 11px;
+    border: solid 2px #ed8c00;
+}
+
+.theater_minimap .legend {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: auto;
+    height: 100%;
+}
+
+.seat-icon-desc {
+    margin-left: 5px;
+    line-height: 15px;
+}
+
+.seat-icon-desc .icon {
+    position: relative;
+    display: block;
+    margin-top: 8px;
+    padding-left: 19px;
+    height: 15px;
+    color: #666;
+    font-size: 12px;
+}
+
+.seat-icon-desc .icon:first-child {
+    margin-top: 0;
+}
+
+.seat-icon-desc .icon.reserved > span {
+    background-color: #bbb;
+    background-image: none;
+}
+
+.seat-icon-desc .icon.notavail > span {
+    background-position: -25px 0;
+    background-color: #bbb;
+}
+
+.seat-icon-desc .icon > span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 15px;
+    height: 16px;
+    padding: 0;
+}
+.seat-icon-desc .icon > span {
+    background: url(http://img.cgv.co.kr/CGV_RIA/Ticket/image/reservation/step2/seat_icons_20210617.png) no-repeat;
+}
+
+.theater_minimap .seat-type {
+    margin-top: 23px;
+    margin-left: 5px;
+}
+
+.seat-type .radiobutton:first-child {
+    margin-top: 0;
+}
+
+.seat-type .radiobutton {
+    position: relative;
+    display: block;
+    padding-left: 19px;
+    color: #666;
+    font-size: 12px;
+    margin-top: 6px;
+}
+
+.seat-type .radiobutton.type-rating_economy .icon {
+    background-image: none;
+    border: 2px solid #ed8c00;
+    width: 15px;
+    height: 16px;
+}
+
+.seat-type .radiobutton .icon {
+    background: url(http://img.cgv.co.kr/CGV_RIA/Ticket/image/reservation/step2/seat_icons_20220314.png) no-repeat 0, 0;
+    background: url(http://img.cgv.co.kr/CGV_RIA/Ticket/image/reservation/step2/seat_icons_20220314.png);
+}
+
+.seat-type .radiobutton .icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 15px;
+    height: 16px;
+    margin-right: 3px;
+    vertical-align: middle;
+    display: inline-block;
+    zoom: 1;
+}
+
+.seat-type .radiobutton.type-handicap .icon {
+    background-position: -75px 0;
+}
+
+.btn-backmovie-check{
+	float: left;
+    background-color: #343433 !important;
+    width: 115px;
+    margin-left: 10px;
+    height: 107px;
+    border: 3px solid #979797;
+    border-radius: 15%;
+	background: url(../ticketImages/btn-nonCheck-left.png) no-repeat 50% 15px;
+}
+
+.btn-backmovie-check > span{
+	color: lightgrey;
+    text-align: center;
+    font-weight: bold;
+    line-height: 103px;
+    font-family: 'Tahoma', '돋움', dotum, Nanum Gothic, sans-serif;
+    display: block;
+    padding-top: 30px;
+}
+
 
 /*占쌨댐옙호占쏙옙占쏙옙 占쏙옙占�*/
 ul.nav li.dropdown:hover > ul.dropdown-menu {

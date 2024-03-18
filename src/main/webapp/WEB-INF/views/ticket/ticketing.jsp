@@ -536,16 +536,16 @@
 						<span class="path-step3" title="결제">&nbsp;</span>
 					</div>
 				</div>
-				<a type="button"
+				<a type="button" onclick="updateNextButtonState()return false;"
 					href="<%=request.getContextPath() %>/ticket/ticketSeat" 
-					class="btn-right-check" id="seatSelectionButton">
+					class="btn-right" id="seatSelectionButton"><!-- btn-right-check -->
 					<span>좌석선택</span>
 				</a>
 				</div>
 			</div>
 	</div>
 <%@ include file="../include/footer/userFooter.jsp" %>
-<script src="<%=request.getContextPath() %>/resources/js/ticketing.js"></script>
-<!-- <script src="<%=request.getContextPath() %>/resources/js/ticketingTest.js"></script> -->
+<!-- <script src="<%=request.getContextPath() %>/resources/js/ticketing.js"></script> -->
+<script src="<%=request.getContextPath() %>/resources/js/ticketingTest.js"></script>
 </body>
 </html>
