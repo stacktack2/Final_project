@@ -493,14 +493,14 @@
 						<div class="row movie_title colspan2" style="display: block;">
 							<span class="data letter-spacing-min ellipsis-line2">
 								<a href="http://www.cgv.co.kr/movies/detail-view/?midx=87947" 
-									target="_blank" onmousedown="javascript:logClick('SUMMARY/영화상세보기');" 
-									title="듄-파트2">듄-파트2
-								</a>
+									title="듄-파트2" id="selectionMovieTitle">영화제목</a>
 							</span>
 						</div>
+						<!-- 무비타입은 선택값에서 못 받아오기때문에 영화데이터 api에서 받아온 값을 입력. -->
 						<div class="row movie_type" style="display: block;">
 							<span class="data ellipsis-line1" title="4DX 2D">4DX 2D</span>
 						</div>
+						<!-- 무비타입과 동일하게 관람제한나이도 api에서 받아온 값을 입력해야함. -->
 						<div class="row movie_rating" style="display: block;">
 							<span class="data" title="12세 관람가">12세 관람가</span>
 						</div>
@@ -510,10 +510,7 @@
 						<div class="row name" style="display: block;">
 							<span class="header">극장</span>
 							<span class="data letter-spacing-min ellipsis-line1">
-								<a href="http://www.cgv.co.kr/theaters/?theaterCode=0010" 
-									target="_blank" onmousedown="javascript:logClick('SUMMARY/극장상세보기');" 
-									title="CGV 구로">CGV 구로 &gt; 
-								</a>
+								<a title="CGV 구로" id="selectionTheater">극장명</a>
 							</span>
 						</div>
 						<div class="row date" style="display: block;">
@@ -536,16 +533,16 @@
 						<span class="path-step3" title="결제">&nbsp;</span>
 					</div>
 				</div>
-				<a type="button" onclick="updateNextButtonState()return false;"
-					href="<%=request.getContextPath() %>/ticket/ticketSeat" 
-					class="btn-right" id="seatSelectionButton"><!-- btn-right-check -->
+				<a onclick="seatSelectionButton(); return false;"
+					href="<%=request.getContextPath() %>/ticket/ticketSeat"
+					class="btn-right" id="seatSelectionButton">
 					<span>좌석선택</span>
 				</a>
 				</div>
 			</div>
 	</div>
 <%@ include file="../include/footer/userFooter.jsp" %>
-<script src="<%=request.getContextPath() %>/resources/js/ticketing.js"></script>
-<!-- <script src="<%=request.getContextPath() %>/resources/js/ticketingTest.js"></script> -->
+<script src="<%=request.getContextPath() %>/resources/js/ticketing_event.js"></script>
+<script src="<%=request.getContextPath() %>/resources/js/ticketing_view.js"></script>
 </body>
 </html>
