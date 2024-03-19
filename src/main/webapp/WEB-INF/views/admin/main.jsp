@@ -56,167 +56,143 @@
             <!-- 본문 -->
             <div class="container-xxl flex-grow-1 container-p-y">
               <div class="row">
-                <!-- 관람객 합계 -->
-                <div class="col-12 col-lg-8 order-2 order-md-3 order-lg-2 mb-4">
-                  <div class="card">
-                    <div class="row row-bordered g-0">
-                      <div class="col-md-8">
-                        <h5 class="card-header m-0 me-2 pb-3">관람객 합계</h5>
-                        <div id="totalRevenueChart" class="px-2"></div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="card-body">
-                          <div class="text-center">
-                            <div class="dropdown">
-                              <button
-                                class="btn btn-sm btn-outline-primary dropdown-toggle"
-                                type="button"
-                                id="growthReportId"
-                                data-bs-toggle="dropdown"
-                                aria-haspopup="true"
-                                aria-expanded="false"
-                              >
-                                2022
-                              </button>
-                              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="growthReportId">
-                                <a class="dropdown-item" href="javascript:void(0);">2021</a>
-                                <a class="dropdown-item" href="javascript:void(0);">2020</a>
-                                <a class="dropdown-item" href="javascript:void(0);">2019</a>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div id="growthChart"></div>
-                        <div class="text-center fw-semibold pt-3 mb-2">62% Company Growth</div>
-
-                        <div class="d-flex px-xxl-4 px-lg-2 p-4 gap-xxl-3 gap-lg-1 gap-3 justify-content-between">
-                          <div class="d-flex">
-                            <div class="me-2">
-                              <span class="badge bg-label-primary p-2"><i class="bx bx-dollar text-primary"></i></span>
-                            </div>
-                            <div class="d-flex flex-column">
-                              <small>2022</small>
-                              <h6 class="mb-0">$32.5k</h6>
-                            </div>
-                          </div>
-                          <div class="d-flex">
-                            <div class="me-2">
-                              <span class="badge bg-label-info p-2"><i class="bx bx-wallet text-info"></i></span>
-                            </div>
-                            <div class="d-flex flex-column">
-                              <small>2021</small>
-                              <h6 class="mb-0">$41.2k</h6>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                <!-- Bordered Table -->
+              <div class="card">
+                <h5 class="card-header">일별 박스오피스</h5>
+                <div class="card-body">
+                  <div class="table-responsive text-nowrap">
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th>순위</th>
+                          <th>영화명</th>
+                          <th>개봉일</th>
+                          <th>매출액</th>
+                          <th>누적매출액</th>
+                          <th>관객수</th>
+                          <th>누적관객수</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <strong>1</strong>
+                          </td>
+                          <td>파묘</td>
+                          <td>2024.02.22.</td>
+                          <td>1234567</td>
+                          <td>1234567</td>
+                          <td>1234567</td>
+                          <td>1234567</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <strong>2</strong>
+                          </td>
+                          <td>듄:파트2</td>
+                          <td>2024.02.22.</td>
+                          <td>1234567</td>
+                          <td>1234567</td>
+                          <td>1234567</td>
+                          <td>1234567</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <strong>3</strong>
+                          </td>
+                          <td>밥 말리: 원 러브</td>
+                          <td>2024.02.22.</td>
+                          <td>1234567</td>
+                          <td>1234567</td>
+                          <td>1234567</td>
+                          <td>1234567</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <strong>4</strong>
+                          </td>
+                          <td>윙카</td>
+                          <td>2024.02.22.</td>
+                          <td>1234567</td>
+                          <td>1234567</td>
+                          <td>1234567</td>
+                          <td>1234567</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <strong>5</strong>
+                          </td>
+                          <td>윙카</td>
+                          <td>2024.02.22.</td>
+                          <td>1234567</td>
+                          <td>1234567</td>
+                          <td>1234567</td>
+                          <td>1234567</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <strong>6</strong>
+                          </td>
+                          <td>윙카</td>
+                          <td>2024.02.22.</td>
+                          <td>1234567</td>
+                          <td>1234567</td>
+                          <td>1234567</td>
+                          <td>1234567</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <strong>7</strong>
+                          </td>
+                          <td>윙카</td>
+                          <td>2024.02.22.</td>
+                          <td>1234567</td>
+                          <td>1234567</td>
+                          <td>1234567</td>
+                          <td>1234567</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <strong>8</strong>
+                          </td>
+                          <td>윙카</td>
+                          <td>2024.02.22.</td>
+                          <td>1234567</td>
+                          <td>1234567</td>
+                          <td>1234567</td>
+                          <td>1234567</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <strong>9</strong>
+                          </td>
+                          <td>윙카</td>
+                          <td>2024.02.22.</td>
+                          <td>1234567</td>
+                          <td>1234567</td>
+                          <td>1234567</td>
+                          <td>1234567</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <strong>10</strong>
+                          </td>
+                          <td>윙카</td>
+                          <td>2024.02.22.</td>
+                          <td>1234567</td>
+                          <td>1234567</td>
+                          <td>1234567</td>
+                          <td>1234567</td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               </div>
-              <!-- 두번째 줄 -->
-              <div class="row">
-              
-                <!-- 예매율 -->
-                <div class="col-md-6 col-lg-4 col-xl-4 order-0 mb-4">
-                  <div class="card h-100">
-                    <div class="card-header d-flex align-items-center justify-content-between pb-0">
-                      <div class="card-title mb-0">
-                        <h5 class="m-0 me-2">예매율</h5>
-                        
-                      </div>
-                      <div class="dropdown">
-                        <button
-                          class="btn p-0"
-                          type="button"
-                          id="orederStatistics"
-                          data-bs-toggle="dropdown"
-                          aria-haspopup="true"
-                          aria-expanded="false"
-                        >
-                          <i class="bx bx-dots-vertical-rounded"></i>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="orederStatistics">
-                          <a class="dropdown-item" href="javascript:void(0);">Select All</a>
-                          <a class="dropdown-item" href="javascript:void(0);">Refresh</a>
-                          <a class="dropdown-item" href="javascript:void(0);">Share</a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="card-body">
-                      <div class="d-flex justify-content-between align-items-center mb-3">
-                        <div class="d-flex flex-column align-items-center gap-1">
-                          <h2 class="mb-2">8,258</h2>
-                          <span>Total Orders</span>
-                        </div>
-                        <div id="orderStatisticsChart"></div>
-                      </div>
-                      <ul class="p-0 m-0">
-                        <li class="d-flex mb-4 pb-1">
-                          <div class="avatar flex-shrink-0 me-3">
-                            <span class="avatar-initial rounded bg-label-primary"
-                              ><i class="bx bx-mobile-alt"></i
-                            ></span>
-                          </div>
-                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                            <div class="me-2">
-                              <h6 class="mb-0">Electronic</h6>
-                              <small class="text-muted">Mobile, Earbuds, TV</small>
-                            </div>
-                            <div class="user-progress">
-                              <small class="fw-semibold">82.5k</small>
-                            </div>
-                          </div>
-                        </li>
-                        <li class="d-flex mb-4 pb-1">
-                          <div class="avatar flex-shrink-0 me-3">
-                            <span class="avatar-initial rounded bg-label-success"><i class="bx bx-closet"></i></span>
-                          </div>
-                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                            <div class="me-2">
-                              <h6 class="mb-0">Fashion</h6>
-                              <small class="text-muted">T-shirt, Jeans, Shoes</small>
-                            </div>
-                            <div class="user-progress">
-                              <small class="fw-semibold">23.8k</small>
-                            </div>
-                          </div>
-                        </li>
-                        <li class="d-flex mb-4 pb-1">
-                          <div class="avatar flex-shrink-0 me-3">
-                            <span class="avatar-initial rounded bg-label-info"><i class="bx bx-home-alt"></i></span>
-                          </div>
-                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                            <div class="me-2">
-                              <h6 class="mb-0">Decor</h6>
-                              <small class="text-muted">Fine Art, Dining</small>
-                            </div>
-                            <div class="user-progress">
-                              <small class="fw-semibold">849k</small>
-                            </div>
-                          </div>
-                        </li>
-                        <li class="d-flex">
-                          <div class="avatar flex-shrink-0 me-3">
-                            <span class="avatar-initial rounded bg-label-secondary"
-                              ><i class="bx bx-football"></i
-                            ></span>
-                          </div>
-                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                            <div class="me-2">
-                              <h6 class="mb-0">Sports</h6>
-                              <small class="text-muted">Football, Cricket Kit</small>
-                            </div>
-                            <div class="user-progress">
-                              <small class="fw-semibold">99</small>
-                            </div>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>               
+              <!--/ Bordered Table -->
+
               </div>
+
             </div>
             <!-- /본문끝 -->
 			<%@ include file="../include/footer/adminFooter.jsp" %>
