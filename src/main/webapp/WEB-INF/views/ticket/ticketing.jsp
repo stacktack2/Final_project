@@ -545,7 +545,7 @@
 			</div>
 	</div>
 <%@ include file="../include/footer/userFooter.jsp" %>
-<!-- <script src="<%=request.getContextPath() %>/resources/js/ticketing.js"></script> -->
-<script src="<%=request.getContextPath() %>/resources/js/ticketingTest.js"></script>
+<script src="<%=request.getContextPath() %>/resources/js/ticketing.js"></script>
+<!-- <script src="<%=request.getContextPath() %>/resources/js/ticketingTest.js"></script> -->
 </body>
 </html>
