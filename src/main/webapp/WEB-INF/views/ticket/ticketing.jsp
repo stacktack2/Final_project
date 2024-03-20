@@ -493,7 +493,7 @@
 						<div class="row movie_title colspan2" style="display: block;">
 							<span class="data letter-spacing-min ellipsis-line2">
 								<a href="http://www.cgv.co.kr/movies/detail-view/?midx=87947" 
-									title="듄-파트2" id="selectionMovieTitle">영화제목</a>
+									title="듄-파트2" id="selectionMovieTitle"></a>
 							</span>
 						</div>
 						<!-- 무비타입은 선택값에서 못 받아오기때문에 영화데이터 api에서 받아온 값을 입력. -->
@@ -510,12 +510,12 @@
 						<div class="row name" style="display: block;">
 							<span class="header">극장</span>
 							<span class="data letter-spacing-min ellipsis-line1">
-								<a title="CGV 구로" id="selectionTheater">극장명</a>
+								<a title="CGV 구로" id="selectionTheater"></a>
 							</span>
 						</div>
 						<div class="row date" style="display: block;">
 							<span class="header">일시</span>
-							<span class="data" title="2024.3.21(목) 12:50">2024.3.21(목) 12:50</span>
+							<span class="data" title="2024.3.21(목) 12:50"><a>2024.3.21(목)</a> <a>12:50</a></span>
 						</div>
 						<div class="row screen" style="display: block;">
 							<span class="header">상영관</span>

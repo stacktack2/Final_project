@@ -1,32 +1,43 @@
-let day = new Date();
-console.log(day.getFullYear());
-console.log(parseInt(day.getMonth()+1));
-console.log(day.getDate());
-    switch (parseInt(day.getDay())){
-        case 0: 
-            console.log("일");
-            break;
-        case 1:
-            console.log("월");
-            break;
-        case 2:
-            console.log("화");
-            break;
-        case 3:
-            console.log("수");
-            break;
-        case 4:
-            console.log("목");
-            break;
-        case 5:
-            console.log("금");
-            break;
-        case 6:
-            console.log("토");
-            break;
-    }
+let todayDate = new Date();
 
+let currentYear = todayDate.getFullYear();
+let currentMonth = todayDate.getMonth() + 1; // getMonth는 0부터 시작하므로 1을 더해줌
+let currentDay = todayDate.getDate();
+function currentDayKR(year, month, day) { // 날짜의 요일을 가져오는 함수
+    const days = ['일', '월', '화', '수', '목', '금', '토'];
+    const date = new Date(year, month - 1, day);
+return days[date.getDay()];
+}
 
+// 2주 후 날짜 계산
+let futureDate = new Date(todayDate.getTime() + 14 * 24 * 60 * 60 * 1000);
+let futureYear = futureDate.getFullYear();
+let futureMonth = futureDate.getMonth() + 1;
+let futureDay = futureDate.getDay();
+function futureDayKR(year, month, day) { // 날짜의 요일을 가져오는 함수
+    const days = ['일', '월', '화', '수', '목', '금', '토'];
+    const date = new Date(year, month - 1, day);
+return days[date.getDay()];
+}
+
+// 2주 기간동안의 날짜 반복문
+for(let i = todayDate.getTime(); i <= futureDate.getTime(); i += 24 * 60 * 60 * 1000){
+    let date = new Date(i);
+    currentYear = date.getFullYear();
+    currentMonth = date.getMonth() + 1;
+    currentDay = date.getDate();
+    let currentDayOfKR = currentDayKR(currentYear, currentMonth, currentDay);
+
+    console.log(date);
+    console.log(currentYear);
+    console.log(currentMonth);
+    console.log(currentDay);
+    console.log(currentDayOfKR);
+}
+
+// HTML에 현재 날짜 정보 추가
+const dateList = document.querySelectorAll('.date-list-ul');
+console.log(dateList);
 
 // 영화 예매율 순 정렬
 function rankSelect() {
