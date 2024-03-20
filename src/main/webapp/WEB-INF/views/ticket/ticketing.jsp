@@ -21,7 +21,7 @@
 				<a class="button-schedule" href="<%=request.getContextPath()%>/theater">
 					<span>상영시간표</span>
 				</a>
-				<a class="button-reset">
+				<a href="" class="button-reset" onclick="return false;">
 					<span>예매 다시하기</span>
 				</a>
 			</div>
@@ -199,138 +199,7 @@
 					<div class="date-body-select">
 						<div class="date-list">
 							<ul class="date-list-ul">
-								<li class="date-yearMonth">
-									<div>
-										<span class="year">2024</span>
-										<span class="month">3</span>
-									</div>
-								</li>
-								<li class="date-day">
-									<a href="#" onclick="return false;">
-										<span class="dayWeek">금</span>
-										<span class="day">15</span>
-										<span class="sreader"></span>
-									</a>
-								</li>
-								<li class="date-day">
-									<a href="#" onclick="return false;">
-										<span class="satDayWeek">토</span>
-										<span class="satDay">16</span>
-										<span class="sreader"></span>
-									</a>
-								</li>
-								<li class="date-day">
-									<a href="#" onclick="return false;">
-										<span class="sunDayWeek">일</span>
-										<span class="sunDay">17</span>
-										<span class="sreader"></span>
-									</a>
-								</li>
-								<li class="date-day">
-									<a href="#" onclick="return false;">
-										<span class="dayWeek">금</span>
-										<span class="day">15</span>
-										<span class="sreader"></span>
-									</a>
-								</li>
-								<li class="date-day">
-									<a href="#" onclick="return false;">
-										<span class="satDayWeek">토</span>
-										<span class="satDay">16</span>
-										<span class="sreader"></span>
-									</a>
-								</li>
-								<li class="date-day">
-									<a href="#" onclick="return false;">
-										<span class="sunDayWeek">일</span>
-										<span class="sunDay">17</span>
-										<span class="sreader"></span>
-									</a>
-								</li>
-								<li class="date-day">
-									<a href="#" onclick="return false;">
-										<span class="dayWeek">금</span>
-										<span class="day">15</span>
-										<span class="sreader"></span>
-									</a>
-								</li>
-								<li class="date-day">
-									<a href="#" onclick="return false;">
-										<span class="satDayWeek">토</span>
-										<span class="satDay">16</span>
-										<span class="sreader"></span>
-									</a>
-								</li>
-								<li class="date-day">
-									<a href="#" onclick="return false;">
-										<span class="sunDayWeek">일</span>
-										<span class="sunDay">17</span>
-										<span class="sreader"></span>
-									</a>
-								</li>
-								<li class="date-day">
-									<a href="#" onclick="return false;">
-										<span class="dayWeek">금</span>
-										<span class="day">15</span>
-										<span class="sreader"></span>
-									</a>
-								</li>
-								<li class="date-day">
-									<a href="#" onclick="return false;">
-										<span class="satDayWeek">토</span>
-										<span class="satDay">16</span>
-										<span class="sreader"></span>
-									</a>
-								</li>
-								<li class="date-day">
-									<a href="#" onclick="return false;">
-										<span class="sunDayWeek">일</span>
-										<span class="sunDay">17</span>
-										<span class="sreader"></span>
-									</a>
-								</li>
-								<li class="date-day">
-									<a href="#" onclick="return false;">
-										<span class="dayWeek">금</span>
-										<span class="day">15</span>
-										<span class="sreader"></span>
-									</a>
-								</li>
-								<li class="date-day">
-									<a href="#" onclick="return false;">
-										<span class="satDayWeek">토</span>
-										<span class="satDay">16</span>
-										<span class="sreader"></span>
-									</a>
-								</li>
-								<li class="date-day">
-									<a href="#" onclick="return false;">
-										<span class="sunDayWeek">일</span>
-										<span class="sunDay">17</span>
-										<span class="sreader"></span>
-									</a>
-								</li>
-								<li class="date-day">
-									<a href="#" onclick="return false;">
-										<span class="dayWeek">금</span>
-										<span class="day">15</span>
-										<span class="sreader"></span>
-									</a>
-								</li>
-								<li class="date-day">
-									<a href="#" onclick="return false;">
-										<span class="satDayWeek">토</span>
-										<span class="satDay">16</span>
-										<span class="sreader"></span>
-									</a>
-								</li>
-								<li class="date-day">
-									<a href="#" onclick="return false;">
-										<span class="sunDayWeek">일</span>
-										<span class="sunDay">17</span>
-										<span class="sreader"></span>
-									</a>
-								</li>
+								<!-- 여기에 2주짜리 달력이 생깁니다. -->
 							</ul>
 						</div>
 					</div>

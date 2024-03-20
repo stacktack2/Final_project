@@ -155,3 +155,13 @@ document.addEventListener("DOMContentLoaded", function() {
         });
 	});
 });
+
+// 이벤트 초기화
+document.addEventListener("DOMContentLoaded", function() {
+    let resetButton = document.querySelector('.button-reset');
+    
+    resetButton.addEventListener('click', function() {
+        location.reload();
+    });
+});
+
