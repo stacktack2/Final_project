@@ -732,13 +732,15 @@ img {
 
 .time-theater ul li a span.time {
     float: left;
-    width: 51px;
-    height: 25px;
+    width: 53px;
+    height: 27px;
     line-height: 25px;
     color: #333;
     font-size: 12px;
     font-weight: bold;
     font-family: Verdana;
+    padding-left: 1px;
+    padding-top: 1px;
 }
 
 .time-theater ul li a span.time span{
@@ -785,8 +787,8 @@ img {
     border: 1px solid #000;
 }
 
-.selected-time-theater-span{
-	border: 1px solid #5c5c5c;
+.selected-time-theater span{
+	border: 1px solid #5c5c5c !important;
 }
 
 #ticket_tnb {

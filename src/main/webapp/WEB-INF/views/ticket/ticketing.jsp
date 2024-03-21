@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -173,16 +174,13 @@
 					<div class="theater-body-select">
 						<div class="theater-list">
 							<ul class="theater-list-ul">
+								<c:forEach items="${theater }" var="theater">
 								<li class="">
-									<a href="#" onclick="return false;" title="전주극장">
-										<span class="text">전주극장</span>
+									<a href="#" onclick="return false;" title="${theater.tname }">
+										<span class="text">${theater.tname }</span>
 									</a>
 								</li>
-								<li class="">
-									<a href="#" onclick="return false;" title="익산극장">
-										<span class="text">익산극장</span>
-									</a>
-								</li>
+								</c:forEach>
 							</ul>
 						</div>
 					</div>
