@@ -17,6 +17,6 @@
 	*/
 	
 	
-	String dailyResponse = kobisService.getDailyBoxOffice(true, targetDt, itemPerPage, multiMovieYn, repNationCd, WideAreaCd);
+	// String dailyResponse = kobisService.getDailyBoxOffice(true, targetDt, itemPerPage, multiMovieYn, repNationCd, WideAreaCd);
 
 %>
