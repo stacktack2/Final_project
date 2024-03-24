@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -114,12 +115,13 @@
         <a href="<%=request.getContextPath() %>/movie/movieChart" class="more">더보기 ></a>
       </div>
       <div class="row">
+      	<c:forEach items="${movieChart }" var="movieChart">
         <div class="col-lg-4 col-md-6">
           <div class="item">
             <img src="<%=request.getContextPath() %>/resources/images/pamyo_p.jpg" alt="파묘포스터">
             <span class="category">15</span>
-            <h6>1위</h6>
-            <h4>파묘</h4>
+            <h6>${movieChart.rank }위</h6>
+            <h4>${movieChart.movieNm }</h4>
             <ul>
               <li>상영시간: <span>134분</span></li>
             </ul>
@@ -129,7 +131,8 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6">
+        </c:forEach>
+        <%-- <div class="col-lg-4 col-md-6">
           <div class="item">
             <img src="<%=request.getContextPath() %>/resources/images/wonka_p.jpg" alt="웡카포스터">
             <span class="category">ALL</span>
@@ -203,7 +206,7 @@
               <a href="#">예매하기</a>
             </div>
           </div>
-        </div>
+        </div> --%>
       </div>
     </div>
   </div>
