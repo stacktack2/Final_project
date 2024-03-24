@@ -2,9 +2,6 @@ package ezen.dteam.controller;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.HashMap;
-import java.util.Set;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -16,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import kr.or.kobis.kobisopenapi.consumer.rest.KobisOpenAPIRestService;
@@ -78,10 +76,13 @@ public class Main {
 		Object rank = jsonDailyBoxOfficeList.get("rank");
 		System.out.println(rank);
 		*/
-		ObjectMapper mapper = new ObjectMapper();
-		String json = mapper.writeValueAsString(dailyResponse.trim());
+//		ObjectMapper mapper = new ObjectMapper();
+//		
+//		String json = mapper.writeValueAsString(dailyResponse.trim());
+		
 		JSONParser jsonParser = new JSONParser();
-		JSONObject jsonObject = (JSONObject) jsonParser.parse(json);
+		
+		JSONObject jsonObject = (JSONObject) jsonParser.parse(dailyResponse);
 		
 		// dailyResponse의 boxOfficeResult값 받아오기 : 1depth
 		JSONObject jsonBoxOfficeResult = (JSONObject) jsonObject.get("boxOfficeResult");
@@ -91,6 +92,12 @@ public class Main {
 		JSONArray jsonDailyBoxOfficeList = (JSONArray) jsonBoxOfficeResult.get("dailyBoxOfficeList");
 		System.out.println(jsonDailyBoxOfficeList.toString());
 		
+		JSONObject movieChart1 = (JSONObject) jsonDailyBoxOfficeList.get(0);
+		JSONObject movieChart2 = (JSONObject) jsonDailyBoxOfficeList.get(1);
+		JSONObject movieChart3 = (JSONObject) jsonDailyBoxOfficeList.get(2);
+		JSONObject movieChart4 = (JSONObject) jsonDailyBoxOfficeList.get(3);
+		JSONObject movieChart5 = (JSONObject) jsonDailyBoxOfficeList.get(4);
+		JSONObject movieChart6 = (JSONObject) jsonDailyBoxOfficeList.get(5);
 		
 		
 		
