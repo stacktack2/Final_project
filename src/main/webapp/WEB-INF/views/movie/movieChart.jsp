@@ -61,7 +61,7 @@
       
       <div class="row properties-box">
       
-        <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 thriller">
+        <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 thriller"><!-- thriller부분에 장르 el태그로 삽입해야함. -->
           <div class="item">
             <img src="<%=request.getContextPath() %>/resources/images/pamyo_p.jpg" alt="파묘포스터">
             <span class="category">1</span>

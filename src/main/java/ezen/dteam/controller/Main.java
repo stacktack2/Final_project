@@ -2,16 +2,26 @@ package ezen.dteam.controller;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import kr.or.kobis.kobisopenapi.consumer.rest.KobisOpenAPIRestService;
 import kr.or.kobis.kobisopenapi.consumer.rest.exception.OpenAPIFault;
@@ -63,28 +73,55 @@ public class Main {
 		// dailyResponse의 boxOfficeResult값 받아오기 : 1depth
 		JSONObject jsonBoxOfficeResult = (JSONObject) jsonObject.get("boxOfficeResult");
 		
+		
 		// boxOfficeResult의 dailyBoxOfficeList값 받아오기 : 2depth
 		JSONArray jsonDailyBoxOfficeList = (JSONArray) jsonBoxOfficeResult.get("dailyBoxOfficeList");
 		
+		// index로 movieChart값 request
 		request.setAttribute("movieChart", jsonDailyBoxOfficeList);
 		
-		JSONObject movieChart1 = (JSONObject) jsonDailyBoxOfficeList.get(0);
-		JSONObject movieChart2 = (JSONObject) jsonDailyBoxOfficeList.get(1);
-		JSONObject movieChart3 = (JSONObject) jsonDailyBoxOfficeList.get(2);
-		JSONObject movieChart4 = (JSONObject) jsonDailyBoxOfficeList.get(3);
-		JSONObject movieChart5 = (JSONObject) jsonDailyBoxOfficeList.get(4);
-		JSONObject movieChart6 = (JSONObject) jsonDailyBoxOfficeList.get(5);
+//		JSONObject movieChart1 = (JSONObject) jsonDailyBoxOfficeList.get(0);
+//		JSONObject movieChart2 = (JSONObject) jsonDailyBoxOfficeList.get(1);
+//		JSONObject movieChart3 = (JSONObject) jsonDailyBoxOfficeList.get(2);
+//		JSONObject movieChart4 = (JSONObject) jsonDailyBoxOfficeList.get(3);
+//		JSONObject movieChart5 = (JSONObject) jsonDailyBoxOfficeList.get(4);
+//		JSONObject movieChart6 = (JSONObject) jsonDailyBoxOfficeList.get(5);
 		
-		System.out.println(movieChart1);
-		System.out.println(movieChart2);
-		System.out.println(movieChart3);
-		System.out.println(movieChart4);
-		System.out.println(movieChart5);
-		System.out.println(movieChart6);
+		String movieCd = null;
+		String strMovieInfoResult = null;
+		
+		// jsonDailyBoxOfficeList에서 movieCd값들만 JSONObject로 받아오기
+		for(Object obj : jsonDailyBoxOfficeList) {
+			
+			// json object에 저장
+			JSONObject movie = (JSONObject) obj;
+			
+			// movieCd String변환
+			movieCd = (String) movie.get("movieCd");
+			
+			strMovieInfoResult = service.getMovieInfo(true, movieCd);
+			
+			JSONObject jsonMovieInfoResult = (JSONObject) jsonParser.parse(strMovieInfoResult);
+			
+			
+			
+		}
 		
 		
-		
-
+//		String url = "https://kobis.or.kr/kobis/business/mast/mvie/searchMovieList.do?dtTp=movie&dtCd=20234675";
+//		
+//        // 해당 URL에서 HTML을 가져옵니다.
+//        Document doc = Jsoup.connect("https://kobis.or.kr/kobis/business/mast/mvie/searchMovieList.do?dtTp=movie&dtCd=20234675").get();
+//
+//        // 이미지를 포함하는 모든 <img> 태그를 선택합니다.
+//        Elements images = doc.select("img");
+//
+//        // 각 이미지의 src 속성을 가져와서 출력합니다.
+//        for (Element image : images) {
+//            String imageUrl = image.attr("src");
+//            System.out.println("Image URL: " + imageUrl);
+//        }
+        
 		return "index";
 	}
 
