@@ -118,7 +118,7 @@
       	<c:forEach items="${movieChart }" var="movieChart">
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <img src="<%=request.getContextPath() %>/resources/images/pamyo_p.jpg" alt="파묘포스터">
+            <img src="<%=request.getContextPath() %>/resources/images/${movieChart.movieCd }_p.jpg" alt="${movieChart.movieNm }포스터">
             <span class="category">15</span>
             <h6>${movieChart.rank }위</h6>
             <h4>${movieChart.movieNm }</h4>
