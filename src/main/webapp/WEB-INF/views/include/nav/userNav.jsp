@@ -12,8 +12,8 @@
 				<div class="col-lg-8 col-md-8"></div>
 				<div class="col-lg-4 col-md-4">
 					<ul class="topmenu">
-						<li><a href="<%=request.getContextPath() %>/user/join">회원가입 </a> |</li>
-						<li><a href="<%=request.getContextPath() %>/user/login">로그인</a> |</li>
+						<li><a href="<%=request.getContextPath() %>/join">회원가입 </a> |</li>
+						<li><a href="<%=request.getContextPath() %>/login">로그인</a> |</li>
 						<li><a href="<%=request.getContextPath() %>/myinfo">내정보</a> |</li>
 						<li><a href="<%=request.getContextPath() %>/serviceCenter/noticeList">고객센터</a></li>
 </ul>

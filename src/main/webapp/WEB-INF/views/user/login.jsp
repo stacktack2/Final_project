@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html
   lang="ko"
@@ -52,8 +51,10 @@
                 </a>
               </div>
               <!-- /Logo -->
-              <form id="formAuthentication" class="mb-3" action="#" method="POST">
-                
+              <form id="formAuthentication" 
+              		class="mb-3" 
+              		action="<%=request.getContextPath()%>/user/loginOk" 
+              		method="POST">
                 <div class="mb-3">
                   <label for="mid" class="form-label">아이디</label>
                   <a href="findId" style="float:right;">
@@ -95,7 +96,6 @@
                   <button class="btn btn-primary d-grid w-100" type="submit">로그인</button>
                 </div>
               </form>
-
               <p class="text-center">
                 <span>아직 회원이 아니신가요?</span>
                 <a href="join">
@@ -108,10 +108,7 @@
         </div>
       </div>
     </div>
-
     <!-- / Content -->
-
-
     <!-- JS -->
     <script src="<%=request.getContextPath() %>/resources/jquery/jquery.js"></script>
     <script src="<%=request.getContextPath() %>/resources/js/popper.js"></script>
