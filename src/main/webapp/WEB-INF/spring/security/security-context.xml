@@ -18,14 +18,14 @@
 							login-processing-url="/loginOk"
 							authentication-success-handler-ref="userLoginSuccessHandler" 
 							authentication-failure-handler-ref="userLoginFailureHandler" 
-							username-parameter="username" password-parameter="password"/>
+							username-parameter="mid" password-parameter="mpw"/> <!-- 내가 정한 id,pw 필드명으로 넣기 -->
 		<security:session-management>
 			<!-- 한번에 한사람만, 아니면 로그인페이지로 이동 -->
 			<security:concurrency-control max-sessions="1" 
-										expired-url="/user/login" 
+										expired-url="/login" 
 										error-if-maximum-exceeded="true"/>
 		</security:session-management>
-		<security:logout logout-url="/user/logout" logout-success-url="/user/login"
+		<security:logout logout-url="/user/logout" logout-success-url="/login"
 						invalidate-session="true" delete-cookies="JSESSIONID, SPRING_SECURITY_REMEMBER_ME_COOKIE"/>
 		<security:access-denied-handler ref="userDeniedHandler"/>
 		<security:remember-me key="userkey" token-validity-seconds="86400"/><!-- 하루동안 유지 -->

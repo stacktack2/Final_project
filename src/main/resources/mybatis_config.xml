@@ -11,6 +11,7 @@
 		<typeAlias type="ezen.dteam.vo.FileVO" alias="FileVO"/>
 		<typeAlias type="ezen.dteam.vo.IcmtReplyVO" alias="IcmtReplyVO"/>
 		<typeAlias type="ezen.dteam.vo.MemberVO" alias="MemberVO"/>
+		<typeAlias type="ezen.dteam.vo.UserVO" alias="UserVO"/>
 		<typeAlias type="ezen.dteam.vo.ScreenHallVO" alias="ScreenHallVO"/>
 		<typeAlias type="ezen.dteam.vo.ScreenSeatVO" alias="ScreenSeatVO"/>
 		<typeAlias type="ezen.dteam.vo.ScreenVO" alias="ScreenVO"/>
@@ -18,8 +19,5 @@
 		<typeAlias type="ezen.dteam.vo.TicketDetailVO" alias="TicketDetailVO"/>
 		<typeAlias type="ezen.dteam.vo.TicketVO" alias="TicketVO"/>
 	</typeAliases>
-
-	
-	
 </configuration>
 

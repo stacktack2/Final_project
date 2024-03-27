@@ -3,6 +3,7 @@ package ezen.dteam.controller;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -18,11 +19,13 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import ezen.dteam.vo.CinemaVO;
 import kr.or.kobis.kobisopenapi.consumer.rest.KobisOpenAPIRestService;
 import kr.or.kobis.kobisopenapi.consumer.rest.exception.OpenAPIFault;
 
@@ -33,6 +36,7 @@ import kr.or.kobis.kobisopenapi.consumer.rest.exception.OpenAPIFault;
 public class Main {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@GetMapping("/")
 	public String home(Model model, HttpServletRequest request, HttpServletResponse response) throws OpenAPIFault, Exception {
 		
 		LocalDate today = LocalDate.now();
@@ -100,18 +104,49 @@ public class Main {
 			JSONObject movieInfo = (JSONObject)	 movieInfoResult.get("movieInfo");
 			System.out.println(movieInfo);
 			
-			// movieInfo에서 영화코드 가져오기
-			JSONObject dailyBOCcode = (JSONObject) movieInfo.get("movieCd");
-			// movieInfo에서 영화제목 가져오기
-			JSONObject dailyBOCnmae = (JSONObject) movieInfo.get("movieNm");
-			// movieInfo에서 영화제목영문 가져오기
-			JSONObject dailyBOCnmaeEn = (JSONObject) movieInfo.get("movieNmEn");
-			// movieInfo에서 영화소개는 없음(cinema DB는 자유입력)
-			// movieInfo에서 제작년도
-			JSONObject dailyBOCprdtYear = (JSONObject) movieInfo.get("prdtYear");
-			// 
+			String ccode = movieInfo.get("movieCd").toString(); // 영화코드
+			Object cname = movieInfo.get("movieNm"); // 영화제목
+			Object cnameEn = movieInfo.get("movieNmEn"); // 영화제목영문
+			// 영화소개는 없음(cinema DB는 자유입력)
+			Object cprdtYear = movieInfo.get("prdtYear"); // 제작년도
+			Object cshowTmime = movieInfo.get("showTm"); // 상영시간
+			Object copenDate = movieInfo.get("openDt"); // 개봉연도
+			Object cprdtStatNm = movieInfo.get("prdtStatNm"); // 제작상태
+			Object ctypeNm = movieInfo.get("typeNm"); // 영화유형
+			
+			JSONArray jsonArrayNationNm = (JSONArray) movieInfo.get("nations");
+			JSONObject jsonObjectNationNm = (JSONObject) jsonArrayNationNm.get(0);
+			Object cnationNm = jsonObjectNationNm.get("nationNm"); // 제작국가명
+			
+			JSONArray jsonArrayGenres = (JSONArray) movieInfo.get("genres");
+			for(int i = 0; i <= jsonArrayGenres.size(); i++) {
+				JSONObject jsonObjectGenreNm = (JSONObject) jsonArrayGenres.get(i);
+				
+//				JSONObject jsonObjectGenreNm1 = (JSONObject) jsonArrayGenres.get(0);
+//				JSONObject jsonObjectGenreNm2 = (JSONObject) jsonArrayGenres.get(1);
+			}
+//			Object genreNm1 = jsonObjectGenreNm1.get("genreNm"); // 영화장르1
+//			Object genreNm2 = jsonObjectGenreNm2.get("genreNm"); // 영화장르2
+//			Map<String, String> genreNm = new HashMap<String, String>();
+//			genreNm.put("", (String) genreNm1);
+//			genreNm.put("", (String) genreNm2);
+			
+			
+			
+			System.out.println(ccode.toString());
+			System.out.println(cname.toString());
+			System.out.println(cnameEn.toString());
+			System.out.println(cprdtYear.toString());
+			System.out.println(cshowTmime.toString());
+			System.out.println(copenDate.toString());
+			System.out.println(cprdtStatNm.toString());
+			System.out.println(ctypeNm.toString());
+			System.out.println(cnationNm.toString());
+			
 			
 		}
+		
+		
 
 		
 		return "index";

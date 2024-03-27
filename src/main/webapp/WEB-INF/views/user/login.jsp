@@ -44,22 +44,23 @@
           <!-- Register -->
           <div class="card">
             <div class="card-body">
-              <!-- Logo -->
+              
               <div class="app-brand justify-content-center">
                 <a href="<%=request.getContextPath() %>/" class="app-brand-link gap-2">
                   <span class="app-brand-text demo text-body fw-bolder">dflix</span>
                 </a>
               </div>
-              <!-- /Logo -->
-              <form id="formAuthentication" 
-              		class="mb-3" 
-              		action="<%=request.getContextPath()%>/user/loginOk" 
+              
+              <form id="formAuthentication" class="mb-3" 
+              		action="loginOk" 
               		method="POST">
                 <div class="mb-3">
                   <label for="mid" class="form-label">아이디</label>
+                  
                   <a href="findId" style="float:right;">
                       <small>아이디 찾기</small>
                   </a>
+                  
                   <input
                     type="text"
                     class="form-control"
@@ -71,16 +72,18 @@
                 <div class="mb-3 form-password-toggle">
                   <div class="d-flex justify-content-between">
                     <label class="form-label" for="password">비밀번호</label>
+                    
                     <a href="findPw">
                       <small>비밀번호 찾기</small>
                     </a>
                   </div>
+                  
                   <div class="input-group input-group-merge">
                     <input
                       type="password"
-                      id="password"
+                      id="mpw"
                       class="form-control"
-                      name="password"
+                      name="mpw"
                       aria-describedby="password"
                     />
                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>

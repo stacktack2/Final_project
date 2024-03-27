@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD config 3.0//EN"
 						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+						
 <mapper namespace="ezen.dteam.mapper.userMapper">
-	<insert id="insert" parameterType="java.util.Map">
-		INSERT INTO user(userid, password,name,enabled,authority)
-				 VALUES(#{userid},#{password},#{name},1,#{authority})
+	<!-- resultType: 조회되는 한개한개를 담을 그릇, 즉 VO(풀네임), 한 행에 대한 결과 조회하는 타입 -->
+	
+	<select id="selectLogin" parameterType="String" resultType="MemberVO">
+		SELECT mid, mname, mpw, mnickNm, authority, enabled, mbirth, memail, mgender, mjoinDate,mphone, mno
+		FROM member 
+		WHERE mid = #{value}
+	</select>
+	<!--String일때 필터이름보단 value를 쓰는게 더 좋음  -->
+	
+	<insert id="insert" parameterType="MemberVO">
+		INSERT INTO member(mid, mpw, mnickNm, mname, mbirth, memail,mgender,
+						 mphone, mjoinDate, enabled, authority)
+				 VALUES(#{mid}, #{mpw}, #{mnickNm}, #{mname}, #{mbirth}, #{memail},#{mgender},
+				 		#{mphone}, now(), 1, #{authority})
 	</insert>
 </mapper>

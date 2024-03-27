@@ -28,22 +28,30 @@ public class User {
 		
 		return "user/join";
 	}
+	
 	@RequestMapping(value="/joinOk", method=RequestMethod.POST)
-	public String joinOk(String userid, String password, String name
-						,String authority) {
+	public String joinOk(String mid,String mpw, String mname,String authority, String enabled,
+			String mnickNm, String mbirth, String memail,String mgender, String mphone) {
 		
 		//BCrypt 암호화
 		BCryptPasswordEncoder epwe = new BCryptPasswordEncoder();
 		
 		Map<String,Object> vo = new HashMap<String,Object>();
-		vo.put("userid", userid);
-		vo.put("password",epwe.encode(password));
-		vo.put("name", name);
+		vo.put("mid", mid);
+		vo.put("mpw",epwe.encode(mpw));
+		vo.put("mname", mname);
+		vo.put("mnickNm", mnickNm);
+		vo.put("mbirth", mbirth);
+		vo.put("memail", memail);
+		vo.put("mphone", mphone);
+		vo.put("mgender", mgender);		
+		vo.put("enabled", enabled);		
+		vo.put("authority", authority);
 		
 		//db에 삽입
 		int result = sqlSession.insert("ezen.dteam.mapper.userMapper.insert",vo);
 		
-		return "redirect:/security/login";
+		return "redirect:/user/login";
 	}
 	
 	
