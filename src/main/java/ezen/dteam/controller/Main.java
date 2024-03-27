@@ -2,16 +2,26 @@ package ezen.dteam.controller;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import kr.or.kobis.kobisopenapi.consumer.rest.KobisOpenAPIRestService;
 import kr.or.kobis.kobisopenapi.consumer.rest.exception.OpenAPIFault;
@@ -25,7 +35,6 @@ public class Main {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model, HttpServletRequest request, HttpServletResponse response) throws OpenAPIFault, Exception {
 		
-		// 현재 날짜
 		LocalDate today = LocalDate.now();
 		// 현재 날짜에서 하루 전
 		LocalDate yesterday = today.minusDays(1);
@@ -66,25 +75,45 @@ public class Main {
 		// boxOfficeResult의 dailyBoxOfficeList값 받아오기 : 2depth
 		JSONArray jsonDailyBoxOfficeList = (JSONArray) jsonBoxOfficeResult.get("dailyBoxOfficeList");
 		
+		// index로 movieChart값 request
 		request.setAttribute("movieChart", jsonDailyBoxOfficeList);
 		
-		JSONObject movieChart1 = (JSONObject) jsonDailyBoxOfficeList.get(0);
-		JSONObject movieChart2 = (JSONObject) jsonDailyBoxOfficeList.get(1);
-		JSONObject movieChart3 = (JSONObject) jsonDailyBoxOfficeList.get(2);
-		JSONObject movieChart4 = (JSONObject) jsonDailyBoxOfficeList.get(3);
-		JSONObject movieChart5 = (JSONObject) jsonDailyBoxOfficeList.get(4);
-		JSONObject movieChart6 = (JSONObject) jsonDailyBoxOfficeList.get(5);
+		String movieCd = null;
+		String strMovieInfoResult = null;
 		
-		System.out.println(movieChart1);
-		System.out.println(movieChart2);
-		System.out.println(movieChart3);
-		System.out.println(movieChart4);
-		System.out.println(movieChart5);
-		System.out.println(movieChart6);
-		
-		
-		
+		// jsonDailyBoxOfficeList에서 movieCd값들만 JSONObject로 받아오기
+		for(Object obj : jsonDailyBoxOfficeList) {
+			// json object에 저장
+			JSONObject movie = (JSONObject) obj;
+			
+			// movieCd String변환
+			movieCd = (String) movie.get("movieCd");
+			strMovieInfoResult = service.getMovieInfo(true, movieCd);
+			
+			// String을 다시 json으로 변환
+			JSONObject jsonMovieInfoResult = (JSONObject) jsonParser.parse(strMovieInfoResult);
+			
+			// movieInfoResult key값 조회
+			JSONObject movieInfoResult = (JSONObject) jsonMovieInfoResult.get("movieInfoResult");
+			
+			// movieInfoResult에서 movieInfo key값 조회
+			JSONObject movieInfo = (JSONObject)	 movieInfoResult.get("movieInfo");
+			System.out.println(movieInfo);
+			
+			// movieInfo에서 영화코드 가져오기
+			JSONObject dailyBOCcode = (JSONObject) movieInfo.get("movieCd");
+			// movieInfo에서 영화제목 가져오기
+			JSONObject dailyBOCnmae = (JSONObject) movieInfo.get("movieNm");
+			// movieInfo에서 영화제목영문 가져오기
+			JSONObject dailyBOCnmaeEn = (JSONObject) movieInfo.get("movieNmEn");
+			// movieInfo에서 영화소개는 없음(cinema DB는 자유입력)
+			// movieInfo에서 제작년도
+			JSONObject dailyBOCprdtYear = (JSONObject) movieInfo.get("prdtYear");
+			// 
+			
+		}
 
+		
 		return "index";
 	}
 
