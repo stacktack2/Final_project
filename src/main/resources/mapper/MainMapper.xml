@@ -4,8 +4,23 @@
 <mapper namespace="ezen.dteam.mapper.mainMapper">
 
 	<insert id="intsertBoxOfficeCinema" parameterType="CinemaVO">
-		INSERT INTO cinema(ccode, cname, cnameEn, cintro, cprdtYear, cshowTime, copenDate, cprdtStatNm, ctypeNm, cnationNm, cgenreNm, cdirectorNm, cdirectorNmEn, cactorNm, cactorNmEn, ccompanyNm, ccompanyNmEn, cwatchGradeNm, crank)
-   		VALUES ("영화코드", "영화제목", "영화제목영문", "영화소개", "제작년도", "상영시간", "개봉연도", "제작상태", "영화유형", "제작국가명", "장르명", "감독명", "감독명영문", "배우명", "배우명영문", "영화사명", "영화사명영문", "관람등급", 0);
+		INSERT INTO cinema(ccode, cname, cnameEn, 
+						   cintro, cprdtYear, cshowTime, 
+						   copenDate, cprdtStatNm, ctypeNm, 
+						   cnationNm, cgenreNm, cdirectorNm, 
+						   cdirectorNmEn, cactorNm, cactorNmEn, 
+						   ccompanyNm, ccompanyNmEn, cwatchGradeNm, crank)
+   		VALUES (#{movieCd}, #{movieNm}, #{movieNmEn}, 
+   				"영화소개", #{prdtYear}, #{showTm}, #{openDt}, 
+   				#{prdtStatNm}, #{typeNm}, #{nationNm}, #{genreNm}, 
+   				#{peopleNm}, #{peopleNmEn}, #{peopleNm}, #{peopleNmEn}, 
+   				#{companyNm}, #{companyNmEn}, #{watchGradeNm}, #{rank});
 	</insert>
+	
+	<select id="selectBoxOfficeCinema" resultType="CinemaVO">
+	<![CDATA[
+		SELECT * FROM cinema WHERE crank <= 6
+	]]>
+	</select>
 	
 </mapper>
