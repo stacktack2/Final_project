@@ -1,5 +1,11 @@
 package ezen.dteam.service;
 
-public interface MainSVC {
+import java.util.List;
 
+import ezen.dteam.vo.CinemaVO;
+
+public interface MainSVC {
+	
+	List<CinemaVO> selectBoxOfficeCinema();
+	
 }
