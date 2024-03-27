@@ -27,7 +27,7 @@
     <script src="<%=request.getContextPath() %>/resources/js/config.js"></script>
     <style>
     	.col-md-6{margin: 0 auto;}
-    	.mt-2{margin-left: 35%; padding-top:20px;}
+    	.mt-2{margin-left: 30%; padding-top:20px;}
     </style>
   </head>
   <body>
@@ -49,7 +49,7 @@
                     <!-- 회원가입 상세 -->
                     <hr class="my-0" />
                     <div class="card-body">
-                      <form id="formAccountSettings" action="joinOk" method="POST" onsubmit="return false">
+                      <form id="formAccountSettings" class="joinform" action="joinOk" method="POST">
                         <div class="row">
                           <div class="mb-3 col-md-10">
                             <label for="mid" class="form-label block text-light fw-semibold">
@@ -71,37 +71,37 @@
                           </div>
                           
                           <div class="mb-3 col-md-8">
-                            <label for="password" class="form-label block text-light fw-semibold">비밀번호</label>
+                            <label for="mpw" class="form-label block text-light fw-semibold">비밀번호</label>
                             <input
                               type="password"
                               class="form-control"
-                              id="password"
-                              name="password"
+                              id="mpw"
+                              name="mpw"
                             />
                           </div>
                           <div class="mb-3 col-md-8">
-                            <label for="passwordRe" class="form-label block text-light fw-semibold">비밀번호 확인</label>
+                            <label for="mpwRe" class="form-label block text-light fw-semibold">비밀번호 확인</label>
                             <input
                               type="password"
                               class="form-control"
-                              id="passwordRe"
-                              name="passwordRe"
+                              id="mpwRe"
+                              name="mpwRe"
                             />
                           </div>
                           
 						<div class="mb-3 col-md-10">
-                            <label for="mnicknm" class="form-label block text-light fw-semibold">닉네임</label>
-                            <input class="form-control reinput" type="text" name="mnicknm" id="mnicknm" />
+                            <label for="mnickNm" class="form-label block text-light fw-semibold">닉네임</label>
+                            <input class="form-control reinput" type="text" name="mnickNm" id="mnickNm" />
                             <button type="button" class="btn btn-sm btn-outline-primary">중복확인</button>
                           </div>
                           
                           <div class="mb-3 col-md-10">
-                            <label for="email" class="form-label block text-light fw-semibold">E-mail</label>
+                            <label for="memail" class="form-label block text-light fw-semibold">E-mail</label>
                             <input
                               class="form-control reinput"
                               type="email"
-                              id="email"
-                              name="email"
+                              id="memail"
+                              name="memail"
                             />
                             <button type="button" class="btn btn-sm btn-outline-primary">중복확인</button>
                           </div>
@@ -118,6 +118,19 @@
                               />
                             </div>
                           </div>
+                          
+                          <div class="mb-3 col-md-8">
+                            <label class="form-label block text-light fw-semibold" for="mbirth">생년월일</label>
+                            <div class="input-group input-group-merge">
+                              <input
+                                type="text"
+                                id="mbirth"
+                                name="mbirth"
+                                class="form-control"
+                                placeholder="8글자로 쓰세요"
+                              />
+                            </div>
+                          </div>
                        
                         <div class="mb-3 col-md-8">
                           <small class="text-light fw-semibold d-block">성별</small>
@@ -125,27 +138,52 @@
                             <input
                               class="form-check-input"
                               type="radio"
-                              name="gender"
-                              id="gender_m"
+                              name="mgender"
+                              id="mgender_m"
                               value="f"
                             />
-                            <label class="form-check-label" for="gender_m">남</label>
+                            <label class="form-check-label" for="mgender_m">남</label>
                           </div>
                           <div class="form-check form-check-inline">
                             <input
                               class="form-check-input"
                               type="radio"
-                              name="gender"
-                              id="gender_f"
+                              name="mgender"
+                              id="mgender_f"
                               value="f"
                             />
-                            <label class="form-check-label" for="gender_f">여</label>
+                            <label class="form-check-label" for="mgender_f">여</label>
                           </div>
                         </div>
 
+						<div class="mb-3 col-md-8">
+                          <small class="text-light fw-semibold d-block">권한</small>
+                          <div class="form-check form-check-inline mt-3">
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="authority"
+                              id="ROLE_ADMIN"
+                              value="ROLE_ADMIN"
+                            />
+                            <label class="form-check-label" for="ROLE_ADMIN">관리자</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="authority"
+                              id="ROLE_USER"
+                              value="ROLE_USER"
+                            />
+                            <label class="form-check-label" for="ROLE_USER">회원</label>
+                          </div>
+                        </div>
+                        
                         <div class="mt-2">
-                          <button type="submit" class="btn btn-primary me-2">회원가입</button>
-                          <button type="reset" class="btn btn-outline-secondary">취소</button>
+                          <button type="submit" class="btn btn-primary me-2"
+                          >회원가입</button>
+                          <button type="reset" class="btn btn-outline-secondary">리셋</button>
                         </div>
                        	</div>
                       </form>
