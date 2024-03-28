@@ -50,7 +50,7 @@ CREATE TABLE cinema
 	cprdtStatNm varchar(50) NOT NULL COMMENT '제작상태',
 	ctypeNm varchar(50) NOT NULL COMMENT '영화유형',
 	cnationNm varchar(255) NOT NULL COMMENT '제작국가명',
-	cgenreNm varchar(30) NOT NULL COMMENT '장르명',
+	cgenreNm varchar(255) NOT NULL COMMENT '장르명',
 	cdirectorNm varchar(255) NOT NULL COMMENT '감독명',
 	cdirectorNmEn varchar(255) COMMENT '감독명영문',
 	cactorNm varchar(255) NOT NULL COMMENT '배우명',
