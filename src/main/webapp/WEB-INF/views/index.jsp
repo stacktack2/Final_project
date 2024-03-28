@@ -110,6 +110,9 @@
           <div class="section-heading text-center">
             <h6>| TOP6</h6>
             <h2>현재상영작</h2>
+            <form>
+            	<button type="button" id="upsertButton">upsert</button>
+            </form>
           </div>
         </div>
         <a href="<%=request.getContextPath() %>/movie/movieChart" class="more">더보기 ></a>
@@ -118,12 +121,12 @@
       	<c:forEach items="${movieChart }" var="movieChart">
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <img src="<%=request.getContextPath() %>/resources/images/${movieChart.movieCd }_p.jpg" alt="${movieChart.movieNm }포스터">
-            <span class="category">15</span>
-            <h6>${movieChart.rank }위</h6>
-            <h4>${movieChart.movieNm }</h4>
+            <img src="<%=request.getContextPath() %>/resources/images/${movieChart.ccode }_p.jpg" alt="${movieChart.cname }포스터">
+            <span class="category">${movieChart.cwatchGradeNm }</span>
+            <h6>${movieChart.crank }위</h6>
+            <h4>${movieChart.cname }</h4>
             <ul>
-              <li>상영시간: <span>134분</span></li>
+              <li>상영시간: <span>${movieChart.cshowTime }</span></li>
             </ul>
             <div class="main-button">
               <a href="<%=request.getContextPath() %>/movie/movieView">상세보기</a>
@@ -359,4 +362,6 @@
 
 
   </body>
+  
+
 </html>
