@@ -18,14 +18,12 @@ public class CinemaVO {
 	private List<String> cgenreNm; 
 	private String cdirectorNm; 
 	private String cdirectorNmEn; 
-	private String cactorNm; 
+	private List<String> cactorNm; 
 	private List<String> cactorNmEn; 
-	private List<String> ccompanyNm; 
+	private String ccompanyNm; 
 	private String ccompanyNmEn; 
-	private String cwatchGradeNm; 
+	private String cwatchGradeNm;
 	private int crank;
-	
-	
 	public final int getCno() {
 		return cno;
 	}
@@ -110,10 +108,10 @@ public class CinemaVO {
 	public final void setCdirectorNmEn(String cdirectorNmEn) {
 		this.cdirectorNmEn = cdirectorNmEn;
 	}
-	public final String getCactorNm() {
+	public final List<String> getCactorNm() {
 		return cactorNm;
 	}
-	public final void setCactorNm(String cactorNm) {
+	public final void setCactorNm(List<String> cactorNm) {
 		this.cactorNm = cactorNm;
 	}
 	public final List<String> getCactorNmEn() {
@@ -122,10 +120,10 @@ public class CinemaVO {
 	public final void setCactorNmEn(List<String> cactorNmEn) {
 		this.cactorNmEn = cactorNmEn;
 	}
-	public final List<String> getCcompanyNm() {
+	public final String getCcompanyNm() {
 		return ccompanyNm;
 	}
-	public final void setCcompanyNm(List<String> ccompanyNm) {
+	public final void setCcompanyNm(String ccompanyNm) {
 		this.ccompanyNm = ccompanyNm;
 	}
 	public final String getCcompanyNmEn() {

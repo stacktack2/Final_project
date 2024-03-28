@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import ezen.dteam.service.MainSVC;
+import ezen.dteam.service.MainSchedulerSVC;
 import ezen.dteam.vo.CinemaVO;
 import kr.or.kobis.kobisopenapi.consumer.rest.KobisOpenAPIRestService;
 import kr.or.kobis.kobisopenapi.consumer.rest.exception.OpenAPIFault;
@@ -30,6 +32,9 @@ public class Main {
 
 	@Autowired
 	MainSVC mainService;
+	
+	@Autowired
+	MainSchedulerSVC mainSchedulerSVC;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model, HttpServletRequest request, HttpServletResponse response) throws OpenAPIFault, Exception {
@@ -68,6 +73,8 @@ public class Main {
 				
 		String movieCd = null;
 		String strMovieInfoResult = null;
+		
+		CinemaVO cinema = new CinemaVO();
 				
 		// jsonDailyBoxOfficeList에서 movieCd값들만 JSONObject로 받아오기
 		for(Object obj : jsonDailyBoxOfficeList) {
@@ -89,18 +96,28 @@ public class Main {
 			System.out.println(movieInfo);
 			
 			String ccode = (String) movieInfo.get("movieCd"); // 영화코드
+			cinema.setCcode(ccode);
 			String cname = (String) movieInfo.get("movieNm"); // 영화제목
+			cinema.setCname(cname);
 			String cnameEn = (String) movieInfo.get("movieNmEn"); // 영화제목영문
+			cinema.setCnameEn(cnameEn);
 			// 영화소개는 없음(cinema DB는 자유입력)
+			cinema.setCintro("영화소개입니다");
 			String cprdtYear = (String) movieInfo.get("prdtYear"); // 제작년도
-			String cshowTmime = (String) movieInfo.get("showTm"); // 상영시간
+			cinema.setCprdtYear(cprdtYear);
+			String cshowTime = (String) movieInfo.get("showTm"); // 상영시간
+			cinema.setCshowTime(cshowTime);
 			String copenDate = (String) movieInfo.get("openDt"); // 개봉연도
+			cinema.setCopenDate(copenDate);
 			String cprdtStatNm = (String) movieInfo.get("prdtStatNm"); // 제작상태
+			cinema.setCprdtStatNm(cprdtStatNm);
 			String ctypeNm = (String) movieInfo.get("typeNm"); // 영화유형
+			cinema.setCtypeNm(ctypeNm);
 			
 			JSONArray jsonArrayNationNm = (JSONArray) movieInfo.get("nations");
 			JSONObject jsonObjectNationNm = (JSONObject) jsonArrayNationNm.get(0);
 			String cnationNm = (String) jsonObjectNationNm.get("nationNm"); // 제작국가명
+			cinema.setCnationNm(cnationNm);
 			
 			JSONArray jsonArrayGenres = (JSONArray) movieInfo.get("genres");
 			List<String> cgenreNm = new ArrayList<String>();
@@ -109,6 +126,7 @@ public class Main {
 				String genreNms = (String) jsonGenre.get("genreNm");
 				cgenreNm.add(genreNms);	
 			}
+			cinema.setCgenreNm(cgenreNm);
 			
 			JSONArray jsonArrayDirectors = (JSONArray) movieInfo.get("directors");
 			String cdirectorNm = "";
@@ -118,6 +136,8 @@ public class Main {
 				cdirectorNm = (String) jsonObjectDifrector.get("peopleNm"); // 감동명
 				cdirectorNmEn = (String) jsonObjectDifrector.get("peopleNmEn"); // 감동명 영문
 			}
+			cinema.setCdirectorNm(cdirectorNm);
+			cinema.setCdirectorNmEn(cdirectorNmEn);
 			
 			JSONArray jsonArrayActors = (JSONArray) movieInfo.get("actors");
 			List<String> cactorNm = new ArrayList<String>();
@@ -129,17 +149,22 @@ public class Main {
 				cactorNm.add(peopleNm);
 				cactorNmEn.add(peopleNmEn);
 			}
+			cinema.setCactorNm(cactorNm);
+			cinema.setCactorNmEn(cactorNmEn);
 			
 			JSONArray jsonArrayCompanys = (JSONArray) movieInfo.get("companys");
 			JSONObject jsonObjectCompany = (JSONObject) jsonArrayCompanys.get(0);
 			String ccompanyNm = (String) jsonObjectCompany.get("companyNm"); // 영화사명
+			cinema.setCcompanyNm(ccompanyNm);
 			
 			JSONObject jsonObjectCompanyEn = (JSONObject) jsonArrayCompanys.get(0);
 			String ccompanyNmEn = (String) jsonObjectCompanyEn.get("companyNmEn"); // 영화사명 영문
+			cinema.setCcompanyNmEn(ccompanyNmEn);
 			
 			JSONArray jsonArrayAudits = (JSONArray) movieInfo.get("audits");
 			JSONObject jsonObjectWatchGradeNm = (JSONObject) jsonArrayAudits.get(0);
 			String cwatchGradeNm = (String) jsonObjectWatchGradeNm.get("watchGradeNm"); // 영화 관람등급
+			cinema.setCwatchGradeNm(cwatchGradeNm);
 			
 			String crank = (String) movie.get("rank");
 			
@@ -147,7 +172,7 @@ public class Main {
 			System.out.println(cname);
 			System.out.println(cnameEn);
 			System.out.println(cprdtYear);
-			System.out.println(cshowTmime);
+			System.out.println(cshowTime);
 			System.out.println(copenDate);
 			System.out.println(cprdtStatNm);
 			System.out.println(ctypeNm);
@@ -163,7 +188,7 @@ public class Main {
 			System.out.println(crank);
 		}
 		
-		
+		int result = mainSchedulerSVC.upsertDailyBoxOffice(cinema);
 		
 		return "index";
 	}
