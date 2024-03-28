@@ -26,12 +26,12 @@
             #{copenDate}, 
             #{cprdtStatNm}, 
             #{ctypeNm},
-            #{cnationNm}, 
-            <foreach collection="cgenreNm" item="genre" separator=",">#{genre}</foreach>, 
+            #{cnationNm},
+            <foreach collection="cgenreNm" item="genre">#{genre}</foreach>,
             #{cdirectorNm}, 
             #{cdirectorNmEn}, 
-            <foreach collection="cactorNm" item="actor" separator=",">#{actor}</foreach>, 
-            <foreach collection="cactorNmEn" item="actorEn" separator=",">#{actorEn}</foreach>, 
+            <foreach collection="cactorNm" item="actor">#{actor}</foreach>,
+            <foreach collection="cactorNmEn" item="actorEn">#{actorEn}</foreach>,
             #{ccompanyNm}, 
             #{ccompanyNmEn}, 
             #{cwatchGradeNm}, 
@@ -47,14 +47,15 @@
             cprdtStatNm = #{cprdtStatNm},
             ctypeNm = #{ctypeNm},
             cnationNm = #{cnationNm}, 
-            cgenreNm = <foreach collection="cgenreNm" item="genre" separator=",">#{genre}</foreach>, 
+            cgenreNm = <foreach collection="cgenreNm" item="genre">#{genre}</foreach>,
             cdirectorNm = #{cdirectorNm},
             cdirectorNmEn = #{cdirectorNmEn}, 
-            cactorNm = <foreach collection="cactorNm" item="actor" separator=",">#{actor}</foreach>,
-            cactorNmEn = <foreach collection="cactorNmEn" item="actorEn" separator=",">#{actorEn}</foreach>,
+            cactorNm = <foreach collection="cactorNm" item="actor">#{actor}</foreach>,
+            cactorNmEn = <foreach collection="cactorNmEn" item="actorEn">#{actorEn}</foreach>,
             ccompanyNm = #{ccompanyNm},
             ccompanyNmEn = #{ccompanyNmEn},
             cwatchGradeNm = #{cwatchGradeNm}
+
 	</insert>
 
 

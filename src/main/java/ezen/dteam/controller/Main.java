@@ -93,32 +93,24 @@ public class Main {
 			
 			// movieInfoResult에서 movieInfo key값 조회
 			JSONObject movieInfo = (JSONObject)	 movieInfoResult.get("movieInfo");
-			System.out.println(movieInfo);
 			
 			String ccode = (String) movieInfo.get("movieCd"); // 영화코드
-			cinema.setCcode(ccode);
 			String cname = (String) movieInfo.get("movieNm"); // 영화제목
-			cinema.setCname(cname);
 			String cnameEn = (String) movieInfo.get("movieNmEn"); // 영화제목영문
-			cinema.setCnameEn(cnameEn);
 			// 영화소개는 없음(cinema DB는 자유입력)
-			cinema.setCintro("영화소개입니다");
 			String cprdtYear = (String) movieInfo.get("prdtYear"); // 제작년도
-			cinema.setCprdtYear(cprdtYear);
 			String cshowTime = (String) movieInfo.get("showTm"); // 상영시간
-			cinema.setCshowTime(cshowTime);
 			String copenDate = (String) movieInfo.get("openDt"); // 개봉연도
-			cinema.setCopenDate(copenDate);
 			String cprdtStatNm = (String) movieInfo.get("prdtStatNm"); // 제작상태
-			cinema.setCprdtStatNm(cprdtStatNm);
 			String ctypeNm = (String) movieInfo.get("typeNm"); // 영화유형
-			cinema.setCtypeNm(ctypeNm);
 			
+			// 제작국가명
 			JSONArray jsonArrayNationNm = (JSONArray) movieInfo.get("nations");
 			JSONObject jsonObjectNationNm = (JSONObject) jsonArrayNationNm.get(0);
-			String cnationNm = (String) jsonObjectNationNm.get("nationNm"); // 제작국가명
-			cinema.setCnationNm(cnationNm);
+			String cnationNm = (String) jsonObjectNationNm.get("nationNm");
 			
+			
+			// 장르명
 			JSONArray jsonArrayGenres = (JSONArray) movieInfo.get("genres");
 			List<String> cgenreNm = new ArrayList<String>();
 			for(int i = 0; i < jsonArrayGenres.size(); i++) {
@@ -126,19 +118,20 @@ public class Main {
 				String genreNms = (String) jsonGenre.get("genreNm");
 				cgenreNm.add(genreNms);	
 			}
-			cinema.setCgenreNm(cgenreNm);
 			
+			
+			// 감동명, 영문명
 			JSONArray jsonArrayDirectors = (JSONArray) movieInfo.get("directors");
 			String cdirectorNm = "";
 			String cdirectorNmEn = "";
 			for(int i = 0; i < jsonArrayDirectors.size(); i++) {
 				JSONObject jsonObjectDifrector = (JSONObject) jsonArrayDirectors.get(i);
-				cdirectorNm = (String) jsonObjectDifrector.get("peopleNm"); // 감동명
-				cdirectorNmEn = (String) jsonObjectDifrector.get("peopleNmEn"); // 감동명 영문
+				cdirectorNm = (String) jsonObjectDifrector.get("peopleNm");
+				cdirectorNmEn = (String) jsonObjectDifrector.get("peopleNmEn");
 			}
-			cinema.setCdirectorNm(cdirectorNm);
-			cinema.setCdirectorNmEn(cdirectorNmEn);
 			
+			
+			// 배우명, 영문명
 			JSONArray jsonArrayActors = (JSONArray) movieInfo.get("actors");
 			List<String> cactorNm = new ArrayList<String>();
 			List<String> cactorNmEn = new ArrayList<String>();
@@ -149,24 +142,45 @@ public class Main {
 				cactorNm.add(peopleNm);
 				cactorNmEn.add(peopleNmEn);
 			}
-			cinema.setCactorNm(cactorNm);
-			cinema.setCactorNmEn(cactorNmEn);
 			
+			
+			// 영화사명
 			JSONArray jsonArrayCompanys = (JSONArray) movieInfo.get("companys");
 			JSONObject jsonObjectCompany = (JSONObject) jsonArrayCompanys.get(0);
-			String ccompanyNm = (String) jsonObjectCompany.get("companyNm"); // 영화사명
-			cinema.setCcompanyNm(ccompanyNm);
+			String ccompanyNm = (String) jsonObjectCompany.get("companyNm");
 			
+			
+			// 영화사명 영문
 			JSONObject jsonObjectCompanyEn = (JSONObject) jsonArrayCompanys.get(0);
-			String ccompanyNmEn = (String) jsonObjectCompanyEn.get("companyNmEn"); // 영화사명 영문
-			cinema.setCcompanyNmEn(ccompanyNmEn);
+			String ccompanyNmEn = (String) jsonObjectCompanyEn.get("companyNmEn");
 			
+			// 영화 관람등급
 			JSONArray jsonArrayAudits = (JSONArray) movieInfo.get("audits");
 			JSONObject jsonObjectWatchGradeNm = (JSONObject) jsonArrayAudits.get(0);
-			String cwatchGradeNm = (String) jsonObjectWatchGradeNm.get("watchGradeNm"); // 영화 관람등급
-			cinema.setCwatchGradeNm(cwatchGradeNm);
+			String cwatchGradeNm = (String) jsonObjectWatchGradeNm.get("watchGradeNm");
 			
-			String crank = (String) movie.get("rank");
+			// rank
+			int crank = Integer.parseInt((String) movie.get("rank"));
+			
+			cinema.setCcode(ccode);
+			cinema.setCname(cname);
+			cinema.setCnameEn(cnameEn);
+			cinema.setCintro("영화소개입니다");
+			cinema.setCprdtYear(cprdtYear);
+			cinema.setCshowTime(cshowTime);
+			cinema.setCopenDate(copenDate);
+			cinema.setCprdtStatNm(cprdtStatNm);
+			cinema.setCtypeNm(ctypeNm);
+			cinema.setCnationNm(cnationNm);
+			cinema.setCgenreNm(cgenreNm);
+			cinema.setCdirectorNm(cdirectorNm);
+			cinema.setCdirectorNmEn(cdirectorNmEn);
+			cinema.setCactorNm(cactorNm);
+			cinema.setCactorNmEn(cactorNmEn);
+			cinema.setCcompanyNm(ccompanyNm);
+			cinema.setCcompanyNmEn(ccompanyNmEn);
+			cinema.setCwatchGradeNm(cwatchGradeNm);
+			cinema.setCrank(crank);
 			
 			System.out.println(ccode);
 			System.out.println(cname);
@@ -186,9 +200,10 @@ public class Main {
 			System.out.println(ccompanyNmEn);
 			System.out.println(cwatchGradeNm);
 			System.out.println(crank);
+			
+			int result = mainSchedulerSVC.upsertDailyBoxOffice(cinema);
 		}
 		
-		int result = mainSchedulerSVC.upsertDailyBoxOffice(cinema);
 		
 		return "index";
 	}

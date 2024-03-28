@@ -24,6 +24,7 @@ public class CinemaVO {
 	private String ccompanyNmEn; 
 	private String cwatchGradeNm;
 	private int crank;
+	
 	public final int getCno() {
 		return cno;
 	}
@@ -144,5 +145,5 @@ public class CinemaVO {
 	public final void setCrank(int crank) {
 		this.crank = crank;
 	}
-
+		
 }
