@@ -124,7 +124,7 @@ CREATE TABLE member
 	mbirth varchar(10) NOT NULL COMMENT '생년월일',
 	memail varchar(45) NOT NULL COMMENT '이메일',
 	mphone varchar(20) NOT NULL COMMENT '휴대전화번호',
-    mgender varchar(1) NOT NULL COMMENT '성별',
+    	mgender varchar(1) NOT NULL COMMENT '성별',
 	authority varchar(20) DEFAULT 'ROLE_USER' NOT NULL COMMENT '관리자권한',
 	enabled tinyint unsigned DEFAULT 0 NOT NULL COMMENT '탈퇴여부', 
 	mjoinDate timestamp DEFAULT now() NOT NULL COMMENT '가입일'

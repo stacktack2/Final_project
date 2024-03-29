@@ -110,9 +110,6 @@
           <div class="section-heading text-center">
             <h6>| TOP6</h6>
             <h2>현재상영작</h2>
-            <form>
-            	<button type="button" id="upsertButton">upsert</button>
-            </form>
           </div>
         </div>
         <a href="<%=request.getContextPath() %>/movie/movieChart" class="more">더보기 ></a>
@@ -126,7 +123,7 @@
             <h6>${movieChart.crank }위</h6>
             <h4>${movieChart.cname }</h4>
             <ul>
-              <li>상영시간: <span>${movieChart.cshowTime }</span></li>
+              <li>상영시간: <span>${movieChart.cshowTime }분</span></li>
             </ul>
             <div class="main-button">
               <a href="<%=request.getContextPath() %>/movie/movieView">상세보기</a>

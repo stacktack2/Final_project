@@ -28,6 +28,9 @@ public class Main {
 	@Autowired
 	MainSchedulerSVC mainSchedulerSVC;
 	
+	@Autowired
+	DailyBoxOfficeScheduler dailyBoxOfficeScheduler;
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model, HttpServletRequest request, HttpServletResponse response) throws OpenAPIFault, Exception {
 		
@@ -35,7 +38,7 @@ public class Main {
 		
 		model.addAttribute("movieChart", movieChart);
 		
-		DailyBoxOfficeScheduler.dailyResponse();
+		// dailyBoxOfficeScheduler.dailyResponse();
 		
 		return "index";
 	}

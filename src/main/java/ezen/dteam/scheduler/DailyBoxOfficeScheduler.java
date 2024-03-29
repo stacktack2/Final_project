@@ -21,11 +21,10 @@ import kr.or.kobis.kobisopenapi.consumer.rest.exception.OpenAPIFault;
 public class DailyBoxOfficeScheduler {
 	
 	@Autowired
-	static
 	MainSchedulerSVC mainSchedulerSVC;
 	
-	// @Scheduled(cron = " 0 */5 * * * * ")
-	public static void dailyResponse() throws OpenAPIFault, Exception {
+	// @Scheduled(cron = " 0 * * * * * ")
+	public void dailyResponse() throws OpenAPIFault, Exception {
 		
 		LocalDate today = LocalDate.now();
 		LocalDate yesterday = today.minusDays(1);
@@ -95,11 +94,17 @@ public class DailyBoxOfficeScheduler {
 			
 			// 장르명
 			JSONArray jsonArrayGenres = (JSONArray) movieInfo.get("genres");
-			List<String> cgenreNm = new ArrayList<String>();
+			String cgenreNm = ""; // 문자열로 초기화
+
 			for(int i = 0; i < jsonArrayGenres.size(); i++) {
-				JSONObject jsonGenre = (JSONObject) jsonArrayGenres.get(i);
-				String genreNms = (String) jsonGenre.get("genreNm");
-				cgenreNm.add(genreNms);	
+			    JSONObject jsonGenre = (JSONObject) jsonArrayGenres.get(i);
+			    String singleGenre = (String) jsonGenre.get("genreNm");
+			    
+			    // 기존 장르에 추가하여 쉼표로 구분
+			    if (i > 0) {
+			        cgenreNm += ", ";
+			    }
+			    cgenreNm += singleGenre;
 			}
 			
 			
@@ -116,14 +121,19 @@ public class DailyBoxOfficeScheduler {
 			
 			// 배우명, 영문명
 			JSONArray jsonArrayActors = (JSONArray) movieInfo.get("actors");
-			List<String> cactorNm = new ArrayList<String>();
-			List<String> cactorNmEn = new ArrayList<String>();
+			String cactorNm = "";
+			String cactorNmEn = "";
 			for(int i = 0; i < jsonArrayActors.size() && i < 4; i++) {
 				JSONObject jsonObjectActors = (JSONObject) jsonArrayActors.get(i);
-				String peopleNm = (String) jsonObjectActors.get("peopleNm");
-				String peopleNmEn = (String) jsonObjectActors.get("peopleNmEn");
-				cactorNm.add(peopleNm);
-				cactorNmEn.add(peopleNmEn);
+				String singlePeople = (String) jsonObjectActors.get("peopleNm");
+				String singlePeopleEn = (String) jsonObjectActors.get("peopleNmEn");
+
+				if(i > 0) {
+					cactorNm += ", ";
+					cactorNmEn += ", ";
+				}
+				cactorNm += singlePeople;
+				cactorNmEn += singlePeopleEn;
 			}
 			
 			
