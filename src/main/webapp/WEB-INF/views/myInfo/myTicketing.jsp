@@ -22,12 +22,11 @@
     			<img alt="프로필사진" src="resources/profileImg/nomal.png">
     		</div>
     		<div class="profile-box">
-    			<strong>이준택님</strong>
-    			<em>cotaek2</em>
-    			<span>
-    				닉네임 : 
-    				<i>닉네임을 설정해주세요.</i>
-    			</span>
+	    		<sec:authorize access="isAuthenticated()">
+				<strong><sec:authentication property="principal.mname"/> 님</strong>
+				<em><sec:authentication property="principal.username"/></em>
+				<br> 
+				</sec:authorize>
     		</div>
     	<!-- 극장 선택 -->
     	<div class="favorite-theater">

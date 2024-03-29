@@ -27,7 +27,7 @@
 						</li>
 						<li><a href="<%=request.getContextPath() %>/myinfo">내정보</a> |</li>
 						<li><a href="<%=request.getContextPath() %>/serviceCenter/noticeList">고객센터</a></li>
-</ul>
+					</ul>
 				</div>
 			</div>
 		</div>
