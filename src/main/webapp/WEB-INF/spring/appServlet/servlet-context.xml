@@ -31,7 +31,9 @@
 	<context:component-scan base-package="ezen.dteam.scheduler" />
 	<context:component-scan base-package="ezen.dteam.service" />
 	
-	
+	<!-- 스케쥴러 -->
+	<task:scheduler id="dailyBoxOfficeScheduler" pool-size="6"/>
+	<task:annotation-driven scheduler="dailyBoxOfficeScheduler"/>
 	
 	
 	

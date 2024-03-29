@@ -18,5 +18,5 @@ public class MainSVCImpl implements MainSVC{
 	public List<CinemaVO> selectBoxOfficeCinema(){
 		return mainDAO.selectBoxOfficeCinema();
 	}
-
+	
 }

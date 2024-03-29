@@ -1,5 +1,7 @@
 package ezen.dteam.vo;
 
+import java.util.List;
+
 public class CinemaVO {
 	
 	private int cno;
@@ -13,16 +15,15 @@ public class CinemaVO {
 	private String cprdtStatNm; 
 	private String ctypeNm; 
 	private String cnationNm; 
-	private String cgenreNm; 
+	private List<String> cgenreNm; 
 	private String cdirectorNm; 
 	private String cdirectorNmEn; 
-	private String cactorNm; 
-	private String cactorNmEn; 
+	private List<String> cactorNm; 
+	private List<String> cactorNmEn; 
 	private String ccompanyNm; 
 	private String ccompanyNmEn; 
-	private String cwatchGradeNm; 
+	private String cwatchGradeNm;
 	private int crank;
-	
 	
 	public final int getCno() {
 		return cno;
@@ -90,10 +91,10 @@ public class CinemaVO {
 	public final void setCnationNm(String cnationNm) {
 		this.cnationNm = cnationNm;
 	}
-	public final String getCgenreNm() {
+	public final List<String> getCgenreNm() {
 		return cgenreNm;
 	}
-	public final void setCgenreNm(String cgenreNm) {
+	public final void setCgenreNm(List<String> cgenreNm) {
 		this.cgenreNm = cgenreNm;
 	}
 	public final String getCdirectorNm() {
@@ -108,16 +109,16 @@ public class CinemaVO {
 	public final void setCdirectorNmEn(String cdirectorNmEn) {
 		this.cdirectorNmEn = cdirectorNmEn;
 	}
-	public final String getCactorNm() {
+	public final List<String> getCactorNm() {
 		return cactorNm;
 	}
-	public final void setCactorNm(String cactorNm) {
+	public final void setCactorNm(List<String> cactorNm) {
 		this.cactorNm = cactorNm;
 	}
-	public final String getCactorNmEn() {
+	public final List<String> getCactorNmEn() {
 		return cactorNmEn;
 	}
-	public final void setCactorNmEn(String cactorNmEn) {
+	public final void setCactorNmEn(List<String> cactorNmEn) {
 		this.cactorNmEn = cactorNmEn;
 	}
 	public final String getCcompanyNm() {
@@ -144,7 +145,5 @@ public class CinemaVO {
 	public final void setCrank(int crank) {
 		this.crank = crank;
 	}
-	
-	
-
+		
 }

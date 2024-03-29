@@ -50,7 +50,7 @@ CREATE TABLE cinema
 	cprdtStatNm varchar(50) NOT NULL COMMENT '제작상태',
 	ctypeNm varchar(50) NOT NULL COMMENT '영화유형',
 	cnationNm varchar(255) NOT NULL COMMENT '제작국가명',
-	cgenreNm varchar(30) NOT NULL COMMENT '장르명',
+	cgenreNm varchar(255) NOT NULL COMMENT '장르명',
 	cdirectorNm varchar(255) NOT NULL COMMENT '감독명',
 	cdirectorNmEn varchar(255) COMMENT '감독명영문',
 	cactorNm varchar(255) NOT NULL COMMENT '배우명',
@@ -58,7 +58,7 @@ CREATE TABLE cinema
 	ccompanyNm varchar(255) NOT NULL COMMENT '영화사명',
 	ccompanyNmEn varchar(255) COMMENT '영화사명영문',
 	cwatchGradeNm varchar(50) NOT NULL COMMENT '관람등급',
-	crank int unsigned COMMENT '박스오피스 순위',
+	crank int unsigned unique COMMENT '박스오피스 순위',
 	PRIMARY KEY (cno)
 ) COMMENT = '영화정보';
 
@@ -116,19 +116,18 @@ CREATE TABLE icmtReply
 -- 회원정보
 CREATE TABLE member
 (
-	mno int unsigned NOT NULL AUTO_INCREMENT COMMENT '회원번호',
+	mno int unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT '회원번호',
 	mid varchar(20) NOT NULL COMMENT '아이디',
-	mpw varchar(20) NOT NULL COMMENT '비밀번호',
+	mpw varchar(300) NOT NULL COMMENT '비밀번호',
 	mnickNm varchar(20) NOT NULL COMMENT '닉네임',
 	mname varchar(20) NOT NULL COMMENT '이름',
 	mbirth varchar(10) NOT NULL COMMENT '생년월일',
 	memail varchar(45) NOT NULL COMMENT '이메일',
 	mphone varchar(20) NOT NULL COMMENT '휴대전화번호',
-	mjoinDate timestamp DEFAULT now() NOT NULL COMMENT '가입일',
-	mmemberShip varchar(5) DEFAULT '"일반"' NOT NULL COMMENT '회원등급',
-	madministrator tinyint unsigned DEFAULT 0 NOT NULL COMMENT '관리자권한',
-	mdelyn tinyint unsigned DEFAULT 0 NOT NULL COMMENT '탈퇴여부',
-	PRIMARY KEY (mno)
+    mgender varchar(1) NOT NULL COMMENT '성별',
+	authority varchar(20) DEFAULT 'ROLE_USER' NOT NULL COMMENT '관리자권한',
+	enabled tinyint unsigned DEFAULT 0 NOT NULL COMMENT '탈퇴여부', 
+	mjoinDate timestamp DEFAULT now() NOT NULL COMMENT '가입일'
 ) COMMENT = '회원정보';
 
 
