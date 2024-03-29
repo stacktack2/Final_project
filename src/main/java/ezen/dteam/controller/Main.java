@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import ezen.dteam.scheduler.DailyBoxOfficeScheduler;
 import ezen.dteam.service.MainSVC;
 import ezen.dteam.service.MainSchedulerSVC;
 import ezen.dteam.vo.CinemaVO;
@@ -24,6 +25,8 @@ public class Main {
 	@Autowired
 	MainSVC mainService;
 	
+	@Autowired
+	MainSchedulerSVC mainSchedulerSVC;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model, HttpServletRequest request, HttpServletResponse response) throws OpenAPIFault, Exception {
@@ -32,9 +35,7 @@ public class Main {
 		
 		model.addAttribute("movieChart", movieChart);
 		
-		
-		
-		
+		DailyBoxOfficeScheduler.dailyResponse();
 		
 		return "index";
 	}

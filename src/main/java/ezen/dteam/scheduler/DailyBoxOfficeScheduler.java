@@ -21,10 +21,11 @@ import kr.or.kobis.kobisopenapi.consumer.rest.exception.OpenAPIFault;
 public class DailyBoxOfficeScheduler {
 	
 	@Autowired
+	static
 	MainSchedulerSVC mainSchedulerSVC;
 	
-	@Scheduled()
-	public void dailyResponse() throws OpenAPIFault, Exception {
+	// @Scheduled(cron = " 0 */5 * * * * ")
+	public static void dailyResponse() throws OpenAPIFault, Exception {
 		
 		LocalDate today = LocalDate.now();
 		LocalDate yesterday = today.minusDays(1);
