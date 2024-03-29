@@ -181,8 +181,7 @@
                         </div>
                         
                         <div class="mt-2">
-                          <button type="submit" class="btn btn-primary me-2"
-                          >회원가입</button>
+                          <button type="submit" class="btn btn-primary me-2" >회원가입</button>
                           <button type="reset" class="btn btn-outline-secondary">리셋</button>
                         </div>
                        	</div>

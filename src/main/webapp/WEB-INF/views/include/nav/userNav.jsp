@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
+<%@ page session="true" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +15,16 @@
 				<div class="col-lg-4 col-md-4">
 					<ul class="topmenu">
 						<li><a href="<%=request.getContextPath() %>/join">회원가입 </a> |</li>
-						<li><a href="<%=request.getContextPath() %>/login">로그인</a> |</li>
+						<li>
+							<!-- 시큐리티 로그인-->
+							<sec:authorize access="isAuthenticated()">
+							<%-- <sec:authentication property="principal.username"/>님, 환영합니다. --%>
+							<a href="<%=request.getContextPath() %>/logout">로그아웃</a> | 
+							</sec:authorize>
+							<sec:authorize access="isAnonymous()">
+							<a href="<%=request.getContextPath() %>/login">로그인</a> |
+							</sec:authorize>
+						</li>
 						<li><a href="<%=request.getContextPath() %>/myinfo">내정보</a> |</li>
 						<li><a href="<%=request.getContextPath() %>/serviceCenter/noticeList">고객센터</a></li>
 </ul>
