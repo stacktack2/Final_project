@@ -58,7 +58,7 @@ CREATE TABLE cinema
 	ccompanyNm varchar(255) NOT NULL COMMENT '영화사명',
 	ccompanyNmEn varchar(255) COMMENT '영화사명영문',
 	cwatchGradeNm varchar(50) NOT NULL COMMENT '관람등급',
-	crank int unsigned unique COMMENT '박스오피스 순위',
+	crank varchar(5) unsigned unique COMMENT '박스오피스 순위',
 	PRIMARY KEY (cno)
 ) COMMENT = '영화정보';
 

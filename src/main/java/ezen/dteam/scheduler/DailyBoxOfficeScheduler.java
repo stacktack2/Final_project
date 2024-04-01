@@ -153,7 +153,7 @@ public class DailyBoxOfficeScheduler {
 			String cwatchGradeNm = (String) jsonObjectWatchGradeNm.get("watchGradeNm");
 			
 			// rank
-			int crank = Integer.parseInt((String) movie.get("rank"));
+			String crank = (String) movie.get("rank");
 			
 			cinema.setCcode(ccode);
 			cinema.setCname(cname);
