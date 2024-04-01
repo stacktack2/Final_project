@@ -11,6 +11,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,10 +73,10 @@ public class Main {
 			URL url = new URL("http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?"
 					+ "collection=kmdb_new2&"
 					+ "ServiceKey="+key+"&"
-					+ "detail=N&"
+					+ "detail=Y&"
 					+ "releaseDts="+formatMinusMonth+"&"
 					+ "releaseDte="+formatPlusMonth+"&"
-					+ "listCount=100");
+					+ "listCount=1");
 			
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			
@@ -98,7 +99,9 @@ public class Main {
             
             JSONParser jsonParser = new JSONParser();
             JSONObject responseJson = (JSONObject) jsonParser.parse(responseBuilder.toString());
-            System.out.println(responseJson);
+            JSONArray jsonMovieData = (JSONArray) responseJson.get("Data");
+            
+            System.out.println(jsonMovieData);
             
 		} catch(IOException e){
 			e.printStackTrace();
