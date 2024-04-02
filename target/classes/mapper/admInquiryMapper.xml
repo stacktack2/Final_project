@@ -2,7 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD config 3.0//EN"
 						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ezen.dteam.mapper.admInquiryMapper">
-	<select id="selectAll" resultType="BoardVO">
-		select * from board b inner join member m on b.mno = m.mno
+
+	<select id="selectAllCnt" resultType="int">
+		select count(*) from board b inner join member m on b.mno = m.mno
 	</select>
+
+	<select id="selectAll" parameterType="PagingVO" resultType="BoardVO">
+		select * from board b inner join member m on b.mno = m.mno limit ${start-1},#{perPage}
+	</select>
+	
+	
+	
 </mapper>

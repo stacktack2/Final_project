@@ -1,3 +1,4 @@
+
 package ezen.dteam.dao;
 
 import java.util.List;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import ezen.dteam.vo.BoardVO;
+import ezen.dteam.vo.PagingVO;
 
 @Repository
 public class admInquiryDAO {
@@ -15,7 +17,12 @@ public class admInquiryDAO {
 	
 	private final String nameSpace = "ezen.dteam.mapper.admInquiryMapper";
 	
-	public List<BoardVO> selectBoardAll(){
-		return sqlSession.selectList(nameSpace+".selectAll");
+	public int selectBoardAllCnt() {
+		return sqlSession.selectOne(nameSpace+".selectAllCnt");
 	}
+	
+	public List<BoardVO> selectBoardAll(PagingVO pagingVO){
+		return sqlSession.selectList(nameSpace+".selectAll",pagingVO);
+	}
+	
 }
