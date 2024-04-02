@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 
 <html lang="ko" class="light-style layout-menu-fixed" dir="ltr"
@@ -79,30 +80,14 @@
 											</tr>
 										</thead>
 										<tbody class="table-border-bottom-0">
-											<tr>
-												<td>1</td>
-												<td><a href="inquiryView"><b>샘플 제목입니다.</b></a></td>
-												<td>김길동</td>
-												<td>2024-03-13</td>
-											</tr>
-											<tr>
-												<td>2</td>
-												<td><b>샘플 제목입니다.</b></td>
-												<td>김길동</td>
-												<td>2024-03-13</td>
-											</tr>
-											<tr>
-												<td>3</td>
-												<td><b>샘플 제목입니다.</b></td>
-												<td>김길동</td>
-												<td>2024-03-13</td>
-											</tr>
-											<tr>
-												<td>4</td>
-												<td><b>샘플 제목입니다.</b></td>
-												<td>김길동</td>
-												<td>2024-03-13</td>
-											</tr>
+											<c:forEach items="${board}" var="boardVO">
+												<tr>
+													<td>1</td>
+													<td><a href="inquiryView">${boardVO.btitle }</a></td>
+													<td>${boardVO.mname }</td>
+													<td>${boardVO.brdate }</td>
+												</tr>
+											</c:forEach>
 										</tbody>
 										
 									</table>
