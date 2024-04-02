@@ -38,7 +38,7 @@ public class Main {
 		
 		model.addAttribute("movieChart", movieChart);
 		
-		// dailyBoxOfficeScheduler.dailyResponse();
+		movieScheduler.dailyResponse();
 		
 		return "index";
 	}

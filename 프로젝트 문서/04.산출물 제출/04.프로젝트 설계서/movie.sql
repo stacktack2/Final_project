@@ -41,7 +41,7 @@ CREATE TABLE cinema
 (
 	cno int unsigned NOT NULL AUTO_INCREMENT COMMENT '영화번호',
 	ccode varchar(255) NOT NULL COMMENT '영화코드',
-	cname varchar(50) NOT NULL COMMENT '영화제목',
+	cname varchar(255) unique NOT NULL COMMENT '영화제목',
 	cnameEn varchar(255) COMMENT '영화제목영문',
 	cintro text NOT NULL COMMENT '영화소개',
 	cprdtYear varchar(15) NOT NULL COMMENT '제작년도',
@@ -57,7 +57,7 @@ CREATE TABLE cinema
 	ccompanyNm varchar(255) NOT NULL COMMENT '영화사명',
 	ccompanyNmEn varchar(255) COMMENT '영화사명영문',
 	cwatchGradeNm varchar(50) NOT NULL COMMENT '관람등급',
-	crank varchar(5) unique COMMENT '박스오피스 순위',
+	crank varchar(5) COMMENT '박스오피스 순위',
 	cposter text COMMENT '포스터',
 	PRIMARY KEY (cno)
 ) COMMENT = '영화정보';

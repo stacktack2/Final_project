@@ -118,7 +118,7 @@
       	<c:forEach items="${movieChart }" var="movieChart">
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <img src="<%=request.getContextPath() %>/resources/images/${movieChart.ccode }_p.jpg" alt="${movieChart.cname }포스터">
+            <img src="${movieChart.cposter }" alt="${movieChart.cname }포스터">
             <span class="category">${movieChart.cwatchGradeNm }</span>
             <h6>${movieChart.crank }위</h6>
             <h4>${movieChart.cname }</h4>
@@ -132,81 +132,6 @@
           </div>
         </div>
         </c:forEach>
-        <%-- <div class="col-lg-4 col-md-6">
-          <div class="item">
-            <img src="<%=request.getContextPath() %>/resources/images/wonka_p.jpg" alt="웡카포스터">
-            <span class="category">ALL</span>
-            <h6>2위</h6>
-            <h4>웡카</h4>
-            <ul>
-              <li>상영시간: <span>116분</span></li>
-            </ul>
-            <div class="main-button">
-              <a href="<%=request.getContextPath() %>/movie/movieView">상세보기</a>
-              <a href="#">예매하기</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="item">
-            <img src="<%=request.getContextPath() %>/resources/images/dune_p2.jpg" alt="듄2포스터">
-            <span class="category">12</span>
-            <h6>3위</h6>
-            <h4>듄: 파트2</h4>
-            <ul>
-              <li>상영시간: <span>165분</span></li>
-            </ul>
-            <div class="main-button">
-              <a href="<%=request.getContextPath() %>/movie/movieView">상세보기</a>
-              <a href="#">예매하기</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="item">
-            <img src="<%=request.getContextPath() %>/resources/images/sopoong_p.jpg" alt="소풍포스터">
-            <span class="category">12</span>
-            <h6>4위</h6>
-            <h4>소풍</h4>
-            <ul>
-              <li>상영시간: <span>113분</span></li>
-            </ul>
-            <div class="main-button">
-              <a href="<%=request.getContextPath() %>/movie/movieView">상세보기</a>
-              <a href="#">예매하기</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="item">
-            <img src="resources/images/kal_p.jpg" alt="귀칼포스터">
-            <span class="category">15</span>
-            <h6>5위</h6>
-            <h4>귀멸의 칼날: 인연의 기적, 그리고 합동 강화 훈련으로</h4>
-            <ul>
-              <li>상영시간: <span>103분</span></li>
-            </ul>
-            <div class="main-button">
-              <a href="<%=request.getContextPath() %>/movie/movieView">상세보기</a>
-              <a href="#">예매하기</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="item">
-            <img src="<%=request.getContextPath() %>/resources/images/simin_p.jpg" alt="시민덕희포스터">
-            <span class="category">15</span>
-            <h6>6위</h6>
-            <h4>시민덕희</h4>
-            <ul>
-              <li>상영시간: <span>114분</span></li>
-            </ul>
-            <div class="main-button">
-              <a href="<%=request.getContextPath() %>/movie/movieView">상세보기</a>
-              <a href="#">예매하기</a>
-            </div>
-          </div>
-        </div> --%>
       </div>
     </div>
   </div>

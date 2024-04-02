@@ -22,6 +22,7 @@ public class CinemaVO {
 	private String cwatchGradeNm;
 	private String crank;
 	private String cposter;
+	
 	public final int getCno() {
 		return cno;
 	}

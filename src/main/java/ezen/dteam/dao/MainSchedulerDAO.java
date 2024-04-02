@@ -14,8 +14,12 @@ public class MainSchedulerDAO {
 	
 	private final String nameSpace = "ezen.dteam.mapper.mainMapper";
 	
-	public int upsertDailyBoxOffice(CinemaVO cinema) {
-		return sqlSession.insert(nameSpace+".upsertDailyBoxOffice", cinema);
+	public int upsertMovieList(CinemaVO cinema) {
+		return sqlSession.insert(nameSpace+".upsertMovieList", cinema);
+	}
+	
+	public int updateMovieRank(CinemaVO cinema) {
+		return sqlSession.update(nameSpace+".updateMovieRank", cinema);
 	}
 
 }
