@@ -11,7 +11,6 @@ public class CinemaVO {
 	private String cshowTime; 
 	private String copenDate;
 	private String cprdtStatNm;
-	private String ctypeNm; 
 	private String cnationNm; 
 	private String cgenreNm; 
 	private String cdirectorNm; 
@@ -22,6 +21,7 @@ public class CinemaVO {
 	private String ccompanyNmEn; 
 	private String cwatchGradeNm;
 	private String crank;
+	private String cposter;
 	public final int getCno() {
 		return cno;
 	}
@@ -75,12 +75,6 @@ public class CinemaVO {
 	}
 	public final void setCprdtStatNm(String cprdtStatNm) {
 		this.cprdtStatNm = cprdtStatNm;
-	}
-	public final String getCtypeNm() {
-		return ctypeNm;
-	}
-	public final void setCtypeNm(String ctypeNm) {
-		this.ctypeNm = ctypeNm;
 	}
 	public final String getCnationNm() {
 		return cnationNm;
@@ -142,5 +136,11 @@ public class CinemaVO {
 	public final void setCrank(String crank) {
 		this.crank = crank;
 	}
-	
+	public final String getCposter() {
+		return cposter;
+	}
+	public final void setCposter(String cposter) {
+		this.cposter = cposter;
+	}
+		
 }

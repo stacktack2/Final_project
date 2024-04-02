@@ -36,5 +36,4 @@
 	<task:annotation-driven scheduler="dailyBoxOfficeScheduler"/>
 	
 	
-	
 </beans:beans>
