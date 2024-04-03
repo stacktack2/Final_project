@@ -95,6 +95,20 @@ public class AdmInquiry {
 		
 	}
 	
-	
+	@RequestMapping(value = "/replyDelete", method = RequestMethod.POST)
+	public void replyDelete(String icmtno, String bno, HttpServletResponse response) throws IOException {
+		
+		int result = admInquiryDAO.deleteReply(icmtno);
+		
+		response.setContentType("text/html; charset=utf-8");
+		response.setCharacterEncoding("UTF-8");
+		if(result>0) {
+			response.getWriter().append("<script>alert('댓글이 삭제되었습니다.');location.href='inquiryView?bno="+bno+"';</script>");
+		}else {
+			response.getWriter().append("<script>alert('댓글이 삭제되지 않았습니다.');location.href='inquiryView?bno="+bno+"';</script>");			
+		}
+		response.getWriter().flush();
+		
+	}
 	
 }
