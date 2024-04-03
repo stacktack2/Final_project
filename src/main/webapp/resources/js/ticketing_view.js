@@ -26,10 +26,14 @@ let movieAges = document.querySelectorAll('.movieAge');
 
 movieAges.forEach(function(movieAge) {
     let age = movieAge.textContent.trim();
-    if (age === 'all') {
+    if (age === '전체관람가') {
         movieAge.style.backgroundImage = 'url(../resources/movieAge/all.png)';
-    } else {
-        movieAge.style.backgroundImage = 'url(../resources/movieAge/' + age + '.png)';
+    } else if(age === '18세관람가(청소년관람불가)'){
+        movieAge.style.backgroundImage = 'url(../resources/movieAge/18.png)';
+    } else if(age === '12세관람가'){
+        movieAge.style.backgroundImage = 'url(../resources/movieAge/12.png)';
+    } else if(age === '15세관람가'){
+        movieAge.style.backgroundImage = 'url(../resources/movieAge/15.png)';
     }
 });
 });

@@ -42,10 +42,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	theaterItems.forEach(function(theaterItem) {
             theaterItem.addEventListener('click', function() {
-                // 선택한 영화 제목
                 let ticketTheater = theaterItem.querySelector('.text').innerHTML;
                 
-                // 진행버튼에 movieTitle 추가
                 let selectionTheater = document.getElementById('selectionTheater');
                 selectionTheater.innerHTML = ticketTheater;
                 
@@ -83,6 +81,9 @@ document.addEventListener("DOMContentLoaded", function() {
             let ticketDateWeek = dateItem.querySelector('a span:nth-of-type(1)').innerHTML;
             let ticketDateDay = dateItem.querySelector('a span:nth-of-type(2)').innerHTML;
 
+            let ticketYear = dateItem.closest('.date-list-ul').querySelector('.date-yearMonth').querySelector('.year').textContent.trim();
+            let ticketMonth = dateItem.closest('.date-list-ul').querySelector('.date-yearMonth').querySelector('.month').textContent.trim();
+
             let previousSelectedItem = document.querySelector('.selected-date-day');
             let whiteSpans = previousSelectedItem ? previousSelectedItem.querySelectorAll('.white') : [];
 
@@ -114,8 +115,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 sunDay.classList.add('white');
             }
             
-            ticket.set('ticketDateWeek', ticketDateWeek);
+            ticket.set('ticketDateYear', ticketYear);
+            ticket.set('ticketDateMonth', ticketMonth);
             ticket.set('ticketDateDay', ticketDateDay);
+            ticket.set('ticketDateWeek', ticketDateWeek);
 
             console.log(ticket);
         });

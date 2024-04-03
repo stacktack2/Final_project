@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ezen.dteam.dao.TicketDAO;
+import ezen.dteam.vo.CinemaVO;
 import ezen.dteam.vo.TheaterVO;
 
 @Service
@@ -17,6 +18,11 @@ public class TicketSVCImpl implements TicketSVC{
 	@Override
 	public List<TheaterVO> selectTheater() {
 		return ticketDAO.selectTheater();
+	}
+
+	@Override
+	public List<CinemaVO> selectMovie() {
+		return ticketDAO.selectMovie();
 	}
 	
 	

@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import ezen.dteam.vo.CinemaVO;
 import ezen.dteam.vo.TheaterVO;
 
 @Repository
@@ -20,4 +21,7 @@ public class TicketDAO {
 			return sqlSession.selectList(nameSpace+".selectTheater");
 		}
 		
+		public List<CinemaVO> selectMovie(){
+			return sqlSession.selectList(nameSpace+".selectMovie");
+		}
 }
