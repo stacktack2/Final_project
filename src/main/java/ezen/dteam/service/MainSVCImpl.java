@@ -18,5 +18,11 @@ public class MainSVCImpl implements MainSVC{
 	public List<CinemaVO> selectBoxOfficeCinema(){
 		return mainDAO.selectBoxOfficeCinema();
 	}
+
+	@Override
+	public List<CinemaVO> selectUnopen() {
+		return mainDAO.selectUnopen();
+	}
+	
 	
 }
