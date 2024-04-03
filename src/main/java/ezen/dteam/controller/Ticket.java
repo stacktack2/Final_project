@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import ezen.dteam.service.TicketSVC;
+import ezen.dteam.vo.CinemaVO;
 import ezen.dteam.vo.TheaterVO;
 
 @RequestMapping(value="/ticket")
@@ -25,9 +26,11 @@ public class Ticket {
 	@RequestMapping(value="/ticketing", method=RequestMethod.GET)
 	public String ticketing(Model model, HttpSession session, HttpServletResponse response, HttpServletRequest request) {
 		
-		List<TheaterVO> theater = ticketSVC.selectTheater() ;
-		
+		List<TheaterVO> theater = ticketSVC.selectTheater();
 		model.addAttribute("theater", theater);
+		
+		List<CinemaVO> movie = ticketSVC.selectMovie();
+		model.addAttribute("movie", movie);
 		
 		return "ticket/ticketing";
 	}

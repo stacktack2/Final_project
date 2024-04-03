@@ -46,118 +46,15 @@
 						</div>
 						<div class="movie-list">
 							<ul class="movie-list-ul">
+								<c:forEach items="${movie }" var="movie">
 								<li class="">
-									<a href="#" onclick="return false;" title="듄-파트2">
-										<i class="movieAge">12</i>
-										<span class="text">듄-파트2</span>
+									<a href="#" onclick="return false;" title="${moive.cname }">
+										<i class="movieAge">${movie.cwatchGradeNm }</i>
+										<span class="text">${movie.cname }</span>
 										<span class="sreader"></span>
 									</a>
 								</li>
-								<li class="">
-									<a href="#" onclick="return false;" title="듄-파트2">
-										<i class="movieAge">all</i>
-										<span class="text">듄-파트22222</span>
-										<span class="sreader"></span>
-									</a>
-								</li>
-								<li class="">
-									<a href="#" onclick="return false;" title="듄-파트2">
-										<i class="movieAge">15</i>
-										<span class="text">듄-파트2123123</span>
-										<span class="sreader"></span>
-									</a>
-								</li>
-								<li class="">
-									<a href="#" onclick="return false;" title="듄-파트2">
-										<i class="movieAge">18</i>
-										<span class="text">듄-파트2123123123</span>
-										<span class="sreader"></span>
-									</a>
-								</li>
-								<li class="">
-									<a href="#" onclick="return false;" title="듄-파트2">
-										<i class="movieAge">12</i>
-										<span class="text">듄-파트2</span>
-										<span class="sreader"></span>
-									</a>
-								</li>
-								<li class="">
-									<a href="#" onclick="return false;" title="듄-파트2">
-										<i class="movieAge">all</i>
-										<span class="text">듄-파트22222</span>
-										<span class="sreader"></span>
-									</a>
-								</li>
-								<li class="">
-									<a href="#" onclick="return false;" title="듄-파트2">
-										<i class="movieAge">15</i>
-										<span class="text">듄-파트2123123</span>
-										<span class="sreader"></span>
-									</a>
-								</li>
-								<li class="">
-									<a href="#" onclick="return false;" title="듄-파트2">
-										<i class="movieAge">18</i>
-										<span class="text">듄-파트2123123123</span>
-										<span class="sreader"></span>
-									</a>
-								</li>
-								<li class="">
-									<a href="#" onclick="return false;" title="듄-파트2">
-										<i class="movieAge">12</i>
-										<span class="text">듄-파트2</span>
-										<span class="sreader"></span>
-									</a>
-								</li>
-								<li class="">
-									<a href="#" onclick="return false;" title="듄-파트2">
-										<i class="movieAge">all</i>
-										<span class="text">듄-파트22222</span>
-										<span class="sreader"></span>
-									</a>
-								</li>
-								<li class="">
-									<a href="#" onclick="return false;" title="듄-파트2">
-										<i class="movieAge">15</i>
-										<span class="text">듄-파트2123123</span>
-										<span class="sreader"></span>
-									</a>
-								</li>
-								<li class="">
-									<a href="#" onclick="return false;" title="듄-파트2">
-										<i class="movieAge">18</i>
-										<span class="text">듄-파트2123123123</span>
-										<span class="sreader"></span>
-									</a>
-								</li>
-								<li class="">
-									<a href="#" onclick="return false;" title="듄-파트2">
-										<i class="movieAge">12</i>
-										<span class="text">듄-파트2</span>
-										<span class="sreader"></span>
-									</a>
-								</li>
-								<li class="">
-									<a href="#" onclick="return false;" title="듄-파트2">
-										<i class="movieAge">all</i>
-										<span class="text">듄-파트22222</span>
-										<span class="sreader"></span>
-									</a>
-								</li>
-								<li class="">
-									<a href="#" onclick="return false;" title="듄-파트2">
-										<i class="movieAge">15</i>
-										<span class="text">듄-파트2123123</span>
-										<span class="sreader"></span>
-									</a>
-								</li>
-								<li class="">
-									<a href="#" onclick="return false;" title="듄-파트2">
-										<i class="movieAge">18</i>
-										<span class="text">듄-파트2123123123</span>
-										<span class="sreader"></span>
-									</a>
-								</li>
+								</c:forEach>
 							</ul>
 						</div>
 					</div>
@@ -355,7 +252,7 @@
 				<div class="tnb">
 					<div class="info movie">
 						<span class="movie_poster">
-							<img src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000087/87947/87947_185.JPG" alt="영화 포스터" style="display: inline;">
+							<!-- <img src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000087/87947/87947_185.JPG" alt="영화 포스터" style="display: inline;"> -->
 						</span>
 						<div class="row movie_title colspan2" style="display: block;">
 							<span class="data letter-spacing-min ellipsis-line2">

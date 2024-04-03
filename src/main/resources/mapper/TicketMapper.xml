@@ -7,8 +7,10 @@
 		SELECT * FROM theater
 	</select>
 	
-	<select id="">
-		
+	<select id="selectMovie" resultType="CinemaVO">
+	<![CDATA[
+		SELECT * FROM dflix.cinema WHERE copenDate BETWEEN DATE_SUB(NOW(), INTERVAL 1 MONTH) AND DATE_ADD(NOW(), INTERVAL 2 WEEK) OR crank < 11 ORDER BY crank IS NULL, CAST(crank AS UNSIGNED) ASC
+	]]>
 	</select>
 
 </mapper>
