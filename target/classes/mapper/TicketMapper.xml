@@ -6,5 +6,9 @@
 	<select id="selectTheater" resultType="TheaterVO">
 		SELECT * FROM theater
 	</select>
+	
+	<select id="">
+		
+	</select>
 
 </mapper>
