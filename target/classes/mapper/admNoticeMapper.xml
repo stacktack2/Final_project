@@ -3,4 +3,22 @@
 						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ezen.dteam.mapper.admNoticeMapper">
 
+	<select id="selectAllCnt" resultType="int">
+		select count(*) from board b inner join member m on b.mno = m.mno where btype = "공지"
+	</select>
+
+	<select id="selectAll" parameterType="PagingVO" resultType="BoardVO">
+		select * from board b inner join member m on b.mno = m.mno where btype = "공지" order by bno desc limit ${start-1},#{perPage}
+	</select>
+	
+	<select id="selectboardofbno" parameterType="String" resultType="BoardVO">
+		select * from board where bno = #{value}
+	</select>
+	
+	<insert id="insertNotice" parameterType="BoardVO">
+		insert into board(btitle,bcontent,btype,mno)
+		values(#{btitle},#{bcontent},"공지",#{mno})
+	</insert>
+	
+	
 </mapper>

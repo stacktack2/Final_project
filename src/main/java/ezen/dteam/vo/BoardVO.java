@@ -10,8 +10,27 @@ public class BoardVO {
 	private int bdelyn;
 	private String mname;
 	private String replyCnt;
+	private int mno;
+	
+	public BoardVO(){}
 	
 	
+	
+	public BoardVO(String btitle, String bcontent, int mno) {
+		super();
+		this.btitle = btitle;
+		this.bcontent = bcontent;
+		this.mno = mno;
+	}
+
+
+
+	public int getMno() {
+		return mno;
+	}
+	public void setMno(int mno) {
+		this.mno = mno;
+	}
 	public int getBno() {
 		return bno;
 	}
