@@ -149,15 +149,16 @@
         <a href="<%=request.getContextPath() %>/movie/movieSchedule" class="more">더보기></a>
       </div>
       <div class="row">
+        <c:forEach items="${unopenMovie }" var="unopenMovie">
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <img src="<%=request.getContextPath() %>/resources/images/pop_p.jpg" alt="">
-            <span class="category">15</span>
-            <h6>D-14</h6>
-            <h4>밥 말리: 원 러브</h4>
+            <img src="${unopenMovie.cposter }" alt="${unopenMovie.cname }">
+            <span class="category">${unopenMovie.cwatchGradeNm }</span>
+            <h6>D${unopenMovie.dday }</h6>
+            <h4>${unopenMovie.cname }</h4>
             <ul>
-              <li>상영시간: <span>107분</span></li>
-              <li>개봉일: <span>2024.03.14</span></li>
+              <li>상영시간: <span>${unopenMovie.cshowTime }분</span></li>
+              <li>개봉일: <span>${unopenMovie.copenDate }</span></li>
             </ul>
             <div class="main-button">
               <a href="<%=request.getContextPath() %>/movie/movieView">상세보기</a>
@@ -165,7 +166,8 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6">
+        </c:forEach>
+        <%-- <div class="col-lg-4 col-md-6">
           <div class="item">
             <img src="<%=request.getContextPath() %>/resources/images/land_p.jpg" alt="포스터">
             <span class="category">15</span>
@@ -244,7 +246,7 @@
               <a href="#">예매하기</a>
             </div>
           </div>
-        </div>
+        </div> --%>
       </div>
     </div>
   </div>

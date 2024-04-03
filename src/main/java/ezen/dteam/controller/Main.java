@@ -40,6 +40,9 @@ public class Main {
 		
 		movieScheduler.dailyResponse();
 		
+		List<CinemaVO> unopenMovie = mainService.selectUnopen();		
+		model.addAttribute("unopenMovie", unopenMovie);
+		
 		return "index";
 	}
 	
