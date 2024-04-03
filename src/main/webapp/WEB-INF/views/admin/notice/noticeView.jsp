@@ -72,13 +72,13 @@
 									<table class="table">
 										<thead>
 											<tr>
-												<th>샘플 제목입니다.</th>
-												<th class="right">2024.03.13</th>
+												<th>${boardVO.btitle }</th>
+												<th class="right">${boardVO.brdate }</th>
 											</tr>
 										</thead>
 										<tbody class="table-border-bottom-0 ">
 											<tr>
-												<td colspan=2>본문입니다.</td>
+												<td colspan=2>${boardVO.bcontent }</td>
 											</tr>
 										</tbody>
 									</table>

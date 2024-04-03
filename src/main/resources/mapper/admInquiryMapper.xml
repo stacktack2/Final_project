@@ -4,12 +4,12 @@
 <mapper namespace="ezen.dteam.mapper.admInquiryMapper">
 
 	<select id="selectAllCnt" resultType="int">
-		select count(*) from board b inner join member m on b.mno = m.mno
+		select count(*) from board b inner join member m on b.mno = m.mno where btype = "문의"
 	</select>
 
 	<select id="selectAll" parameterType="PagingVO" resultType="BoardVO">
 		select *, (select count(*) from icmtReply i where i.bno=b.bno) as replyCnt
-		 from board b inner join member m on b.mno = m.mno limit ${start-1},#{perPage}
+		 from board b inner join member m on b.mno = m.mno where btype = "문의" order by bno desc limit ${start-1},#{perPage}
 	</select>
 	
 	<select id="selectboardofbno" parameterType="String" resultType="BoardVO">
@@ -18,13 +18,13 @@
 	
 	<select id="selectprebno" parameterType="String" resultType="BoardVO">
 	<![CDATA[
-		select * from board where bno < #{value} order by bno desc limit 1
+		select * from board where bno < #{value} and btype = "문의" order by bno desc limit 1
 	]]>
 	</select>
 	
 	<select id="selectnextbno" parameterType="String" resultType="BoardVO">
 	<![CDATA[
-		select * from board where bno > #{value} order by bno limit 1
+		select * from board where bno > #{value} and btype = "문의" order by bno limit 1
 	]]>
 	</select>
 	
