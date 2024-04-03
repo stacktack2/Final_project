@@ -16,6 +16,22 @@
 		INSERT INTO member(mid, mpw, mnickNm, mname, mbirth, memail,mgender,
 						 mphone, mjoinDate, enabled, authority)
 				 VALUES(#{mid}, #{mpw}, #{mnickNm}, #{mname}, #{mbirth}, #{memail},#{mgender},
-				 		#{mphone}, now(), 1, #{authority})
+				 		#{mphone}, now(), 1, 'ROLE_USER')
 	</insert>
+	
+	<!-- 아이디 중복 검사 -->
+	<select id="checkId" parameterType="String" resultType="int">
+		select count(*) from member where mid = #{mid}
+	</select>
+	
+	<!-- 닉네임 중복 검사 -->
+	<select id="checkNickNm" parameterType="String" resultType="int">
+		select count(*) from member where mnickNm = #{mnickNm}
+	</select>
+	
+	<!-- 이메일 중복 검사 -->
+	<select id="checkEmail" parameterType="String" resultType="int">
+		select count(*) from member where memail = #{memail}
+	</select>
+	
 </mapper>
