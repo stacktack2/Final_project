@@ -9,6 +9,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import ezen.dteam.service.UserSVCImpl;
 
 //@RequestMapping(value="/user")
 @Controller
@@ -16,6 +19,9 @@ public class User {
 	
 	@Autowired
 	SqlSession sqlSession;
+	
+	@Autowired
+	UserSVCImpl service;
 	
 	@RequestMapping(value = "/login")
 	public String login() {
@@ -29,11 +35,33 @@ public class User {
 		return "user/join";
 	}
 	
+	//아이디 중복확인(ajax)
+	@ResponseBody
+	@RequestMapping(value="/checkId", method=RequestMethod.POST)
+	public String checkId(String id) throws Exception {
+		return Integer.toString(service.checkId(id));
+	}
+	
+	//닉네임 중복확인(ajax)
+	@ResponseBody
+	@RequestMapping(value="/checkNickNm", method=RequestMethod.POST)
+	public String checkNickNm(String nickNm) throws Exception {
+		return Integer.toString(service.checkNickNm(nickNm));
+	}
+	
+	//이메일 중복확인(ajax)
+	@ResponseBody
+	@RequestMapping(value="/checkEmail", method=RequestMethod.POST)
+	public String checkEmail(String email) throws Exception {
+		return Integer.toString(service.checkEmail(email));
+	}
+	
+	//회원가입
 	@RequestMapping(value="/joinOk", method=RequestMethod.POST)
 	public String joinOk(String mid,String mpw, String mname,String authority, String enabled,
 			String mnickNm, String mbirth, String memail,String mgender, String mphone) {
 		
-		//BCrypt ��ȣȭ
+		//BCrypt 암호화
 		BCryptPasswordEncoder epwe = new BCryptPasswordEncoder();
 		
 		Map<String,Object> vo = new HashMap<String,Object>();
@@ -48,7 +76,7 @@ public class User {
 		vo.put("enabled", enabled);		
 		vo.put("authority", authority);
 		
-		//db�� ����
+		//db에 insert
 		int result = sqlSession.insert("ezen.dteam.mapper.userMapper.insert",vo);
 		
 		return "redirect:/user/login";
