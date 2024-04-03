@@ -35,6 +35,8 @@ document.addEventListener("DOMContentLoaded", function() {
             console.log(ticket);
         });
     });
+
+    
 });
     
 document.addEventListener("DOMContentLoaded", function() {
@@ -167,4 +169,3 @@ document.addEventListener("DOMContentLoaded", function() {
         location.reload();
     });
 });
-
