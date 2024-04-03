@@ -8,4 +8,5 @@ public interface MainSVC {
 	
 	List<CinemaVO> selectBoxOfficeCinema();
 	
+	List<CinemaVO> selectUnopen();
 }

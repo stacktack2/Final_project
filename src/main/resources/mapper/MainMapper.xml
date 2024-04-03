@@ -43,5 +43,8 @@
 		WHERE cname = #{cname};
 	</update>
 	
+	<select id="selectUnopen" resultType="CinemaVO">
+		SELECT  *, DATEDIFF(now(), copenDate) AS dday FROM dflix.cinema WHERE cprdtStatNm = '미개봉' Order by copenDate ASC LIMIT 6 ;
+	</select>
 	
 </mapper>

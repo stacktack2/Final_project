@@ -143,5 +143,15 @@ public class CinemaVO {
 	public final void setCposter(String cposter) {
 		this.cposter = cposter;
 	}
-		
+	
+	private int dday;
+
+	public final int getDday() {
+		return dday;
+	}
+	public final void setDday(int dday) {
+		this.dday = dday;
+	}
+	
+	
 }

@@ -19,5 +19,9 @@ public class MainDAO {
 	public List<CinemaVO> selectBoxOfficeCinema(){
 		return sqlSession.selectList(nameSpace+".selectBoxOfficeCinema");
 	}
-
+	
+	public List<CinemaVO> selectUnopen(){
+		return sqlSession.selectList(nameSpace+".selectUnopen");
+	}
+	
 }

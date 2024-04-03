@@ -43,7 +43,7 @@ public class MovieScheduler {
 		
 		// 파라미터 설정
 		String targetDt = formatYesterDay;// 조회일자
-		String itemPerPage = "6";// Main에 결과 출력 수 
+		String itemPerPage = "10";// Main에 결과 출력 수 
 		String multiMovieYn = "";// 영화 조회 다양성 영화: "Y" / 상업영화: "N" (default:전체)
 		String repNationCd = "";// 영화 조회 한국영화: "K" / 외국영화: "F" (default:전체)
 		String wideAreaCd = "";// "0105000000" 로서 조호된 지역코드
@@ -55,7 +55,6 @@ public class MovieScheduler {
 				
 		// 처음 dailyResponse를 String으로 받았기 때문에 objectMapper로 받아서 변환할 필요가 없음.
 		JSONObject jsonObject = (JSONObject) jsonParser.parse(dailyResponse);
-		System.out.println(jsonObject);
 		
 		// dailyResponse의 boxOfficeResult값 받아오기 : 1depth
 		JSONObject jsonBoxOfficeResult = (JSONObject) jsonObject.get("boxOfficeResult");
@@ -67,7 +66,6 @@ public class MovieScheduler {
 		
 		for(int i = 0; i < jsonDailyBoxOfficeList.size(); i++) {
 			JSONObject jsonObjDailyBoxOfficeList = (JSONObject) jsonDailyBoxOfficeList.get(i);
-			System.out.println(jsonObjDailyBoxOfficeList);
 			
 			String movieName = (String) jsonObjDailyBoxOfficeList.get("movieNm");
 			String rank = (String) jsonObjDailyBoxOfficeList.get("rank");
@@ -102,8 +100,8 @@ public class MovieScheduler {
 					+ "collection=kmdb_new2&"
 					+ "ServiceKey="+key+"&"
 					+ "detail=Y&"
-					+ "releaseDts="+formatMinusMonth+"&"
-					+ "releaseDte="+formatPlusMonth+"&"
+					+ "releaseDts=20240201&"
+					+ "releaseDte=20240301&"
 					+ "listCount=200");
 			
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
