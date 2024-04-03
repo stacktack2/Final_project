@@ -140,11 +140,14 @@
 							<div class=" row navbar navbar-example navbar-expand-lg bg-light mb-3">
 									<div>
 										<b>${item.icmtContent }</b>
-										<button class="btn btn-primary right m-1">수정</button>
-										<button class="btn btn-primary right m-1">삭제</button>
+										<button class="btn btn-primary right m-1" onclick="replyDeleteFn(${item.icmtno})">삭제</button>
 									</div>
 							</div>
 						</c:forEach>
+						<form action="replyDelete" method="post" name="replyDel">
+							<input type="hidden" name="icmtno" id="icmtno">
+							<input type="hidden" name="bno" value="${boardVO.bno }">
+						</form>
 						
 						<div class="h-25">
 						</div>
