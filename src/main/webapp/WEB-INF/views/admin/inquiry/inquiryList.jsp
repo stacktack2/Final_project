@@ -83,7 +83,18 @@
 											<c:forEach items="${board}" var="boardVO" varStatus="status">
 												<tr>
 													<td>${status.count }</td>
-													<td><a href="inquiryView?bno=${boardVO.bno }">${boardVO.btitle }</a></td>
+													<td><a href="inquiryView?bno=${boardVO.bno }">${boardVO.btitle } </a>
+														<b><span style="color:orange">
+															<c:choose>
+																<c:when test="${boardVO.replyCnt > 0 }">
+																	[답변완료]
+																</c:when>
+																<c:otherwise>
+																	[대기중]
+																</c:otherwise>
+															</c:choose>
+														</span></b>
+													</td>
 													<td>${boardVO.mname }</td>
 													<td>${boardVO.brdate }</td>
 												</tr>

@@ -9,10 +9,17 @@ public class BoardVO {
 	private String btype;
 	private int bdelyn;
 	private String mname;
+	private String replyCnt;
 	
 	
 	public int getBno() {
 		return bno;
+	}
+	public String getReplyCnt() {
+		return replyCnt;
+	}
+	public void setReplyCnt(String replyCnt) {
+		this.replyCnt = replyCnt;
 	}
 	public void setBno(int bno) {
 		this.bno = bno;
