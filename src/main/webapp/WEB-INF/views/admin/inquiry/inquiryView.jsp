@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 
 <html lang="ko" class="light-style layout-menu-fixed" dir="ltr"
@@ -72,13 +73,13 @@
 									<table class="table">
 										<thead>
 											<tr>
-												<th>샘플 제목입니다.</th>
-												<th class="right">2024.03.13</th>
+												<th>${boardVO.btitle }</th>
+												<th class="right">${boardVO.brdate }</th>
 											</tr>
 										</thead>
 										<tbody class="table-border-bottom-0 ">
 											<tr>
-												<td colspan=2>본문입니다.</td>
+												<td colspan=2>${boardVO.bcontent }</td>
 											</tr>
 										</tbody>
 									</table>
@@ -87,8 +88,15 @@
 						</div>
 						<!--/ Basic Bootstrap Table -->
 						<a href="inquiryList"><button class="right btn btn-primary mt-3">목록으로</button></a>
-						<a href="inquiryModify"><button class="btn btn-primary mt-3 ">삭제</button></a>
 
+						<button class="btn btn-primary mt-3 " onclick="deleteConfirm()">삭제</button>
+						
+						
+						
+						<form action="inquiryDelete" method="post" name="inquiryDelete">
+							<input type="hidden" name="bno" value="${boardVO.bno }">
+						</form>
+						
 						<div style="margin-top:100px" class="row">
 							<div class="table-responsive text-nowrap">
 								<table class="table">
@@ -96,10 +104,14 @@
 									</thead>
 									<tbody>
 										<tr>
-											<td><a>다음글 ▲ </a><span> 샘플 제목입니다.</span></td>
+											<c:if test="${not empty preBoardVO.bno}">
+												<td><a href="inquiryView?bno=${preBoardVO.bno }">다음글 ▲ <span> ${preBoardVO.btitle }</span></a></td>
+											</c:if>
 										</tr>
 										<tr>
-											<td><a>이전글 ▼ </a><span> 샘플 제목입니다.</span></td>
+											<c:if test="${not empty nextBoardVO.bno}">
+												<td><a href="inquiryView?bno=${nextBoardVO.bno }">이전글 ▼ <span> ${nextBoardVO.btitle }</span></a></td>
+											</c:if>
 										</tr>
 									</tbody>
 								</table>
@@ -111,18 +123,31 @@
 						<div class="row">
 							<div class="navbar-nav">
 								<div class="nav-item d-flex">
-									<input type="text" class="form-control border-0 shadow-none w-75 mb-5 mr-5"/>
-									<button class="btn btn-primary mb-5">답변 추가</button>
+									<input type="text" class="form-control border-0 shadow-none w-75 mb-5 mr-5" id="replyContentInput"/>
+									<button class="btn btn-primary mb-5" onclick="replyWriteFn()">답변 추가</button>
+
+									
+
+									<form action="replyWrite" method="post" name="replyAdd">
+										<input type="hidden" name="replyContent" id="replyContentInput2">
+										<input type="hidden" name="bno" value="${boardVO.bno }">
+									</form>
 								</div>
 							</div>
 						</div>
-						<div class=" row navbar navbar-example navbar-expand-lg bg-light mb-3">
-							<div>
-								<b>답변 샘플 본문입니다</b>
-								<button class="btn btn-primary right m-1">수정</button>
-								<button class="btn btn-primary right m-1">삭제</button>
+						
+						<c:forEach var="item" items="${replyList }">
+							<div class=" row navbar navbar-example navbar-expand-lg bg-light mb-3">
+									<div>
+										<b>${item.icmtContent }</b>
+										<button class="btn btn-primary right m-1" onclick="replyDeleteFn(${item.icmtno})">삭제</button>
+									</div>
 							</div>
-						</div>
+						</c:forEach>
+						<form action="replyDelete" method="post" name="replyDel">
+							<input type="hidden" name="icmtno" id="icmtno">
+							<input type="hidden" name="bno" value="${boardVO.bno }">
+						</form>
 						
 						<div class="h-25">
 						</div>
@@ -137,6 +162,7 @@
 
 	</div>
 	<!-- / Layout wrapper -->
-
+	
+<script src="<%=request.getContextPath()%>/resources/js/inquiryView.js"></script>
 </body>
 </html>
