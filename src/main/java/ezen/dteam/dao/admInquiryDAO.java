@@ -54,5 +54,8 @@ public class admInquiryDAO {
 		return sqlSession.selectList(nameSpace+".selectReplyBno",bno);
 	}
 	
+	public int deleteReply(String icmtno) {
+		return sqlSession.delete(nameSpace+".deleteReply",icmtno);
+	}
 	
 }
