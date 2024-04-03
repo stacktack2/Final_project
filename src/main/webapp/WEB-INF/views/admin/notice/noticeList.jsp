@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 
 <html lang="ko" class="light-style layout-menu-fixed" dir="ltr"
@@ -79,30 +80,14 @@
 											</tr>
 										</thead>
 										<tbody class="table-border-bottom-0">
-											<tr>
-												<td>1</td>
-												<td><a href="noticeView"><b>샘플 제목입니다.</b></a></td>
-												<td>김길동</td>
-												<td>2024-03-13</td>
-											</tr>
-											<tr>
-												<td>2</td>
-												<td><b>샘플 제목입니다.</b></td>
-												<td>김길동</td>
-												<td>2024-03-13</td>
-											</tr>
-											<tr>
-												<td>3</td>
-												<td><b>샘플 제목입니다.</b></td>
-												<td>김길동</td>
-												<td>2024-03-13</td>
-											</tr>
-											<tr>
-												<td>4</td>
-												<td><b>샘플 제목입니다.</b></td>
-												<td>김길동</td>
-												<td>2024-03-13</td>
-											</tr>
+											<c:forEach items="${board}" var="boardVO" varStatus="status">
+												<tr>
+													<td>${status.count }</td>
+													<td><a href="noticeView?bno=${boardVO.bno }">${boardVO.btitle }</a></td>
+													<td>${boardVO.mname }</td>
+													<td>${boardVO.brdate }</td>
+												</tr>
+											</c:forEach>
 										</tbody>
 										
 									</table>
@@ -117,31 +102,34 @@
 						 <div class="demo-inline-spacing">
                         <nav aria-label="Page navigation">
                           <ul class="pagination justify-content-center">
-                            <li class="page-item prev">
-                              <a class="page-link" href="javascript:void(0);"
-                                ><i class="tf-icon bx bx-chevrons-left">&lt;</i
-                              ></a>
-                            </li>
-                            <li class="page-item">
-                              <a class="page-link" href="javascript:void(0);">1</a>
-                            </li>
-                            <li class="page-item">
-                              <a class="page-link" href="javascript:void(0);">2</a>
-                            </li>
-                            <li class="page-item active">
-                              <a class="page-link" href="javascript:void(0);">3</a>
-                            </li>
-                            <li class="page-item">
-                              <a class="page-link" href="javascript:void(0);">4</a>
-                            </li>
-                            <li class="page-item">
-                              <a class="page-link" href="javascript:void(0);">5</a>
-                            </li>
-                            <li class="page-item next">
-                              <a class="page-link" href="javascript:void(0);"
-                                ><i class="tf-icon bx bx-chevrons-right">&gt;</i
-                              ></a>
-                            </li>
+                            
+                            <c:if test="${pagingVO.startPage > pagingVO.cntPage }">
+	                            <li class="page-item prev">
+	                              <a class="page-link" href="noticeList?nowPageParam=${pagingVO.startPage-1}"><i class="tf-icon bx bx-chevrons-left">&lt;</i></a>
+	                            </li>
+                            </c:if>
+                            
+                            <c:set var="loop_flag" value="false" />
+                            <c:forEach var="i" begin="${pagingVO.startPage }" end="10">
+                            	
+                            	<c:if test="${i > pagingVO.endPage }">
+                            		<c:set var="loop_flag" value="true" />
+                            	</c:if>
+                            	
+                        
+                            	<c:if test="${not loop_flag }">
+		                            <li class="page-item">
+		                              <a class="page-link" href="noticeList?nowPageParam=${i}">${i}</a>
+		                            </li>
+		                        </c:if>
+                            </c:forEach>
+                            
+                            <c:if test="${pagingVO.endPage < pagingVO.lastPage}">
+	                            <li class="page-item next">
+	                              <a class="page-link" href="noticeList?nowPageParam=${pagingVO.endPage+1}"><i class="tf-icon bx bx-chevrons-right">&gt;</i></a>
+	                            </li>
+                            </c:if>
+                            
                           </ul>
                           </nav>
 						</div>

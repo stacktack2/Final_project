@@ -104,13 +104,13 @@
 									</thead>
 									<tbody>
 										<tr>
-											<c:if test="${not empty preBoardVO.bno}">
-												<td><a href="inquiryView?bno=${preBoardVO.bno }">다음글 ▲ <span> ${preBoardVO.btitle }</span></a></td>
+											<c:if test="${not empty nextBoardVO.bno}">
+												<td><a href="inquiryView?bno=${nextBoardVO.bno }">다음글 ▲ <span> ${nextBoardVO.btitle }</span></a></td>
 											</c:if>
 										</tr>
 										<tr>
-											<c:if test="${not empty nextBoardVO.bno}">
-												<td><a href="inquiryView?bno=${nextBoardVO.bno }">이전글 ▼ <span> ${nextBoardVO.btitle }</span></a></td>
+											<c:if test="${not empty preBoardVO.bno}">
+												<td><a href="inquiryView?bno=${preBoardVO.bno }">이전글 ▼ <span> ${preBoardVO.btitle }</span></a></td>
 											</c:if>
 										</tr>
 									</tbody>
