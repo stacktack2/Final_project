@@ -1,5 +1,7 @@
 eclipse.preferences.version=1
 encoding//src/main/java/ezen/dteam/controller/Main.java=UTF-8
+encoding//src/main/java/ezen/dteam/controller/User.java=UTF-8
+encoding//src/main/java/ezen/dteam/service/UserSVCImpl.java=UTF-8
 encoding//src/main/java/ezen/dteam/util/SampleDataMaker.java=UTF-8
 encoding//src/main/webapp/WEB-INF/views/admin/main.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/include/footer/userFooter.jsp=UTF-8
