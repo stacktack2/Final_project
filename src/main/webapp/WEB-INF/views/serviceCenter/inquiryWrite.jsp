@@ -46,16 +46,16 @@
 						<div class="row h-50">
 							<div class="card">
 								<div class="table-responsive text-nowrap">
-									<form>
+									<form name="boardWrite" action="inquiryWrite" method="post">
 										<table class="table">
 											<thead>
 												<tr>
-													<th><input type="text" class="form-control border-0 shadow-none" placeholder="제목" aria-label="제목"></th>
+													<th><input type="text" name="btitle" class="form-control border-0 shadow-none" placeholder="제목" aria-label="제목"></th>
 												</tr>
 											</thead>
 											<tbody class="table-border-bottom-0 ">
 												<tr>
-													<td colspan=2><input type="text" class="form-control border-0 shadow-none" placeholder="내용을 입력하세요." aria-label="내용을 입력하세요."></td>
+													<td colspan=2><input type="text" name="bcontent" class="form-control border-0 shadow-none" placeholder="내용을 입력하세요." aria-label="내용을 입력하세요."></td>
 												</tr>
 											</tbody>
 										</table>
@@ -65,7 +65,7 @@
 						</div>
 						<!--/ Basic Bootstrap Table -->
 						
-						<button class="right btn btn-primary mt-3">등록</button>
+						<button style="margin-top:50px" class="right btn btn-primary" onclick="document.forms['boardWrite'].submit();">작성</button>
 
 							
 						<!-- 본문 끝 -->

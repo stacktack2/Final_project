@@ -33,7 +33,7 @@ public class AdmInquiry {
 		
 		int totalCnt = admInquiryDAO.selectBoardAllCnt();
 		
-		PagingVO pagingVO = new PagingVO(nowPage, totalCnt, 2);
+		PagingVO pagingVO = new PagingVO(nowPage, totalCnt, 5);
 		
 		model.addAttribute("pagingVO", pagingVO);
 		

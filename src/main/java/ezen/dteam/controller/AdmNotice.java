@@ -37,7 +37,7 @@ public class AdmNotice {
 		
 		int totalCnt = admNoticeDAO.selectBoardAllCnt();
 		
-		PagingVO pagingVO = new PagingVO(nowPage, totalCnt, 2);
+		PagingVO pagingVO = new PagingVO(nowPage, totalCnt, 5);
 		
 		model.addAttribute("pagingVO", pagingVO);
 		
@@ -52,7 +52,22 @@ public class AdmNotice {
 		return "/admin/notice/noticeView";
 	}
 	
-	
+	@RequestMapping(value = "/noticeDelete", method = RequestMethod.POST)
+	public void noticeDelete(String bno, HttpServletResponse response) throws IOException {
+		
+		int result = admNoticeDAO.deleteBoard(bno);
+		
+		response.setContentType("text/html; charset=utf-8");
+		response.setCharacterEncoding("UTF-8");
+		
+		if(result>0) {
+			response.getWriter().append("<script>alert('삭제되었습니다.');location.href='noticeList';</script>");
+		}else {
+			response.getWriter().append("<script>alert('삭제되지 않았습니다.');location.href='noticeList';</script>");			
+		}
+		response.getWriter().flush();
+		
+	}
 	
 	
 	@RequestMapping(value = "/noticeWrite", method = RequestMethod.GET)
@@ -62,6 +77,11 @@ public class AdmNotice {
 	
 	@RequestMapping(value = "/noticeWrite", method = RequestMethod.POST)
 	public void noticeWriteOk(Authentication authentication, HttpServletResponse response, String btitle, String bcontent) throws IOException {
+		
+		if(btitle == null || btitle.equals("")) {
+			btitle = "제목 없음";
+		}
+		
 		UserVO loginUser = (UserVO)authentication.getPrincipal();
 		
 		String mid = loginUser.getMid();
@@ -85,15 +105,32 @@ public class AdmNotice {
 	
 	
 	@RequestMapping(value = "/noticeModify", method = RequestMethod.GET)
-	public String noticeModify() {
-		
+	public String noticeModify(String bno, Model model) {
+		model.addAttribute("boardVO",admNoticeDAO.selectBoardBno(bno));
 		return "/admin/notice/noticeModify";
 	}
 	
 	@RequestMapping(value = "/noticeModify", method = RequestMethod.POST)
-	public String noticeModifyOk() {
+	public String noticeModifyOk(BoardVO boardVO, HttpServletResponse response) throws IOException {
 		
-		return "redirect:/";
+		String btitle = boardVO.getBtitle();
+		if(btitle == null || btitle.equals("")) {
+			boardVO.setBtitle("제목 없음");
+		}
+		
+		
+		int result = admNoticeDAO.updateBoard(boardVO);
+		
+		response.setContentType("text/html; charset=utf-8");
+		response.setCharacterEncoding("UTF-8");
+		if(result>0) {
+			response.getWriter().append("<script>alert('공지를 수정했습니다.');location.href='noticeList';</script>");
+		}else {
+			response.getWriter().append("<script>alert('공지가 수정되지 않았습니다.');location.href='noticeList';</script>");			
+		}
+		response.getWriter().flush();
+		
+		return "/admin/notice/noticeView?bno="+boardVO.getBno();
 	}
 	
 	
