@@ -60,7 +60,7 @@
 							문의 게시판
 						</h4>
 						
-						<!-- Search -->
+						<!-- Search
 						<div class="row">
 							<div class="navbar-nav right">
 								<div class="nav-item d-flex right">
@@ -70,7 +70,7 @@
 								</div>
 							</div>
 						</div>
-						<!-- /Search -->
+						/Search -->
 	
 						<!-- Basic Bootstrap Table -->
 						<div class="row">
@@ -86,60 +86,70 @@
 											</tr>
 										</thead>
 										<tbody class="table-border-bottom-0">
-											<tr>
-												<td>1</td>
-												<td><a href="inquiryView"><b>샘플 제목입니다. <span style="color:orange">[대기중]</span></b></a></td>
-												<td>김길동</td>
-												<td>2024-03-13</td>
-											</tr>
-											<tr>
-												<td>2</td>
-												<td><b>샘플 제목입니다. <span style="color:orange">[대기중]</span></b></td>
-												<td>김길동</td>
-												<td>2024-03-13</td>
-											</tr>
-											<tr>
-												<td>3</td>
-												<td><b>샘플 제목입니다. <span style="color:orange">[대기중]</span></b></td>
-												<td>김길동</td>
-												<td>2024-03-13</td>
-											</tr>
-											<tr>
-												<td>4</td>
-												<td><b>샘플 제목입니다. <span style="color:orange">[답변완료]</span></b></td>
-												<td>김길동</td>
-												<td>2024-03-13</td>
-											</tr>
+											<c:forEach items="${board}" var="boardVO" varStatus="status">
+												<tr>
+													<td>${status.count }</td>
+													<td><a href="inquiryView?bno=${boardVO.bno }">${boardVO.btitle } </a>
+														<b><span style="color:orange">
+															<c:choose>
+																<c:when test="${boardVO.replyCnt > 0 }">
+																	[답변완료]
+																</c:when>
+																<c:otherwise>
+																	[대기중]
+																</c:otherwise>
+															</c:choose>
+														</span></b>
+													</td>
+													<td>${boardVO.mname }</td>
+													<td>${boardVO.brdate }</td>
+												</tr>
+											</c:forEach>
 										</tbody>
+										
 									</table>
+									
 								</div>
+								
 							</div>
 						</div>
 						<!--/ Basic Bootstrap Table -->
 						<a href="inquiryWrite"><button style="margin-top:50px" class="right btn btn-primary">문의</button></a>
 
 						<!-- 페이징 -->
-						<div class="demo-inline-spacing">
-							<nav aria-label="Page navigation">
-								<ul class="pagination justify-content-center">
-									<li class="page-item prev"><a class="page-link"
-										href="javascript:void(0);"><i
-											class="tf-icon bx bx-chevrons-left">&lt;</i></a></li>
-									<li class="page-item"><a class="page-link"
-										href="javascript:void(0);">1</a></li>
-									<li class="page-item"><a class="page-link"
-										href="javascript:void(0);">2</a></li>
-									<li class="page-item active"><a class="page-link"
-										href="javascript:void(0);">3</a></li>
-									<li class="page-item"><a class="page-link"
-										href="javascript:void(0);">4</a></li>
-									<li class="page-item"><a class="page-link"
-										href="javascript:void(0);">5</a></li>
-									<li class="page-item next"><a class="page-link"
-										href="javascript:void(0);"><i
-											class="tf-icon bx bx-chevrons-right">&gt;</i></a></li>
-								</ul>
-							</nav>
+						 <div class="demo-inline-spacing">
+                        <nav aria-label="Page navigation">
+                          <ul class="pagination justify-content-center">
+                            
+                            <c:if test="${pagingVO.startPage > pagingVO.cntPage }">
+	                            <li class="page-item prev">
+	                              <a class="page-link" href="inquiryList?nowPageParam=${pagingVO.startPage-1}"><i class="tf-icon bx bx-chevrons-left">&lt;</i></a>
+	                            </li>
+                            </c:if>
+                            
+                            <c:set var="loop_flag" value="false" />
+                            <c:forEach var="i" begin="${pagingVO.startPage }" end="10">
+                            	
+                            	<c:if test="${i > pagingVO.endPage }">
+                            		<c:set var="loop_flag" value="true" />
+                            	</c:if>
+                            	
+                        
+                            	<c:if test="${not loop_flag }">
+		                            <li class="page-item">
+		                              <a class="page-link" href="inquiryList?nowPageParam=${i}">${i}</a>
+		                            </li>
+		                        </c:if>
+                            </c:forEach>
+                            
+                            <c:if test="${pagingVO.endPage < pagingVO.lastPage}">
+	                            <li class="page-item next">
+	                              <a class="page-link" href="inquiryList?nowPageParam=${pagingVO.endPage+1}"><i class="tf-icon bx bx-chevrons-right">&gt;</i></a>
+	                            </li>
+                            </c:if>
+                            
+                          </ul>
+                          </nav>
 						</div>
 
 

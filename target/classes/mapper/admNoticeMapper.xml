@@ -20,5 +20,12 @@
 		values(#{btitle},#{bcontent},"공지",#{mno})
 	</insert>
 	
+	<delete id="deleteboard" parameterType="String">
+		delete from board where bno = #{value}
+	</delete>
+	
+	<update id="updateNotice" parameterType="BoardVO">
+		update board set btitle=#{btitle}, bcontent=#{bcontent} where bno= #{bno}
+	</update>
 	
 </mapper>
