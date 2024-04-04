@@ -23,8 +23,10 @@ public class Ticket {
 	@Autowired
 	TicketSVC ticketSVC;
 
-	@RequestMapping(value="/ticketing", method=RequestMethod.GET)
+	@RequestMapping(value="/ticketing", method=RequestMethod.POST)
 	public String ticketing(Model model, HttpSession session, HttpServletResponse response, HttpServletRequest request) {
+		
+		
 		
 		List<TheaterVO> theater = ticketSVC.selectTheater();
 		model.addAttribute("theater", theater);

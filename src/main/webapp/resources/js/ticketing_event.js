@@ -33,11 +33,23 @@ document.addEventListener("DOMContentLoaded", function() {
             ticket.set("ticketMovie", ticketMovie);
 
             console.log(ticket);
+
+            $.ajax({
+                url : "ticketing",
+                type : "GET",
+                data: {ticketMovie: ticketMovie},
+                success: function(){
+                    console.log(ticketMovie);
+                },
+                error: function(){
+                    console.log("error");
+                }
+
+            });
         });
     });
-
-    
 });
+
     
 document.addEventListener("DOMContentLoaded", function() {
 	let theaterItems = document.querySelectorAll('.theater-list-ul li');

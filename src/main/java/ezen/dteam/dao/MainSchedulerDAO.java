@@ -18,6 +18,10 @@ public class MainSchedulerDAO {
 		return sqlSession.insert(nameSpace+".upsertMovieList", cinema);
 	}
 	
+	public int updateMovieRankNull(CinemaVO cinema) {
+		return sqlSession.update(nameSpace+".updateMovieRankNull", cinema);
+	}
+	
 	public int updateMovieRank(CinemaVO cinema) {
 		return sqlSession.update(nameSpace+".updateMovieRank", cinema);
 	}
