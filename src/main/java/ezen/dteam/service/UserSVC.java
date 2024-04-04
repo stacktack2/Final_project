@@ -7,4 +7,5 @@ public interface UserSVC {
 	public int checkNickNm(String nickNm) throws Exception;
 	public int checkEmail(String email) throws Exception;
 	public String searchId(MemberVO vo) throws Exception;
+	public int updatePw(MemberVO vo) throws Exception;
 }
