@@ -86,9 +86,13 @@
 							</div>
 						</div>
 						<!--/ Basic Bootstrap Table -->
-						<a href="noticeModify"><button style="margin-top:50px" class="right btn btn-primary">수정</button></a>
-						<button style="margin-top:50px" class="btn btn-primary">삭제</button>
+						<a href="noticeModify?bno=${boardVO.bno }"><button style="margin-top:50px" class="right btn btn-primary">수정</button></a>
 						
+						<button style="margin-top:50px" class="btn btn-primary" onclick="deleteConfirm()">삭제</button>
+						
+						<form action="noticeDelete" method="post" name="noticeDelete">
+							<input type="hidden" name="bno" value="${boardVO.bno }">
+						</form>
 					
 					</div>
 				</div>
@@ -100,5 +104,6 @@
 	</div>
 	<!-- / Layout wrapper -->
 
+<script src="<%=request.getContextPath()%>/resources/js/noticeView.js"></script>
 </body>
 </html>

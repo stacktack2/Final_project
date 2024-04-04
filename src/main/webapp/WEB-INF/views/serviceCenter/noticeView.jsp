@@ -49,13 +49,13 @@
 									<table class="table">
 										<thead>
 											<tr>
-												<th>샘플 제목입니다.</th>
-												<th class="right">2024.03.13</th>
+												<th>${boardVO.btitle }</th>
+												<th class="right">${boardVO.brdate }</th>
 											</tr>
 										</thead>
 										<tbody class="table-border-bottom-0 ">
 											<tr>
-												<td colspan=2>본문입니다.</td>
+												<td colspan=2>${boardVO.bcontent }</td>
 											</tr>
 										</tbody>
 									</table>
@@ -71,10 +71,14 @@
 									</thead>
 									<tbody>
 										<tr>
-											<td><a>다음글 ▲ </a><span> 샘플 제목입니다.</span></td>
+											<c:if test="${not empty nextBoardVO.bno}">
+												<td><a href="noticeView?bno=${nextBoardVO.bno }">다음글 ▲ <span> ${nextBoardVO.btitle }</span></a></td>
+											</c:if>
 										</tr>
 										<tr>
-											<td><a>이전글 ▼ </a><span> 샘플 제목입니다.</span></td>
+											<c:if test="${not empty preBoardVO.bno}">
+												<td><a href="noticeView?bno=${preBoardVO.bno }">이전글 ▼ <span> ${preBoardVO.btitle }</span></a></td>
+											</c:if>
 										</tr>
 									</tbody>
 								</table>
