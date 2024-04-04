@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import ezen.dteam.vo.CinemaVO;
+import ezen.dteam.vo.ScreenHallVO;
 import ezen.dteam.vo.TheaterVO;
 
 @Repository
@@ -23,5 +24,13 @@ public class TicketDAO {
 		
 		public List<CinemaVO> selectMovie(){
 			return sqlSession.selectList(nameSpace+".selectMovie");
+		}
+		
+		public List<CinemaVO> selectMovieCode(String ccode){
+			return sqlSession.selectList(nameSpace+".selectMovieCode");
+		}
+		
+		public List<ScreenHallVO> selectScreenHall(String theaterNm){
+			return sqlSession.selectList(nameSpace+".selectScreenHall", theaterNm);
 		}
 }

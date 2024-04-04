@@ -48,10 +48,10 @@
 							<ul class="movie-list-ul">
 								<c:forEach items="${movie }" var="movie">
 								<li class="">
-									<a href="#" onclick="return false;" title="${moive.cname }">
+									<a href="" onclick="return false;" title="${moive.cname }">
 										<i class="movieAge">${movie.cwatchGradeNm }</i>
 										<span class="text">${movie.cname }</span>
-										<span class="sreader"></span>
+										<span class="sreader" style="hidden">${movie.ccode }</span>
 									</a>
 								</li>
 								</c:forEach>
@@ -75,6 +75,7 @@
 								<li class="">
 									<a href="#" onclick="return false;" title="${theater.tname }">
 										<span class="text">${theater.tname }</span>
+										<span class="sreader" style="hidden">${theater.tno }</span>
 									</a>
 								</li>
 								</c:forEach>
@@ -114,7 +115,7 @@
 							<span class="night">심야</span>
 						</div>
 						<div class="time-list">
-							<div class="time-theater" screen_cd="009" movie_cd="20035761">
+							<div class="time-theater">
 							<span class="title">
 								<span class="name">2D</span>
 								<span class="floor">1관</span>
@@ -252,7 +253,7 @@
 				<div class="tnb">
 					<div class="info movie">
 						<span class="movie_poster">
-							<img src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000087/87947/87947_185.JPG" alt="영화 포스터" style="display: inline;">
+							<img src="" alt="영화 포스터" style="display: inline;">
 						</span>
 						<div class="row movie_title colspan2" style="display: block;">
 							<span class="data letter-spacing-min ellipsis-line2">

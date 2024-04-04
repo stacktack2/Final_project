@@ -4,7 +4,7 @@ public class ScreenHallVO {
 	private int shallno;
 	private String shallType;
 	private String shallLocation;
-	private String shallDate;
+	private String shallSeat;
 	private int tno;
 	
 	public final int getShallno() {
@@ -25,11 +25,11 @@ public class ScreenHallVO {
 	public final void setShallLocation(String shallLocation) {
 		this.shallLocation = shallLocation;
 	}
-	public final String getShallDate() {
-		return shallDate;
+	public final String getShallSeat() {
+		return shallSeat;
 	}
-	public final void setShallDate(String shallDate) {
-		this.shallDate = shallDate;
+	public final void setShallSeat(String shallSeat) {
+		this.shallSeat = shallSeat;
 	}
 	public final int getTno() {
 		return tno;

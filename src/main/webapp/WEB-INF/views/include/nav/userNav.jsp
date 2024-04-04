@@ -55,7 +55,8 @@
 								<ul class="dropdown-menu dropdown-menu-dark ulbg-whtie">
 									<li><a class="dropdown-item item-hover" href="<%=request.getContextPath() %>/ticket/ticketing">예매하기</a></li>
 									<li><a class="dropdown-item item-hover" href="<%=request.getContextPath() %>/myinfo/myTicketing">예매조회</a></li>
-								</ul></li>
+								</ul>
+							</li>
 							<li class="dropdown"><a href="<%=request.getContextPath() %>/theater" role="button"
 								data-bs-toggle="dropdown" aria-expanded="false">극장</a>
 								<ul class="dropdown-menu dropdown-menu-dark ulbg-whtie">
