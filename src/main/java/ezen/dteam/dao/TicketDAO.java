@@ -26,8 +26,8 @@ public class TicketDAO {
 			return sqlSession.selectList(nameSpace+".selectMovie");
 		}
 		
-		public List<CinemaVO> selectMovieCode(String ccode){
-			return sqlSession.selectList(nameSpace+".selectMovieCode");
+		public List<CinemaVO> selectMovieCode(String movieCode){
+			return sqlSession.selectList(nameSpace+".selectMovieCode", movieCode);
 		}
 		
 		public List<ScreenHallVO> selectScreenHall(String theaterNm){

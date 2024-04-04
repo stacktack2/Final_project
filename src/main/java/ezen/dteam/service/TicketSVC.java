@@ -12,7 +12,7 @@ public interface TicketSVC {
 	
 	List<CinemaVO> selectMovie();
 	
-	List<CinemaVO> selectMovieCode(String ccode);
+	List<CinemaVO> selectMovieCode(String movieCode);
 	
 	List<ScreenHallVO> selectScreenHall(String theaterNm);
 }

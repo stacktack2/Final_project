@@ -27,9 +27,8 @@ public class TicketSVCImpl implements TicketSVC{
 	}
 
 	@Override
-	public List<CinemaVO> selectMovieCode(String ccode) {
-		List<CinemaVO> cinemaList = ticketDAO.selectMovieCode(ccode);
-		return cinemaList;
+	public List<CinemaVO> selectMovieCode(String movieCode) {
+		return ticketDAO.selectMovieCode(movieCode);
 	}
 
 	@Override

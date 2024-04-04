@@ -33,7 +33,7 @@ public class Ticket {
 		return "ticket/ticketing";
 	}
 	
-	@RequestMapping(value="/tiketTheaterNo", method=RequestMethod.GET)
+	@RequestMapping(value="/tiketTheaterNo", method=RequestMethod.POST)
 	@ResponseBody
 	public List<ScreenHallVO> ticketTheaterNo(String theaterNm) {
 		
@@ -42,14 +42,13 @@ public class Ticket {
 		return selectScreenHall;
 	}
 	
-	@RequestMapping(value="/ticketing", method=RequestMethod.POST)
+	@RequestMapping(value="/movieCode", method=RequestMethod.POST)
 	@ResponseBody
-	public String ticketingPOST(Model model, String ccode) {
-			
-		List<CinemaVO> cinemaList = ticketSVC.selectMovieCode(ccode);
-		model.addAttribute("cinemaList", cinemaList);
+	public List<CinemaVO> movieCodeNo(String movieCode) {
 		
-		return "ticket/ticketing";
+		List<CinemaVO> ccode = ticketSVC.selectMovieCode(movieCode);
+		
+		return ccode;
 	}
 	
 	@RequestMapping(value="/ticketSeat", method=RequestMethod.GET)

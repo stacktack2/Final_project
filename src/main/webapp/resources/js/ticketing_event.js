@@ -28,11 +28,17 @@ document.addEventListener("DOMContentLoaded", function() {
             // class 변경(추가 / 제거)
 
             $.ajax({
-                url: 'ticketing',
+                url: 'movieCode',
                 type: 'POST',
-                data: {ccode: ticketMovieCode},
+                data: {movieCode: ticketMovieCode},
                 success: function(data){
                     console.log("success");
+                    console.log(data);
+                        let html = "";
+                        for (let i = 0; i < data.length; i++) {
+                        html += '<img src="'+data[i].cposter+'" alt="영화 포스터" style="display: inline;">';
+                         $(".movie_poster").html(html);
+                         }
                 },
                 error: function(){
                     console.log("error");
@@ -73,12 +79,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
                 $.ajax({
                     url: 'tiketTheaterNo',
-                    type: 'GET',
+                    type: 'POST',
                     data: {theaterNm: ticketTheaterNo},
                     success: function(data){
                         console.log(data);
-                        var html = "";
-                        for (var i = 0; i < data.length; i++) {
+                        let html = "";
+                        for (let i = 0; i < data.length; i++) {
                             html += '<div class="time-theater">';
                             html += '<span class="title">';
                             html += '<span class="name">' + data[i].shallType + '</span>';
