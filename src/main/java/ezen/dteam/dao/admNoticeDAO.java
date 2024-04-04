@@ -32,4 +32,13 @@ public class admNoticeDAO {
 	public int insertNotice(BoardVO boardVO) {
 		return sqlSession.insert(nameSpace+".insertNotice",boardVO);
 	}
+	
+	public int deleteBoard(String bno) {
+		return sqlSession.delete(nameSpace+".deleteboard",bno);
+	}
+	
+	public int updateBoard(BoardVO boardVO) {
+		return sqlSession.update(nameSpace+".updateNotice",boardVO);
+	}
+	
 }

@@ -1,5 +1,3 @@
-let ticket = new FormData();
-
 document.addEventListener("DOMContentLoaded", function() {
 	let movieItems = document.querySelectorAll('.movie-list-ul li');
 
@@ -7,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
         movieItem.addEventListener('click', function() {
             // 선택한 영화 제목
             let ticketMovie = movieItem.querySelector('.text').innerHTML;
+            let ticketMovieCode = movieItem.querySelector('.sreader').innerHTML;
             
             // 진행버튼에 movieTitle 추가
             let selectionMovieTitle = document.getElementById('selectionMovieTitle');
@@ -24,20 +23,25 @@ document.addEventListener("DOMContentLoaded", function() {
                 	textWhiteSpan.classList.remove('white');
             	}
             }
-            
             textSpan.classList.add('white');
             movieItem.classList.add('selected-movie');
             // class 변경(추가 / 제거)
-            
-            // formData 저장
-            ticket.set("ticketMovie", ticketMovie);
 
-            console.log(ticket);
+            $.ajax({
+                url: 'ticketing',
+                type: 'POST',
+                data: {ccode: ticketMovieCode},
+                success: function(data){
+                    console.log("success");
+                },
+                error: function(){
+                    console.log("error");
+                }
+            });
         });
     });
-
-    
 });
+
     
 document.addEventListener("DOMContentLoaded", function() {
 	let theaterItems = document.querySelectorAll('.theater-list-ul li');
@@ -45,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	theaterItems.forEach(function(theaterItem) {
             theaterItem.addEventListener('click', function() {
                 let ticketTheater = theaterItem.querySelector('.text').innerHTML;
+                let ticketTheaterNo = theaterItem.querySelector('.sreader').innerHTML;
                 
                 let selectionTheater = document.getElementById('selectionTheater');
                 selectionTheater.innerHTML = ticketTheater;
@@ -65,11 +70,29 @@ document.addEventListener("DOMContentLoaded", function() {
                 textSpan.classList.add('white');
                 theaterItem.classList.add('selected-theater');
                 // class 변경(추가 / 제거)
-                
-                // formData 저장
-                ticket.set("ticketTheater", ticketTheater);
 
-                console.log(ticket);
+                $.ajax({
+                    url: 'tiketTheaterNo',
+                    type: 'GET',
+                    data: {theaterNm: ticketTheaterNo},
+                    success: function(data){
+                        console.log(data);
+                        var html = "";
+                        for (var i = 0; i < data.length; i++) {
+                            html += '<div class="time-theater">';
+                            html += '<span class="title">';
+                            html += '<span class="name">' + data[i].shallType + '</span>';
+                            html += '<span class="floor">' + data[i].shallLocation + '</span>';
+                            html += '<span class="seatcount">(총' + data[i].shallSeat + '석)</span>';
+                            html += '</span>';
+                            html += '</div>';
+                        }
+                        $(".time-list").html(html);
+                    },
+                    error: function(){
+                        console.log("error");
+                    }
+                });
                 
             });
         });

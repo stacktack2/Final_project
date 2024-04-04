@@ -49,13 +49,13 @@
 									<table class="table">
 										<thead>
 											<tr>
-												<th>샘플 제목입니다.</th>
-												<th class="right">2024.03.13</th>
+												<th>${boardVO.btitle }</th>
+												<th class="right">${boardVO.brdate }</th>
 											</tr>
 										</thead>
 										<tbody class="table-border-bottom-0 ">
 											<tr>
-												<td colspan=2>본문입니다.</td>
+												<td colspan=2>${boardVO.bcontent }</td>
 											</tr>
 										</tbody>
 									</table>
@@ -65,7 +65,6 @@
 						<!--/ Basic Bootstrap Table -->
 						
 						<a href="inquiryList"><button class="right btn btn-primary mt-3">목록으로</button></a>
-						<a href="inquiryModify"><button class="btn btn-primary mt-3 ">수정</button></a>
 
 						<div style="margin-top:100px" class="row">
 							<div class="table-responsive text-nowrap">
@@ -74,10 +73,14 @@
 									</thead>
 									<tbody>
 										<tr>
-											<td><a>다음글 ▲ </a><span> 샘플 제목입니다.</span></td>
+											<c:if test="${not empty nextBoardVO.bno}">
+												<td><a href="inquiryView?bno=${nextBoardVO.bno }">다음글 ▲ <span> ${nextBoardVO.btitle }</span></a></td>
+											</c:if>
 										</tr>
 										<tr>
-											<td><a>이전글 ▼ </a><span> 샘플 제목입니다.</span></td>
+											<c:if test="${not empty preBoardVO.bno}">
+												<td><a href="inquiryView?bno=${preBoardVO.bno }">이전글 ▼ <span> ${preBoardVO.btitle }</span></a></td>
+											</c:if>
 										</tr>
 									</tbody>
 								</table>
@@ -86,10 +89,13 @@
 
 
 							<h6 class="mt-2 mb-3 text-muted">관리자 답변</h6>
-							<div
-								class="navbar navbar-example navbar-expand-lg bg-light">
-								<div class="container-fluid"><b>답변 샘플 본문입니다</b></div>
-							</div>
+							<c:forEach var="item" items="${replyList }">
+								<div class=" row navbar navbar-example navbar-expand-lg bg-light mb-3">
+									<div>
+											<b>${item.icmtContent }</b>
+									</div>
+								</div>
+							</c:forEach>
 							
 						<!-- 본문 끝 -->
 						<%@ include file="../include/footer/adminFooter.jsp"%>

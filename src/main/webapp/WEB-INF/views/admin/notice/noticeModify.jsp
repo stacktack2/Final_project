@@ -36,7 +36,11 @@
 <script src="<%=request.getContextPath()%>/resources/js/helpers.js"></script>
 <script src="<%=request.getContextPath()%>/resources/js/config.js"></script>
 
-
+<script>
+	function noticeModifyFn(){
+		document.forms['noticeModify'].submit();
+	}	
+</script>
 
 
 
@@ -69,16 +73,17 @@
 						<div class="row h-50">
 							<div class="card">
 								<div class="table-responsive text-nowrap">
-									<form>
+									<form method="post" action="noticeModify" name="noticeModify">
+										<input type="hidden" name="bno" value="${boardVO.bno }">
 										<table class="table">
 											<thead>
 												<tr>
-													<th><input type="text" class="form-control border-0 shadow-none" placeholder="제목" aria-label="제목"></th>
+													<th><input type="text" class="form-control border-0 shadow-none" name="btitle" value="${boardVO.btitle }"></th>
 												</tr>
 											</thead>
 											<tbody class="table-border-bottom-0 ">
 												<tr>
-													<td colspan=2><input type="text" class="form-control border-0 shadow-none" placeholder="내용을 입력하세요." aria-label="내용을 입력하세요."></td>
+													<td colspan=2><input type="text" class="form-control border-0 shadow-none" name="bcontent" value="${boardVO.bcontent }"></td>
 												</tr>
 											</tbody>
 										</table>
@@ -87,7 +92,8 @@
 							</div>
 						</div>
 						<!--/ Basic Bootstrap Table -->
-						<a href="noticeModify"><button style="margin-top:50px" class="right btn btn-primary">수정</button></a>
+						<button style="margin-top:50px" class="right btn btn-primary" onclick="noticeModifyFn()">수정</button>
+						
 					</div>
 				</div>
 			</div>

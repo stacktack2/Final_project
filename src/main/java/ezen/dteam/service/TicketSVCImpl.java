@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import ezen.dteam.dao.TicketDAO;
 import ezen.dteam.vo.CinemaVO;
+import ezen.dteam.vo.ScreenHallVO;
 import ezen.dteam.vo.TheaterVO;
 
 @Service
@@ -24,6 +25,19 @@ public class TicketSVCImpl implements TicketSVC{
 	public List<CinemaVO> selectMovie() {
 		return ticketDAO.selectMovie();
 	}
+
+	@Override
+	public List<CinemaVO> selectMovieCode(String ccode) {
+		List<CinemaVO> cinemaList = ticketDAO.selectMovieCode(ccode);
+		return cinemaList;
+	}
+
+	@Override
+	public List<ScreenHallVO> selectScreenHall(String theaterNm) {
+		return ticketDAO.selectScreenHall(theaterNm);
+	}
+	
+	
 	
 	
 }

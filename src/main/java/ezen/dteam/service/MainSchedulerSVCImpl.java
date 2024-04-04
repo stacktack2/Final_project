@@ -16,10 +16,16 @@ public class MainSchedulerSVCImpl implements MainSchedulerSVC {
 	public int upsertMovieList(CinemaVO cinema) {
 		return mainSchedulerDAO.upsertMovieList(cinema);
 	}
+	
+	@Override
+	public int updateMovieRankNull(CinemaVO cinema) {
+		return mainSchedulerDAO.updateMovieRankNull(cinema);
+	}
 
 	@Override
 	public int updateMovieRank(CinemaVO cinema) {
 		return mainSchedulerDAO.updateMovieRank(cinema);
 	}
+
 
 }

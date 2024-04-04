@@ -36,13 +36,6 @@
 <script src="<%=request.getContextPath()%>/resources/js/helpers.js"></script>
 <script src="<%=request.getContextPath()%>/resources/js/config.js"></script>
 
-
-
-
-
-
-
-
 </head>
 
 <body>
@@ -65,11 +58,17 @@
 						<h4 class="fw-bold py-3 mb-4">
 							극장 시간표 관리
 						</h4>
+						
+						날짜 선택: <input type="text" name="attendday" value="${attenddayParam }"/>
 						<div class="row mb-4">
-							시간표 api 들어갈 위치
+							
+
 						</div>
+						
 						<!-- Basic Bootstrap Table -->
-						<div class="row">
+						<div class="row"> 
+						
+						
 							<div class="card">
 								<div class="table-responsive text-nowrap">
 									<table class="table">
@@ -147,7 +146,7 @@
 						<div class="col mb-3">
 							<div class="form-label">상영관 번호</div>
 							<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                              <input type="radio" class="btn-check" name="btnradio" id="btnradio1" checked="" autocomplete="off">
+                              <input type="radio" class="btn-check" name="btnradio" id="btnradio1" checked autocomplete="off">
                               <label class="btn btn-outline-primary" for="btnradio1">1관</label>
                               <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
                               <label class="btn btn-outline-primary" for="btnradio2">2관</label>
@@ -160,7 +159,7 @@
 						<div class="col mb-0">
 							<div class="form-label">영화목록</div>
 							<select id="selectTypeOpt" class="form-select color-dropdown">
-								<option value="bg-primary" selected="">파묘</option>
+								<option value="bg-primary" selected>파묘</option>
 								<option value="bg-secondary">듄</option>
 								<option value="bg-success">웡카</option>
 							</select>
@@ -181,6 +180,10 @@
 	</div>
 	<!-- 모달끝 -->
 
+
+	
+	
+
 	<!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
     <script src="<%=request.getContextPath()%>/resources/jquery/jquery.js"></script>
@@ -194,5 +197,15 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-  </body>
+
+	<script src="<%=request.getContextPath()%>/resources/js/theaterMgView.js"></script>
+	<!-- 날짜 api -->
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+	
+	
+	
+</body>
 </html>
