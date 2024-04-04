@@ -29,68 +29,91 @@
 <!-- JS -->
 <script src="<%=request.getContextPath() %>/resources/js/helpers.js"></script>
 <script src="<%=request.getContextPath() %>/resources/js/config.js"></script>
+<script src="<%=request.getContextPath() %>/resources/jquery/jquery.min.js"></script>
+<style>
+	.hit{color:#696cff; font-weight:bold;}
+</style>
+<script>
+function updatePw(){
+		
+		let mid = document.frm.mid.value;
+		let mname = document.frm.mname.value;
+		let memail = document.frm.memail.value;
+		
+		let isSubmit = true;
+		
+		//아이디
+		if (mid == "" || mid === undefined || mid === null) {
+			isSubmit = false;
+		}
+		//이름
+		if(mname == "" || mname === undefined || mname === null){
+			isSubmit = false;
+		}
 
+		//이메일
+		if (memail == "" || memail === undefined || memail === null) {
+			isSubmit = false;
+		
+		}
+		
+		//타이머
+		
+		//제출
+		if(isSubmit){
+			document.frm.submit();
+		} else{
+			alert("입력값이 유효하지 않거나 인증이 되지 않았습니다.");
+		}
+	}
+</script>
 </head>
 <body>
-	<!-- Content -->
 	<div class="container-xxl">
 		<div class="authentication-wrapper authentication-basic container-p-y">
 			<div class="authentication-inner py-4">
 
-				<!-- Forgot id -->
 				<div class="card">
 					<div class="card-body">
-						<!-- Logo -->
 						<div class="app-brand justify-content-center">
 							<a href="<%=request.getContextPath() %>/" class="app-brand-link gap-2"> 
 								<span class="app-brand-text demo text-body fw-bolder">dflix</span>
 							</a>
 						</div>
-						<!-- /Logo -->
 
-						<form id="formAuthentication" class="mb-3" action="index" method="POST">
+						<form id="formAuthentication" name="frm" class="mb-3" 
+							action="updatePw" method="POST" onsubmit="return false;">
 							<div class="mb-3">
-								<label for="inputName" class="form-label">이름</label> 
-								<input
-									type="text" class="form-control" id="inputName"
-									name="inputName" autofocus />
+								<span class="form-label">
+									*입력양식을 모두 입력한 뒤 비밀번호 찾기 버튼 클릭시<br>
+									 입력된 이메일주소로 <span class="hit">임시비밀번호</span>가 발송됩니다.
+								</span>
 							</div>
 							<div class="mb-3">
-								<label for="inputBirth" class="form-label">생년월일</label> 
+								<label for="mid" class="form-label">아이디</label> 
 								<input
-									type="text" class="form-control" id="inputBirth"
-									name="inputBirth" />
+									type="text" class="form-control" id="mid"
+									name="mid" autofocus />
 							</div>
 							<div class="mb-3">
-								<label for="inputPhone" class="form-label">연락처</label> 
+								<label for="mname" class="form-label">이름</label> 
 								<input
-									type="text" class="form-control" id="inputPhone"
-									name="inputPhone" />
+									type="text" class="form-control" id="mname"
+									name="mname" />
 							</div>
 							<div class="mb-3">
-								<label for="inputEmail" class="form-label block">E-mail</label> 
+								<label for="memail" class="form-label">E-mail</label> 
 								<input
-									type="email" class="form-control reinput" id="inputEmail"
-									name="inputEmail" />
-								<button type="button" 
-									class="btn btn-sm btn-outline-primary" 
-									onclick="sendEmail();">인증하기</button>
+									type="email" class="form-control" id="memail"
+									name="memail" />
 							</div>
-							<div class="mb-3">
-								<label for="inputCode" class="form-label block">인증코드</label> 
-								<input
-									type="text" class="form-control reinput" id="inputCode"
-									name="inputCode" />
-								<button type="button" 
-									class="btn btn-sm btn-outline-primary" 
-									onclick="codeCheck();">인증확인</button>
-							</div>
-
+							
 							<div class="form-floating d-inline-block">
 								<input class="btn" id="Timer" type="button" value="" readonly />
 							</div>
 
-							<button class="btn btn-primary d-grid w-100">비밀번호 찾기</button>
+							<button type="button" class="btn btn-primary d-grid w-100" 
+									onclick="updatePw();">비밀번호 찾기</button>
 						</form>
 						
 						<div class="text-center">
@@ -104,7 +127,6 @@
 			</div>
 		</div>
 	</div>
-	<!-- / Content -->
 
 	<!-- JS -->
 	<script src="<%=request.getContextPath() %>/resources/jquery/jquery.js"></script>
