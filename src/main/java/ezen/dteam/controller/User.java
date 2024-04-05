@@ -1,7 +1,11 @@
 package ezen.dteam.controller;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -102,5 +106,25 @@ public class User {
 		
 		return "user/findPw";
 	}
+	
+	//비밀번호찾기(ajax)
+	@RequestMapping(value = "/updatePw", method = RequestMethod.POST)
+	public String updatePw(MemberVO vo,HttpServletResponse response) throws Exception{
+
+		//4. 알림발송
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=utf-8");
+		if(service.updatePw(vo)==1) {
+			response.getWriter().println("<script>alert('인증번호가 발송되었습니다'); </script>");
+			
+		} else {
+			response.getWriter().println("<script>alert('인증번호 발송에 실패하였습니다.'); </script>");
+		}
+		response.getWriter().flush();
+		
+		//화면 리다이렉트
+		return "redirect:/user/login";
+	}
+	
 	
 }

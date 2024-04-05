@@ -29,6 +29,10 @@ public class MovieScheduler {
 	// @Scheduled(cron = " 0 * * * * * ")
 	public void dailyResponse() throws OpenAPIFault, Exception {
 		
+		CinemaVO cinema = new CinemaVO();
+		
+		int nullUpdate = mainSchedulerSVC.updateMovieRankNull(cinema);
+		
 		LocalDate today = LocalDate.now();
 		LocalDate yesterday = today.minusDays(1);
 		
@@ -55,8 +59,7 @@ public class MovieScheduler {
 				
 		// boxOfficeResult의 dailyBoxOfficeList값 받아오기 : 2depth
 		JSONArray jsonDailyBoxOfficeList = (JSONArray) jsonBoxOfficeResult.get("dailyBoxOfficeList");
-		
-		CinemaVO cinema = new CinemaVO();
+		System.out.println(jsonDailyBoxOfficeList);
 		
 		for(int i = 0; i < jsonDailyBoxOfficeList.size(); i++) {
 			JSONObject jsonObjDailyBoxOfficeList = (JSONObject) jsonDailyBoxOfficeList.get(i);

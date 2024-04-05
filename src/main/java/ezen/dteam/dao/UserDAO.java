@@ -14,23 +14,29 @@ public class UserDAO {
 	
 	private final String nameSpace = "ezen.dteam.mapper.userMapper";
 	
-	// ì•„ì´ë”” ì¤‘ë³µ ê²€ì‚¬
+	// ¾ÆÀÌµğ Áßº¹È®ÀÎ(ajax)
 	public int checkId(String id) throws Exception{
 		return sqlSession.selectOne(nameSpace+".checkId",id);
 	}
 	
-	// ë‹‰ë„¤ì„ ì¤‘ë³µ ê²€ì‚¬
+	// ´Ğ³×ÀÓ Áßº¹È®ÀÎ(ajax)
 	public int checkNickNm(String nickNm) throws Exception{
 		return sqlSession.selectOne(nameSpace+".checkNickNm",nickNm);
 	}
 	
-	// ì´ë©”ì¼ ì¤‘ë³µ ê²€ì‚¬
+	// ÀÌ¸ŞÀÏ Áßº¹È®ÀÎ(ajax)
 	public int checkEmail(String email) throws Exception{
 		return sqlSession.selectOne(nameSpace+".checkEmail",email);
 	}
 	
-	//ì•„ì´ë”” ì°¾ê¸°
+	//¾ÆÀÌµğ Ã£±â(ajax)
 	public String searchId(MemberVO vo) throws Exception{
 		return sqlSession.selectOne(nameSpace+".searchId",vo);
 	}
+	
+	//ºñ¹Ğ¹øÈ£ Ã£±â(ajax)
+	public int updatePw(MemberVO vo) throws Exception{
+		return sqlSession.update(nameSpace+".updatePw", vo);
+	}
+
 }
