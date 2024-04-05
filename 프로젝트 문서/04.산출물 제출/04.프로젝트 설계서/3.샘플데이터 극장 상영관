@@ -1,6 +1,60 @@
 delete from theater;
 delete from screenhall;
 
+SELECT * FROM dflix.cinema;
+
+DELETE FROM dflix.cinema WHERE crank = 1;
+
+ALTER TABLE dflix.cinema AUTO_INCREMENT = 1;
+
+INSERT INTO cinema(ccode, cname, cnameEn, cintro, cprdtYear, cshowTime, copenDate, cprdtStatNm, ctypeNm, cnationNm, cgenreNm, cdirectorNm, cdirectorNmEn, cactorNm, cactorNmEn, ccompanyNm, ccompanyNmEn, cwatchGradeNm, crank)
+   VALUES ("영화코드1", "영화제목1", "영화제목영문", "영화소개", "제작년도", "상영시간", "개봉연도", "제작상태", "영화유형", "제작국가명", "장르명", "감독명", "감독명영문", "배우명", "배우명영문", "영화사명", "영화사명영문", "관람등급", "1");
+INSERT INTO cinema(ccode, cname, cnameEn, cintro, cprdtYear, cshowTime, copenDate, cprdtStatNm, ctypeNm, cnationNm, cgenreNm, cdirectorNm, cdirectorNmEn, cactorNm, cactorNmEn, ccompanyNm, ccompanyNmEn, cwatchGradeNm, crank)
+   VALUES ("영화코드2", "영화제목2", "영화제목영문", "영화소개", "제작년도", "상영시간", "개봉연도", "제작상태", "영화유형", "제작국가명", "장르명", "감독명", "감독명영문", "배우명", "배우명영문", "영화사명", "영화사명영문", "관람등급", "2");
+INSERT INTO cinema(ccode, cname, cnameEn, cintro, cprdtYear, cshowTime, copenDate, cprdtStatNm, ctypeNm, cnationNm, cgenreNm, cdirectorNm, cdirectorNmEn, cactorNm, cactorNmEn, ccompanyNm, ccompanyNmEn, cwatchGradeNm, crank)
+   VALUES ("영화코드3", "영화제목3", "영화제목영문", "영화소개", "제작년도", "상영시간", "개봉연도", "제작상태", "영화유형", "제작국가명", "장르명", "감독명", "감독명영문", "배우명", "배우명영문", "영화사명", "영화사명영문", "관람등급", "3");
+INSERT INTO cinema(ccode, cname, cnameEn, cintro, cprdtYear, cshowTime, copenDate, cprdtStatNm, ctypeNm, cnationNm, cgenreNm, cdirectorNm, cdirectorNmEn, cactorNm, cactorNmEn, ccompanyNm, ccompanyNmEn, cwatchGradeNm, crank)
+   VALUES ("영화코드4", "영화제목4", "영화제목영문", "영화소개", "제작년도", "상영시간", "개봉연도", "제작상태", "영화유형", "제작국가명", "장르명", "감독명", "감독명영문", "배우명", "배우명영문", "영화사명", "영화사명영문", "관람등급", "4");
+INSERT INTO cinema(ccode, cname, cnameEn, cintro, cprdtYear, cshowTime, copenDate, cprdtStatNm, ctypeNm, cnationNm, cgenreNm, cdirectorNm, cdirectorNmEn, cactorNm, cactorNmEn, ccompanyNm, ccompanyNmEn, cwatchGradeNm, crank)
+   VALUES ("영화코드5", "영화제목5", "영화제목영문", "영화소개", "제작년도", "상영시간", "개봉연도", "제작상태", "영화유형", "제작국가명", "장르명", "감독명", "감독명영문", "배우명", "배우명영문", "영화사명", "영화사명영문", "관람등급", "5");
+INSERT INTO cinema(ccode, cname, cnameEn, cintro, cprdtYear, cshowTime, copenDate, cprdtStatNm, ctypeNm, cnationNm, cgenreNm, cdirectorNm, cdirectorNmEn, cactorNm, cactorNmEn, ccompanyNm, ccompanyNmEn, cwatchGradeNm, crank)
+   VALUES ("영화코드6", "영화제목6", "영화제목영문", "영화소개", "제작년도", "상영시간", "개봉연도", "제작상태", "영화유형", "제작국가명", "장르명", "감독명", "감독명영문", "배우명", "배우명영문", "영화사명", "영화사명영문", "관람등급", "6");
+INSERT INTO cinema(ccode, cname, cnameEn, cintro, cprdtYear, cshowTime, copenDate, cprdtStatNm, ctypeNm, cnationNm, cgenreNm, cdirectorNm, cdirectorNmEn, cactorNm, cactorNmEn, ccompanyNm, ccompanyNmEn, cwatchGradeNm, crank)
+   VALUES ("영화코드7", "영화제목7", "영화제목영문", "영화소개", "제작년도", "상영시간", "개봉연도", "제작상태", "영화유형", "제작국가명", "장르명", "감독명", "감독명영문", "배우명", "배우명영문", "영화사명", "영화사명영문", "관람등급", "7");
+INSERT INTO cinema(ccode, cname, cnameEn, cintro, cprdtYear, cshowTime, copenDate, cprdtStatNm, ctypeNm, cnationNm, cgenreNm, cdirectorNm, cdirectorNmEn, cactorNm, cactorNmEn, ccompanyNm, ccompanyNmEn, cwatchGradeNm, crank)
+   VALUES ("영화코드8", "영화제목8", "영화제목영문", "영화소개", "제작년도", "상영시간", "개봉연도", "제작상태", "영화유형", "제작국가명", "장르명", "감독명", "감독명영문", "배우명", "배우명영문", "영화사명", "영화사명영문", "관람등급", "8");
+INSERT INTO cinema(ccode, cname, cnameEn, cintro, cprdtYear, cshowTime, copenDate, cprdtStatNm, ctypeNm, cnationNm, cgenreNm, cdirectorNm, cdirectorNmEn, cactorNm, cactorNmEn, ccompanyNm, ccompanyNmEn, cwatchGradeNm, crank)
+   VALUES ("영화코드9", "영화제목9", "영화제목영문", "영화소개", "제작년도", "상영시간", "개봉연도", "제작상태", "영화유형", "제작국가명", "장르명", "감독명", "감독명영문", "배우명", "배우명영문", "영화사명", "영화사명영문", "관람등급", "9");
+INSERT INTO cinema(ccode, cname, cnameEn, cintro, cprdtYear, cshowTime, copenDate, cprdtStatNm, ctypeNm, cnationNm, cgenreNm, cdirectorNm, cdirectorNmEn, cactorNm, cactorNmEn, ccompanyNm, ccompanyNmEn, cwatchGradeNm, crank)
+   VALUES ("영화코드10", "영화제목10", "영화제목영문", "영화소개", "제작년도", "상영시간", "개봉연도", "제작상태", "영화유형", "제작국가명", "장르명", "감독명", "감독명영문", "배우명", "배우명영문", "영화사명", "영화사명영문", "관람등급", "10");
+
+DELETE FROM dflix.cinema;
+
+SELECT * FROM dflix.cinema WHERE crank <= 6;
+
+INSERT INTO cinema(ccode, cname, cnameEn, cintro, cprdtYear, cshowTime, copenDate, cprdtStatNm, ctypeNm, cnationNm, cgenreNm, cdirectorNm, cdirectorNmEn, cactorNm, cactorNmEn, ccompanyNm, ccompanyNmEn, cwatchGradeNm, crank) 
+	VALUES ("영화코드7", "영화제목7", "영화제목영문", "영화소개", "제작년도", "상영시간", "개봉연도", "제작상태", "영화유형", "제작국가명", "장르명", "감독명", "감독명영문", "배우명", "배우명영문", "영화사명", "영화사명영문", "관람등급", "1") 
+    ON DUPLICATE KEY UPDATE 
+    ccode = "영화코드7",
+	cname = "영화제목7",
+	cnameEn = "영화제목영문", 
+	cintro = "영화소개",
+	cprdtYear = "제작년도",
+	cshowTime = "상여시간",
+	copenDate = "개봉연도",
+	cprdtStatNm = "제작상태",
+	ctypeNm = "영화유형",
+	cnationNm = "제작국가명", 
+	cgenreNm = "장르명", 
+	cdirectorNm = "감독명",
+	cdirectorNmEn = "감독명영문", 
+	cactorNm = "배우명",
+	cactorNmEn = "배우명영문",
+	ccompanyNm = "영화사명",
+	ccompanyNmEn = "영화사명영문",
+	cwatchGradeNm = "관람등급";
+
+
 -- 극장 샘플 DB 추가-- 
 INSERT INTO theater(tno, tname, tnameEn, taddr, tintro, tcall)
    VALUES (1, '전주극장', 'JeonJuTheater', '전라북도 전주시 완산구 용머리로 45', '전주시 dflix 극장입니다.', '063-000-0001');
@@ -9,17 +63,15 @@ INSERT INTO theater(tno, tname, tnameEn, taddr, tintro, tcall)
 
 
 -- 상영관정보 샘플 DB 추가 --
-INSERT INTO screenhall(shallDate, shallType, shallLocation, tno)
-   VALUES ('1','2D','2층 1관','1');
-INSERT INTO screenhall(shallDate, shallType, shallLocation, tno)
-   VALUES ('1','2D','2층 2관','1');
-INSERT INTO screenhall(shallDate, shallType, shallLocation, tno)
-   VALUES ('1','2D','2층 3관','1');
-INSERT INTO screenhall(shallDate, shallType, shallLocation, tno)
-   VALUES ('1','3D','3층 1관','2');
-INSERT INTO screenhall(shallDate, shallType, shallLocation, tno)
-   VALUES ('1','3D','3층 2관','2');
-INSERT INTO screenhall(shallDate, shallType, shallLocation, tno)
-   VALUES ('1','3D','3층 3관','2');
-
-select * from theater;
+INSERT INTO screenhall(shallSeat, shallType, shallLocation, tno)
+   VALUES ('300','2D','2층 1관','1');
+INSERT INTO screenhall(shallSeat, shallType, shallLocation, tno)
+   VALUES ('250','2D','2층 2관','1');
+INSERT INTO screenhall(shallSeat, shallType, shallLocation, tno)
+   VALUES ('300','2D','2층 3관','1');
+INSERT INTO screenhall(shallSeat, shallType, shallLocation, tno)
+   VALUES ('280','3D','3층 1관','2');
+INSERT INTO screenhall(shallSeat, shallType, shallLocation, tno)
+   VALUES ('290','3D','3층 2관','2');
+INSERT INTO screenhall(shallSeat, shallType, shallLocation, tno)
+   VALUES ('300','3D','3층 3관','2');
