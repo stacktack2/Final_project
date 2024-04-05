@@ -23,4 +23,7 @@
 		SELECT theater.*, screenhall.* FROM screenhall INNER JOIN theater ON theater.tno = screenhall.tno WHERE theater.tno = #{theaterNm}
 	</select>
 
+	<select id="selectScreen" resultType="ScreenVO">
+		select * from screen s inner join screenhall sh on s.shallno = sh.shallno order by sh.shallno;
+	</select>
 </mapper>
