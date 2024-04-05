@@ -131,6 +131,7 @@ CREATE TABLE screen
 (
 	sno int unsigned NOT NULL AUTO_INCREMENT COMMENT '상영번호',
 	sstartTime varchar(50) NOT NULL COMMENT '상영시작시간',
+    sendTime varchar(50) NOT NULL COMMENT '상영종료시간',
 	cno int unsigned NOT NULL COMMENT '영화번호',
 	shallno int unsigned NOT NULL COMMENT '상영관번호',
     sday DATE NOT NULL COMMENT '상영날짜',
@@ -192,7 +193,7 @@ CREATE TABLE ticketDetail
 	ticketno int unsigned NOT NULL COMMENT '예매번호',
 	sno int unsigned NOT NULL COMMENT '상영번호',
 	sseatno int unsigned NOT NULL COMMENT '좌석번호',
-	ticketDate DATE unsigned NOT NULL COMMENT '예매날짜',
+	ticketDate DATE NOT NULL COMMENT '예매날짜',
 	PRIMARY KEY (ticketdetailno)
 ) COMMENT = '예매상세정보(결제정보)';
 
@@ -326,5 +327,3 @@ ALTER TABLE ticketDetail
 	ON UPDATE CASCADE
 	ON DELETE CASCADE
 ;
-
-
