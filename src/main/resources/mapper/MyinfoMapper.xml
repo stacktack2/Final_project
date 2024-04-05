@@ -11,7 +11,7 @@
 	</select>
 	
 	<!--  내정보 변경  -->
-	<update id="updateMyinfo"> 
+	<update id="updateMyinfo" parameterType="MemberVO"> 
 		Update member 
 			set mname = #{mname} and mpw = #{mpw} and memail =#{memail} 
 			and mphone = #{mphone} and mbirth = #{mbirth} and mgender = #{mgender} 

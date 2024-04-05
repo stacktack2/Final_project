@@ -14,9 +14,13 @@ public class MyinfoDAO {
 	private final String nameSpace = "ezen.dteam.mapper.myinfoMapper";
 	
 	//비밀번호 확인
-	public MemberVO confirmPw(String mid) throws Exception{
-		//사용자가 입력한 아이디값과 같은 값의 아이디 조회
+	public MemberVO selectMyinfo(String mid) throws Exception{
+		//사용자가 입력한 아이디값과 같은 값의 vo조회
 		return sqlSession.selectOne(nameSpace+".selectMyinfo", mid);
+	}
+	
+	public int updateMyinfo(MemberVO vo) throws Exception{
+		return sqlSession.update(nameSpace+".updateMyinfo",vo);
 	}
 	
 }

@@ -18,18 +18,31 @@
 		}
 		form h3{padding:20px 0; color:#444; }
     </style>
-       <script>
-	
-	
+    <script>
+       $(document).ready(function(){
+       
+       	let pw_check = false;
+       	let pwRe_check = false;
+       	let name_check = false;
+       	let birth_check = false;
+       	let phone_check = false;
+       	let gender_check = true;
+       	let email_check = false;
+       })
+
+   	function validation(){
+   		if(pw_check && pwRe_check && name_check && 
+   				birth_check && phone_check && gender_check && email_check){
+   					document.frm.submit();
+   		}
+   	}
 	//비밀번호
 	function checkPw(obj){
 		let regId = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^&*]{8,}$/g;
 		let regRs = regId.test(obj.value); 
 		let mpwSpan = document.getElementById("mpwSpan"); 
 		if(obj.value == "" || obj.value === null || obj.value === undefined){
-			mpwSpan.innerHTML = '비밀번호를 입력해주세요';
-			mpwSpan.style.color = 'red';
-			pw_check = false;
+			pw_check = true;
 		}else if(!regRs){
 			mpwSpan.innerHTML ='비밀번호는 8자 이상 영문 소문자, 영문 대문자, 숫자, 특수문자를 사용해야합니다.<br>특수문자는 !,@,#,$,%,^,&,* 만 가능합니다.';
 			mpwSpan.style.color = 'red';
@@ -42,12 +55,15 @@
 	}
 	//비밀번호 확인
 	function checkPwRe(){
+		let mpw = $("#mpw");
+		let mpwRe = $("#mpwRe");
 		let confirmPw = mpw.value == mpwRe.value;
 		let mpwReSpan = document.getElementById("mpwReSpan"); 
 		if(mpwRe.value == "" || mpwRe.value === null || mpwRe.value === undefined){
-			mpwReSpan.innerHTML = '비밀번호를 입력해주세요';
-			mpwReSpan.style.color = 'red';
-			pwRe_check = false;
+			if(!confirmPw){
+				pwRe_check = false;
+			}
+			pwRe_check = true;
 		}else if(!confirmPw){
 			mpwReSpan.innerHTML = '비밀번호가 같지 않습니다.';
 			mpwReSpan.style.color = 'red';
@@ -67,9 +83,7 @@
 		let regRs = regId.test(obj.value); 
 		let mnameSpan = document.getElementById("mnameSpan"); 
 		if(obj.value == "" || obj.value === null || obj.value === undefined){
-			mnameSpan.innerHTML = '이름을 입력해주세요';
-			mnameSpan.style.color = 'red';
-			name_check = false;
+			name_check = true;
 		}else if(!regRs){
 			mnameSpan.innerHTML = '한글만 사용가능합니다.';
 			mnameSpan.style.color = 'red';
@@ -87,9 +101,7 @@
 		let regRs = regId.test(obj.value); 
 		let mbirthSpan = document.getElementById("mbirthSpan"); 
 		if(obj.value == "" || obj.value === null || obj.value === undefined){
-			mbirthSpan.innerHTML = '생년월일 8자리를 입력해주세요.';
-			mbirthSpan.style.color = 'red';
-			birth_check =  false;
+			birth_check =  true;
 		}else if(!regRs){
 			mbirthSpan.innerHTML = '생년월일 8자리를 숫자로 입력해주세요.';
 			mbirthSpan.style.color = 'red';
@@ -107,9 +119,7 @@
 		let regRs = regId.test(obj.value); 
 		let mphoneSpan = document.getElementById("mphoneSpan"); 
 		if(obj.value == "" || obj.value === null || obj.value === undefined){
-			mphoneSpan.innerHTML = '휴대폰번호번호를 입력해주세요.';
-			mphoneSpan.style.color = 'red';
-			phone_check = false;
+			phone_check = true;
 		}else if(!regRs){
 			mphoneSpan.innerHTML = '10~11자리 숫자를 입력해주세요.';
 			mphoneSpan.style.color = 'red';
@@ -121,19 +131,6 @@
 		}
 	}
 	
-	//성별
-	function checkGender(obj){
-		let mgender = document.frm.mgender;
-		let mgenderSpan = document.getElementById("mgenderSpan"); 
-		if(mgender.value == "" || mgender.value === null || mgender.value === undefined){
-			mgenderSpan.innerHTML = '성별을 선택해주세요.';
-			mgenderSpan.style.color = 'red';
-			gender_check = false;
-		}else{
-			mgenderSpan.innerHTML = '';
-			gender_check = true; 
-		}
-	}
 	
 	//이메일(중복확인)
 	function checkEmail(obj){
@@ -149,15 +146,13 @@
 				let result = data.trim();
 				
 				if(obj.value == "" || obj.value === null || obj.value === undefined){
-					memailSpan.innerHTML = '이메일을 입력해주세요.';
-					memailSpan.style.color = 'red';
-					email_check = false;
+					email_check = true;
 				}else if(!regRs){
 					memailSpan.innerHTML = '이메일 형식에 맞춰 입력해주세요.';
 					memailSpan.style.color = 'red';
 					email_check  = false;
 				}else if(result == 1){
-					memailSpan.innerHTML = '이미 존재하는 이메일입니다.';
+					memailSpan.innerHTML = '이미 존재하는 이메일입니다.';//나자신 제외
 					memailSpan.style.color = 'red';
 					email_check  = false;
 				}else{
@@ -217,7 +212,7 @@
 				<div class="changeMyinfo-box">
 				   <div class="card-body">
 	    			
-					<form id="formAccountSettings" name="frm" class="changeInfoFrom" action="joinOk" method="POST">
+					<form id="formAccountSettings" name="frm" class="changeInfoFrom" action="changeMyinfo" method="POST" onsubmit="return false;">
                         <h3>내정보 변경</h3>
                         <div class="row">
 
@@ -229,7 +224,7 @@
                             	name="mname" 
                             	id="mname"
                            		oninput="checkName(this);" 
-                           		value="<sec:authentication property="principal.username"/>"	 
+                           		value="<sec:authentication property="principal.mname"/>"	 
                            />
                            <span id="mnameSpan"></span>
                           </div>
@@ -265,6 +260,7 @@
                               id="memail"
                               name="memail"
                               oninput="checkEmail(this);"
+                              value="<sec:authentication property="principal.memail"/>"
                             />
                             <span id="memailSpan"></span>
                           </div>
@@ -278,6 +274,7 @@
                                 name="mphone"
                                 class="form-control"
                                 oninput="checkPhone(this);"
+                                value="<sec:authentication property="principal.mphone"/>"
                               />
                             </div>
                             <span id="mphoneSpan"></span>
@@ -293,6 +290,7 @@
                                 class="form-control"
                                 placeholder="8글자로 쓰세요"
                                 oninput="checkBirth(this);"
+                                value="<sec:authentication property="principal.mbirth"/>"
                               />
                             </div>
                             <span id="mbirthSpan"></span>
@@ -326,10 +324,11 @@
                         </div>
                         
                         <div class="mt-2">
-                          <button type="submit" class="btn btn-primary me-2"">수정하기</button>
+                          <button type="submit" class="btn btn-primary me-2" onclick="validation();">수정하기</button>
                         </div>
                        	</div>
-                      </form></div>
+                      </form>
+                      </div>
 				</div>
     		</div>
     	</div>
