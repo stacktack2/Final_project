@@ -149,7 +149,7 @@ CREATE TABLE screenHall
 	shallno int unsigned NOT NULL AUTO_INCREMENT COMMENT '상영관번호',
 	shallType varchar(20) NOT NULL COMMENT '상영관타입',
 	shallLocation varchar(20) NOT NULL COMMENT '상영관위치',
-	shallDate varchar(20) NOT NULL COMMENT '상영관날짜',
+	shallSeat varchar(20) NOT NULL COMMENT '상영관날짜',
 	tno int unsigned NOT NULL COMMENT '극장번호',
 	PRIMARY KEY (shallno)
 ) COMMENT = '상영관정보';
