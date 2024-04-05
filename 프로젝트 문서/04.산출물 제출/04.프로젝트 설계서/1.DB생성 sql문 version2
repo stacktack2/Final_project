@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS screendate;
 CREATE TABLE screendate
 ( 
 	sdno int unsigned NOT NULL AUTO_INCREMENT COMMENT '날짜번호',
-	date varchar(10) NOT NULL COMMENT '날짜',
+	sdDate varchar(10) NOT NULL COMMENT '날짜',
 	PRIMARY KEY (sdno)
 ) COMMENT = '상영관날짜';
 
