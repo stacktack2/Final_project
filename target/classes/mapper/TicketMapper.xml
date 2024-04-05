@@ -15,7 +15,7 @@
 	
 	<select id="selectMovieCode" resultType="CinemaVO">
 	<![CDATA[
-		SELECT * FROM dflix.cinema WHERE ccode = #{ccode}
+		SELECT * FROM dflix.cinema WHERE ccode = #{movieCode}
 	]]>
 	</select>
 	
