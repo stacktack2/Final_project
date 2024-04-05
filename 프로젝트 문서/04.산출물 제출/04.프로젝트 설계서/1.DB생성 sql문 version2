@@ -133,7 +133,7 @@ CREATE TABLE screen
 	sstartTime varchar(50) NOT NULL COMMENT '상영시작시간',
 	cno int unsigned NOT NULL COMMENT '영화번호',
 	shallno int unsigned NOT NULL COMMENT '상영관번호',
-    sday varchar(50) NOT NULL COMMENT '상영날짜',
+    sday DATE NOT NULL COMMENT '상영날짜',
 	PRIMARY KEY (sno)
 ) COMMENT = '상영정보(영화상영관브릿지)';
 
