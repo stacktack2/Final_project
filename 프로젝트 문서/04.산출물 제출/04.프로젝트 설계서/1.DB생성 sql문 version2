@@ -131,7 +131,7 @@ CREATE TABLE member
 	mbirth varchar(10) NOT NULL COMMENT '생년월일',
 	memail varchar(45) NOT NULL COMMENT '이메일',
 	mphone varchar(20) NOT NULL COMMENT '휴대전화번호',
-    mgender varchar(1) NOT NULL COMMENT '성별',
+    	mgender varchar(1) NOT NULL COMMENT '성별',
 	authority varchar(20) DEFAULT 'ROLE_USER' NOT NULL COMMENT '관리자권한',
 	enabled tinyint unsigned DEFAULT 0 NOT NULL COMMENT '탈퇴여부', 
 	mjoinDate timestamp DEFAULT now() NOT NULL COMMENT '가입일'
@@ -146,6 +146,7 @@ CREATE TABLE screen
 	sendTime varchar(50) NOT NULL COMMENT '상영종료시간',
 	cno int unsigned NOT NULL COMMENT '영화번호',
 	shallno int unsigned NOT NULL COMMENT '상영관번호',
+    sday varchar(50) NOT NULL COMMENT '상영날짜',
 	PRIMARY KEY (sno)
 ) COMMENT = '상영정보(영화상영관브릿지)';
 
@@ -215,128 +216,128 @@ CREATE TABLE ticketDetail
 ALTER TABLE file
 	ADD FOREIGN KEY (bno)
 	REFERENCES board (bno)
-	ON UPDATE cascade
-	ON DELETE cascade
+	ON UPDATE CASCADE
+	ON DELETE CASCADE
 ;
 
 
 ALTER TABLE icmtReply
 	ADD FOREIGN KEY (bno)
 	REFERENCES board (bno)
-	ON UPDATE cascade
-	ON DELETE cascade
+	ON UPDATE CASCADE
+	ON DELETE CASCADE
 ;
 
 
 ALTER TABLE cinemaReply
 	ADD FOREIGN KEY (cno)
 	REFERENCES cinema (cno)
-	ON UPDATE cascade
-	ON DELETE cascade
+	ON UPDATE CASCADE
+	ON DELETE CASCADE
 ;
 
 
 ALTER TABLE screen
 	ADD FOREIGN KEY (cno)
 	REFERENCES cinema (cno)
-	ON UPDATE cascade
-	ON DELETE cascade
+	ON UPDATE CASCADE
+	ON DELETE CASCADE
 ;
 
 
 ALTER TABLE cinemaReplyLike
 	ADD FOREIGN KEY (ccmtno)
 	REFERENCES cinemaReply (ccmtno)
-	ON UPDATE cascade
-	ON DELETE cascade
+	ON UPDATE CASCADE
+	ON DELETE CASCADE
 ;
 
 
 ALTER TABLE board
 	ADD FOREIGN KEY (mno)
 	REFERENCES member (mno)
-	ON UPDATE cascade
-	ON DELETE cascade
+	ON UPDATE CASCADE
+	ON DELETE CASCADE
 ;
 
 
 ALTER TABLE cinemaReply
 	ADD FOREIGN KEY (mno)
 	REFERENCES member (mno)
-	ON UPDATE cascade
-	ON DELETE cascade
+	ON UPDATE CASCADE
+	ON DELETE CASCADE
 ;
 
 
 ALTER TABLE cinemaReplyLike
 	ADD FOREIGN KEY (mno)
 	REFERENCES member (mno)
-	ON UPDATE cascade
-	ON DELETE cascade
+	ON UPDATE CASCADE
+	ON DELETE CASCADE
 ;
 
 
 ALTER TABLE icmtReply
 	ADD FOREIGN KEY (mno)
 	REFERENCES member (mno)
-	ON UPDATE cascade
-	ON DELETE cascade
+	ON UPDATE CASCADE
+	ON DELETE CASCADE
 ;
 
 
 ALTER TABLE ticket
 	ADD FOREIGN KEY (mno)
 	REFERENCES member (mno)
-	ON UPDATE cascade
-	ON DELETE cascade
+	ON UPDATE CASCADE
+	ON DELETE CASCADE
 ;
 
 
 ALTER TABLE ticketDetail
 	ADD FOREIGN KEY (sno)
 	REFERENCES screen (sno)
-	ON UPDATE cascade
-	ON DELETE cascade
+	ON UPDATE CASCADE
+	ON DELETE CASCADE
 ;
 
 
 ALTER TABLE screen
 	ADD FOREIGN KEY (shallno)
 	REFERENCES screenHall (shallno)
-	ON UPDATE cascade
-	ON DELETE cascade
+	ON UPDATE CASCADE
+	ON DELETE CASCADE
 ;
 
 
 ALTER TABLE screenSeat
 	ADD FOREIGN KEY (shallno)
 	REFERENCES screenHall (shallno)
-	ON UPDATE cascade
-	ON DELETE cascade
+	ON UPDATE CASCADE
+	ON DELETE CASCADE
 ;
 
 
 ALTER TABLE ticketDetail
 	ADD FOREIGN KEY (sseatno)
 	REFERENCES screenSeat (sseatno)
-	ON UPDATE cascade
-	ON DELETE cascade
+	ON UPDATE CASCADE
+	ON DELETE CASCADE
 ;
 
 
 ALTER TABLE screenHall
 	ADD FOREIGN KEY (tno)
 	REFERENCES theater (tno)
-	ON UPDATE cascade
-	ON DELETE cascade
+	ON UPDATE CASCADE
+	ON DELETE CASCADE
 ;
 
 
 ALTER TABLE ticketDetail
 	ADD FOREIGN KEY (ticketno)
 	REFERENCES ticket (ticketno)
-	ON UPDATE cascade
-	ON DELETE cascade
+	ON UPDATE CASCADE
+	ON DELETE CASCADE
 ;
 
 
