@@ -2,22 +2,37 @@
 let today = new Date();
 
 let year = today.getFullYear(); // 년도
-/*
-let month = today.getMonth() + 1;  // 월
-let date = today.getDate();  // 날짜
 
-document.getElementsByName("attendday").values = year + "/" + month + "/" + date;
-*/
 $(function() {
 	$('input[name="attendday"]').daterangepicker({
 		singleDatePicker: true,
 		showDropdowns: true,
-		minYear: year - 10,
-		maxYear: year + 10,
+		minYear: 2022,
+		maxYear: 2027,
 		locale: {
-			format: 'YYYY/MM/DD'
+			format: 'YYYYMMDD'
+			
 		}
+		
+		
 	});
+	
+	
 });
 
 
+
+
+function modalFn(){
+	document.getElementById("attendday2").value = document.getElementById("attendday").value;
+	document.forms['modal'].submit();
+}
+
+
+function screenDeleteFn(sno){
+	if(confirm("삭제하시겠습니까?")){
+		document.getElementById("sno").value = sno;
+		document.getElementById("attendday3").value = document.getElementById("attendday").value;
+		document.forms['screenDeleteForm'].submit();
+	}
+}

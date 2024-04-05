@@ -30,6 +30,7 @@ public class Ticket {
 		List<CinemaVO> movie = ticketSVC.selectMovie();
 		model.addAttribute("movie", movie);
 		
+		
 		return "ticket/ticketing";
 	}
 	
@@ -59,4 +60,5 @@ public class Ticket {
 	public String movieView() {
 		return "ticket/payment";
 	}
+
 }

@@ -33,4 +33,5 @@ public class TicketDAO {
 		public List<ScreenHallVO> selectScreenHall(String theaterNm){
 			return sqlSession.selectList(nameSpace+".selectScreenHall", theaterNm);
 		}
+		
 }
