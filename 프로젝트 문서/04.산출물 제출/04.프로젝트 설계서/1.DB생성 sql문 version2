@@ -20,6 +20,13 @@ DROP TABLE IF EXISTS theater;
 
 
 /* Create Tables */
+-- 상영관 날짜
+CREATE TABLE ScreenDate
+( 
+	shallDno int unsigned NOT NULL AUTO_INCREMENT COMMENT '날짜번호',
+	Date varchar(10) NOT NULL COMMENT '날짜'
+	PRIMARY KEY (shallDno)
+) COMMENT = '상영관날짜'';
 
 -- 게시물정보
 CREATE TABLE board
