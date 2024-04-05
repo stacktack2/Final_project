@@ -106,6 +106,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     }
                 });
                 
+
             });
         });
     });
@@ -129,6 +130,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // 클릭한 요소에 클래스 추가
             dateItem.classList.add('selected-date-day');
+            
 
             // 클릭한 요소의 하위 요소에 클래스 추가
             let dayWeek = dateItem.querySelector('.dayWeek');
@@ -149,8 +151,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 sunDay.classList.add('white');
             }
 
-            
-
+            let anchorTag = dateItem.querySelector('a');
+            if(anchorTag){
+                anchorTag.setAttribute('href', 'javaScript:selDay()');
+            }
         });
     });
 });
@@ -178,8 +182,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
             timeItem.classList.add('selected-time-theater');
             textSpan.classList.add('white');
-
-            console.log(ticket);
             
         });
 	});

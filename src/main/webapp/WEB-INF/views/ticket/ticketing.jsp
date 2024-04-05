@@ -11,6 +11,38 @@
     <title>예매 | 영화속으로 Dflix</title>
     <!-- CSS -->
     <%@ include file="../include/header/ticketingHeader.jsp" %>
+    <script>
+	    let cno =0; //영화번호 
+	    let tno = 0;
+	    
+	    function selCno(value){
+	    	cno = value;
+	    }
+	    
+	    function selTno(value){
+	    	tno = value;
+	    	
+	    	if(cno >0 && tno>0){
+	    		console.log("cno:"+cno+",tno:"+tno);
+	    		/*$.ajax({
+	    			url :'', //  상영시간 목록 조회 경로
+	    			type:'get',
+	    			data:{cno : cno, shallno : shallno},
+	    			success:function(data){
+	    				//data에는 상영시간 목록 담겨 있음
+	    				let html = ''
+	    				
+	    				//innerHTML
+	    				
+	    			}
+	    		});
+	    		*/
+	    	}
+	    }
+	    
+	    
+    
+    </script>
   </head>
 <body>
 <%@ include file="../include/nav/userNav.jsp" %>
@@ -48,7 +80,7 @@
 							<ul class="movie-list-ul">
 								<c:forEach items="${movie }" var="movie">
 								<li class="">
-									<a href="" onclick="return false;" title="${moive.cname }">
+									<a href="javascript:selCno(${movie.cno})" title="${moive.cname }">
 										<i class="movieAge">${movie.cwatchGradeNm }</i>
 										<span class="text">${movie.cname }</span>
 										<span class="sreader" style="hidden">${movie.ccode }</span>
@@ -73,7 +105,7 @@
 							<ul class="theater-list-ul">
 								<c:forEach items="${theater }" var="theater">
 								<li class="">
-									<a href="#" onclick="return false;" title="${theater.tname }">
+									<a href="javascript:selTno(${theater.tno })" title="${theater.tname }">
 										<span class="text">${theater.tname }</span>
 										<span class="sreader" style="hidden">${theater.tno }</span>
 									</a>
