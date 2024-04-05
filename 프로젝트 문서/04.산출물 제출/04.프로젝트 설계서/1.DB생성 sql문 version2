@@ -143,7 +143,6 @@ CREATE TABLE screen
 (
 	sno int unsigned NOT NULL AUTO_INCREMENT COMMENT '상영번호',
 	sstartTime varchar(50) NOT NULL COMMENT '상영시작시간',
-	sendTime varchar(50) NOT NULL COMMENT '상영종료시간',
 	cno int unsigned NOT NULL COMMENT '영화번호',
 	shallno int unsigned NOT NULL COMMENT '상영관번호',
     sday varchar(50) NOT NULL COMMENT '상영날짜',
