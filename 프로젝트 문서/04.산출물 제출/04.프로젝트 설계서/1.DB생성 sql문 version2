@@ -15,11 +15,18 @@ DROP TABLE IF EXISTS member;
 DROP TABLE IF EXISTS screenSeat;
 DROP TABLE IF EXISTS screenHall;
 DROP TABLE IF EXISTS theater;
-
+DROP TABLE IF EXISTS screendate;
 
 
 
 /* Create Tables */
+-- 상영관 날짜
+CREATE TABLE screendate
+( 
+	sdno int unsigned NOT NULL AUTO_INCREMENT COMMENT '날짜번호',
+	sdDate varchar(10) NOT NULL COMMENT '날짜',
+	PRIMARY KEY (sdno)
+) COMMENT = '상영관날짜';
 
 -- 게시물정보
 CREATE TABLE board
@@ -151,9 +158,9 @@ CREATE TABLE screenHall
 	shallLocation varchar(20) NOT NULL COMMENT '상영관위치',
 	shallSeat varchar(20) NOT NULL COMMENT '상영관날짜',
 	tno int unsigned NOT NULL COMMENT '극장번호',
+    sdno int unsigned COMMENT '날짜번호',
 	PRIMARY KEY (shallno)
 ) COMMENT = '상영관정보';
-
 
 -- 좌석정보
 CREATE TABLE screenSeat
