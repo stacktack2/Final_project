@@ -83,7 +83,7 @@
 										</thead>
 										<tbody class="table-border-bottom-0">
 											<c:forEach var="ScreenHallVO" items="${ScreenHallVOList}">
-												<tr>
+												<tr class="border-bottom">
 													<th style="height:20em; width:15px">${ScreenHallVO.shallLocation }</th>
 													<c:forEach var="screenVO" items="${ScreenHallVO.screenVO}">
 														<td style="width:30px;">
@@ -205,8 +205,11 @@
 			  	var url ="theatersMgView?tno="+<%=request.getParameter("tno")%>+"&attendday="+picker.startDate.format('YYYYMMDD');
 			  	$(location).attr('href',url);
 			});
+			
+			
 		});
 		document.getElementById("attendday").value = attendday;
+		
 	</script>
 
 </body>
