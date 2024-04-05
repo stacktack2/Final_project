@@ -78,8 +78,8 @@ for(let i = todayDate.getTime(); i < futureDate.getTime(); i += 24 * 60 * 60 * 1
     const hiddenYear = date.getFullYear();
     const hiddenMonth = date.getMonth() + 1;
     const hiddenDay = date.getDate();
-    const currentHiddenDay = `${hiddenYear}-`+
-                              `${hiddenMonth >= 10 ? hiddenMonth : '0' + hiddenMonth}-`+
+    const currentHiddenDay = `${hiddenYear}`+
+                              `${hiddenMonth >= 10 ? hiddenMonth : '0' + hiddenMonth}`+
                               `${hiddenDay >= 10 ? hiddenDay : '0' + hiddenDay}`;
 
     if(currentMonth !== previousMonth){
