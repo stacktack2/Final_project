@@ -6,6 +6,9 @@ document.addEventListener("DOMContentLoaded", function() {
             // 선택한 영화 제목
             let ticketMovie = movieItem.querySelector('.text').innerHTML;
             let ticketMovieCode = movieItem.querySelector('.sreader').innerHTML;
+
+            console.log(ticketMovie);
+            console.log(ticketMovieCode);
             
             // 진행버튼에 movieTitle 추가
             let selectionMovieTitle = document.getElementById('selectionMovieTitle');
@@ -36,7 +39,8 @@ document.addEventListener("DOMContentLoaded", function() {
                     console.log(data);
                         let html = "";
                         for (let i = 0; i < data.length; i++) {
-                        html += '<img src="'+data[i].cposter+'" alt="영화 포스터" style="display: inline;">';
+                        html += '<img src="'+data[i].cposter+
+                                '" alt="'+data[i].cname+'포스터" style="display: inline;">';
                          $(".movie_poster").html(html);
                          }
                 },
@@ -56,6 +60,8 @@ document.addEventListener("DOMContentLoaded", function() {
             theaterItem.addEventListener('click', function() {
                 let ticketTheater = theaterItem.querySelector('.text').innerHTML;
                 let ticketTheaterNo = theaterItem.querySelector('.sreader').innerHTML;
+
+                console.log(ticketTheaterNo);
                 
                 let selectionTheater = document.getElementById('selectionTheater');
                 selectionTheater.innerHTML = ticketTheater;
@@ -109,11 +115,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     dateItems.forEach(function(dateItem) {
         dateItem.addEventListener('click', function() {
-            let ticketDateWeek = dateItem.querySelector('a span:nth-of-type(1)').innerHTML;
-            let ticketDateDay = dateItem.querySelector('a span:nth-of-type(2)').innerHTML;
-
-            let ticketYear = dateItem.closest('.date-list-ul').querySelector('.date-yearMonth').querySelector('.year').textContent.trim();
-            let ticketMonth = dateItem.closest('.date-list-ul').querySelector('.date-yearMonth').querySelector('.month').textContent.trim();
+            let ticketDay = dateItem.querySelector('a span:nth-of-type(3)').innerHTML;
+            console.log(ticketDay);
 
             let previousSelectedItem = document.querySelector('.selected-date-day');
             let whiteSpans = previousSelectedItem ? previousSelectedItem.querySelectorAll('.white') : [];
@@ -145,13 +148,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 sunDayWeek.classList.add('white');
                 sunDay.classList.add('white');
             }
-            
-            ticket.set('ticketDateYear', ticketYear);
-            ticket.set('ticketDateMonth', ticketMonth);
-            ticket.set('ticketDateDay', ticketDateDay);
-            ticket.set('ticketDateWeek', ticketDateWeek);
 
-            console.log(ticket);
+            
+
         });
     });
 });
@@ -179,10 +178,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
             timeItem.classList.add('selected-time-theater');
             textSpan.classList.add('white');
-
-            ticket.set('ticketScreenkind', ticketScreenkind);
-            ticket.set('ticketScreenhall', ticketScreenhall);
-            ticket.set('ticketTime', ticketTime);
 
             console.log(ticket);
             

@@ -36,7 +36,4 @@ public class TicketSVCImpl implements TicketSVC{
 		return ticketDAO.selectScreenHall(theaterNm);
 	}
 	
-	
-	
-	
 }

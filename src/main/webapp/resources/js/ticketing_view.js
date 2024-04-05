@@ -69,12 +69,18 @@ const listItems = document.getElementsByClassName('date-list-ul')[0];
 let previousMonth = null;
 
 // 2주 기간동안의 날짜 반복문
-for(let i = todayDate.getTime(); i <= futureDate.getTime(); i += 24 * 60 * 60 * 1000){
+for(let i = todayDate.getTime(); i < futureDate.getTime(); i += 24 * 60 * 60 * 1000){
     const date = new Date(i);
     currentYear = date.getFullYear();
     currentMonth = date.getMonth() + 1;
     currentDay = date.getDate();
     const currentDayOfKR = currentDayKR(currentYear, currentMonth, currentDay);
+    const hiddenYear = date.getFullYear();
+    const hiddenMonth = date.getMonth() + 1;
+    const hiddenDay = date.getDate();
+    const currentHiddenDay = `${hiddenYear}-`+
+                              `${hiddenMonth >= 10 ? hiddenMonth : '0' + hiddenMonth}-`+
+                              `${hiddenDay >= 10 ? hiddenDay : '0' + hiddenDay}`;
 
     if(currentMonth !== previousMonth){
         previousMonth = currentMonth;
@@ -131,5 +137,6 @@ for(let i = todayDate.getTime(); i <= futureDate.getTime(); i += 24 * 60 * 60 * 
 
     const sreaderSpan = document.createElement('span');
     sreaderSpan.classList.add('sreader');
+    sreaderSpan.textContent = currentHiddenDay;
     aTag.append(sreaderSpan);
 }

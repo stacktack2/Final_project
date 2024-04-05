@@ -9,13 +9,17 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import ezen.dteam.controller.Ticket;
 import ezen.dteam.service.MainSchedulerSVC;
+import ezen.dteam.service.TicketSVC;
 import ezen.dteam.vo.CinemaVO;
 import kr.or.kobis.kobisopenapi.consumer.rest.KobisOpenAPIRestService;
 import kr.or.kobis.kobisopenapi.consumer.rest.exception.OpenAPIFault;
@@ -26,7 +30,10 @@ public class MovieScheduler {
 	@Autowired
 	MainSchedulerSVC mainSchedulerSVC;
 	
-	// @Scheduled(cron = " 0 * * * * * ")
+	@Autowired
+	TicketSVC ticketSVC;
+	
+	// @Scheduled(cron = " * * 0 * * * ")
 	public void dailyResponse() throws OpenAPIFault, Exception {
 		
 		CinemaVO cinema = new CinemaVO();
@@ -75,7 +82,7 @@ public class MovieScheduler {
 	
 	}
 	
-	// @Scheduled(cron = " 0 * * * * * ")
+	// @Scheduled(cron = " * * 0 * * * ")
 	public void movieList() throws OpenAPIFault, Exception {
 		
 		String key = "7440F54C9RSVVBDG76S6";
@@ -248,7 +255,6 @@ public class MovieScheduler {
 		} catch(IOException e){
 			e.printStackTrace();
 		}
-		
-		
 	}
+	
 }
