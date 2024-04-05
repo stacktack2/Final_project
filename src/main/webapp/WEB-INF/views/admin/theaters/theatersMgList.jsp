@@ -83,7 +83,7 @@
 											<c:forEach var="item" items="${TheaterVOList }" varStatus="status">
 												<tr>
 													<td>${status.count }</td>
-													<td><a href="theatersMgView?name=jc"><b>${item.tname }</b></a></td>
+													<td><a href="theatersMgView?tno=${item.tno }"><b>${item.tname }</b></a></td>
 													<td>${item.taddr }</td>
 													<td>${item.tcall }</td>
 												</tr>
