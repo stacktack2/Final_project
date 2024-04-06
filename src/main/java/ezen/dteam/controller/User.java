@@ -40,33 +40,29 @@ public class User {
 		return "user/join";
 	}
 	
-	//아이디 중복확인(ajax)
 	@ResponseBody
 	@RequestMapping(value="/checkId", method=RequestMethod.POST)
 	public String checkId(String id) throws Exception {
 		return Integer.toString(service.checkId(id));
 	}
 	
-	//닉네임 중복확인(ajax)
 	@ResponseBody
 	@RequestMapping(value="/checkNickNm", method=RequestMethod.POST)
 	public String checkNickNm(String nickNm) throws Exception {
 		return Integer.toString(service.checkNickNm(nickNm));
 	}
 	
-	//이메일 중복확인(ajax)
 	@ResponseBody
 	@RequestMapping(value="/checkEmail", method=RequestMethod.POST)
 	public String checkEmail(String email) throws Exception {
 		return Integer.toString(service.checkEmail(email));
 	}
 	
-	//회원가입
 	@RequestMapping(value="/joinOk", method=RequestMethod.POST)
 	public String joinOk(String mid,String mpw, String mname,String authority, String enabled,
 			String mnickNm, String mbirth, String memail,String mgender, String mphone) {
 		
-		//BCrypt 암호화
+
 		BCryptPasswordEncoder epwe = new BCryptPasswordEncoder();
 		
 		Map<String,Object> vo = new HashMap<String,Object>();
@@ -81,7 +77,6 @@ public class User {
 		vo.put("enabled", enabled);		
 		vo.put("authority", authority);
 		
-		//db에 insert
 		int result = sqlSession.insert("ezen.dteam.mapper.userMapper.insert",vo);
 		
 		return "redirect:/user/login";
@@ -94,7 +89,6 @@ public class User {
 		return "user/findId";
 	}
 	
-	//아이디 찾기(ajax)
 	@ResponseBody
 	@RequestMapping(value = "/searchId", method = RequestMethod.POST)
 	public String searchId(MemberVO vo) throws Exception{
@@ -107,9 +101,8 @@ public class User {
 		return "user/findPw";
 	}
 	
-	//비밀번호찾기(ajax)
 	@RequestMapping(value = "/updatePw", method = RequestMethod.POST)
-	public String updatePw(MemberVO vo,HttpServletResponse response) throws Exception{
+	public String sendEmail(MemberVO vo,HttpServletResponse response) throws Exception{
 
 		//4. 알림발송
 		response.setCharacterEncoding("UTF-8");
@@ -122,7 +115,6 @@ public class User {
 		}
 		response.getWriter().flush();
 		
-		//화면 리다이렉트
 		return "redirect:/user/login";
 	}
 	
