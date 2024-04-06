@@ -18,6 +18,9 @@ public class MyinfoDAO {
 		//사용자가 입력한 아이디값과 같은 값의 vo조회
 		return sqlSession.selectOne(nameSpace+".selectMyinfo", mid);
 	}
+	public int checkEmail(String email) throws Exception{
+		return sqlSession.selectOne(nameSpace+".checkEmail",email);
+	}
 	
 	public int updateMyinfo(MemberVO vo) throws Exception{
 		return sqlSession.update(nameSpace+".updateMyinfo",vo);

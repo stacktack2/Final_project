@@ -9,7 +9,9 @@
 		 FROM member 
 		 WHERE mid = #{value}
 	</select>
-	
+	<select id="checkEmail" parameterType="String" resultType="int">
+		select count(*) from member where memail = #{memail}
+	</select>
 	<!--  내정보 변경  -->
 	<update id="updateMyinfo" parameterType="MemberVO"> 
 		Update member 

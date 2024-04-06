@@ -15,10 +15,8 @@ public class MemberVO {
 	private String authority;
 	private int enabled;
 	
-	//세터를 호출하기위한 기본생성자 필요
 	public MemberVO() {}
 
-	//게터세터
 	public int getMno() {
 		return mno;
 	}

@@ -9,6 +9,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import ezen.dteam.service.MyinfoSVCImpl;
 import ezen.dteam.vo.MemberVO;
@@ -61,6 +62,11 @@ public class Myinfo {
 	public String changeMyinfo() {	
 		return "myInfo/changeMyinfo";
 	}
+	@ResponseBody
+	@RequestMapping(value="/myInfo/checkEmail", method=RequestMethod.POST)
+	public String checkEmail(String email) throws Exception {
+		return Integer.toString(service.checkEmail(email));
+	}
 	//내정보변경(업데이트)
 	@RequestMapping(value = "/myInfo/changeMyinfo", method = RequestMethod.POST)
 	public String changeMyinfoPost(MemberVO vo, Authentication auth,HttpServletResponse response) throws Exception{
@@ -72,11 +78,11 @@ public class Myinfo {
 		if(result == 1) {
 			response.getWriter().println("<script>alert('회원정보가 변경되었습니다.'); </script>");
 			response.getWriter().flush();
-			return "redirect:/myInfo/";
+			return "redirect:/myInfo";
 		}else {
 			response.getWriter().println("<script>alert('회원정보 변경에 실패하였습니다.'); </script>");
 			response.getWriter().flush();
-			return "myInfo/changeMyinfo";
+			return "redirect:/myInfo/changeMyinfo";
 		}
 		
 	}

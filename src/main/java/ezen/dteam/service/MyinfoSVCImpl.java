@@ -35,7 +35,13 @@ public class MyinfoSVCImpl implements MyinfoSVC{
 		newvo.setMphone(Optional.ofNullable(vo.getMphone()).orElse(loginVO.getMphone()));
 		newvo.setMbirth(Optional.ofNullable(vo.getMbirth()).orElse(loginVO.getMbirth()));
 		newvo.setMgender(Optional.ofNullable(vo.getMgender()).orElse(loginVO.getMgender()));
-				
+			
+		System.out.print(myinfoDAO.updateMyinfo(newvo));
 		return myinfoDAO.updateMyinfo(newvo);
+	}
+
+	@Override
+	public int checkEmail(String email) throws Exception {
+		return myinfoDAO.checkEmail(email);
 	}
 }
