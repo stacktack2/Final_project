@@ -32,17 +32,17 @@
     		<div class="myinfo-submenu">
     			<ul>
     				<li>
-    					<a href="myInfo">나의 예매내역</a>
+    					<a href="<%=request.getContextPath() %>/myInfo">나의 예매내역</a>
     				</li>
     			</ul>
     			<ul>
     				<li>
-    					<a href="myInfo/changeMyinfo">개인정보 변경</a>
+    					<a href="<%=request.getContextPath() %>/myInfo/changeMyinfo">개인정보 변경</a>
     				</li>
     			</ul>
     			<ul>
     				<li>
-    					<a href="myInfo/withdrawal">회원탈퇴</a>
+    					<a href="<%=request.getContextPath() %>/myInfo/withdrawal">회원탈퇴</a>
     				</li>
     			</ul>
     		</div>

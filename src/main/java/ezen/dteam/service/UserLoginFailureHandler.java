@@ -16,9 +16,8 @@ public class UserLoginFailureHandler implements AuthenticationFailureHandler{
 	@Override
 	public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
 			AuthenticationException exception) throws IOException, ServletException {
-		// ·Î±×ÀÎ ½ÇÆĞ½Ã
-		System.out.println("·Î±×ÀÎ ½ÇÆĞ");
-		//·Î±×ÀÎÆäÀÌÁö·Î ¸®´ÙÀÌ·ºÆ®
+
+		System.out.println("ë¡œê·¸ì¸ ì‹¤íŒ¨");
 		response.sendRedirect(request.getContextPath()+"/user/login");
 	}
 

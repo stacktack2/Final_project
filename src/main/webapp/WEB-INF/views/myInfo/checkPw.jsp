@@ -32,17 +32,17 @@
     		<div class="myinfo-submenu">
     			<ul>
     				<li>
-    					<a href="myInfo">나의 예매내역</a>
+    					<a href="<%=request.getContextPath() %>/myInfo">나의 예매내역</a>
     				</li>
     			</ul>
     			<ul>
     				<li>
-    					<a href="myInfo/changeMyinfo">개인정보 변경</a>
+    					<a href="<%=request.getContextPath() %>/myInfo/changeMyinfo">개인정보 변경</a>
     				</li>
     			</ul>
     			<ul>
     				<li>
-    					<a href="myInfo/withdrawal">회원탈퇴</a>
+    					<a href="<%=request.getContextPath() %>/myInfo/withdrawal">회원탈퇴</a>
     				</li>
     			</ul>
     		</div>
@@ -50,7 +50,7 @@
     		<div class="myinfo-detail">
 				<!-- My 예매내역 -->
     			<div class="myTicketing-tit">
-    				<form name="frm" id="checkPwFrm" action="confirmPw" method="post" >
+    				<form name="frm" id="checkPwFrm" action="<%=request.getContextPath() %>/myInfo/confirmPw" method="post">
 					<div class="mb-3 col-md-8">
                       <label for="mpw" class="form-label block fw-semibold">비밀번호를 입력해주세요</label>
                           <input
