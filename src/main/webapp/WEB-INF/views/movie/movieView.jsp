@@ -95,8 +95,13 @@
 
 <!-- 댓글 -->
   <div class="section best-deal">
-
-
+	<c:forEach var="item" items="${replyList}">
+		<div class=" row navbar navbar-example navbar-expand-lg bg-light mb-3">
+			<div>${item.mnickNm} :
+				<b>${item.ccmtContent}</b>
+			</div>
+		</div>
+	</c:forEach>
   </div>
   
   <%@ include file="../include/footer/userFooter.jsp" %>
