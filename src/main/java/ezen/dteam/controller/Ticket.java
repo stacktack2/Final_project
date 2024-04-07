@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import ezen.dteam.service.TicketSVC;
 import ezen.dteam.vo.CinemaVO;
 import ezen.dteam.vo.ScreenHallVO;
+import ezen.dteam.vo.ScreenVO;
 import ezen.dteam.vo.TheaterVO;
 
 @RequestMapping(value="/ticket")
@@ -50,6 +51,19 @@ public class Ticket {
 		List<CinemaVO> ccode = ticketSVC.selectMovieCode(movieCode);
 		
 		return ccode;
+	}
+	
+	@RequestMapping(value="/selectScreen", method=RequestMethod.POST)
+	@ResponseBody
+	public List<ScreenVO> selectScreen(String cnoParam, String shallnoParam, String sday){
+		
+		int cno = Integer.parseInt(cnoParam);
+		int shallno = Integer.parseInt(shallnoParam);
+		
+		ScreenVO screenVO = new ScreenVO(cno, shallno, sday);
+		List<ScreenVO> selectScreen = ticketSVC.selectScreen(screenVO);
+		
+		return selectScreen;
 	}
 	
 	@RequestMapping(value="/ticketSeat", method=RequestMethod.GET)

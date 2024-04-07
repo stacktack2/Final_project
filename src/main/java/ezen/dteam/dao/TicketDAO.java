@@ -1,6 +1,8 @@
 package ezen.dteam.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import ezen.dteam.vo.CinemaVO;
 import ezen.dteam.vo.ScreenHallVO;
+import ezen.dteam.vo.ScreenVO;
 import ezen.dteam.vo.TheaterVO;
 
 @Repository
@@ -32,6 +35,10 @@ public class TicketDAO {
 		
 		public List<ScreenHallVO> selectScreenHall(String theaterNm){
 			return sqlSession.selectList(nameSpace+".selectScreenHall", theaterNm);
+		}
+
+		public List<ScreenVO> selectScreen(ScreenVO screenVO) {
+			return sqlSession.selectList(nameSpace+".selectScreen", screenVO);
 		}
 		
 }

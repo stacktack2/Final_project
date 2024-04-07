@@ -8,11 +8,57 @@ public class ScreenVO {
 	private int shallno;
 	private String sday;
 	private String cname;
+	private String shallType;
+	private String shallLocation;
+	private String shallSeat;
 	
+	public ScreenVO() {
+		
+	}
+
+	public ScreenVO(int cno, int shallno, String sday) {
+		super();
+		this.cno = cno;
+		this.shallno = shallno;
+		this.sday = sday;
+	}
 	
+	public ScreenVO(int sno, String sstartTime, String sendTime, int cno, int shallno, String sday, String cname, String shallType, String shallLocation, String shallSeat) {
+	    this.sno = sno;
+	    this.sstartTime = sstartTime;
+	    this.sendTime = sendTime;
+	    this.cno = cno;
+	    this.shallno = shallno;
+	    this.sday = sday;
+	    this.cname = cname;
+	    this.shallType = shallType;
+	    this.shallLocation = shallLocation;
+	    this.shallSeat = shallSeat;
+	}
 	
-	
-	
+	public final String getShallType() {
+		return shallType;
+	}
+
+	public final void setShallType(String shallType) {
+		this.shallType = shallType;
+	}
+
+	public final String getShallLocation() {
+		return shallLocation;
+	}
+
+	public final void setShallLocation(String shallLocation) {
+		this.shallLocation = shallLocation;
+	}
+
+	public final String getShallSeat() {
+		return shallSeat;
+	}
+
+	public final void setShallSeat(String shallSeat) {
+		this.shallSeat = shallSeat;
+	}
 
 	public ScreenVO(String sstartTime, String sendTime, int cno, int shallno, String sday) {
 		super();
@@ -23,9 +69,6 @@ public class ScreenVO {
 		this.sday = sday;
 	}
 
-	public ScreenVO() {
-		super();
-	}
 
 	public ScreenVO(int shallno, String sday) {
 		super();
