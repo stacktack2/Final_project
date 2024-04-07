@@ -11,38 +11,6 @@
     <title>예매 | 영화속으로 Dflix</title>
     <!-- CSS -->
     <%@ include file="../include/header/ticketingHeader.jsp" %>
-    <script>
-	    let cno =0; //영화번호 
-	    let tno = 0;
-	    
-	    function selCno(value){
-	    	cno = value;
-	    }
-	    
-	    function selTno(value){
-	    	tno = value;
-	    	
-	    	if(cno >0 && tno>0){
-	    		console.log("cno:"+cno+",tno:"+tno);
-	    		/*$.ajax({
-	    			url :'', //  상영시간 목록 조회 경로
-	    			type:'get',
-	    			data:{cno : cno, shallno : shallno},
-	    			success:function(data){
-	    				//data에는 상영시간 목록 담겨 있음
-	    				let html = ''
-	    				
-	    				//innerHTML
-	    				
-	    			}
-	    		});
-	    		*/
-	    	}
-	    }
-	    
-	    
-    
-    </script>
   </head>
 <body>
 <%@ include file="../include/nav/userNav.jsp" %>
@@ -105,7 +73,7 @@
 							<ul class="theater-list-ul">
 								<c:forEach items="${theater }" var="theater">
 								<li class="">
-									<a href="javascript:selTno(${theater.tno })" title="${theater.tname }">
+									<a href="javascript:selshallNo(${theater.tno })" title="${theater.tname }">
 										<span class="text">${theater.tname }</span>
 										<span class="sreader" style="hidden">${theater.tno }</span>
 									</a>
@@ -171,7 +139,6 @@
 						</div>
 						<!-- 무비타입과 동일하게 관람제한나이도 api에서 받아온 값을 입력해야함. -->
 						<div class="row movie_rating" style="display: block;">
-							<span class="data" title="12세 관람가">12세 관람가</span>
 						</div>
 						<div class="placeholder" title="영화선택" style="display: none;"></div>
 					</div>
@@ -179,12 +146,15 @@
 						<div class="row name" style="display: block;">
 							<span class="header">극장</span>
 							<span class="data letter-spacing-min ellipsis-line1">
-								<a title="CGV 구로" id="selectionTheater"></a>
+								<a title="" id="selectionTheater"></a>
 							</span>
 						</div>
 						<div class="row date" style="display: block;">
 							<span class="header">일시</span>
-							<span class="data" title="2024.3.21(목) 12:50"><a>2024.3.21(목)</a> <a>12:50</a></span>
+							<span class="data" title="">
+								<a id="dateDay"></a>
+								<a id="dateTime"></a>
+							</span>
 						</div>
 						<div class="row screen" style="display: block;">
 							<span class="header">상영관</span>
