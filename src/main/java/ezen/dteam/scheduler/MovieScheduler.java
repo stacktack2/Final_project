@@ -104,8 +104,8 @@ public class MovieScheduler {
 					+ "collection=kmdb_new2&"
 					+ "ServiceKey="+key+"&"
 					+ "detail=Y&"
-					+ "releaseDts="+formatMinusMonth+"&"
-					+ "releaseDte="+formatPlusMonth+"&"
+					+ "releaseDts=20240301&"
+					+ "releaseDte=20240401&"
 					+ "listCount=200");
 			
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
