@@ -17,11 +17,10 @@ public class UserLoginSuccessHandler implements AuthenticationSuccessHandler{
 	@Override
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
 			Authentication authentication) throws IOException, ServletException {
-		//로그인 성공시
+
 		UserVO loginUser = (UserVO)authentication.getPrincipal();
-		System.out.println(loginUser.getMid());
+		//System.out.println(loginUser.getMid());
 		
-		//메인페이지로 리다이렉트
 		response.sendRedirect(request.getContextPath());
 	}
 

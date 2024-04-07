@@ -25,7 +25,7 @@
 							<a href="<%=request.getContextPath() %>/login">로그인</a> |
 							</sec:authorize>
 						</li>
-						<li><a href="<%=request.getContextPath() %>/myinfo">내정보</a> |</li>
+						<li><a href="<%=request.getContextPath() %>/myInfo">내정보</a> |</li>
 						<li><a href="<%=request.getContextPath() %>/serviceCenter/noticeList">고객센터</a></li>
 					</ul>
 				</div>
@@ -54,8 +54,9 @@
 								data-bs-toggle="dropdown" aria-expanded="false">예매</a>
 								<ul class="dropdown-menu dropdown-menu-dark ulbg-whtie">
 									<li><a class="dropdown-item item-hover" href="<%=request.getContextPath() %>/ticket/ticketing">예매하기</a></li>
-									<li><a class="dropdown-item item-hover" href="<%=request.getContextPath() %>/myinfo/myTicketing">예매조회</a></li>
-								</ul></li>
+									<li><a class="dropdown-item item-hover" href="<%=request.getContextPath() %>/myInfo">예매조회</a></li>
+								</ul>
+							</li>
 							<li class="dropdown"><a href="<%=request.getContextPath() %>/theater" role="button"
 								data-bs-toggle="dropdown" aria-expanded="false">극장</a>
 								<ul class="dropdown-menu dropdown-menu-dark ulbg-whtie">

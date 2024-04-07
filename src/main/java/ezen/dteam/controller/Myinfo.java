@@ -1,11 +1,14 @@
 package ezen.dteam.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -33,7 +36,7 @@ public class Myinfo {
 		
 		return "myInfo/myTicketing";
 	}
-	//내정보변경(비밀번호 확인 페이지로 먼저 화면포워드)
+	//내정보변경(비밀번호 확인 페이지)
 	@RequestMapping(value = "/myInfo/changeMyinfo", method = RequestMethod.GET)
 	public String changeMyinfoPre() {		
 		return "myInfo/checkPw";
@@ -45,15 +48,14 @@ public class Myinfo {
 		UserVO loginVO = (UserVO)auth.getPrincipal();
 		MemberVO user =  service.selectMyinfo(loginVO.getMid());
 		
-		if(user == null) {	
-			return "redirect:/myInfo/checkPw";
-		}
 		BCryptPasswordEncoder epwe = new BCryptPasswordEncoder();
 		boolean result = epwe.matches(vo.getMpw(), user.getMpw());
 		
 		if(result) {	
+			System.out.print("성공");
 			return "redirect:/myInfo/updateMyinfo";
 		}else {	
+			System.out.print("실패");
 			return "redirect:/myInfo/checkPw";
 		}
 	}
@@ -69,7 +71,7 @@ public class Myinfo {
 	}
 	//내정보변경(업데이트)
 	@RequestMapping(value = "/myInfo/changeMyinfo", method = RequestMethod.POST)
-	public String changeMyinfoPost(MemberVO vo, Authentication auth,HttpServletResponse response) throws Exception{
+	public String changeMyinfoPost(MemberVO vo, Authentication auth,HttpServletResponse response,HttpServletRequest request) throws Exception{
 		
 		int result = service.updateMyinfo(vo ,auth);
 		
@@ -78,12 +80,13 @@ public class Myinfo {
 		if(result == 1) {
 			response.getWriter().println("<script>alert('회원정보가 변경되었습니다.'); </script>");
 			response.getWriter().flush();
-			return "redirect:/myInfo";
+			//return null;
 		}else {
 			response.getWriter().println("<script>alert('회원정보 변경에 실패하였습니다.'); </script>");
 			response.getWriter().flush();
-			return "redirect:/myInfo/changeMyinfo";
+			//return null;
 		}
+		return "redirect:/";
 		
 	}
 	
@@ -93,11 +96,43 @@ public class Myinfo {
 		
 		return "myInfo/withdrawal";
 	}
+	//비밀번호 확인->탈퇴
 	@RequestMapping(value = "/myInfo/withdrawal", method = RequestMethod.POST)
-	public String withdrawl() {
+	public String withdrawl(MemberVO vo, Authentication auth, HttpServletResponse response,HttpSession session, HttpServletRequest request) throws Exception {
 		//비밀번호 인증확인되면 
-		//메인으로 리다이렉트
-		return "myInfo/withdrawal";
-	}
+		UserVO loginVO = (UserVO)auth.getPrincipal();
+		MemberVO user =  service.selectMyinfo(loginVO.getMid());
+		
+		if(user == null) {	
+			return "redirect:/myInfo/withdrawal";
+		}
+		BCryptPasswordEncoder epwe = new BCryptPasswordEncoder();
+		boolean result = epwe.matches(vo.getMpw(), user.getMpw());
+		
+		if(result) {	
+			int resultDel = service.deleteMyinfo(user);
+			
+			response.setCharacterEncoding("UTF-8");
+			response.setContentType("text/html; charset=utf-8");
+			if(resultDel == 0) {
+				response.getWriter().println("<script>alert('회원탈퇴에 실패하였습니다.'); </script>");
+				response.getWriter().flush();
+				return null;
+			}else if(resultDel == 1) {
+				response.getWriter().println("<script>alert('회원탈퇴가 성공적으로 진행되었습니다'); </script>");
+				response.getWriter().flush();
+				
+	            SecurityContextHolder.clearContext(); // SecurityContext 초기화
+	            session.invalidate(); // HttpSession 무효화
+
+	            // 로그아웃 처리
+	            SecurityContextLogoutHandler logoutHandler = new SecurityContextLogoutHandler();
+	            logoutHandler.logout(request, null, null);
+				return null;
+			}
+		}
+		return "redirect:/";
+		
+	}	
 	
 }

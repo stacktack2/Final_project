@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 
 <html lang="ko" class="light-style layout-menu-fixed" dir="ltr"
@@ -79,18 +80,14 @@
 											</tr>
 										</thead>
 										<tbody class="table-border-bottom-0">
-											<tr>
-												<td>1</td>
-												<td><a href="theatersMgView"><b>cgv전주중앙</b></a></td>
-												<td>전북 전주시 완산구 중앙 00번지</td>
-												<td>010-7577-3393</td>
-											</tr>
-											<tr>
-												<td>2</td>
-												<td><a href="theatersMgView"><b>cgv전주송천</b></a></td>
-												<td>전북 전주시 완산구 교동 00번지</td>
-												<td>010-5555-2222</td>
-											</tr>
+											<c:forEach var="item" items="${TheaterVOList }" varStatus="status">
+												<tr>
+													<td>${status.count }</td>
+													<td><a href="theatersMgView?tno=${item.tno }"><b>${item.tname }</b></a></td>
+													<td>${item.taddr }</td>
+													<td>${item.tcall }</td>
+												</tr>
+											</c:forEach>
 										</tbody>
 										
 									</table>

@@ -14,7 +14,8 @@ public class MemberVO {
 	private String mgender;
 	private String authority;
 	private int enabled;
-	
+	private int isWithdrawn;
+
 	public MemberVO() {}
 
 	public int getMno() {
@@ -114,5 +115,12 @@ public class MemberVO {
 		this.enabled = enabled;
 	}
 	
+	public int getIsWithdrawn() {
+		return isWithdrawn;
+	}
+
+	public void setIsWithdrawn(int isWithdrawn) {
+		this.isWithdrawn = isWithdrawn;
+	}
 	
 }

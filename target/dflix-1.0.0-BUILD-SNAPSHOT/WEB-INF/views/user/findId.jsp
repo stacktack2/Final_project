@@ -45,7 +45,7 @@
   			let mphone = document.frm.mphone.value;
   			
   			let isSubmit = true;
-  			;
+  			
   			//이름
   			if(mname == "" || mname === undefined || mname === null){
   				isSubmit = false;
@@ -155,7 +155,7 @@
                     autofocus
                   />
                 </div>
-                <button class="btn btn-primary d-grid w-100" onclick="searchId();">아이디 찾기</button>
+                <button type="button" class="btn btn-primary d-grid w-100" onclick="searchId();">아이디 찾기</button>
               </form>
               <div class="text-center">
                 <a href="login" class="d-flex align-items-center justify-content-center">

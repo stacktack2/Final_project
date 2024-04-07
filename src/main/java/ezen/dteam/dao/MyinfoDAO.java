@@ -13,9 +13,8 @@ public class MyinfoDAO {
 	
 	private final String nameSpace = "ezen.dteam.mapper.myinfoMapper";
 	
-	//비밀번호 확인
+
 	public MemberVO selectMyinfo(String mid) throws Exception{
-		//사용자가 입력한 아이디값과 같은 값의 vo조회
 		return sqlSession.selectOne(nameSpace+".selectMyinfo", mid);
 	}
 	public int checkEmail(String email) throws Exception{
@@ -24,6 +23,9 @@ public class MyinfoDAO {
 	
 	public int updateMyinfo(MemberVO vo) throws Exception{
 		return sqlSession.update(nameSpace+".updateMyinfo",vo);
+	}
+	public int deleteMyinfo(MemberVO vo) throws Exception{
+		return sqlSession.update(nameSpace+".deleteMyinfo",vo);
 	}
 	
 }

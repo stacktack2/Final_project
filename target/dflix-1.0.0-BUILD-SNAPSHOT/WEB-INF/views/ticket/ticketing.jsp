@@ -11,6 +11,38 @@
     <title>예매 | 영화속으로 Dflix</title>
     <!-- CSS -->
     <%@ include file="../include/header/ticketingHeader.jsp" %>
+    <script>
+	    let cno =0; //영화번호 
+	    let tno = 0;
+	    
+	    function selCno(value){
+	    	cno = value;
+	    }
+	    
+	    function selTno(value){
+	    	tno = value;
+	    	
+	    	if(cno >0 && tno>0){
+	    		console.log("cno:"+cno+",tno:"+tno);
+	    		/*$.ajax({
+	    			url :'', //  상영시간 목록 조회 경로
+	    			type:'get',
+	    			data:{cno : cno, shallno : shallno},
+	    			success:function(data){
+	    				//data에는 상영시간 목록 담겨 있음
+	    				let html = ''
+	    				
+	    				//innerHTML
+	    				
+	    			}
+	    		});
+	    		*/
+	    	}
+	    }
+	    
+	    
+    
+    </script>
   </head>
 <body>
 <%@ include file="../include/nav/userNav.jsp" %>
@@ -48,10 +80,10 @@
 							<ul class="movie-list-ul">
 								<c:forEach items="${movie }" var="movie">
 								<li class="">
-									<a href="#" onclick="return false;" title="${moive.cname }">
+									<a href="javascript:selCno(${movie.cno})" title="${moive.cname }">
 										<i class="movieAge">${movie.cwatchGradeNm }</i>
 										<span class="text">${movie.cname }</span>
-										<span class="sreader"></span>
+										<span class="sreader" style="hidden">${movie.ccode }</span>
 									</a>
 								</li>
 								</c:forEach>
@@ -73,8 +105,9 @@
 							<ul class="theater-list-ul">
 								<c:forEach items="${theater }" var="theater">
 								<li class="">
-									<a href="#" onclick="return false;" title="${theater.tname }">
+									<a href="javascript:selTno(${theater.tno })" title="${theater.tname }">
 										<span class="text">${theater.tname }</span>
+										<span class="sreader" style="hidden">${theater.tno }</span>
 									</a>
 								</li>
 								</c:forEach>
@@ -114,134 +147,8 @@
 							<span class="night">심야</span>
 						</div>
 						<div class="time-list">
-							<div class="time-theater" screen_cd="009" movie_cd="20035761">
-							<span class="title">
-								<span class="name">2D</span>
-								<span class="floor">1관</span>
-								<span class="seatcount">(총303석)</span>
-							</span>
-							<ul>
-								<li data-index="0" data-remain_seat="303" play_start_tm="0730" screen_cd="009" movie_cd="20035761" play_num="1" class="morning">
-									<a class="button" href="#" onclick="return false;" title="">
-										<span class="time">
-											<span>07:30</span>
-										</span>
-										<span class="count">165석</span>
-										<span class="sreader mod"> 조조</span>
-									</a>
-								</li>
-								<li data-index="1" data-remain_seat="303" play_start_tm="1045" screen_cd="009" movie_cd="20035761" play_num="2">
-									<a class="button" href="#" onclick="return false;" title="">
-										<span class="time">
-											<span>10:45</span>
-										</span>
-										<span class="count">75석</span>
-										<span class="sreader mod"></span>
-									</a>
-								</li>
-								<li data-index="2" data-remain_seat="303" play_start_tm="1400" screen_cd="009" movie_cd="20035761" play_num="3" class="night">
-									<a class="button" href="#" onclick="return false;">
-										<span class="time">
-											<span>14:00</span>
-										</span>
-										<span class="count">52석</span>
-										<span class="sreader mod"></span>
-									</a>
-								</li>
-								<li data-index="0" data-remain_seat="303" play_start_tm="0730" screen_cd="009" movie_cd="20035761" play_num="1" class="morning">
-									<a class="button" href="#" onclick="return false;" title="">
-										<span class="time">
-											<span>07:30</span>
-										</span>
-										<span class="count">165석</span>
-										<span class="sreader mod"> 조조</span>
-									</a>
-								</li>
-								<li data-index="1" data-remain_seat="303" play_start_tm="1045" screen_cd="009" movie_cd="20035761" play_num="2">
-									<a class="button" href="#" onclick="return false;" title="">
-										<span class="time">
-											<span>10:45</span>
-										</span>
-										<span class="count">75석</span>
-										<span class="sreader mod"></span>
-									</a>
-								</li>
-								<li data-index="2" data-remain_seat="303" play_start_tm="1400" screen_cd="009" movie_cd="20035761" play_num="3" class="night">
-									<a class="button" href="#" onclick="return false;">
-										<span class="time">
-											<span>14:00</span>
-										</span>
-										<span class="count">52석</span>
-										<span class="sreader mod"></span>
-									</a>
-								</li>
-							</ul>
-							</div>
-							</div>
-						<div class="time-list">
-							<div class="time-theater" screen_cd="009" movie_cd="20035761">
-							<span class="title">
-								<span class="name">2D</span>
-								<span class="floor">1관</span>
-								<span class="seatcount">(총303석)</span>
-							</span>
-							<ul>
-								<li data-index="0" data-remain_seat="303" play_start_tm="0730" screen_cd="009" movie_cd="20035761" play_num="1" class="morning">
-									<a class="button" href="#" onclick="return false;" title="">
-										<span class="time">
-											<span>07:30</span>
-										</span>
-										<span class="count">165석</span>
-										<span class="sreader mod"> 조조</span>
-									</a>
-								</li>
-								<li data-index="1" data-remain_seat="303" play_start_tm="1045" screen_cd="009" movie_cd="20035761" play_num="2">
-									<a class="button" href="#" onclick="return false;" title="">
-										<span class="time">
-											<span>10:45</span>
-										</span>
-										<span class="count">75석</span>
-										<span class="sreader mod"></span>
-									</a>
-								</li>
-								<li data-index="2" data-remain_seat="303" play_start_tm="1400" screen_cd="009" movie_cd="20035761" play_num="3" class="night">
-									<a class="button" href="#" onclick="return false;">
-										<span class="time">
-											<span>14:00</span>
-										</span>
-										<span class="count">52석</span>
-										<span class="sreader mod"></span>
-									</a>
-								</li>
-								<li data-index="0" data-remain_seat="303" play_start_tm="0730" screen_cd="009" movie_cd="20035761" play_num="1" class="morning">
-									<a class="button" href="#" onclick="return false;" title="">
-										<span class="time">
-											<span>07:30</span>
-										</span>
-										<span class="count">165석</span>
-										<span class="sreader mod"> 조조</span>
-									</a>
-								</li>
-								<li data-index="1" data-remain_seat="303" play_start_tm="1045" screen_cd="009" movie_cd="20035761" play_num="2">
-									<a class="button" href="#" onclick="return false;" title="">
-										<span class="time">
-											<span>10:45</span>
-										</span>
-										<span class="count">75석</span>
-										<span class="sreader mod"></span>
-									</a>
-								</li>
-								<li data-index="2" data-remain_seat="303" play_start_tm="1400" screen_cd="009" movie_cd="20035761" play_num="3" class="night">
-									<a class="button" href="#" onclick="return false;">
-										<span class="time">
-											<span>14:00</span>
-										</span>
-										<span class="count">52석</span>
-										<span class="sreader mod"></span>
-									</a>
-								</li>
-							</ul>
-							</div>
+							<!-- ajax로 상영관이 나타납니다. -->
+							<span class="floor">극장을 선택해주시기 바랍니다.</span>
 						</div>
 					</div>
 				</div>
@@ -252,7 +159,6 @@
 				<div class="tnb">
 					<div class="info movie">
 						<span class="movie_poster">
-							<!-- <img src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000087/87947/87947_185.JPG" alt="영화 포스터" style="display: inline;"> -->
 						</span>
 						<div class="row movie_title colspan2" style="display: block;">
 							<span class="data letter-spacing-min ellipsis-line2">

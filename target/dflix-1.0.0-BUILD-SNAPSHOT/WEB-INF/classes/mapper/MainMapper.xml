@@ -6,7 +6,7 @@
 	
 	<select id="selectBoxOfficeCinema" resultType="CinemaVO">
 	<![CDATA[
-		SELECT * FROM cinema WHERE crank <= 6 ORDER BY crank ASC
+		SELECT * FROM cinema WHERE crank < 7 ORDER BY crank ASC
 	]]>
 	</select>
 	
@@ -36,15 +36,18 @@
 					            cwatchGradeNm = #{cwatchGradeNm},
 					            cposter = #{cposter}
 	</insert>
-
+	<update id="updateMovieRankNull" parameterType="CinemaVO">
+		UPDATE cinema SET crank = null;
+	</update>
+	
 	<update id="updateMovieRank" parameterType="CinemaVO">
 		UPDATE cinema
-		SET crank = CASE WHEN cname = #{cname} THEN #{crank} ELSE '' END
+		SET crank = CASE WHEN cname = #{cname} THEN #{crank} ELSE null END
 		WHERE cname = #{cname};
 	</update>
 	
 	<select id="selectUnopen" resultType="CinemaVO">
-		SELECT  *, DATEDIFF(now(), copenDate) AS dday FROM dflix.cinema WHERE cprdtStatNm = '미개봉' Order by copenDate ASC LIMIT 6 ;
+		SELECT  *, DATEDIFF(now(), copenDate) AS dday FROM dflix.cinema WHERE cprdtStatNm = '미개봉' AND DATE(copenDate) != CURDATE() ORDER BY copenDate ASC LIMIT 6 ;
 	</select>
 	
 </mapper>

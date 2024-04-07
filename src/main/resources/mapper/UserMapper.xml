@@ -6,7 +6,8 @@
 	<!-- resultType: 조회되는 한개한개를 담을 그릇, 즉 VO(풀네임), 한 행에 대한 결과 조회하는 타입 -->
 	
 	<select id="selectLogin" parameterType="String" resultType="MemberVO">
-		SELECT mid, mname, mpw, mnickNm, authority, enabled, mbirth, memail, mgender, mjoinDate,mphone, mno
+		SELECT mid, mname, mpw, mnickNm, authority, enabled, 
+		mbirth, memail, mgender, mjoinDate,mphone, mno, isWithdrawn 
 		FROM member 
 		WHERE mid = #{value}
 	</select>
