@@ -16,8 +16,8 @@ public class UserDeniedHandler implements AccessDeniedHandler{
 	@Override
 	public void handle(HttpServletRequest request, HttpServletResponse response,
 			AccessDeniedException accessDeniedException) throws IOException, ServletException {
-		//·Î±×ÀÎ ¾ÈÇÏ°í µé¾î¿ÔÀ»¶§ Á¢±Ù°ÅºÎ? -> ¸ŞÀÎÆäÀÌÁö·Î ¸®´ÙÀÌ·ºÆ®
-		System.out.println("±ÇÇÑ¾øÀ½");
+		
+		System.out.println("ê¶Œí•œì—†ìŒ");
 		response.sendRedirect(request.getContextPath());
 		
 	}
