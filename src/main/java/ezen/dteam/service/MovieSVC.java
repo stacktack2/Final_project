@@ -1,5 +1,7 @@
 package ezen.dteam.service;
 
-public interface MovieSVC {
+import ezen.dteam.vo.CinemaVO;
 
+public interface MovieSVC {
+	public CinemaVO selectMovieDetail(String ccdoe) throws Exception;
 }
