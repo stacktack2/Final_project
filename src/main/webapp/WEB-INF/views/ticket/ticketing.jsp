@@ -168,7 +168,6 @@
 						</div>
 						<!-- 무비타입은 선택값에서 못 받아오기때문에 영화데이터 api에서 받아온 값을 입력. -->
 						<div class="row movie_type" style="display: block;">
-							<span class="data ellipsis-line1" title="4DX 2D">4DX 2D</span>
 						</div>
 						<!-- 무비타입과 동일하게 관람제한나이도 api에서 받아온 값을 입력해야함. -->
 						<div class="row movie_rating" style="display: block;">
