@@ -1446,6 +1446,5 @@
 						</div>
 	</div>
 	<%@ include file="../include/footer/userFooter.jsp"%>
-<script src="<%=request.getContextPath()%>/resources/js/ticketing.js"></script>
 </body>
 </html>

@@ -11,24 +11,25 @@ public class ScreenVO {
 	private String shallType;
 	private String shallLocation;
 	private String shallSeat;
+	private int tno;
 	
 	public ScreenVO() {
 		
 	}
 
-	public ScreenVO(int cno, int shallno, String sday) {
+	public ScreenVO(int cno, int tno, String sday) {
 		super();
 		this.cno = cno;
-		this.shallno = shallno;
+		this.tno = tno;
 		this.sday = sday;
 	}
 	
-	public ScreenVO(int sno, String sstartTime, String sendTime, int cno, int shallno, String sday, String cname, String shallType, String shallLocation, String shallSeat) {
+	public ScreenVO(int sno, String sstartTime, String sendTime, int cno, int tno, String sday, String cname, String shallType, String shallLocation, String shallSeat) {
 	    this.sno = sno;
 	    this.sstartTime = sstartTime;
 	    this.sendTime = sendTime;
 	    this.cno = cno;
-	    this.shallno = shallno;
+	    this.tno = tno;
 	    this.sday = sday;
 	    this.cname = cname;
 	    this.shallType = shallType;
@@ -118,6 +119,14 @@ public class ScreenVO {
 	}
 	public void setShallno(int shallno) {
 		this.shallno = shallno;
+	}
+
+	public int getTno() {
+		return tno;
+	}
+
+	public void setTno(int tno) {
+		this.tno = tno;
 	}
 	
 	

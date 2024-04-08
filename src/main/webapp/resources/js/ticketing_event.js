@@ -1,5 +1,3 @@
-
-
 document.addEventListener("DOMContentLoaded", function() {
 	let movieItems = document.querySelectorAll('.movie-list-ul li');
 
@@ -95,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 $.ajax({
                     url: 'tiketTheaterNo',
                     type: 'POST',
-                    data: {theaterNm: ticketTheaterNo},
+                    data: {tnoParam: ticketTheaterNo},
                     success: function(data){
                         console.log(data);
                         let html = "";
@@ -115,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     }
                 });
                 
-                selshallNo(ticketTheaterNo);
+                selTno(ticketTheaterNo);
             });
         });
     });
@@ -202,8 +200,8 @@ function selCno(value){
     cno = value;
 }
 
-function selshallNo(value){
-    shallno = value;
+function selTno(value){
+    tno = value;
 }
 
 function selDay(ticketDay){
@@ -211,15 +209,15 @@ function selDay(ticketDay){
     console.log(sday);
     
     
-    if(cno > 0 && shallno > 0 && sday > yesterday){
+    if(cno > 0 && tno > 0 && sday > yesterday){
         console.log("cno : "+cno);
-        console.log("shallno : "+shallno);
+        console.log("tno : "+tno);
         console.log("sday : "+sday);
 
         $.ajax({
             url: 'selectScreen',
             type: 'POST',
-            data: {cnoParam: cno, shallnoParam: shallno, sday: sday},
+            data: {cnoParam: cno, tnoParam: tno, sday: sday},
             success: function (data) {
                 console.log("success");
                 console.log(data);
@@ -235,25 +233,26 @@ function selDay(ticketDay){
                     if (currentShallType !== previousShallType ||
                         currentShallLocation !== previousShallLocation ||
                         currentShallseat !== currentShallseat) {
-                        // 이전과 다른 shallType 또는 shallLocation이면 새로운 시간대를 추가합니다.
+                        
                         if (html !== "") {
-                            // 이전에 생성된 내용이 있다면 ul 태그를 닫습니다.
+                            // 이전에 생성된 내용이 있다면 ul 태그를 닫아야함.
                             html += '</ul>';
+                            html += '</div>';
                         }
-                        // 새로운 shallType 및 shallLocation 정보를 추가합니다.
+
                         html += '<div class="time-theater">';
                         html += '<span class="title">';
-                        html += '<span class="name">' + currentShallType + '</span>';
-                        html += '<span class="floor">' + currentShallLocation + '</span>';
+                        html += '<span class="name" id="currentShallType">' + currentShallType + '</span>';
+                        html += '<span class="floor" id="currentShallLocation">' + currentShallLocation + '</span>';
                         html += '<span class="seatcount">(총' + data[i].shallSeat + '석)</span>';
                         html += '</span>';
                         html += '<ul>';
                     }
-                    // 해당 시간대를 추가합니다.
+                    
                     html += '<li>';
                     html += '<a class="button" href="" onclick="return false;" title="">';
                     html += '<span class="time">';
-                    html += '<span>' + data[i].sstartTime + '</span>';
+                    html += '<span id="startTime">' + data[i].sstartTime + '</span>';
                     html += '</span>';
                     html += '</a>';
                     html += '</li>';
@@ -272,7 +271,6 @@ function selDay(ticketDay){
                 $(".time-list").html(html); // 화면에 표시
                 
                 let timeItems = document.querySelectorAll('.time');
-                
 
                 timeItems.forEach(function(timeItem) {
                     timeItem.addEventListener('click', function() {
@@ -295,12 +293,15 @@ function selDay(ticketDay){
                         textSpan.classList.add('white');
                         dateTime.innerText = dateTimeText;
 
-                        let name = timeItem.parentElement.parentElement.querySelector('.name').innerText;
-                        let floor = timeItem.parentElement.parentElement.querySelector('.floor').innerText;
+                        let startTimeElements = timeItem.querySelectorAll('.time-theater .time #startTime');
+                        let parentTimeTheater = startTimeElements[0].closest('.time-theater');
+                        let currentShallType = parentTimeTheater.querySelector('.title .name').textContent;
+                        let currentShallLocation = parentTimeTheater.querySelector('.title .floor').textContent;
 
-                        // 이제 'name'과 'floor'의 내용을 사용할 수 있습니다.
-                        console.log("Name: " + name + ", Floor: " + floor);
-
+                        let shallType = document.getElementById("shallType");
+                        let shallLocation = document.getElementById("shallLocation");
+                        shallType.innerText = currentShallType;
+                        shallLocation.innerText = currentShallLocation;
                     });
                 });
             },
@@ -308,6 +309,47 @@ function selDay(ticketDay){
                 console.log("error");
             }
         });
+        
+    }
+}
+    
+function seatSelBtn(){
+    let movieNm = document.getElementById("selectionMovieTitle").innerHTML;
+    let theater = document.getElementById("selectionTheater").innerHTML;
+    let dateDay = document.getElementById("dateDay").innerHTML;
+    let dateTime = document.getElementById("dateTime").innerHTML;
+    let startTime = document.getElementById("startTime").innerHTML;
+    let screenHall = document.getElementById("selectionLocation").innerHTML;
+
+    console.log(movieNm);
+    console.log(theater);
+    console.log(dateDay);
+    console.log(dateTime);
+    console.log(screenHall);
+
+    if(cno > 0 && tno > 0 && sday > yesterday && dateTime == startTime){
+        let inputCno = document.getElementById("cno").value;
+        inputCno = cno;
+        
+        $.ajax({
+            url : "ticketInfo",
+            type: "POST",
+            data : {cnoParam : cno,
+                    tnoParam : tno,
+                    sdayParam : sday,
+                    dateDayParam : dateDay,
+                    sstartTimeParam : startTime,
+                    shallLocationParam : screenHall},
+            success : function(data){
+                console.log("success");
+                console.log(data);
+                return true;
+            },
+            error: function(){
+                console.log("error");
+            }
+        });
+
         
     }
 }

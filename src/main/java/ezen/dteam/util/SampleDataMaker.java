@@ -17,7 +17,7 @@ public class SampleDataMaker {
 		PreparedStatement psmt = null;
 		ResultSet rs = null;
 		
-		String url = "jdbc:mysql://localhost:3306/dflix";
+		String url = "jdbc:mysql://127.0.0.1:3306/dflix";
 		String user = "dteam";
 		String pass ="ezen";
 		

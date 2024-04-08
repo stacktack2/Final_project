@@ -73,7 +73,7 @@
 							<ul class="theater-list-ul">
 								<c:forEach items="${theater }" var="theater">
 								<li class="">
-									<a href="javascript:selshallNo(${theater.tno })" title="${theater.tname }">
+									<a href="javascript:selTno(${theater.tno })" title="${theater.tname }">
 										<span class="text">${theater.tname }</span>
 										<span class="sreader" style="hidden">${theater.tno }</span>
 									</a>
@@ -123,19 +123,18 @@
 			</div>
 		</div>
 			<!-- 진행버튼 -->
+			
 			<div id="ticket_tnb" class="tnb_container">
 				<div class="tnb">
+					<form action="<%=request.getContextPath()%>/ticket/ticketSeat" method="post">
 					<div class="info movie">
 						<span class="movie_poster">
 						</span>
 						<div class="row movie_title colspan2" style="display: block;">
 							<span class="data letter-spacing-min ellipsis-line2">
-								<a href="http://www.cgv.co.kr/movies/detail-view/?midx=87947" 
-									title="듄-파트2" id="selectionMovieTitle"></a>
+								<a id="selectionMovieTitle"></a>
+								<input type="hidden" name="cno" value="" id="cno">
 							</span>
-						</div>
-						<!-- 무비타입은 선택값에서 못 받아오기때문에 영화데이터 api에서 받아온 값을 입력. -->
-						<div class="row movie_type" style="display: block;">
 						</div>
 						<!-- 무비타입과 동일하게 관람제한나이도 api에서 받아온 값을 입력해야함. -->
 						<div class="row movie_rating" style="display: block;">
@@ -147,6 +146,8 @@
 							<span class="header">극장</span>
 							<span class="data letter-spacing-min ellipsis-line1">
 								<a title="" id="selectionTheater"></a>
+								<input type="hidden" name="tno" value="" id="tno">
+								<input type="hidden" name="shallno" value="" id="tno">
 							</span>
 						</div>
 						<div class="row date" style="display: block;">
@@ -154,15 +155,21 @@
 							<span class="data" title="">
 								<a id="dateDay"></a>
 								<a id="dateTime"></a>
+								<input type="hidden" name="sday" value="" id="sday">
+								<input type="hidden" name="sstartTime" value="" id="sstartTime">
 							</span>
 						</div>
 						<div class="row screen" style="display: block;">
 							<span class="header">상영관</span>
-							<span class="data" title="10관 8층 (Laser)">10관 8층 (Laser)</span>
+							<span class="data" id="selectionLocation">
+								<a id="shallType"></a>
+								<a id="shallLocation"></a>
+							</span>
+							<input type="hidden" name="shallno" value="" id="shallno">
 						</div>
 						<div class="row number" style="display: block;">
 							<span class="header">인원</span>
-							<span class="data">2명</span>
+							<span class="data"></span>
 						</div>
 						<div class="placeholder" title="극장선택" style="display: none;"></div>
 					</div>
@@ -172,11 +179,11 @@
 						<span class="path-step3" title="결제">&nbsp;</span>
 					</div>
 				</div>
-				<a onclick="seatSelectionButton(); return false;"
-					href="<%=request.getContextPath() %>/ticket/ticketSeat"
+				<button onclick="javascript:seatSelBtn();" type="submit" formmethod="post"
 					class="btn-right" id="seatSelectionButton">
 					<span>좌석선택</span>
-				</a>
+				</button>
+				</form>
 				</div>
 			</div>
 	</div>
