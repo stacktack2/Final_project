@@ -85,7 +85,7 @@ public class MovieScheduler {
 	// @Scheduled(cron = " * * 0 * * * ")
 	public void movieList() throws OpenAPIFault, Exception {
 		
-		String key = "7440F54C9RSVVBDG76S6";
+		String key = "RB29VDX867I8J3YNC1FD";
 		
 		LocalDate today = LocalDate.now();
 		LocalDate minusTwoMonth = today.minusMonths(1);
@@ -104,8 +104,8 @@ public class MovieScheduler {
 					+ "collection=kmdb_new2&"
 					+ "ServiceKey="+key+"&"
 					+ "detail=Y&"
-					+ "releaseDts=20240301&"
-					+ "releaseDte=20240401&"
+					+ "releaseDts="+formatMinusMonth+"&"
+					+ "releaseDte="+formatPlusMonth+"&"
 					+ "listCount=200");
 			
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
