@@ -47,8 +47,8 @@ public class Movie {
 	@RequestMapping(value="/replyWrite", method=RequestMethod.POST)
 	public void replyWrite(String ccmtContent, String cno,  Authentication authentication, HttpServletResponse response)throws IOException{
 		//로그인된 유저 가져오기
-		UserVO loginUser = (UserVO)authentication.getPrincipal();
-		int mno = loginUser.getMno();
+		UserVO loginVO = (UserVO)authentication.getPrincipal();
+		int mno = loginVO.getMno();
 		CinemaReplyVO cr = new CinemaReplyVO(mno, cno, ccmtContent);
 		int result = movieService.insertReply(cr);
 		
