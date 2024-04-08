@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -24,7 +25,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
-					<h3>전주극장</h3>
+					<h3>${theaterVO.tname }</h3>
 				</div>
 			</div>
 		</div>
@@ -39,105 +40,48 @@
 					<div class="section-heading">
 						<h6>| Contact Us</h6><br>
 						<p>
-							주소 : 전북 전주시 덕진구 송천동 3번지<br> 연락처:1515-0101
+							주소 : ${theaterVO.taddr }<br> 연락처:${theaterVO.tcall }
 						</p>
 					</div>
 					<div style="text-align: right">
-						<p>-------------날짜 api-----------------</p>
+						날짜 선택: <input type="text" name="attendday" id="attendday"/>
 					</div>
 					<div class="row">
 					
-						<div class="col-lg-12 border-top border-dark p-3 m-3">
-							<div>
-								<h5>
-								<img src="<%=request.getContextPath() %>/resources/images/12age.png" alt="12세" style="width:2%"/>
-								듄-파트2
-								</h5><br>
-								<span>액션 | 166분</span>
+					
+						<c:forEach var="cinemaVO" items="${cinemaVOList }">
+
+							<div class="col-lg-12 border-top border-dark p-3 m-3">
+								<div>
+									<h5>
+										<img
+											src="<%=request.getContextPath()%>/resources/images/12age.png"
+											alt="12세" style="width: 2%" /> ${cinemaVO.cname }
+									</h5>
+									<br> <span>${cinemaVO.cgenreNm } | ${cinemaVO.cshowTime }분</span>
+								</div>
+								
+								<c:forEach var="screenHallVO" items="${cinemaVO.screenHallVOList }">
+									<div class="mt-3">
+										<span>▶  ${screenHallVO.shallLocation} | 총 ${screenHallVO.shallSeat}석</span>
+									</div>
+									<div>
+										<c:forEach var="screenVO" items="${screenHallVO.screenVO }">
+											<div style="width: 100px; height: 50px; text-align: center;"
+												class="d-inline-block border border-grey">
+												<a href="#"> <b>${screenVO.sstartTime }~${screenVO.sendTime }</b><br> <span>남은 좌석 해야함</span>
+												</a>
+											</div>
+										</c:forEach>
+									</div>
+								</c:forEach>
+								
 							</div>
-							<div class="mt-3">
-								<span>▶ 1관 | 총 50석</span>
-							</div>
-							<div>
-								<div style="width: 100px; height: 50px; text-align: center;" class="d-inline-block border border-grey">
-									<a href="#"> 
-										<b>13:00</b><br> 
-										<span>43석</span>
-									</a>
-								</div>
-								<div style="width: 100px; height: 50px; text-align: center;" class="d-inline-block border border-grey">
-									<a href="#"> 
-										<b>16:00</b><br> 
-										<span>39석</span>
-									</a>
-								</div>
-								<div style="width: 100px; height: 50px; text-align: center;" class="d-inline-block border border-grey">
-									<a href="#"> 
-										<b>19:00</b><br> 
-										<span>2석</span>
-									</a>
-								</div>
-							</div>
-							<div class="mt-3">
-								<span>▶ 2관 | 총 60석</span>
-							</div>
-							<div>
-								<div style="width: 100px; height: 50px; text-align: center;" class="d-inline-block border border-grey">
-									<a href="#"> 
-										<b>13:00</b><br> 
-										<span>43석</span>
-									</a>
-								</div>
-								<div style="width: 100px; height: 50px; text-align: center;" class="d-inline-block border border-grey">
-									<a href="#"> 
-										<b>16:00</b><br> 
-										<span>42석</span>
-									</a>
-								</div>
-								<div style="width: 100px; height: 50px; text-align: center;" class="d-inline-block border border-grey">
-									<a href="#"> 
-										<b>19:00</b><br> 
-										<span>13석</span>
-									</a>
-								</div>
-							</div>
-						</div>
-						
-						
-						<div class="col-lg-12 border-top border-dark p-3 m-3">
-							<div>
-								<h5>
-								<img src="<%=request.getContextPath() %>/resources/images/15age.png" alt="15세" style="width:2%"/>
-								파묘
-								</h5><br>
-								<span>액션 | 166분</span>
-							</div>
-							<div class="mt-3">
-								<span>▶ 1관 | 총 50석</span>
-							</div>
-							
-							<div>
-								<div style="width: 100px; height: 50px; text-align: center;" class="d-inline-block border border-grey">
-									<a href="#"> 
-										<b>13:00</b><br> 
-										<span>43석</span>
-									</a>
-								</div>
-								<div style="width: 100px; height: 50px; text-align: center;" class="d-inline-block border border-grey">
-									<a href="#"> 
-										<b>16:00</b><br> 
-										<span>42석</span>
-									</a>
-								</div>
-								<div style="width: 100px; height: 50px; text-align: center;" class="d-inline-block border border-grey">
-									<a href="#"> 
-										<b>19:00</b><br> 
-										<span>13석</span>
-									</a>
-								</div>
-							</div>
-						</div>
-						
+
+						</c:forEach>
+
+
+
 					</div>
 				</div>
 
@@ -145,9 +89,35 @@
 			
 		</div>
 	</div>
-
-
-
 	<%@ include file="../include/footer/userFooter.jsp" %>
+	
+	<script src="<%=request.getContextPath()%>/resources/jquery/jquery.js"></script>
+	<!-- 날짜 api -->
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+	<script src="<%=request.getContextPath()%>/resources/js/theater.js"></script>
+	<script>
+	var attendday = <%=request.getParameter("attendday")%>;
+		$(function() { 
+			if(attendday == null || attendday == undefined || attendday == ""){
+				let today = new Date();
+				let year = today.getFullYear(); // 년도
+				let month = today.getMonth() + 1;  // 월
+				let date = today.getDate();  // 날짜
+				attendday = year + "" + month + "" + date;
+			}
+			$('input[name="attendday"]').on('apply.daterangepicker', function(ev, picker) {
+			  	var url ="theater?tno="+<%=request.getParameter("tno")%>+"&attendday="+picker.startDate.format('YYYYMMDD');
+			  	$(location).attr('href',url);
+			});
+			
+			
+		});
+		document.getElementById("attendday").value = attendday;
+		
+	</script>
+	
   </body>
 </html>

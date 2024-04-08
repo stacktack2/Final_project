@@ -10,6 +10,17 @@ public class ScreenHallVO {
 	private int tno;
 	private List<ScreenVO> screenVO;
 	
+	
+	
+	
+	
+	public ScreenHallVO(List<ScreenVO> screenVO) {
+		super();
+		this.screenVO = screenVO;
+	}
+	public ScreenHallVO() {
+		super();
+	}
 	public List<ScreenVO> getScreenVO() {
 		return screenVO;
 	}

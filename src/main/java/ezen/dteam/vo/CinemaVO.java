@@ -1,5 +1,8 @@
 package ezen.dteam.vo;
 
+import java.util.List;
+import java.util.Set;
+
 public class CinemaVO {
 	
 	private int cno;
@@ -23,6 +26,35 @@ public class CinemaVO {
 	private String crank;
 	private String cposter;
 	
+	private Set<ScreenHallVO> screenHallVOSet;
+	
+	private List<ScreenHallVO> screenHallVOList;
+	
+	
+	
+	
+	public CinemaVO(Set<ScreenHallVO> screenHallVOSet, List<ScreenHallVO> screenHallVOList) {
+		super();
+		this.screenHallVOSet = screenHallVOSet;
+		this.screenHallVOList = screenHallVOList;
+	}
+	
+	
+	public CinemaVO() {
+		super();
+	}
+	public List<ScreenHallVO> getScreenHallVOList() {
+		return screenHallVOList;
+	}
+	public void setScreenHallVOList(List<ScreenHallVO> screenHallVOList) {
+		this.screenHallVOList = screenHallVOList;
+	}
+	public Set<ScreenHallVO> getScreenHallVOSet() {
+		return screenHallVOSet;
+	}
+	public void setScreenHallVOSet(Set<ScreenHallVO> screenHallVOSet) {
+		this.screenHallVOSet = screenHallVOSet;
+	}
 	public final int getCno() {
 		return cno;
 	}
