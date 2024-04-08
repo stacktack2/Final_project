@@ -10,16 +10,33 @@
 
     <title>영화 상세보기</title>
 
-    <!-- Bootstrap core CSS -->
+
     <link href="<%=request.getContextPath() %>/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Additional CSS Files -->
     <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/fontawesome.css">
     <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/templatemo-villa-agency.css">
     <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/owl.css">
     <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/animate.css">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-    
+    <style>
+    	.btn-danger{
+    		background-color:#f35525 !important; border: 1px solid #f35525 !important;
+    		margin-top:10px;margin-left:90%; 
+    	}
+    	
+    </style>
+    <script>
+	    function replyWriteFn() {
+	    	document.getElementById('replyContentInput2').value = document.getElementById('replyContentInput').value;
+	    	document.forms['replyAdd'].submit();
+	    }
+	    function replyDeleteFn(icmtno) {
+	    	document.getElementById('icmtno').value = icmtno;
+	    	if(confirm("삭제하시겠습니까?")){
+	    		document.forms['replyDel'].submit();
+	    	}
+	    }
+    </script>
   </head>
 <body>
   <%@ include file="../include/nav/userNav.jsp" %>
@@ -93,14 +110,39 @@
   </div>
 
 <!-- 댓글 -->
-  <div class="section best-deal">
-	<c:forEach var="item" items="${replyList}">
-		<div class=" row navbar navbar-example navbar-expand-lg bg-light mb-3">
-			<div>${item.mnickNm} :
-				<b>${item.ccmtContent}</b>
+<div class="container">
+      <div class="card my-4">
+      	<h5 class="card-header">댓글</h5>
+		  <div class="card-body">
+		  	<!-- 댓글 작성창 -->
+		  	<form action="replyWrite" method="post" name="replyAdd">
+		  		<div class="form-group">
+		  			<input type="text" class="form-control" name="ccmtContent" id="ccmtContent">
+		  		</div>
+		  		<input type="hidden" name="cno" value="${movieDetail.cno}">
+		  		<input type="hidden" name="mno" value="<sec:authorize access="isAuthenticated()"><sec:authentication property="principal.mno"/></sec:authorize>">
+		  		<button type="submit" class="btn btn-danger" onclick="replyWriteFn()">댓글 작성</button>
+		  	</form>
+		  	<div class="card my-4">
+			  	<!-- 댓글 목록 -->
+			  	<h5 class="card-header">댓글 목록</h5>
+			  	<div class="card-body">
+				  	<ul class=" row navbar navbar-example navbar-expand-lg bg-light mb-3 list-group">
+						<c:forEach var="item" items="${replyList}">
+							<li class="list-group-item">
+								<b>${item.mnickNm}</b> :${item.ccmtContent}
+								<button class="btn btn-danger btn-sm float-right" onclick="replyDeleteFn(${item.ccmtno})">삭제</button>
+							</li>
+						</c:forEach>
+					</ul>
+				</div>
+				<form action="replyDelete" method="post" name="replyDel">
+					<input type="hidden" name="ccmtno" id="ccmtno">
+					<input type="hidden" name="cno" value="${movieDetail.cno}">
+				</form>
+			  </div>
 			</div>
-		</div>
-	</c:forEach>
+  	</div>
   </div>
   
   <%@ include file="../include/footer/userFooter.jsp" %>
