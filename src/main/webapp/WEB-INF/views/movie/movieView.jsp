@@ -17,26 +17,15 @@
     <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/owl.css">
     <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/animate.css">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    <script src="<%=request.getContextPath() %>/resources/jquery/jquery.min.js"></script>
     <style>
+    	.saveBtn{margin-left:90%;}
     	.btn-danger{
     		background-color:#f35525 !important; border: 1px solid #f35525 !important;
-    		margin-top:10px;margin-left:90%; 
+    		margin-top:10px;
     	}
-    	
     </style>
-    <script>
-	    function replyWriteFn() {
-	    	document.getElementById('ccmtContent').value = document.getElementById('ccmtContent').value;
-	    	document.forms['replyAdd'].submit();
-	    }
-	    function replyDeleteFn(ccmtno) {
-	    	document.getElementById('ccmtno').value = ccmtno;
-	    	if(confirm("삭제하시겠습니까?")){
-	    		document.forms['replyDel'].submit();
-	    	}
-	    }
 
-    </script>
   </head>
 <body>
   <%@ include file="../include/nav/userNav.jsp" %>
@@ -122,7 +111,7 @@
 			  		</div>
 			  		<input type="hidden" name="cno" value="${movieDetail.cno}">
 			  		<input type="hidden" name="mno" value="<sec:authorize access="isAuthenticated()"><sec:authentication property="principal.mno"/></sec:authorize>">
-			  		<button type="submit" class="btn btn-danger" onclick="replyWriteFn()">댓글 작성</button>
+			  		<button type="submit" class="btn btn-danger saveBtn" onclick="replyWriteFn()">댓글 작성</button>
 			  	</form>
 		  	</sec:authorize>
 		  	<div class="card my-4">
@@ -132,10 +121,16 @@
 				  	<ul class=" row navbar navbar-example navbar-expand-lg bg-light mb-3 list-group">
 						<c:forEach var="item" items="${replyList}">
 							<li class="list-group-item">
-								<b>${item.mnickNm}</b> :${item.ccmtContent}
+								<!-- 댓글 구분가능하도록 댓글내용_댓글번호 부여 -->
+								<b>${item.mnickNm}</b> :<span id="ccmtContent_${item.ccmtno}">${item.ccmtContent}</span>
 								<span>(${item.ccmtRdadte})</span>
-								<button class="btn btn-danger btn-sm float-right" onclick="replyDeleteFn(${item.ccmtno})">삭제</button>
-							</li>
+								<sec:authorize access="isAuthenticated()">
+	                               <c:if test="${item.mno eq pageContext.request.userPrincipal.principal.mno}">
+	                                  <button class="btn btn-danger btn-sm float-right editBtn" data-ccmtno="${item.ccmtno}" onclick="replyUpdateFn(${item.ccmtno})">수정</button>
+	                               	  <button class="btn btn-danger btn-sm float-right deleteBtn" onclick="replyDeleteFn(${item.ccmtno})">삭제</button>
+	                               </c:if>
+	                            </sec:authorize>							
+	                         </li>
 						</c:forEach>
 					</ul>
 				</div>
@@ -147,7 +142,47 @@
 			</div>
   	</div>
   </div>
-  
+      <script>
+	    function replyWriteFn() {
+	    	document.getElementById('ccmtContent').value = document.getElementById('ccmtContent').value;
+	    	document.forms['replyAdd'].submit();
+	    }
+	    // 수정 버튼 클릭 시 수정 폼 표시
+	    $(".editBtn").click(function() {
+	        var ccmtno = $(this).data("ccmtno");
+	        var contentSpan = $("#ccmtContent_"+ccmtno);
+	        var currentContent = contentSpan.text().trim();
+	        contentSpan.html('<input type="text" id="editInput_'+ccmtno+'" value="'+currentContent+'">');
+	        $(this).text("확인").addClass("confirmEdit").removeClass("editBtn");
+	    });
+
+	    // 확인 버튼 클릭 시 수정 내용 서버로 전송
+	    $(document).on("click", ".confirmEdit", function() {
+	        var ccmtno = $(this).data("ccmtno");
+	        var newContent = $("#editInput_"+ccmtno).val();
+	        $.ajax({
+	            url: "replyUpdate",
+	            method: "POST",
+	            data: { ccmtno: ccmtno, newContent: newContent },
+	            success: function(response) {
+	                $("#ccmtContent_"+ccmtno).text(newContent);
+	                $(".confirmEdit[data-ccmtno="+ccmtno+"]").text("수정").addClass("editBtn").removeClass("confirmEdit");
+	            },
+	            error: function(xhr, status, error) {
+	                console.error("AJAX 요청 중 오류 발생:", error);
+	            }
+	        });
+	    });
+
+	    // 삭제 버튼 클릭 시 서버로 삭제 요청
+	    $(".deleteBtn").click(function() {
+	        var ccmtno = $(this).data("ccmtno");
+	        if (confirm("삭제하시겠습니까?")) {
+	            $("#ccmtno").val(ccmtno);
+	            document.forms['replyDel'].submit();
+	        }
+	    });
+    </script>
   <%@ include file="../include/footer/userFooter.jsp" %>
 
 

@@ -71,22 +71,21 @@ public class Myinfo {
 	}
 	//내정보변경(업데이트)
 	@RequestMapping(value = "/myInfo/changeMyinfo", method = RequestMethod.POST)
-	public String changeMyinfoPost(MemberVO vo, Authentication auth,HttpServletResponse response,HttpServletRequest request) throws Exception{
+	public void changeMyinfoPost(MemberVO vo, Authentication auth,HttpServletResponse response,HttpServletRequest request) throws Exception{
 		
 		int result = service.updateMyinfo(vo ,auth);
 		
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=utf-8");
 		if(result == 1) {
-			response.getWriter().println("<script>alert('회원정보가 변경되었습니다.'); </script>");
+			response.getWriter().println("<script>alert('회원정보가 변경되었습니다.');location.href='"+request.getContextPath()+"/myInfo'; </script>");
 			response.getWriter().flush();
 			//return null;
 		}else {
-			response.getWriter().println("<script>alert('회원정보 변경에 실패하였습니다.'); </script>");
+			response.getWriter().println("<script>alert('회원정보 변경에 실패하였습니다.');location.href='"+request.getContextPath()+"/myInfo'; </script>");
 			response.getWriter().flush();
 			//return null;
 		}
-		return "redirect:/";
 		
 	}
 	
