@@ -23,7 +23,6 @@
   </head>
 <body>
   <%@ include file="../include/nav/userNav.jsp" %>
-  <hr style="color:#ccc;">
 
 <!-- 상세보기 -->
   <div class="single-property section">
@@ -33,8 +32,8 @@
             <img src="${movieDetail.cposter }" alt="${movieDetail.cname }">
           </div>
           <div class="col-lg-6 main-content">
-            <span class="category age">{movieDetail.cwatchGradeNm }</span>
-            <h4 class="moviename">{movieDetail.cname }</h4>
+            <span class="category age">${movieDetail.cwatchGradeNm }</span>
+            <h4 class="moviename">${movieDetail.cname }</h4>
             <p class="movieinfo"><b>${movieDetail.copenDate } 개봉 </b>| <b>${movieDetail.cshowTime }분</b> | <b>누적관객수</b></p>
             <br>
             <p>${movieDetail.cintro}</p><br>
