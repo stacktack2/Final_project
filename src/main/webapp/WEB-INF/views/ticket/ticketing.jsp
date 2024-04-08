@@ -126,14 +126,15 @@
 			
 			<div id="ticket_tnb" class="tnb_container">
 				<div class="tnb">
-					<form action="<%=request.getContextPath()%>/ticket/ticketSeat" method="post">
+					<form action="ticketSeat" name="frm" method="post">
 					<div class="info movie">
 						<span class="movie_poster">
 						</span>
 						<div class="row movie_title colspan2" style="display: block;">
 							<span class="data letter-spacing-min ellipsis-line2">
 								<a id="selectionMovieTitle"></a>
-								<input type="hidden" name="cno" value="" id="cno">
+								<input type="hidden" name="cno" value="" id="cno"
+										oninput="selectionCno(this)">
 							</span>
 						</div>
 						<!-- 무비타입과 동일하게 관람제한나이도 api에서 받아온 값을 입력해야함. -->
@@ -147,7 +148,6 @@
 							<span class="data letter-spacing-min ellipsis-line1">
 								<a title="" id="selectionTheater"></a>
 								<input type="hidden" name="tno" value="" id="tno">
-								<input type="hidden" name="shallno" value="" id="tno">
 							</span>
 						</div>
 						<div class="row date" style="display: block;">
@@ -162,10 +162,12 @@
 						<div class="row screen" style="display: block;">
 							<span class="header">상영관</span>
 							<span class="data" id="selectionLocation">
-								<a id="shallType"></a>
-								<a id="shallLocation"></a>
+								<a id="selShallType"></a>
+								<a id="selShallLocation"></a>
 							</span>
 							<input type="hidden" name="shallno" value="" id="shallno">
+							<input type="hidden" name="shallType" value="" id="shallType">
+							<input type="hidden" name="shallLocation" value="" id="shallLocation">
 						</div>
 						<div class="row number" style="display: block;">
 							<span class="header">인원</span>
@@ -179,7 +181,7 @@
 						<span class="path-step3" title="결제">&nbsp;</span>
 					</div>
 				</div>
-				<button onclick="javascript:seatSelBtn();" type="submit" formmethod="post"
+				<button onclick="seatSelBtn();" type="submit"
 					class="btn-right" id="seatSelectionButton">
 					<span>좌석선택</span>
 				</button>
@@ -190,5 +192,6 @@
 <%@ include file="../include/footer/userFooter.jsp" %>
 <script src="<%=request.getContextPath() %>/resources/js/ticketing_event.js"></script>
 <script src="<%=request.getContextPath() %>/resources/js/ticketing_view.js"></script>
+<script src="<%=request.getContextPath() %>/resources/js/ticketing_submit.js"></script>
 </body>
 </html>

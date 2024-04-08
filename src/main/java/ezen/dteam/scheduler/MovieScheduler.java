@@ -33,7 +33,7 @@ public class MovieScheduler {
 	@Autowired
 	TicketSVC ticketSVC;
 	
-	// @Scheduled(cron = " * * 0 * * * ")
+	@Scheduled(cron = " 0 0 0 * * * ")
 	public void dailyResponse() throws OpenAPIFault, Exception {
 		
 		CinemaVO cinema = new CinemaVO();
@@ -82,7 +82,7 @@ public class MovieScheduler {
 	
 	}
 	
-	// @Scheduled(cron = " * * 0 * * * ")
+	@Scheduled(cron = " 0 0 0 * * * ")
 	public void movieList() throws OpenAPIFault, Exception {
 		
 		String key = "RB29VDX867I8J3YNC1FD";

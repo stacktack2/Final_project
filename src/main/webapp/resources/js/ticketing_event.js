@@ -47,6 +47,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         divMovieRating += '<span class="data">'+data[i].cwatchGradeNm+'</span>';
                         $(".movie_rating").html(divMovieRating);
 
+                        $("#cno").html(data[i].cno).val(data[i].cno);
                         }
                 },
                 error: function(){
@@ -105,6 +106,8 @@ document.addEventListener("DOMContentLoaded", function() {
                             html += '<span class="seatcount">(총' + data[i].shallSeat + '석)</span>';
                             html += '</span>';
                             html += '</div>';
+
+                            $("#tno").html(data[i].tno).val(data[i].tno);
                         }
                         $(".time-list").html(html);
                     },
@@ -168,6 +171,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 sunDay.classList.add('white');
             }
 
+            let inputSday = document.getElementById("sday");
+            inputSday.value = ticketDay;
+            inputSday.innerText = ticketDay;
             selDay(ticketDay);
             
         });
@@ -186,8 +192,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
 let today = new Date();
 let getYear = today.getFullYear();
-let getMonth = today.getMonth() + 1; // getMonth는 0부터 시작하므로 1을 더해줌
+let getMonth = today.getMonth() + 1;
 let getYesterDay = today.getDate() - 1;
+let nowHour = today.getHours();
+let nowMinute = today.getMinutes();
+let hours = (nowHour < 10 ? "0" : "") + nowHour;
+let minutes = (nowMinute < 10 ? "0" : "") + nowMinute;
+let timeString = hours + ":" + minutes; // 현재시간
+
 const yesterday = `${getYear}-`+
                   `${getMonth >= 10 ? getMonth : '0' + getMonth}-`+
                   `${getYesterDay >= 10 ? getYesterDay : '0' + getYesterDay}`;
@@ -195,6 +207,7 @@ const yesterday = `${getYear}-`+
 let cno = 0; //영화번호 
 let shallno = 0;
 let sday = "";
+
 
 function selCno(value){
     cno = value;
@@ -248,18 +261,18 @@ function selDay(ticketDay){
                         html += '</span>';
                         html += '<ul>';
                     }
-                    
-                    html += '<li>';
-                    html += '<a class="button" href="" onclick="return false;" title="">';
-                    html += '<span class="time">';
-                    html += '<span id="startTime">' + data[i].sstartTime + '</span>';
-                    html += '</span>';
-                    html += '</a>';
-                    html += '</li>';
-
-                    // 이전 값을 업데이트합니다.
-                    previousShallType = currentShallType;
-                    previousShallLocation = currentShallLocation;
+                        html += '<li>';
+                        html += '<a class="button" href="" onclick="return false;" title="">';
+                        html += '<span class="time">';
+                        html += '<span id="dataSstartTime">' + data[i].sstartTime + '</span>';
+                        html += '<input type="hidden" value="'+data[i].shallno+'">';
+                        html += '</span>';
+                        html += '</a>';
+                        html += '</li>';
+                        
+                        // 이전 값을 업데이트합니다.
+                        previousShallType = currentShallType;
+                        previousShallLocation = currentShallLocation;
                 }
 
                 // 마지막으로 열려있는 ul 태그를 닫습니다.
@@ -276,6 +289,7 @@ function selDay(ticketDay){
                     timeItem.addEventListener('click', function() {
                         let previousSelectedItem = document.querySelector('.selected-time-theater');
                         let textSpan = timeItem.querySelector('span');
+                        
 
                         let dateTimeText = timeItem.querySelector('span').innerHTML;
                         let dateTime = document.getElementById('dateTime');
@@ -293,15 +307,35 @@ function selDay(ticketDay){
                         textSpan.classList.add('white');
                         dateTime.innerText = dateTimeText;
 
-                        let startTimeElements = timeItem.querySelectorAll('.time-theater .time #startTime');
+                        let startTimeElements = timeItem.querySelectorAll('.time-theater .time #dataSstartTime');
                         let parentTimeTheater = startTimeElements[0].closest('.time-theater');
                         let currentShallType = parentTimeTheater.querySelector('.title .name').textContent;
                         let currentShallLocation = parentTimeTheater.querySelector('.title .floor').textContent;
 
-                        let shallType = document.getElementById("shallType");
-                        let shallLocation = document.getElementById("shallLocation");
-                        shallType.innerText = currentShallType;
-                        shallLocation.innerText = currentShallLocation;
+                        let selShallType = document.getElementById("selShallType");
+                        let selShallLocation = document.getElementById("selShallLocation");
+                        selShallType.innerText = currentShallType;
+                        selShallLocation.innerText = currentShallLocation;
+
+                        let clickShallno = timeItem.querySelector("input").value;
+
+                        let sstartTime = document.getElementById("sstartTime");
+                        sstartTime.value = dateTimeText;
+                        sstartTime.innerText = dateTimeText;
+
+                        let inputShallno = document.getElementById("shallno");
+                        inputShallno.value = clickShallno;
+                        inputShallno.innerText = clickShallno;
+
+                        let inputShallType = document.getElementById("shallType");
+                        inputShallType.value = currentShallType;
+                        inputShallType.innerText = currentShallType;
+
+                        let inputShallLocation = document.getElementById("shallLocation");
+                        inputShallLocation.value = currentShallLocation;
+                        inputShallLocation.innerText = currentShallLocation;
+                        
+
                     });
                 });
             },
@@ -312,44 +346,4 @@ function selDay(ticketDay){
         
     }
 }
-    
-function seatSelBtn(){
-    let movieNm = document.getElementById("selectionMovieTitle").innerHTML;
-    let theater = document.getElementById("selectionTheater").innerHTML;
-    let dateDay = document.getElementById("dateDay").innerHTML;
-    let dateTime = document.getElementById("dateTime").innerHTML;
-    let startTime = document.getElementById("startTime").innerHTML;
-    let screenHall = document.getElementById("selectionLocation").innerHTML;
 
-    console.log(movieNm);
-    console.log(theater);
-    console.log(dateDay);
-    console.log(dateTime);
-    console.log(screenHall);
-
-    if(cno > 0 && tno > 0 && sday > yesterday && dateTime == startTime){
-        let inputCno = document.getElementById("cno").value;
-        inputCno = cno;
-        
-        $.ajax({
-            url : "ticketInfo",
-            type: "POST",
-            data : {cnoParam : cno,
-                    tnoParam : tno,
-                    sdayParam : sday,
-                    dateDayParam : dateDay,
-                    sstartTimeParam : startTime,
-                    shallLocationParam : screenHall},
-            success : function(data){
-                console.log("success");
-                console.log(data);
-                return true;
-            },
-            error: function(){
-                console.log("error");
-            }
-        });
-
-        
-    }
-}

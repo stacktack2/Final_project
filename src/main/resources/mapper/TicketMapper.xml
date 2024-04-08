@@ -29,7 +29,10 @@
 		INNER JOIN theater ON theater.tno = screenhall.tno
 		INNER JOIN screen s ON screenhall.shallno = s.shallno
 		INNER JOIN cinema c ON c.cno = s.cno
-		WHERE theater.tno = #{tno} AND s.sday = #{sday}
-		ORDER BY s.sno;
+		WHERE theater.tno = #{tno} AND s.sday = #{sday} AND s.cno = #{cno}
+		AND CONCAT(s.sday, ' ', s.sstartTime) > (
+			SELECT DATE_FORMAT(NOW(), '%Y-%m-%d %H:%i')
+		    )
+		ORDER BY s.sno
 	</select>
 </mapper>
