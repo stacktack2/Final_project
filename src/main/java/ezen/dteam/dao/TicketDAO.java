@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import ezen.dteam.vo.CinemaVO;
 import ezen.dteam.vo.ScreenHallVO;
+import ezen.dteam.vo.ScreenSeatVO;
 import ezen.dteam.vo.ScreenVO;
 import ezen.dteam.vo.TheaterVO;
 
@@ -36,6 +37,10 @@ public class TicketDAO {
 
 		public List<ScreenVO> selectScreen(ScreenVO screenVO) {
 			return sqlSession.selectList(nameSpace+".selectScreen", screenVO);
+		}
+
+		public List<ScreenSeatVO> selectScreenSeat(ScreenVO ticketInfo) {
+			return sqlSession.selectList(nameSpace+".selectScreenSeat", ticketInfo);
 		}
 		
 }

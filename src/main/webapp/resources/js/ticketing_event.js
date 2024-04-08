@@ -42,12 +42,15 @@ document.addEventListener("DOMContentLoaded", function() {
                         html += '<img src="'+data[i].cposter+
                                 '" alt="'+data[i].cname+'포스터" style="display: inline;">';
                         $(".movie_poster").html(html);
+                        $("#cposter").val(data[i].cposter);
+                        $("#cname").val(data[i].cname);
 
                         let divMovieRating = "";
                         divMovieRating += '<span class="data">'+data[i].cwatchGradeNm+'</span>';
                         $(".movie_rating").html(divMovieRating);
 
-                        $("#cno").html(data[i].cno).val(data[i].cno);
+                        $("#cno").val(data[i].cno);
+                        $("#cwatchGradeNm").val(data[i].cwatchGradeNm);
                         }
                 },
                 error: function(){
@@ -91,6 +94,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 theaterItem.classList.add('selected-theater');
                 // class 변경(추가 / 제거)
 
+                let inputTname = document.getElementById("tname");
+                inputTname.value = ticketTheater;
+
                 $.ajax({
                     url: 'tiketTheaterNo',
                     type: 'POST',
@@ -107,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function() {
                             html += '</span>';
                             html += '</div>';
 
-                            $("#tno").html(data[i].tno).val(data[i].tno);
+                            $("#tno").val(data[i].tno);
                         }
                         $(".time-list").html(html);
                     },
@@ -151,6 +157,8 @@ document.addEventListener("DOMContentLoaded", function() {
             dateItem.classList.add('selected-date-day');
             dateDay.innerText = formatteTicketDay+"("+ticketKRDay+")";
             
+            let inputDateDay = document.getElementById("inputDateDay");
+            inputDateDay.value = formatteTicketDay+"("+ticketKRDay+")";
             
             // 클릭한 요소의 하위 요소에 클래스 추가
             let dayWeek = dateItem.querySelector('.dayWeek');
@@ -173,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             let inputSday = document.getElementById("sday");
             inputSday.value = ticketDay;
-            inputSday.innerText = ticketDay;
+            
             selDay(ticketDay);
             
         });
@@ -321,21 +329,15 @@ function selDay(ticketDay){
 
                         let sstartTime = document.getElementById("sstartTime");
                         sstartTime.value = dateTimeText;
-                        sstartTime.innerText = dateTimeText;
-
+                        
                         let inputShallno = document.getElementById("shallno");
                         inputShallno.value = clickShallno;
-                        inputShallno.innerText = clickShallno;
-
+                        
                         let inputShallType = document.getElementById("shallType");
                         inputShallType.value = currentShallType;
-                        inputShallType.innerText = currentShallType;
-
+                        
                         let inputShallLocation = document.getElementById("shallLocation");
                         inputShallLocation.value = currentShallLocation;
-                        inputShallLocation.innerText = currentShallLocation;
-                        
-
                     });
                 });
             },

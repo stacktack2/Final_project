@@ -1390,52 +1390,61 @@
 								</a>
 								<div class="info movie">
 									<span class="movie_poster"> 
-									<img src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000087/87947/87947_185.JPG"
-										alt="영화 포스터" style="display: inline;">
+									<img src="${cposter }"
+										alt="" style="display: inline;">
 									</span>
 									<div class="row movie_title colspan2" style="display: block;">
-										<span class="data letter-spacing-min ellipsis-line2"> 
-											<a href="http://www.cgv.co.kr/movies/detail-view/?midx=87947"
-												target="_blank" onmousedown="javascript:logClick('SUMMARY/영화상세보기');"
-												title="듄-파트2">듄-파트2 
-											</a>
+										<span class="data letter-spacing-min ellipsis-line2">
+											<a id="selectionMovieTitle" style="margin-left: 10px;">${cname }</a>
+											<input type="hidden" name="cno" value="${cno }" id="cno">
+											<input type="hidden" name="cposter" value="${cposter }" id="cposter">
+											<input type="hidden" name="cname" value="${cname }" id="cname">
+											<input type="hidden" name="cwatchGradeNm" value="${cwatchGradeNm }" id="cwatchGradeNm">
 										</span>
 									</div>
-									<div class="row movie_type" style="display: block;">
-										<span class="data ellipsis-line1" title="4DX 2D">4DX 2D</span>
+									<div class="row movie_rating" style="text-align: 5px;position: relative;left: 25px;display: block;">
+										${cwatchGradeNm }
+										</div>
+										<div class="placeholder" title="영화선택" style="display: none;"></div>
 									</div>
-									<div class="row movie_rating" style="display: block;">
-										<span class="data" title="12세 관람가">12세 관람가</span>
+									<div class="info theater">
+										<div class="row name" style="display: block;">
+											<span class="header">극장</span>
+											<span class="data letter-spacing-min ellipsis-line1">
+												<a title="" id="selectionTheater">${tname }</a>
+												<input type="hidden" name="tname" value="${tname }" id="tname">
+												<input type="hidden" name="tno" value="${tno }" id="tno">
+											</span>
+										</div>
+										<div class="row date" style="display: block;">
+											<span class="header">일시</span>
+											<span class="data" title="">
+												<a id="dateDay">${dateDay }</a>
+												<a id="dateTime">${sstartTime }</a>
+												<input type="hidden" name="sday" value="${sday }" id="sday">
+												<input type="hidden" name="sstartTime" value="${sstartTime }" id="sstartTime">
+											</span>
+										</div>
+										<div class="row screen" style="display: block;">
+											<span class="header">상영관</span>
+											<span class="data" id="selectionLocation">
+												<a id="selShallType">${shallType }</a>
+												<a id="selShallLocation">${shallLocation }</a>
+											</span>
+											<input type="hidden" name="shallno" value="${shallno }" id="shallno">
+											<input type="hidden" name="shallType" value="${shallType }" id="shallType">
+											<input type="hidden" name="shallLocation" value="${shallLocation }" id="shallLocation">
+										</div>
+										<div class="row number" style="display: block;">
+											<span class="header">인원</span>
+											<span class="data"></span>
+										</div>
+										<div class="placeholder" title="극장선택" style="display: none;"></div>
 									</div>
-									<div class="placeholder" title="영화선택" style="display: none;"></div>
-								</div>
-								<div class="info theater">
-									<div class="row name" style="display: block;">
-										<span class="header">극장</span> <span
-											class="data letter-spacing-min ellipsis-line1"> <a
-											href="http://www.cgv.co.kr/theaters/?theaterCode=0010"
-											target="_blank"
-											onmousedown="javascript:logClick('SUMMARY/극장상세보기');"
-											title="CGV 구로">CGV 구로 &gt; </a>
-										</span>
-									</div>
-									<div class="row date" style="display: block;">
-										<span class="header">일시</span> <span class="data"
-											title="2024.3.21(목) 12:50">2024.3.21(목) 12:50</span>
-									</div>
-									<div class="row screen" style="display: block;">
-										<span class="header">상영관</span> <span class="data"
-											title="10관 8층 (Laser)">10관 8층 (Laser)</span>
-									</div>
-									<div class="row number" style="display: block;">
-										<span class="header">인원</span> <span class="data">2명</span>
-									</div>
-									<div class="placeholder" title="극장선택" style="display: none;"></div>
-								</div>
 								<div class="info path">
 									<div class="row colspan4">
-										<span class="path-step2" title="좌석선택">&nbsp;</span> <span
-											class="path-step3" title="결제">&nbsp;</span>
+										<span class="path-step2" title="좌석선택">&nbsp;</span>
+										<span class="path-step3" title="결제">&nbsp;</span>
 									</div>
 								</div>
 								<a type="button"
