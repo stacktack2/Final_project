@@ -14,26 +14,11 @@ public class MovieSVCImpl implements MovieSVC{
 	
 	@Autowired
 	MovieDAO movieDAO;
-<<<<<<< HEAD
-
-	@Override
-	public CinemaVO selectMovieDetail(String cno) throws Exception {
-		
-		return movieDAO.selectMovieDetail(cno);
-	}
-=======
->>>>>>> branch 'master' of https://github.com/cotaek2/Final_project.git
-	
 	//영화 상세정보 조회
 	@Override
-<<<<<<< HEAD
-	public List<CinemaReplyVO> selectReplyCcode(String cno){
-		return movieDAO.selectReplyCcode(cno);
-=======
-	public CinemaVO selectMovieDetail(String cno) throws Exception {
+	public CinemaVO selectMovieDetail(String cno) throws Exception {	
 		return movieDAO.selectMovieDetail(cno);
->>>>>>> branch 'master' of https://github.com/cotaek2/Final_project.git
-	}
+	}	
 	//댓글 목록 조회
 	@Override
 	public List<CinemaReplyVO> selectReplyCno(String cno){
@@ -51,4 +36,5 @@ public class MovieSVCImpl implements MovieSVC{
 	public int deleteReply(String ccmtno) {
 		return movieDAO.deleteReply(ccmtno);
 	}
+
 }

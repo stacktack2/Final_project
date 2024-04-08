@@ -34,23 +34,14 @@ public class Movie {
 	}
 	
 	@RequestMapping(value="/movieView", method=RequestMethod.GET)
-<<<<<<< HEAD
-	public String movieView(String cno,Model model, HttpServletRequest request, HttpServletResponse response) throws  Exception {
-		//상세정보
-=======
 	public String movieView(String cno ,Model model, HttpServletResponse response) throws  Exception {
 		//상세정보 조회
->>>>>>> branch 'master' of https://github.com/cotaek2/Final_project.git
 		CinemaVO movieDetail = movieService.selectMovieDetail(cno);
 		model.addAttribute("movieDetail",movieDetail);
-<<<<<<< HEAD
-		//댓글
-		model.addAttribute("replyList",movieService.selectReplyCcode(cno));
-=======
+		
 		//댓글목록 조회
 		List<CinemaReplyVO> replyList = movieService.selectReplyCno(cno);
 		model.addAttribute("replyList", replyList);
->>>>>>> branch 'master' of https://github.com/cotaek2/Final_project.git
 		return "movie/movieView";
 	}
 	//댓글 작성

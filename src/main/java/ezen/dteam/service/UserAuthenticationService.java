@@ -53,15 +53,11 @@ public class UserAuthenticationService implements UserDetailsService{
 				user.getMemail(),
 				user.getMphone(),
 				user.getMbirth(),
-<<<<<<< HEAD
-				user.getMgender()/*,
-=======
 				user.getMgender(),
 				user.getMno()/*,
->>>>>>> branch 'master' of https://github.com/cotaek2/Final_project.git
 				user.getIsWithdrawn()*/);
 
-		return vo;
+return vo;
 	}
 
 }
