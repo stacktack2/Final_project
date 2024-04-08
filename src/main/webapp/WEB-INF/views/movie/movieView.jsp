@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <title>영화 상세보기</title>
-
 
     <link href="<%=request.getContextPath() %>/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -27,15 +26,16 @@
     </style>
     <script>
 	    function replyWriteFn() {
-	    	document.getElementById('replyContentInput2').value = document.getElementById('replyContentInput').value;
+	    	document.getElementById('ccmtContent').value = document.getElementById('ccmtContent').value;
 	    	document.forms['replyAdd'].submit();
 	    }
-	    function replyDeleteFn(icmtno) {
-	    	document.getElementById('icmtno').value = icmtno;
+	    function replyDeleteFn(ccmtno) {
+	    	document.getElementById('ccmtno').value = ccmtno;
 	    	if(confirm("삭제하시겠습니까?")){
 	    		document.forms['replyDel'].submit();
 	    	}
 	    }
+
     </script>
   </head>
 <body>
@@ -114,15 +114,17 @@
       <div class="card my-4">
       	<h5 class="card-header">댓글</h5>
 		  <div class="card-body">
-		  	<!-- 댓글 작성창 -->
-		  	<form action="replyWrite" method="post" name="replyAdd">
-		  		<div class="form-group">
-		  			<input type="text" class="form-control" name="ccmtContent" id="ccmtContent">
-		  		</div>
-		  		<input type="hidden" name="cno" value="${movieDetail.cno}">
-		  		<input type="hidden" name="mno" value="<sec:authorize access="isAuthenticated()"><sec:authentication property="principal.mno"/></sec:authorize>">
-		  		<button type="submit" class="btn btn-danger" onclick="replyWriteFn()">댓글 작성</button>
-		  	</form>
+		  	<!-- 댓글 작성창: 로그인한 유저만 보이게 -->
+		  	<sec:authorize access="isAuthenticated()">
+			  	<form action="replyWrite" method="post" name="replyAdd">
+			  		<div class="form-group">
+			  			<input type="text" class="form-control" name="ccmtContent" id="ccmtContent">
+			  		</div>
+			  		<input type="hidden" name="cno" value="${movieDetail.cno}">
+			  		<input type="hidden" name="mno" value="<sec:authorize access="isAuthenticated()"><sec:authentication property="principal.mno"/></sec:authorize>">
+			  		<button type="submit" class="btn btn-danger" onclick="replyWriteFn()">댓글 작성</button>
+			  	</form>
+		  	</sec:authorize>
 		  	<div class="card my-4">
 			  	<!-- 댓글 목록 -->
 			  	<h5 class="card-header">댓글 목록</h5>
@@ -131,6 +133,7 @@
 						<c:forEach var="item" items="${replyList}">
 							<li class="list-group-item">
 								<b>${item.mnickNm}</b> :${item.ccmtContent}
+								<span>(${item.ccmtRdadte})</span>
 								<button class="btn btn-danger btn-sm float-right" onclick="replyDeleteFn(${item.ccmtno})">삭제</button>
 							</li>
 						</c:forEach>
