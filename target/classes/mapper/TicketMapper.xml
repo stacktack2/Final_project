@@ -20,16 +20,16 @@
 	</select>
 	
 	<select id="selectScreenHall" resultType="ScreenHallVO">
-		SELECT theater.*, screenhall.* FROM screenhall INNER JOIN theater ON theater.tno = screenhall.tno WHERE theater.tno = #{theaterNm}
+		SELECT theater.*, screenhall.* FROM screenhall INNER JOIN theater ON theater.tno = screenhall.tno WHERE theater.tno = #{tno}
 	</select>
 
 	<select id="selectScreen" resultType="ScreenVO" parameterType="screenVO">
-		SELECT s.*, c.cname, sh.shallType, sh.shallLocation, sh.shallSeat FROM screen s 
-		INNER JOIN screenhall sh 
-		ON s.shallno = sh.shallno 
-		INNER JOIN cinema c
-		ON s.cno = c.cno
-		WHERE c.cno = #{cno} AND s.sday = #{sday}
-		ORDER BY sh.shallno
+		SELECT theater.*, screenhall.*, s.*, c.cno, c.cname
+		FROM screenhall
+		INNER JOIN theater ON theater.tno = screenhall.tno
+		INNER JOIN screen s ON screenhall.shallno = s.shallno
+		INNER JOIN cinema c ON c.cno = s.cno
+		WHERE theater.tno = #{tno} AND s.sday = #{sday}
+		ORDER BY s.sno;
 	</select>
 </mapper>
