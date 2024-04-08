@@ -18,6 +18,7 @@ public class CinemaReplyVO {
 		this.mno = mno;
 		this.cno=cno;
 		this.ccmtContent = ccmtContent;
+		
 	}
 	public String getCcmtno() {
 		return ccmtno;
