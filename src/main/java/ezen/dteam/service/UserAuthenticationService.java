@@ -37,24 +37,25 @@ public class UserAuthenticationService implements UserDetailsService{
 		
 		List<GrantedAuthority> authority = new ArrayList<GrantedAuthority>();
 		authority.add(new SimpleGrantedAuthority(user.getAuthority()));
-		if(user.getIsWithdrawn()==1) {
-			throw new UsernameNotFoundException(username);
-		}
-		UserVO vo = new UserVO(user.getMid(),
-								user.getMpw(),
-								(Integer)Integer.valueOf(user.getEnabled())==1,
-								true,
-								true,
-								true,
-								authority,
-								user.getAuthority(),
-								user.getMname(),
-								user.getMemail(),
-								user.getMphone(),
-								user.getMbirth(),
-								user.getMgender(),
-								user.getIsWithdrawn());
+//		if(user.getIsWithdrawn()==1) {
+//			throw new UsernameNotFoundException(username);
+//		}
 		
+		UserVO vo = new UserVO(user.getMid(),
+				user.getMpw(),
+				(Integer)Integer.valueOf(user.getEnabled())==1,
+				true,
+				true,
+				true,
+				authority,
+				user.getAuthority(),
+				user.getMname(),
+				user.getMemail(),
+				user.getMphone(),
+				user.getMbirth(),
+				user.getMgender()/*,
+				user.getIsWithdrawn()*/);
+
 		return vo;
 	}
 
