@@ -3,11 +3,11 @@
 						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ezen.dteam.mapper.movieMapper">
 	<select id="selectMovieDetail" parameterType="String" resultType="CinemaVO" >
-		SELECT * FROM cinema WHERE ccode = #{ccode}
+		SELECT * FROM cinema WHERE cno = #{value}
 	</select>
 	<select id="selectReplyCcode" parameterType="String" resultType="CinemaReplyVO">
 		select cr.*, m.mnickNm from cinemaReply cr 
 		inner join member m on cr.mno = m.mno 
-		where ccode = #{value}
+		where cno = #{value}
 	</select>
 </mapper>

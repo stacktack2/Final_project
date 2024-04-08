@@ -16,14 +16,14 @@ public class MovieSVCImpl implements MovieSVC{
 	MovieDAO movieDAO;
 
 	@Override
-	public CinemaVO selectMovieDetail(String ccode) throws Exception {
+	public CinemaVO selectMovieDetail(String cno) throws Exception {
 		
-		return movieDAO.selectMovieDetail(ccode);
+		return movieDAO.selectMovieDetail(cno);
 	}
 	
 	@Override
-	public List<CinemaReplyVO> selectReplyCcode(String ccode){
-		return movieDAO.selectReplyCcode(ccode);
+	public List<CinemaReplyVO> selectReplyCcode(String cno){
+		return movieDAO.selectReplyCcode(cno);
 	}
 	
 }

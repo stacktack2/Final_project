@@ -16,11 +16,11 @@ public class MovieDAO {
 	
 	private final String nameSpace = "ezen.dteam.mapper.movieMapper";
 	
-	public CinemaVO selectMovieDetail(String ccode){
-		return sqlSession.selectOne(nameSpace+".selectMovieDetail",ccode);
+	public CinemaVO selectMovieDetail(String cno){
+		return sqlSession.selectOne(nameSpace+".selectMovieDetail",cno);
 	}
 	
-	public List<CinemaReplyVO> selectReplyCcode(String ccode){
-		return sqlSession.selectList(nameSpace+".selectReplyCcode",ccode);
+	public List<CinemaReplyVO> selectReplyCcode(String cno){
+		return sqlSession.selectList(nameSpace+".selectReplyCcode",cno);
 	}
 }

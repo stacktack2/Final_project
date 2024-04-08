@@ -27,12 +27,12 @@ public class Movie {
 		return "movie/movieSchedule";
 	}
 	@RequestMapping(value="/movieView", method=RequestMethod.GET)
-	public String movieView(String ccode,Model model, HttpServletRequest request, HttpServletResponse response) throws  Exception {
+	public String movieView(String cno,Model model, HttpServletRequest request, HttpServletResponse response) throws  Exception {
 		//상세정보
-		CinemaVO movieDetail = movieService.selectMovieDetail(ccode);
+		CinemaVO movieDetail = movieService.selectMovieDetail(cno);
 		model.addAttribute("movieDetail",movieDetail);
 		//댓글
-		model.addAttribute("replyList",movieService.selectReplyCcode(ccode));
+		model.addAttribute("replyList",movieService.selectReplyCcode(cno));
 		return "movie/movieView";
 	}
 }
