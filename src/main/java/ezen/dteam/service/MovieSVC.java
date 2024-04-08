@@ -6,6 +6,6 @@ import ezen.dteam.vo.CinemaReplyVO;
 import ezen.dteam.vo.CinemaVO;
 
 public interface MovieSVC {
-	public CinemaVO selectMovieDetail(String ccdoe) throws Exception;
-	public List<CinemaReplyVO> selectReplyCcode(String ccode) throws Exception;
+	public CinemaVO selectMovieDetail(String cno) throws Exception;
+	public List<CinemaReplyVO> selectReplyCcode(String cno) throws Exception;
 }
