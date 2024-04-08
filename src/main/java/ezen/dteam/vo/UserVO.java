@@ -6,7 +6,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 
 public class UserVO extends User{
-
+	private int mno;
 	private String mid;
 	private String mpw;
 	private String mname;
@@ -21,7 +21,7 @@ public class UserVO extends User{
 	public UserVO(String username, String password, boolean enabled, boolean accountNonExpired,
 			boolean credentialsNonExpired, boolean accountNonLocked,
 			Collection<? extends GrantedAuthority> authorities
-			,String authority, String mname, String memail, String mphone, String mbirth, String mgender/*, int isWithdrawn*/) {
+			,String authority, String mname, String memail, String mphone, String mbirth, String mgender,int mno/*, int isWithdrawn*/) {
 		super(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
 		
 		this.mid=username;
@@ -32,10 +32,21 @@ public class UserVO extends User{
 		this.mphone=mphone;
 		this.mbirth=mbirth;	
 		this.mgender=mgender;
+		this.mno=mno;
 //		this.isWithdrawn=isWithdrawn;
 	}
 
 	
+	public int getMno() {
+		return mno;
+	}
+
+
+	public void setMno(int mno) {
+		this.mno = mno;
+	}
+
+
 	public String getMid() {
 		return mid;
 	}

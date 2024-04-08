@@ -53,7 +53,8 @@ public class UserAuthenticationService implements UserDetailsService{
 				user.getMemail(),
 				user.getMphone(),
 				user.getMbirth(),
-				user.getMgender()/*,
+				user.getMgender(),
+				user.getMno()/*,
 				user.getIsWithdrawn()*/);
 
 		return vo;
