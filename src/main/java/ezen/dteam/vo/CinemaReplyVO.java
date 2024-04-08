@@ -1,27 +1,28 @@
 package ezen.dteam.vo;
 
 public class CinemaReplyVO {
-	private int ccmtno;
+	private String ccmtno;
 	private String ccmtContent;
 	private String ccmtRdadte;
 	private int ccmtLikeCnt;
 	private int ccmtDelyn;
-	private int cno;
+	private String cno;
 	private int mno;
 	private int ccode;
-	
+	private String mnickNm;
 
 	public CinemaReplyVO() {}
-	public CinemaReplyVO(int ccode, String ccmtContent, int mno) {
+	public CinemaReplyVO( int mno,String cno, String ccmtContent) {
 		super();
-		this.ccmtContent = ccmtContent;
+		
 		this.mno = mno;
-		this.ccode=ccode;
+		this.cno=cno;
+		this.ccmtContent = ccmtContent;
 	}
-	public int getCcmtno() {
+	public String getCcmtno() {
 		return ccmtno;
 	}
-	public void setCcmtno(int ccmtno) {
+	public void setCcmtno(String ccmtno) {
 		this.ccmtno = ccmtno;
 	}
 	public String getCcmtContent() {
@@ -48,10 +49,10 @@ public class CinemaReplyVO {
 	public void setCcmtDelyn(int ccmtDelyn) {
 		this.ccmtDelyn = ccmtDelyn;
 	}
-	public int getCno() {
+	public String getCno() {
 		return cno;
 	}
-	public void setCno(int cno) {
+	public void setCno(String cno) {
 		this.cno = cno;
 	}
 	public int getMno() {
@@ -65,6 +66,12 @@ public class CinemaReplyVO {
 	}
 	public void setCcode(int ccode) {
 		this.ccode = ccode;
+	}
+	public String getMnickNm() {
+		return mnickNm;
+	}
+	public void setMnickNm(String mnickNm) {
+		this.mnickNm = mnickNm;
 	}
 
 }
