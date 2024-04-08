@@ -7,7 +7,7 @@
 	
 	<select id="selectLogin" parameterType="String" resultType="MemberVO">
 		SELECT mid, mname, mpw, mnickNm, authority, enabled, 
-		mbirth, memail, mgender, mjoinDate,mphone, mno, isWithdrawn 
+		mbirth, memail, mgender, mjoinDate,mphone, mno <!--  ,isWithdrawn-->  
 		FROM member 
 		WHERE mid = #{value}
 	</select>

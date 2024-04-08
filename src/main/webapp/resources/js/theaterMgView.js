@@ -22,7 +22,6 @@ $(function() {
 
 
 
-
 function modalFn(){
 	document.getElementById("attendday2").value = document.getElementById("attendday").value;
 	document.forms['modal'].submit();
@@ -36,3 +35,4 @@ function screenDeleteFn(sno){
 		document.forms['screenDeleteForm'].submit();
 	}
 }
+
