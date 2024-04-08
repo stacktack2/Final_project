@@ -33,8 +33,8 @@ public class TicketSVCImpl implements TicketSVC{
 	}
 
 	@Override
-	public List<ScreenHallVO> selectScreenHall(String theaterNm) {
-		return ticketDAO.selectScreenHall(theaterNm);
+	public List<ScreenHallVO> selectScreenHall(int tno) {
+		return ticketDAO.selectScreenHall(tno);
 	}
 
 	@Override

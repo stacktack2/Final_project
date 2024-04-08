@@ -34,16 +34,7 @@ public class Ticket {
 		
 		return "ticket/ticketing";
 	}
-	
-	@RequestMapping(value="/tiketTheaterNo", method=RequestMethod.POST)
-	@ResponseBody
-	public List<ScreenHallVO> ticketTheaterNo(String theaterNm) {
 		
-		List<ScreenHallVO> selectScreenHall = ticketSVC.selectScreenHall(theaterNm);
-		
-		return selectScreenHall;
-	}
-	
 	@RequestMapping(value="/movieCode", method=RequestMethod.POST)
 	@ResponseBody
 	public List<CinemaVO> movieCodeNo(String movieCode) {
@@ -53,17 +44,57 @@ public class Ticket {
 		return ccode;
 	}
 	
+	@RequestMapping(value="/tiketTheaterNo", method=RequestMethod.POST)
+	@ResponseBody
+	public List<ScreenHallVO> ticketTheaterNo(String tnoParam) {
+		int tno = Integer.parseInt(tnoParam);
+		
+		List<ScreenHallVO> selectScreenHall = ticketSVC.selectScreenHall(tno);
+		
+		return selectScreenHall;
+	}
+	
 	@RequestMapping(value="/selectScreen", method=RequestMethod.POST)
 	@ResponseBody
-	public List<ScreenVO> selectScreen(String cnoParam, String shallnoParam, String sday){
+	public List<ScreenVO> selectScreen(String cnoParam, String tnoParam, String sday){
 		
 		int cno = Integer.parseInt(cnoParam);
-		int shallno = Integer.parseInt(shallnoParam);
+		int tno = Integer.parseInt(tnoParam);
 		
-		ScreenVO screenVO = new ScreenVO(cno, shallno, sday);
+		ScreenVO screenVO = new ScreenVO(cno, tno, sday);
 		List<ScreenVO> selectScreen = ticketSVC.selectScreen(screenVO);
 		
 		return selectScreen;
+	}
+	
+	@RequestMapping(value="/ticketInfo", method=RequestMethod.POST)
+	@ResponseBody
+	public String ticketInfo(String cnoParam, String tnoParam, String sdayParam, 
+			String dateDayParam, String sstartTimeParam, String shallLocationParam){
+		
+		int cno = Integer.parseInt(cnoParam);;
+		int tno = Integer.parseInt(tnoParam);;
+		String sday = sdayParam;
+		String dateDay = dateDayParam;
+		String sstartTime = sstartTimeParam;
+		String shallLocation = shallLocationParam;
+		
+		System.out.println("cno::"+cno);
+		System.out.println("tno::"+tno);
+		System.out.println("sday::"+sday);
+		System.out.println("dateDay::"+dateDay);
+		System.out.println("sstartTime::"+sstartTime);
+		System.out.println("shallLocation::"+shallLocation);
+		
+		
+		return "ticket/ticketSeat";
+	}
+	
+	@RequestMapping(value="/ticketSeat", method=RequestMethod.POST)
+	public String ticketSeatPOST() {
+		
+		
+		return "ticket/ticketSeat";
 	}
 	
 	@RequestMapping(value="/ticketSeat", method=RequestMethod.GET)
