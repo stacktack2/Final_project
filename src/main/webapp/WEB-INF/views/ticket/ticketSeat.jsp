@@ -1447,10 +1447,9 @@
 										<span class="path-step3" title="결제">&nbsp;</span>
 									</div>
 								</div>
-								<a type="button"
-									href="<%=request.getContextPath()%>/ticket/payment"
+								<button type="button"
 									class="btn-right-check" id="seatSelectionButton"> <span>결제하기</span>
-								</a>
+								</button>
 							</div>
 						</div>
 	</div>
