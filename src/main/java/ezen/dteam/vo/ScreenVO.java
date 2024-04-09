@@ -24,6 +24,14 @@ public class ScreenVO {
 		this.sday = sday;
 	}
 	
+	public ScreenVO(int cno, int tno, String sday, String sstartTime, int shallno) {
+		this.cno = cno;
+		this.tno = tno;
+		this.sday = sday;
+		this.sstartTime = sstartTime;
+		this.shallno = shallno;
+	}
+	
 	public ScreenVO(int sno, String sstartTime, String sendTime, int cno, int tno, String sday, String cname, String shallType, String shallLocation, String shallSeat) {
 	    this.sno = sno;
 	    this.sstartTime = sstartTime;

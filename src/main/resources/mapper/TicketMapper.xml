@@ -35,4 +35,18 @@
 		    )
 		ORDER BY s.sno
 	</select>
+	
+	<select id="selectScreenSeat" resultType="ScreenSceetVO" parameterType="ticketInfo">
+		SELECT *
+		FROM screenseat ss
+		INNER JOIN screenhall sh
+		ON ss.shallno = sh.shallno
+		INNER JOIN screen s
+		ON sh.shallno = s.shallno
+		INNER JOIN cinema c
+		ON c.cno = s.cno
+		INNER JOIN theater t
+		ON t.tno = sh.tno
+		WHERE  t.tno = #{tno} AND s.sday = #{sday} AND s.cno = #{cno} AND s.shallno = #{shallno} AND s.sstartTime = #{sstartTime};
+	</select>
 </mapper>

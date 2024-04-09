@@ -4,6 +4,7 @@ import java.util.List;
 
 import ezen.dteam.vo.CinemaVO;
 import ezen.dteam.vo.ScreenHallVO;
+import ezen.dteam.vo.ScreenSeatVO;
 import ezen.dteam.vo.ScreenVO;
 import ezen.dteam.vo.TheaterVO;
 
@@ -18,5 +19,7 @@ public interface TicketSVC {
 	List<ScreenHallVO> selectScreenHall(int tno);
 
 	List<ScreenVO> selectScreen(ScreenVO screenVO);
+
+	List<ScreenSeatVO> selectScreenSeat(ScreenVO ticketInfo);
 	
 }
