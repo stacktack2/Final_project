@@ -333,7 +333,7 @@ ALTER TABLE ticketDetail
 CREATE VIEW MyTicketView AS
 SELECT t.ticketno, t.ticketTime, t.ticketDelyn, t.mno,
 		ss.sseatno, ss.sseatCol, ss.sseatRow, ss.sseatType,
-        sh.shallno, sh.shallType, 
+        sh.shallno, sh.shallType, sh.shallLocation 
 	sc.sday, 
         th.tname, th.tno,
         c.cname, c.cno 
