@@ -39,7 +39,7 @@ public class TicketDAO {
 			return sqlSession.selectList(nameSpace+".selectScreen", screenVO);
 		}
 
-		public List<ScreenVO> selectScreenSeat(ScreenVO ticketInfo) {
+		public List<ScreenSeatVO> selectScreenSeat(ScreenSeatVO ticketInfo) {
 			return sqlSession.selectList(nameSpace+".selectScreenSeat", ticketInfo);
 		}
 		

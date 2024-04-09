@@ -1,13 +1,9 @@
 package ezen.dteam.controller;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-
-import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +17,7 @@ import ezen.dteam.vo.ScreenHallVO;
 import ezen.dteam.vo.ScreenSeatVO;
 import ezen.dteam.vo.ScreenVO;
 import ezen.dteam.vo.TheaterVO;
+import ezen.dteam.vo.UserVO;
 
 @RequestMapping(value="/ticket")
 @Controller
@@ -81,7 +78,8 @@ public class Ticket {
 			@RequestParam("tname") String tname, @RequestParam("inputDateDay") String dateDay,
 			@RequestParam("sday") String sday, @RequestParam("sstartTime") String sstartTime,
 			@RequestParam("shallno") int shallno, @RequestParam("shallType") String shallType,
-			@RequestParam("shallLocation") String shallLocation, Authentication authentication) {
+			@RequestParam("shallLocation") String shallLocation, @RequestParam("sendTime") String sendTime, 
+			Authentication authentication) throws Exception {
 		
 		model.addAttribute("cno", cno);
 		model.addAttribute("cposter", cposter);
@@ -95,11 +93,15 @@ public class Ticket {
 		model.addAttribute("shallno", shallno);
 		model.addAttribute("shallType", shallType);
 		model.addAttribute("shallLocation", shallLocation);
+		model.addAttribute("sendTime", sendTime);
 		
-		ScreenVO ticketInfo = new ScreenVO(cno, tno, sday, sstartTime, shallno);
-		List<ScreenVO> selectScreenSeat = ticketSVC.selectScreenSeat(ticketInfo);
-		System.out.println(selectScreenSeat);
+		ScreenSeatVO ticketInfo = new ScreenSeatVO(cno, tno, sday, sstartTime, shallno);
+		List<ScreenSeatVO> selectScreenSeat = ticketSVC.selectScreenSeat(ticketInfo);
 		model.addAttribute("screenSeat", selectScreenSeat);
+		
+		UserVO loginVO = (UserVO) authentication.getPrincipal();
+		int mno = loginVO.getMno();
+		System.out.println(mno);
 		
 		
 		return "ticket/ticketSeat";

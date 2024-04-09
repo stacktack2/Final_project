@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -43,7 +44,7 @@
 								<div class="max-personNumber">* 최대 8명 선태 가능</div>
 								<div class="group_adult" style="display: block;">
 									<span class="title">일반</span>
-									<ul>
+									<ul class="personUl">
 										<li data-count="0" class="selected" type="adult">
 											<a href="#" onclick="return false;" style="color: white;"> 
 												<span class="sreader mod">일반</span>0
@@ -102,7 +103,7 @@
 								</div>
 								<div class="group_youth" style="display: block;">
 									<span class="title">청소년</span>
-									<ul>
+									<ul class="personUl">
 										<li data-count="0" class="selected" type="youth">
 											<a href="#" onclick="return false;" style="color: white;">
 												<span class="sreader mod">일반</span>0
@@ -161,7 +162,7 @@
 								</div>
 								<div class="group_senior" style="display: block;">
 									<span class="title">경로</span>
-									<ul>
+									<ul class="personUl">
 										<li data-count="0" class="selected" type="senior">
 											<a href="#" onclick="return false;" style="color: white;">
 												<span class="sreader mod">일반</span>0
@@ -220,7 +221,7 @@
 								</div>
 								<div class="group_special" style="display: block;">
 									<span class="title">우대</span>
-									<ul>
+									<ul class="personUl">
 										<li data-count="0" class="selected" type="special">
 											<a href="#" onclick="return false;" style="color: white;">
 												<span class="sreader mod">일반</span>0
@@ -278,20 +279,18 @@
 									</ul>
 								</div>
 							</div>
-							<a href="javascript:void(0)" id="reservarionDiscountInfo">관람
-								할인 안내</a>
 						</div>
 						<div id="user-select-info">
 							<p class="theater-info">
-								<span class="site">CGV 전주고사</span>
-								<span class="screen">1관 2층</span>
+								<span class="site">${cname }</span>
+								<span class="screen">${shallLocation }</span>
 								<span class="seatNum">남은좌석
 									<b class="restNum">231</b>/
 									<b class="totalNum">231</b>
 								</span>
 							</p>
 							<p class="playYMD-info">
-								<b>2024.03.19</b> <b class="exe">(화)</b> <b>11:00 ~ 13:56</b>
+								<b>${dateDay }</b> <b>${sstartTime }~${sendTime }</b>
 							</p>
 						</div>
 					</div>
@@ -303,1064 +302,359 @@
 							<span class="text">SCREEN</span>
 						</div>
 						<div class="seats">
-							<div class="row" style="top: 0px;">
-								<div class="label">A</div>
-								<div class="seat_group">
-									<div class="group">
-										<div class="seat handicap" style="left: 110px" data-left="128" data-left_zoom="192">
-											<a href="#" onclick="return false;">
-												<span class="no">6</span>
-												<span class="sreader"> 장애인석 Light</span>
-												<span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat handicap" style="left: 126px" data-left="112" data-left_zoom="168">
-											<a href="#" onclick="return false;">
-												<span class="no">7</span>
-												<span class="sreader"> 장애인석 Light</span>
-												<span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat handicap" style="left: 142px" data-left="128" data-left_zoom="192">
-											<a href="#" onclick="return false;">
-												<span class="no">8</span>
-												<span class="sreader"> 장애인석 Light</span>
-												<span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat handicap" style="left: 158px" data-left="112" data-left_zoom="168">
-											<a href="#" onclick="return false;">
-												<span class="no">9</span>
-												<span class="sreader"> 장애인석 Light</span>
-												<span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat handicap" style="left: 174px" data-left="128" data-left_zoom="192">
-											<a href="#" onclick="return false;">
-												<span class="no">10</span>
-												<span class="sreader"> 장애인석 Light</span>
-												<span class="sreader mod"></span>
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="row" style="top: 16px;">
-								<div class="label">B</div>
-								<div class="seat_group">
-									<div class="group">
-										<div class="seat rating_economy" style="left: 30px" data-left="112" data-left_zoom="168">
-											<a href="#" onclick="return false;">
-												<span class="no">1</span>
-												<span class="sreader"> Light</span>
-												<span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat rating_economy" style="left: 46px" data-left="128" data-left_zoom="192">
-											<a href="#" onclick="return false;">
-												<span class="no">2</span>
-												<span class="sreader"> Light</span>
-												<span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat rating_economy" style="left: 62px" data-left="112" data-left_zoom="168">
-											<a href="#" onclick="return false;">
-												<span class="no">3</span>
-												<span class="sreader"> Light</span>
-												<span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat rating_economy" style="left: 78px" data-left="128" data-left_zoom="192">
-											<a href="#" onclick="return false;">
-												<span class="no">4</span>
-												<span class="sreader"> Light</span>
-												<span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat rating_economy" style="left: 94px" data-left="112" data-left_zoom="168">
-											<a href="#" onclick="return false;">
-												<span class="no">5</span>
-												<span class="sreader"> Light</span>
-												<span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat rating_economy" style="left: 110px" data-left="128" data-left_zoom="192">
-											<a href="#" onclick="return false;">
-												<span class="no">6</span>
-												<span class="sreader">Light</span>
-												<span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat rating_economy" style="left: 126px" data-left="112" data-left_zoom="168">
-											<a href="#" onclick="return false;">
-												<span class="no">7</span>
-												<span class="sreader"> Light</span>
-												<span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat rating_economy" style="left: 142px" data-left="128" data-left_zoom="192">
-											<a href="#" onclick="return false;">
-												<span class="no">8</span>
-												<span class="sreader"> Light</span>
-												<span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat rating_economy" style="left: 158px" data-left="112" data-left_zoom="168">
-											<a href="#" onclick="return false;">
-												<span class="no">9</span>
-												<span class="sreader"> Light</span>
-												<span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat rating_economy" style="left: 174px" data-left="128" data-left_zoom="192">
-											<a href="#" onclick="return false;">
-												<span class="no">10</span>
-												<span class="sreader"> Light</span>
-												<span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat rating_economy" style="left: 190px" data-left="128" data-left_zoom="192">
-											<a href="#" onclick="return false;">
-												<span class="no">11</span>
-												<span class="sreader"> Light</span>
-												<span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat rating_economy" style="left: 206px" data-left="128" data-left_zoom="192">
-											<a href="#" onclick="return false;">
-												<span class="no">12</span>
-												<span class="sreader"> Light</span>
-												<span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat rating_economy" style="left: 222px" data-left="128" data-left_zoom="192">
-											<a href="#" onclick="return false;">
-												<span class="no">13</span>
-												<span class="sreader"> Light</span>
-												<span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat rating_economy" style="left: 238px" data-left="128" data-left_zoom="192">
-											<a href="#" onclick="return false;">
-												<span class="no">14</span>
-												<span class="sreader"> Light</span> 
-												<span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat rating_economy" style="left: 254px" data-left="128" data-left_zoom="192">
-											<a href="#" onclick="return false;">
-												<span class="no">15</span>
-												<span class="sreader"> Light</span> 
-												<span class="sreader mod"></span>
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="row" style="top: 32px;">
-								<div class="label">C</div>
-								<div class="seat_group">
-									<div class="group">
-										<div class="seat" style="left: 30px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">1</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 46px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">2</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 62px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">3</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 78px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">4</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 94px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">5</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 110px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">6</span>
-												<span class="sreader">Light</span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 126px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">7</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 142px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">8</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 158px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">9</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 174px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">10</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 190px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">11</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 206px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">12</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 222px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">13</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 238px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">14</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 254px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">15</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="row" style="top: 48px;">
-								<div class="label">D</div>
-								<div class="seat_group">
-									<div class="group">
-										<div class="seat" style="left: 30px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">1</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 46px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">2</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 62px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">3</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 78px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">4</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 94px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">5</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 110px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">6</span>
-												<span class="sreader">Light</span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 126px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">7</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 142px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">8</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 158px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">9</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 174px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">10</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 190px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">11</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 206px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">12</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 222px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">13</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 238px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">14</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 254px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">15</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="row" style="top: 64px;">
-								<div class="label">E</div>
-								<div class="seat_group">
-									<div class="group">
-										<div class="seat" style="left: 30px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">1</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 46px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">2</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 62px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">3</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 78px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">4</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 94px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">5</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 110px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">6</span>
-												<span class="sreader">Light</span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 126px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">7</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 142px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">8</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 158px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">9</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 174px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">10</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 190px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">11</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 206px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">12</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 222px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">13</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 238px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">14</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 254px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">15</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="row" style="top: 80px;">
-								<div class="label">F</div>
-								<div class="seat_group">
-									<div class="group">
-										<div class="seat" style="left: 30px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">1</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 46px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">2</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 62px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">3</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 78px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">4</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 94px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">5</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 110px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">6</span>
-												<span class="sreader">Light</span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 126px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">7</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 142px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">8</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 158px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">9</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 174px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">10</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 190px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">11</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 206px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">12</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 222px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">13</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 238px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">14</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 254px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">15</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="row" style="top: 96px;">
-								<div class="label">G</div>
-								<div class="seat_group">
-									<div class="group">
-										<div class="seat" style="left: 30px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">1</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 46px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">2</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 62px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">3</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 78px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">4</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 94px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">5</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 110px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">6</span>
-												<span class="sreader">Light</span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 126px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">7</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 142px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">8</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 158px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">9</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 174px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">10</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 190px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">11</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 206px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">12</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 222px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">13</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 238px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">14</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 254px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">15</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="row" style="top: 112px;">
-								<div class="label">H</div>
-								<div class="seat_group">
-									<div class="group">
-										<div class="seat" style="left: 30px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">1</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 46px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">2</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 62px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">3</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 78px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">4</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 94px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">5</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 110px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">6</span>
-												<span class="sreader">Light</span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 126px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">7</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 142px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">8</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 158px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">9</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 174px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">10</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 190px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">11</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 206px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">12</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 222px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">13</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 238px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">14</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 254px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">15</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="row" style="top: 128px;">
-								<div class="label">I</div>
-								<div class="seat_group">
-									<div class="group">
-										<div class="seat" style="left: 30px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">1</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 46px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">2</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 62px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">3</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 78px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">4</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 94px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">5</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 110px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">6</span>
-												<span class="sreader">Light</span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 126px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">7</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 142px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">8</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 158px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">9</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 174px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">10</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 190px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">11</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 206px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">12</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 222px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">13</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 238px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">14</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 254px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">15</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="row" style="top: 144px;">
-								<div class="label">J</div>
-								<div class="seat_group">
-									<div class="group">
-										<div class="seat" style="left: 30px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">1</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 46px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">2</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 62px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">3</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 78px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">4</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 94px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">5</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 110px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">6</span>
-												<span class="sreader">Light</span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 126px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">7</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 142px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">8</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 158px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">9</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 174px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">10</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 190px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">11</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 206px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">12</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 222px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">13</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 238px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">14</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 254px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">15</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="row" style="top: 160px;">
-								<div class="label">K</div>
-								<div class="seat_group">
-									<div class="group">
-										<div class="seat" style="left: 30px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">1</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 46px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">2</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 62px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">3</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 78px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">4</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 94px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">5</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 190px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">11</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 206px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">12</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 222px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">13</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 238px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">14</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 254px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">15</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="row" style="top: 176px;">
-								<div class="label">L</div>
-								<div class="seat_group">
-									<div class="group">
-										<div class="seat" style="left: 30px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">1</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 46px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">2</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 62px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">3</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 78px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">4</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 94px" data-left="112"
-											data-left_zoom="168">
-											<a href="#" onclick="return false;"> <span class="no">5</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 206px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">12</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 222px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">13</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 238px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">14</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-										<div class="seat" style="left: 254px" data-left="128"
-											data-left_zoom="192">
-											<a href="#" onclick="return false;"> <span class="no">15</span>
-												<span class="sreader"></span> <span class="sreader mod"></span>
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>
+						<c:if test="${not empty screenSeat }">
+							<c:forEach var="lineColA" items="${screenSeat }" varStatus="loop">
+							    <c:choose>
+							        <c:when test="${loop.index == 0 && lineColA.sseatCol eq 'A'}">
+							            <div class="row" style="top: 0px;">
+							                <div class="label">${lineColA.sseatCol }</div>
+							                <div class="seat_group">
+							                    <div class="group">
+							                        <c:set var="leftPosition" value="110"/>
+							                        <c:forEach var="lineRowA" items="${screenSeat}">
+							                            <c:if test="${lineRowA.sseatCol eq 'A'}">
+							                                <div class="seat handicap" style="left: ${leftPosition}px;">
+							                                    <a href="#" onclick="return false;">
+							                                        <span class="no">${lineRowA.sseatRow}</span>
+							                                        <span class="sreader">${lineRowA.sseatType}</span>
+							                                        <span class="sreader mod"></span>
+							                                    </a>
+							                                </div>
+							                                <c:set var="leftPosition" value="${leftPosition + 16}" />
+							                            </c:if>
+							                        </c:forEach>
+							                    </div>
+							                </div>
+							            </div>
+							        </c:when>
+							    </c:choose>
+							</c:forEach>
+							
+							<c:forEach var="lineColB" items="${screenSeat }" varStatus="loop">
+							    <c:choose>
+							        <c:when test="${loop.index == 6 && lineColB.sseatCol eq 'B'}">
+							            <div class="row" style="top: 16px;">
+							                <div class="label">${lineColB.sseatCol }</div>
+							                <div class="seat_group">
+							                    <div class="group">
+							                        <c:set var="leftPosition" value="30"/>
+							                        <c:forEach var="lineRowB" items="${screenSeat}">
+							                            <c:if test="${lineRowB.sseatCol eq 'B'}">
+							                                <div class="seat rating_economy" style="left: ${leftPosition}px;">
+							                                    <a href="#" onclick="return false;">
+							                                        <span class="no">${lineRowB.sseatRow}</span>
+							                                        <span class="sreader">${lineRowB.sseatType}</span>
+							                                        <span class="sreader mod"></span>
+							                                    </a>
+							                                </div>
+							                                <c:set var="leftPosition" value="${leftPosition + 16}" />
+							                            </c:if>
+							                        </c:forEach>
+							                    </div>
+							                </div>
+							            </div>
+							        </c:when>
+							    </c:choose>
+							</c:forEach>
+							
+							<c:forEach var="lineColC" items="${screenSeat }" varStatus="loop">
+							    <c:choose>
+							        <c:when test="${loop.index == 21 && lineColC.sseatCol eq 'C'}">
+							            <div class="row" style="top: 32px;">
+							                <div class="label">${lineColC.sseatCol }</div>
+							                <div class="seat_group">
+							                    <div class="group">
+							                        <c:set var="leftPosition" value="30"/>
+							                        <c:forEach var="lineRowC" items="${screenSeat}">
+							                            <c:if test="${lineRowC.sseatCol eq 'C'}">
+							                                <div class="seat" style="left: ${leftPosition}px;">
+							                                    <a href="#" onclick="return false;">
+							                                        <span class="no">${lineRowC.sseatRow}</span>
+							                                        <span class="sreader">${lineRowC.sseatType}</span>
+							                                        <span class="sreader mod"></span>
+							                                    </a>
+							                                </div>
+							                                <c:set var="leftPosition" value="${leftPosition + 16}" />
+							                            </c:if>
+							                        </c:forEach>
+							                    </div>
+							                </div>
+							            </div>
+							        </c:when>
+							    </c:choose>
+							</c:forEach>
+							
+							<c:forEach var="lineColD" items="${screenSeat }" varStatus="loop">
+							    <c:choose>
+							        <c:when test="${loop.index == 36 && lineColD.sseatCol eq 'D'}">
+							            <div class="row" style="top: 48px;">
+							                <div class="label">${lineColD.sseatCol }</div>
+							                <div class="seat_group">
+							                    <div class="group">
+							                        <c:set var="leftPosition" value="30"/>
+							                        <c:forEach var="lineRowD" items="${screenSeat}">
+							                            <c:if test="${lineRowD.sseatCol eq 'D'}">
+							                                <div class="seat" style="left: ${leftPosition}px;">
+							                                    <a href="#" onclick="return false;">
+							                                        <span class="no">${lineRowD.sseatRow}</span>
+							                                        <span class="sreader">${lineRowD.sseatType}</span>
+							                                        <span class="sreader mod"></span>
+							                                    </a>
+							                                </div>
+							                                <c:set var="leftPosition" value="${leftPosition + 16}" />
+							                            </c:if>
+							                        </c:forEach>
+							                    </div>
+							                </div>
+							            </div>
+							        </c:when>
+							    </c:choose>
+							</c:forEach>
+							
+							<c:forEach var="lineColE" items="${screenSeat }" varStatus="loop">
+							    <c:choose>
+							        <c:when test="${loop.index == 51 && lineColE.sseatCol eq 'E'}">
+							            <div class="row" style="top: 64px;">
+							                <div class="label">${lineColE.sseatCol }</div>
+							                <div class="seat_group">
+							                    <div class="group">
+							                        <c:set var="leftPosition" value="30"/>
+							                        <c:forEach var="lineRowE" items="${screenSeat}">
+							                            <c:if test="${lineRowE.sseatCol eq 'E'}">
+							                                <div class="seat" style="left: ${leftPosition}px;">
+							                                    <a href="#" onclick="return false;">
+							                                        <span class="no">${lineRowE.sseatRow}</span>
+							                                        <span class="sreader">${lineRowE.sseatType}</span>
+							                                        <span class="sreader mod"></span>
+							                                    </a>
+							                                </div>
+							                                <c:set var="leftPosition" value="${leftPosition + 16}" />
+							                            </c:if>
+							                        </c:forEach>
+							                    </div>
+							                </div>
+							            </div>
+							        </c:when>
+							    </c:choose>
+							</c:forEach>
+							
+							<c:forEach var="lineColF" items="${screenSeat }" varStatus="loop">
+							    <c:choose>
+							        <c:when test="${loop.index == 66 && lineColF.sseatCol eq 'F'}">
+							            <div class="row" style="top: 80px;">
+							                <div class="label">${lineColF.sseatCol }</div>
+							                <div class="seat_group">
+							                    <div class="group">
+							                        <c:set var="leftPosition" value="30"/>
+							                        <c:forEach var="lineRowF" items="${screenSeat}">
+							                            <c:if test="${lineRowF.sseatCol eq 'F'}">
+							                                <div class="seat" style="left: ${leftPosition}px;">
+							                                    <a href="#" onclick="return false;">
+							                                        <span class="no">${lineRowF.sseatRow}</span>
+							                                        <span class="sreader">${lineRowF.sseatType}</span>
+							                                        <span class="sreader mod"></span>
+							                                    </a>
+							                                </div>
+							                                <c:set var="leftPosition" value="${leftPosition + 16}" />
+							                            </c:if>
+							                        </c:forEach>
+							                    </div>
+							                </div>
+							            </div>
+							        </c:when>
+							    </c:choose>
+							</c:forEach>
+							
+							<c:forEach var="lineColG" items="${screenSeat }" varStatus="loop">
+							    <c:choose>
+							        <c:when test="${loop.index == 81 && lineColG.sseatCol eq 'G'}">
+							            <div class="row" style="top: 96px;">
+							                <div class="label">${lineColG.sseatCol }</div>
+							                <div class="seat_group">
+							                    <div class="group">
+							                        <c:set var="leftPosition" value="30"/>
+							                        <c:forEach var="lineRowG" items="${screenSeat}">
+							                            <c:if test="${lineRowG.sseatCol eq 'G'}">
+							                                <div class="seat" style="left: ${leftPosition}px;">
+							                                    <a href="#" onclick="return false;">
+							                                        <span class="no">${lineRowG.sseatRow}</span>
+							                                        <span class="sreader">${lineRowG.sseatType}</span>
+							                                        <span class="sreader mod"></span>
+							                                    </a>
+							                                </div>
+							                                <c:set var="leftPosition" value="${leftPosition + 16}" />
+							                            </c:if>
+							                        </c:forEach>
+							                    </div>
+							                </div>
+							            </div>
+							        </c:when>
+							    </c:choose>
+							</c:forEach>
+							
+							<c:forEach var="lineColH" items="${screenSeat }" varStatus="loop">
+							    <c:choose>
+							        <c:when test="${loop.index == 96 && lineColH.sseatCol eq 'H'}">
+							            <div class="row" style="top: 112px;">
+							                <div class="label">${lineColH.sseatCol }</div>
+							                <div class="seat_group">
+							                    <div class="group">
+							                        <c:set var="leftPosition" value="30"/>
+							                        <c:forEach var="lineRowH" items="${screenSeat}">
+							                            <c:if test="${lineRowH.sseatCol eq 'H'}">
+							                                <div class="seat" style="left: ${leftPosition}px;">
+							                                    <a href="#" onclick="return false;">
+							                                        <span class="no">${lineRowH.sseatRow}</span>
+							                                        <span class="sreader">${lineRowH.sseatType}</span>
+							                                        <span class="sreader mod"></span>
+							                                    </a>
+							                                </div>
+							                                <c:set var="leftPosition" value="${leftPosition + 16}" />
+							                            </c:if>
+							                        </c:forEach>
+							                    </div>
+							                </div>
+							            </div>
+							        </c:when>
+							    </c:choose>
+							</c:forEach>
+							
+							<c:forEach var="lineColI" items="${screenSeat }" varStatus="loop">
+							    <c:choose>
+							        <c:when test="${loop.index == 111 && lineColI.sseatCol eq 'I'}">
+							            <div class="row" style="top: 128px;">
+							                <div class="label">${lineColI.sseatCol }</div>
+							                <div class="seat_group">
+							                    <div class="group">
+							                        <c:set var="leftPosition" value="30"/>
+							                        <c:forEach var="lineRowI" items="${screenSeat}">
+							                            <c:if test="${lineRowI.sseatCol eq 'I'}">
+							                                <div class="seat" style="left: ${leftPosition}px;">
+							                                    <a href="#" onclick="return false;">
+							                                        <span class="no">${lineRowI.sseatRow}</span>
+							                                        <span class="sreader">${lineRowI.sseatType}</span>
+							                                        <span class="sreader mod"></span>
+							                                    </a>
+							                                </div>
+							                                <c:set var="leftPosition" value="${leftPosition + 16}" />
+							                            </c:if>
+							                        </c:forEach>
+							                    </div>
+							                </div>
+							            </div>
+							        </c:when>
+							    </c:choose>
+							</c:forEach>
+							
+							<c:forEach var="lineColJ" items="${screenSeat }" varStatus="loop">
+							    <c:choose>
+							        <c:when test="${loop.index == 126 && lineColJ.sseatCol eq 'J'}">
+							            <div class="row" style="top: 144px;">
+							                <div class="label">${lineColJ.sseatCol }</div>
+							                <div class="seat_group">
+							                    <div class="group">
+							                        <c:set var="leftPosition" value="30"/>
+							                        <c:forEach var="lineRowJ" items="${screenSeat}">
+							                            <c:if test="${lineRowJ.sseatCol eq 'J'}">
+							                                <div class="seat" style="left: ${leftPosition}px;">
+							                                    <a href="#" onclick="return false;">
+							                                        <span class="no">${lineRowJ.sseatRow}</span>
+							                                        <span class="sreader">${lineRowJ.sseatType}</span>
+							                                        <span class="sreader mod"></span>
+							                                    </a>
+							                                </div>
+							                                <c:set var="leftPosition" value="${leftPosition + 16}" />
+							                            </c:if>
+							                        </c:forEach>
+							                    </div>
+							                </div>
+							            </div>
+							        </c:when>
+							    </c:choose>
+							</c:forEach>
+							
+							<c:forEach var="lineColK" items="${screenSeat }" varStatus="loop">
+							    <c:choose>
+							        <c:when test="${loop.index == 141 && lineColK.sseatCol eq 'K'}">
+							            <div class="row" style="top: 160px;">
+							                <div class="label">${lineColK.sseatCol }</div>
+							                <div class="seat_group">
+							                    <div class="group">
+							                        <c:set var="leftPosition" value="30"/>
+							                        <c:forEach var="lineRowK" items="${screenSeat}" begin="139" end="144">
+							                            <c:if test="${lineRowK.sseatCol eq 'K'}">
+							                                <div class="seat" style="left: ${leftPosition}px;">
+							                                    <a href="#" onclick="return false;">
+							                                        <span class="no">${lineRowK.sseatRow}</span>
+							                                        <span class="sreader">${lineRowK.sseatType}</span>
+							                                        <span class="sreader mod"></span>
+							                                    </a>
+							                                </div>
+							                                <c:set var="leftPosition" value="${leftPosition + 16}" />
+							                            </c:if>
+							                        </c:forEach>
+							                        
+							                        <c:set var="leftPosition" value="190"/>
+							                        <c:forEach var="lineRowK" items="${screenSeat}" begin="145" end="149">
+							                            <c:if test="${lineRowK.sseatCol eq 'K'}">
+							                                <div class="seat" style="left: ${leftPosition}px;">
+							                                    <a href="#" onclick="return false;">
+							                                        <span class="no">${lineRowK.sseatRow}</span>
+							                                        <span class="sreader">${lineRowK.sseatType}</span>
+							                                        <span class="sreader mod"></span>
+							                                    </a>
+							                                </div>
+							                                <c:set var="leftPosition" value="${leftPosition + 16}" />
+							                            </c:if>
+							                        </c:forEach>
+							                    </div>
+							                </div>
+							            </div>
+							        </c:when>
+							    </c:choose>
+							</c:forEach>
+							
+							<c:forEach var="lineColL" items="${screenSeat }" varStatus="loop">
+							    <c:choose>
+							        <c:when test="${loop.index == 152 && lineColL.sseatCol eq 'L'}">
+							            <div class="row" style="top: 176px;">
+							                <div class="label">${lineColL.sseatCol }</div>
+							                <div class="seat_group">
+							                    <div class="group">
+							                        <c:set var="leftPosition" value="30"/>
+							                        <c:forEach var="lineRowL" items="${screenSeat}" begin="149" end="154">
+							                            <c:if test="${lineRowL.sseatCol eq 'L'}">
+							                                <div class="seat" style="left: ${leftPosition}px;">
+							                                    <a href="#" onclick="return false;">
+							                                        <span class="no">${lineRowL.sseatRow}</span>
+							                                        <span class="sreader">${lineRowL.sseatType}</span>
+							                                        <span class="sreader mod"></span>
+							                                    </a>
+							                                </div>
+							                                <c:set var="leftPosition" value="${leftPosition + 16}" />
+							                            </c:if>
+							                        </c:forEach>
+							                        
+							                        <c:set var="leftPosition" value="206"/>
+							                        <c:forEach var="lineRowL" items="${screenSeat}" begin="155" end="159">
+							                            <c:if test="${lineRowL.sseatCol eq 'L'}">
+							                                <div class="seat" style="left: ${leftPosition}px;">
+							                                    <a href="#" onclick="return false;">
+							                                        <span class="no">${lineRowL.sseatRow}</span>
+							                                        <span class="sreader">${lineRowL.sseatType}</span>
+							                                        <span class="sreader mod"></span>
+							                                    </a>
+							                                </div>
+							                                <c:set var="leftPosition" value="${leftPosition + 16}" />
+							                            </c:if>
+							                        </c:forEach>
+							                    </div>
+							                </div>
+							            </div>
+							        </c:when>
+							    </c:choose>
+							</c:forEach>
+							</c:if>
 						</div>
 					</div>
 					<div class="legend" style="width: 125px;">
@@ -1454,5 +748,6 @@
 						</div>
 	</div>
 	<%@ include file="../include/footer/userFooter.jsp"%>
+<script src="<%=request.getContextPath() %>/resources/js/ticketSeat_event.js"></script>
 </body>
 </html>
