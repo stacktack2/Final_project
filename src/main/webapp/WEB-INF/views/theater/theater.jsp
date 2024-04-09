@@ -70,7 +70,11 @@
 										<c:forEach var="screenVO" items="${screenHallVO.screenVO }">
 											<div style="width: 140px; height: 50px; text-align: center;"
 												class="d-inline-block border border-grey">
-												<a href="#"> <b>${screenVO.sstartTime }~${screenVO.sendTime }</b><br> <span>남은 좌석 : ${screenVO.shallSeat - screenVO.fillSeat }</span>
+												<a href="javascript:void(0);" onclick="callFunction('${cinemaVO.cno }','${screenHallVO.shallno }',
+												'${screenVO.sstartTime }','${cinemaVO.cposter }','${cinemaVO.cname }','${cinemaVO.cwatchGradeNm }',
+												'${screenHallVO.shallType }','${screenHallVO.shallLocation }','${screenVO.sday }');"> 
+												<b>${screenVO.sstartTime }~${screenVO.sendTime }</b><br> 
+												<span>남은 좌석 : ${screenVO.shallSeat - screenVO.fillSeat }</span>
 												</a>
 											</div>
 										</c:forEach>
@@ -82,7 +86,20 @@
 
 						</c:forEach>
 
-
+						<form name="ticket" action="<%=request.getContextPath()%>/ticket/ticketSeat" method="post">
+							<input type="hidden" name="tno" value="${theaterVO.tno }">
+							<input type="hidden" name="tname" value="${theaterVO.tname }">
+							<input type="hidden" name="sday" id="ticketSday">
+							<input type="hidden" name="cno" id="ticketCno">
+							<input type="hidden" name="shallno" id="ticketShallno">
+							<input type="hidden" name="sstartTime" id="ticketSstartTime">
+							<input type="hidden" name="cposter" id="ticketCposter">
+							<input type="hidden" name="cname" id="ticketCname">
+							<input type="hidden" name="cwatchGradeNm" id="ticketCwatchGradeNm">
+							<input type="hidden" name="shallType" id="ticketShallType">
+							<input type="hidden" name="shallLocation" id="ticketShallLocation">
+							<input type="hidden" name="inputDateDay" id="ticketInputDateDay">
+						</form>
 
 					</div>
 				</div>
@@ -101,7 +118,7 @@
 	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 	<script src="<%=request.getContextPath()%>/resources/js/theater.js"></script>
 	<script>
-	var attendday = <%=request.getParameter("attendday")%>;
+		var attendday = <%=request.getParameter("attendday")%>;
 		$(function() { 
 			if(attendday == null || attendday == undefined || attendday == ""){
 				let today = new Date();
@@ -118,6 +135,23 @@
 			
 		});
 		document.getElementById("attendday").value = attendday;
+		
+		function callFunction(cno,shallno,sstartTime,cposter,cname,cwatchGradeNm,shallType,shallLocation,sday){
+			document.getElementById("ticketInputDateDay").value = document.getElementById("attendday").value;
+			
+			document.getElementById("ticketCno").value = cno;
+			document.getElementById("ticketShallno").value = shallno;
+			document.getElementById("ticketSstartTime").value = sstartTime;
+			document.getElementById("ticketCposter").value = cposter;
+			document.getElementById("ticketCname").value = cname;
+			document.getElementById("ticketCwatchGradeNm").value = cwatchGradeNm;
+			document.getElementById("ticketShallType").value = shallType;
+			document.getElementById("ticketShallLocation").value = shallLocation;
+			document.getElementById("ticketShallLocation").value = shallLocation;
+			document.getElementById("ticketSday").value = sday;
+			
+			document.forms['ticket'].submit();
+		}
 		
 	</script>
 	
