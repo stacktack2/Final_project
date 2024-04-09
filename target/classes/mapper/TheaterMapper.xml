@@ -10,6 +10,16 @@
 		select * from screen sc where sday = #{sday} and sc.shallno in (select shallno from screenhall where tno = #{tno}) order by sstartTime
 	</select>
 	
+	<select id="selectShallSeatofSno" parameterType="int" resultType="String">
+		select shallSeat from screenhall sh where sh.shallno = (select shallno from screen sc where sno = #{sno});
+	</select>
+	
+	<select id="selectfillSeatofSno" parameterType="int" resultType="int">
+		select count(td.ticketno) from ticketdetail td inner join ticket tk on td.ticketno = tk.ticketno 
+		where td.sno = (select sno from screen sc where sno = #{sno}) and tk.ticketDelyn = 1;
+	</select>
+	
+	
 	<select id="selectCinemaofCno" parameterType="int" resultType="CinemaVO">
 		select * from cinema where cno = #{cno}
 	</select>

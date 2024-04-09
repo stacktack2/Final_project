@@ -34,4 +34,13 @@ public class TheaterDAO {
 		public ScreenHallVO selectScreenHallofShallno(int shallno){
 			return sqlSession.selectOne(nameSpace+".selectScreenHallofShallno",shallno);
 		}
+		
+		public String selectShallSeatofSno(int sno){
+			return sqlSession.selectOne(nameSpace+".selectShallSeatofSno",sno);
+		}
+		
+		public int selectfillSeatofSno(int sno){
+			return sqlSession.selectOne(nameSpace+".selectfillSeatofSno",sno);
+		}
+		
 }

@@ -36,7 +36,7 @@
 		ORDER BY s.sno
 	</select>
 	
-	<select id="selectScreenSeat" resultType="ScreenVO">
+	<select id="selectScreenSeat" resultType="ScreenSceetVO" parameterType="screenVO">
 		SELECT *
 		FROM screenseat ss
 		INNER JOIN screenhall sh

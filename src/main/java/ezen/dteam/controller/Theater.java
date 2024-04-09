@@ -58,6 +58,12 @@ public class Theater {
 		List<ScreenVO> screenList = theaterDAO.selectScreenofTnoSday(new TheaterVO(tno, attendday));
 		
 		for(ScreenVO screenVO : screenList) {
+			int screenSno = screenVO.getSno();
+			
+			screenVO.setShallSeat(theaterDAO.selectShallSeatofSno(screenSno));
+			screenVO.setFillSeat(theaterDAO.selectfillSeatofSno(screenSno));
+			
+			
 			int screenCno = screenVO.getCno();
 			int screenShallno = screenVO.getShallno();
 			
@@ -110,6 +116,12 @@ public class Theater {
 			
 		}
 		
+		for(CinemaVO cinemaVOvar4 : cinemaVOList) {
+			String CwatchGradeNm = cinemaVOvar4.getCwatchGradeNm();
+			if(CwatchGradeNm == null || (CwatchGradeNm != null && CwatchGradeNm.equals(""))){
+				cinemaVOvar4.setCwatchGradeNm("전체관람가");
+			}
+		}
 		
 		
 		model.addAttribute("cinemaVOList",cinemaVOList);
