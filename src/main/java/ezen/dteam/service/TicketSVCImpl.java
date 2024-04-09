@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import ezen.dteam.dao.TicketDAO;
 import ezen.dteam.vo.CinemaVO;
 import ezen.dteam.vo.ScreenHallVO;
+import ezen.dteam.vo.ScreenSeatVO;
+import ezen.dteam.vo.ScreenVO;
 import ezen.dteam.vo.TheaterVO;
 
 @Service
@@ -32,11 +34,18 @@ public class TicketSVCImpl implements TicketSVC{
 	}
 
 	@Override
-	public List<ScreenHallVO> selectScreenHall(String theaterNm) {
-		return ticketDAO.selectScreenHall(theaterNm);
+	public List<ScreenHallVO> selectScreenHall(int tno) {
+		return ticketDAO.selectScreenHall(tno);
 	}
-	
-	
-	
+
+	@Override
+	public List<ScreenVO> selectScreen(ScreenVO screenVO) {
+		return ticketDAO.selectScreen(screenVO);
+	}
+
+	@Override
+	public List<ScreenSeatVO> selectScreenSeat(ScreenSeatVO ticketInfo) {
+		return ticketDAO.selectScreenSeat(ticketInfo);
+	}
 	
 }

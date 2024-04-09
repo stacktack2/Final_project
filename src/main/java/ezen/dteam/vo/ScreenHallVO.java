@@ -1,12 +1,32 @@
 package ezen.dteam.vo;
 
+import java.util.List;
+
 public class ScreenHallVO {
 	private int shallno;
 	private String shallType;
 	private String shallLocation;
 	private String shallSeat;
 	private int tno;
+	private List<ScreenVO> screenVO;
 	
+	
+	
+	
+	
+	public ScreenHallVO(List<ScreenVO> screenVO) {
+		super();
+		this.screenVO = screenVO;
+	}
+	public ScreenHallVO() {
+		super();
+	}
+	public List<ScreenVO> getScreenVO() {
+		return screenVO;
+	}
+	public void setScreenVO(List<ScreenVO> screenVO) {
+		this.screenVO = screenVO;
+	}
 	public final int getShallno() {
 		return shallno;
 	}

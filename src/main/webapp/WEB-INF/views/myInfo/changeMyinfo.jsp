@@ -7,10 +7,145 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <title>내 정보 변경 | 영화속으로 Dflix</title>
-    <%@ include file="../include/header/myinfoHeader.jsp" %>
-  </head>
+    <title>내 정보 변경 </title>
+
+    <script src="<%=request.getContextPath() %>/resources/jquery/jquery.min.js"></script>
+    <style>
+    	.col-md-6{margin: 0 auto;}
+    	form span{display:block;}
+    	from lable.form-label{
+			color:gray !important;
+		}
+		form h3{padding:20px 0; color:#444; }
+    </style>
+    <script>
+		//이름
+		let inputNm = document.getElementById("mname");
+	   	if(inputNm == "" ||inputNm == null ){
+	   		name_check = true;
+	   	}
+		function checkName(obj){
+			let regId = /^[가-힣]{2,8}$/;
+			let regRs = regId.test(obj.value); 
+			let mnameSpan = document.getElementById("mnameSpan"); 
+			if(obj.value == "" || obj.value === null || obj.value === undefined){
+				name_check = true;
+			}else if(regRs){
+				mnameSpan.innerHTML = '사용가능합니다.';
+				mnameSpan.style.color = 'green';
+				name_check = true;
+			}else{
+				mnameSpan.innerHTML = '2글자 ~ 8글자의 한글만 사용가능합니다.';
+				mnameSpan.style.color = 'red';
+				name_check = false;
+			}
+		}
+    	//비밀번호
+    	let inputPw = document.getElementById("mpw");
+    	if(inputPw == "" ||inputPw == null){
+    		pw_check = true;
+    	}
+    	function checkPw(obj){
+    		let regId = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^&*]{8,}$/g;
+    		let regRs = regId.test(obj.value); 
+    		let mpwSpan = document.getElementById("mpwSpan");
+    		
+    		if(obj.value == "" || obj.value == null || obj.value == undefined){
+    			pw_check = true;
+    		}else if(!regRs){
+    			mpwSpan.innerHTML ='비밀번호는 8자 이상 영문 소문자, 영문 대문자, 숫자, 특수문자를 사용해야합니다.<br>특수문자는 !,@,#,$,%,^,&,* 만 가능합니다.';
+    			mpwSpan.style.color = 'red';
+    			pw_check = false;
+    		}else{
+    			mpwSpan.innerHTML = '사용가능합니다.';
+    			mpwSpan.style.color = 'green';
+    			pw_check = true;
+    		}
+    	}
+    	//비밀번호 확인
+    	let inputPwRe = document.getElementById("mpwRe");
+    	if(inputPwRe == "" ||inputPwRe == null){
+    		pwRe_check = true;
+    	}
+    	function checkPwRe(){
+    		let confirmPw = inputPw == inputPwRe;
+    		let mpwReSpan = document.getElementById("mpwReSpan"); 
+    		if(inputPwRe == "" || inputPwRe == null || inputPwRe == undefined){
+    			pwRe_check = true;
+    		}else if(confirmPw){
+    			mpwReSpan.innerHTML = '비밀번호가 같습니다.';
+    			mpwReSpan.style.color = 'green';
+    			pwRe_check = true;
+    		}else if(!confirmPw){
+    			mpwReSpan.innerHTML = '비밀번호가 같지 않습니다.';
+    			mpwReSpan.style.color = 'red';
+    			pwRe_check = false;
+    		}else{
+    			return !confirmPw;
+    		}
+    	}
+    	//생년월일
+    	let inputBirth = document.getElementById("mbirth");
+    	if(inputBirth == "" ||inputBirth == null){
+    		birth_check = true;
+    	}
+    	function checkBirth(obj){
+    		let regId = /^(19|20)\d\d(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01])$/;
+    		let regRs = regId.test(obj.value); 
+    		let mbirthSpan = document.getElementById("mbirthSpan"); 
+    		if(inputBirth == "" || inputBirth === null || inputBirth === undefined){
+    			birth_check =  true;
+    		}else if(regRs){
+    			mbirthSpan.innerHTML = '사용가능합니다.';
+    			mbirthSpan.style.color = 'green';
+    			birth_check = true;
+
+    		}else{
+    			mbirthSpan.innerHTML = '생년월일 8자리를 숫자로 입력해주세요.';
+    			mbirthSpan.style.color = 'red';
+    			birth_check = false;
+    		}
+    	}
+    	//휴대폰번호
+    	let inputPhone = document.getElementById("mphone");
+    	if(inputPhone == "" ||inputPhone == null){
+    		phone_check = true;
+    	}
+    	function checkPhone(obj){
+    		let regId = /^\d{10,11}/g;
+    		let regRs = regId.test(obj.value); 
+    		let mphoneSpan = document.getElementById("mphoneSpan"); 
+    		if(inputPhone == "" || inputPhone === null || inputPhone === undefined){
+    			phone_check = true;
+    		}else if(regRs){
+    			mphoneSpan.innerHTML = '사용가능합니다.';
+    			mphoneSpan.style.color = 'green';
+    			phone_check = true;
+    		}else{
+    			mphoneSpan.innerHTML = '10~11자리 숫자를 입력해주세요.';
+    			mphoneSpan.style.color = 'red';
+    			phone_check = false;
+    		}
+    	}
+    	
+      	function validation(){
+           	let pw_check = false;
+           	let pwRe_check = false;
+           	let name_check = false;
+           	let birth_check = false;
+           	let phone_check = false;
+           	let gender_check = false;
+           	let email_check = false;
+
+           	if(pw_check && pwRe_check && name_check && 
+       				birth_check && phone_check && gender_check && email_check){
+       					document.frm.submit();
+       		}
+       	}	
+</script>  
+</head>
 <body>
+<%@ include file="../include/header/myinfoHeader.jsp" %>
 <%@ include file="../include/nav/userNav.jsp" %>
 
 <!-- body -->
@@ -18,44 +153,13 @@
     <div class="myinfo-container">
     	<!-- 프로필 -->
     	<div class="profile">
-    		<div class="profile-img">
-    			<img alt="프로필사진" src="resources/profileImg/nomal.png">
-    		</div>
     		<div class="profile-box">
-    			<strong>이준택님</strong>
-    			<em>cotaek2</em>
-    			<span>
-    				닉네임 : 
-    				<i>닉네임을 설정해주세요.</i>
-    			</span>
+	    		<sec:authorize access="isAuthenticated()">
+				<strong><sec:authentication property="principal.mname"/> 님</strong>
+				<em><sec:authentication property="principal.username"/></em>
+				<br> 
+				</sec:authorize>
     		</div>
-    	<!-- 극장 선택 -->
-    	<div class="favorite-theater">
-   			<ul class="theaters">
-   				<li>
-   					<a href="#">
-   						<span>1<em>순위</em></span>
-   						전주극장
-   					</a>
-   				</li>
-   			</ul>
-   			<ul class="theaters">
-   				<li>
-   					<a href="#">
-   						<span>2<em>순위</em></span>
-   						익산극장
-   					</a>
-   				</li>
-   			</ul>
-   			<ul class="theaters">
-   				<li>
-   					<a href="#">
-   						<span>3<em>순위</em></span>
-   						군산극장
-   					</a>
-   				</li>
-   			</ul>
-    	</div>
     	</div>
     	<!-- 내 정보 내역 -->
     	<div class="myinfo-content">
@@ -63,97 +167,143 @@
     		<div class="myinfo-submenu">
     			<ul>
     				<li>
-    					<a href="myinfo">나의 예매내역</a>
+    					<a href="<%=request.getContextPath() %>/myInfo">나의 예매내역</a>
     				</li>
     			</ul>
     			<ul>
     				<li>
-    					<a href="changeMyinfo">개인정보 변경</a>
+    					<a href="<%=request.getContextPath() %>/myInfo/changeMyinfo">개인정보 변경</a>
     				</li>
     			</ul>
     			<ul>
     				<li>
-    					<a href="withdrawal">회원탈퇴</a>
+    					<a href="<%=request.getContextPath() %>/myInfo/withdrawal">회원탈퇴</a>
     				</li>
     			</ul>
     		</div>
+    		
     		<!-- 본문내용 -->
     		<div class="myinfo-detail">
-    			<div class="changeMyinfo-tit">
-    				<h3>내 정보 변경</h3>
-					<span>이메일 변경 시 이메일 인증 해주시기 바랍니다.</span>
-				</div>
 				<div class="changeMyinfo-box">
-					<form id="formAccountSettings" action="#" method="POST" onsubmit="return false">
-					<div class="changeMyinfo-frm-div">
-						<!-- 아이디 -->
-						<div class="frm-div">
-							<label for="mid" class="frm-label"><span>*</span>아이디</label>
-                            <input class="form-control frm-input" type="text"
-                              		id="mid" name="mid" autofocus/>
-							<button type="button" class="btn btn-sm btn-outline-primary">중복확인</button>
-						</div>
-                        
-                        <!-- 이름 -->  
-						<div class="frm-div">
-							<label for="mname" class="frm-label"><span>*</span>이름</label>
-							<input class="form-control frm-input" type="text" 
-									id="mname" name="mname"/>
-						</div>
-                        
-                        <!-- 비밀번호 -->  
-						<div class="frm-div">
-							<label for="password" class="frm-label"><span>*</span>비밀번호</label>
-							<input class="form-control frm-input" type="password"  
-									id="password" name="password"/>
-						</div>
-						
-						<!-- 비밀번호 변경 -->
-						<div class="frm-div">
-							<label for="passwordRe" class="frm-label"><span>*</span>비밀번호 확인</label>
-							<input class="form-control frm-input" type="password"
-									id="passwordRe" name="passwordRe"/>
-						</div>
-                        
-                        <!-- 닉네임 -->  
-						<div class="frm-div">
-                            <label for="mnicknm" class="frm-label"><span>*</span>닉네임</label>
-                            <input class="form-control frm-input" type="text" 
-                            		id="mnicknm" name="mnicknm"/>
-                            <button type="button" class="btn btn-sm btn-outline-primary">중복확인</button>
-						</div>
-						
-						<!-- email -->
-						<div class="frm-div">
-							<label for="email" class="frm-label"><span>*</span>E-mail</label>
-							<input class="form-control frm-input" type="email"
-									id="email" name="email"/>
-                            <button type="button" class="btn btn-sm btn-outline-primary">중복확인</button>
-						</div>
-                          
-						<!-- 휴대폰번호 -->
-						<div class="frm-div">
-							<label for="mphone" class="frm-label"><span>*</span>휴대폰번호</label>
-							<input class="form-control frm-input" type="text" id="mphone" name="mphone"/>
-						</div>
-                        
-                        <!-- 성별 -->  
-						<div class="frm-div">
-							<label for="gender" class="frm-label"><span>*</span>성별</label>
-							<select id="gender" class="select2 form-select frm-select">
-								<option value="">선택</option>
-								<option value="M">남</option>
-								<option value="F">여</option>
-							</select>
-						</div>
+				   <div class="card-body">
+	    			
+					<form id="formAccountSettings" name="frm" class="changeInfoFrom" action="changeMyinfo" method="POST" onsubmit="return validation();">
+                        <h3>내정보 변경</h3>
+                        <div class="row">
 
-                        <!-- 개인정보 변경 버튼 -->
-                        <div class="mt-2">
-                          <button type="submit" class="btn btn-primary me-2">변경</button>
-                          <button type="reset" class="btn btn-outline-secondary">취소</button>
+                          <div class="mb-3 col-md-8">
+                            <label for="mname" class="form-label  block fw-semibold">이름</label>
+                            <input 
+                            	class="form-control" 
+                            	type="text" 
+                            	name="mname" 
+                            	id="mname"
+                           		oninput="checkName(this);" 
+                           			 
+                           />
+                           <span id="mnameSpan"></span>
+                          </div>
+                          
+                          <div class="mb-3 col-md-8">
+                            <label for="mpw" class="form-label block fw-semibold">비밀번호</label>
+                            <input
+                              type="password"
+                              class="form-control"
+                              id="mpw"
+                              name="mpw"
+                              oninput="checkPw(this);checkPwRe();"
+                            />
+                            <span id="mpwSpan"></span>
+                          </div>
+                          <div class="mb-3 col-md-8">
+                            <label for="mpwRe" class="form-label block fw-semibold">비밀번호 확인</label>
+                            <input
+                              type="password"
+                              class="form-control"
+                              id="mpwRe"
+                              name="mpwRe"
+                              oninput="checkPwRe();"
+                            />
+                            <span id="mpwReSpan"></span>
+                          </div>
+                          
+                          <div class="mb-3 col-md-8">
+                            <label for="memail" class="form-label block fw-semibold">E-mail</label>
+                            <input
+                              class="form-control reinput"
+                              type="email"
+                              id="memail"
+                              name="memail"
+                              oninput="checkEmail(this);"
+                              
+                            />
+                            <span id="memailSpan"></span>
+                          </div>
+                          
+                          <div class="mb-3 col-md-8">
+                            <label class="form-label block fw-semibold" for="mphone">휴대폰번호</label>
+                            <div class="input-group input-group-merge">
+                              <input
+                                type="text"
+                                id="mphone"
+                                name="mphone"
+                                class="form-control"
+                                oninput="checkPhone(this);"
+                               
+                              />
+                            </div>
+                            <span id="mphoneSpan"></span>
+                          </div>
+                          
+                          <div class="mb-3 col-md-8">
+                            <label class="form-label block fw-semibold" for="mbirth">생년월일</label>
+                            <div class="input-group input-group-merge">
+                              <input
+                                type="text"
+                                id="mbirth"
+                                name="mbirth"
+                                class="form-control"
+                                placeholder="8글자로 쓰세요"
+                                oninput="checkBirth(this);"
+                                
+                              />
+                            </div>
+                            <span id="mbirthSpan"></span>
+                          </div>
+                       
+                        <div class="mb-3 col-md-8">
+                          <small class="fw-semibold d-block">성별</small>
+                          <div class="form-check form-check-inline mt-3">
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="mgender"
+                              id="mgender_m"
+                              value="m"
+                              onclick="checkGender(this)"
+                            />
+                            <label class="form-check-label" for="mgender_m">남</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="radio"
+                              name="mgender"
+                              id="mgender_f"
+                              value="f"
+                              onclick="checkGender(this)"
+                            />
+                            <label class="form-check-label" for="mgender_f">여</label>
+                          </div>
+                          <span id="mgenderSpan"></span>
                         </div>
-					</div>
-					</form>
+                        
+                        <div class="mt-2">
+                          <button type="submit" class="btn btn-primary me-2">수정하기</button>
+                        </div>
+                       	</div>
+                      </form>
+                      </div>
 				</div>
     		</div>
     	</div>
@@ -167,16 +317,5 @@
       </div>
     </div>
   </footer>
-
-  <!-- Scripts -->
-  <!-- Bootstrap core JavaScript -->
-  <script src="resources/jquery/jquery.min.js"></script>
-  <script src="resources/bootstrap/js/bootstrap.min.js"></script>
-  <script src="resources/js/isotope.min.js"></script>
-  <script src="resources/js/owl-carousel.js"></script>
-  <script src="resources/js/counter.js"></script>
-  <script src="resources/js/custom.js"></script>
-
-
   </body>
 </html>

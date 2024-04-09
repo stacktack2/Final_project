@@ -13,7 +13,7 @@ BEGIN
           
 	-- 문의사항  
 		INSERT INTO board(btitle,bcontent,btype,mno)
-          VALUES(concat('문의사항제목입니다.',i),concat('문의사항내용입니다.',i),'공지',i);
+          VALUES(concat('문의사항제목입니다.',i),concat('문의사항내용입니다.',i),'문의',i);
     
     
      SET i = i + 1;

@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -9,38 +10,39 @@
 
     <title>영화 상세보기</title>
 
-    <!-- Bootstrap core CSS -->
     <link href="<%=request.getContextPath() %>/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Additional CSS Files -->
     <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/fontawesome.css">
     <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/templatemo-villa-agency.css">
     <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/owl.css">
     <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/animate.css">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-    
+    <script src="<%=request.getContextPath() %>/resources/jquery/jquery.min.js"></script>
+    <style>
+    	.saveBtn{margin-left:90%;}
+    	.btn-danger{
+    		background-color:#f35525 !important; border: 1px solid #f35525 !important;
+    		margin-top:10px;
+    	}
+    </style>
+
   </head>
 <body>
   <%@ include file="../include/nav/userNav.jsp" %>
-  <hr style="color:#ccc;">
 
 <!-- 상세보기 -->
   <div class="single-property section">
     <div class="container">
       <div class="row">
           <div class="col-lg-6 main-image detailimg">
-            <img src="<%=request.getContextPath() %>/resources/images/dune_p2.jpg" alt="듄2포스터">
+            <img src="${movieDetail.cposter }" alt="${movieDetail.cname }">
           </div>
           <div class="col-lg-6 main-content">
-            <span class="category age">12세</span>
-            <h4 class="moviename">듄: 파트2</h4>
-            <p class="movieinfo"><b>2024.02.28 개봉 </b>| <b>165분</b> | <b>12세이상관람가</b> | <b>8,657명</b></p>
+            <span class="category age">${movieDetail.cwatchGradeNm }</span>
+            <h4 class="moviename">${movieDetail.cname }</h4>
+            <p class="movieinfo"><b>${movieDetail.copenDate } 개봉 </b>| <b>${movieDetail.cshowTime }분</b> | <b>누적관객수</b></p>
             <br>
-            <p>황제의 모략으로 멸문한 가문의 유일한 후계자 폴.(티모시 샬라메)
-			어머니 레이디 제시카(레베카 퍼거슨)와 간신히 목숨만 부지한 채 사막으로 도망친다.<br>
-			그곳에서 만난 반란군들과 숨어 지내다 그들과 함께 황제의 모든 것을 파괴할 전투를 준비한다.<br>
-			한편 반란군들의 기세가 높아질수록 불안해진 황제와 귀족 가문은 잔혹한 암살자 페이드 로타(오스틴 버틀러)를 보내 반란군을 몰살하려 하는데
-			<br><br><strong>2월, 운명의 반격이 시작된다!</strong></p><br>
+            <p>${movieDetail.cintro}</p><br>
 			<div class="icon-button">
                <a href="#"><i class="fa fa-calendar"></i>예매하기</a>
             </div>
@@ -58,9 +60,9 @@
               <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
 	                <ul>
-	                	<li> 장르: 액션 / 미국</li>
-	                	<li>감독: 드니 빌뇌브</li>
-	                	<li>출연: 티모시 샬라메, 젠데이아, 레베카 퍼거슨, 조슈 브롤린, 오스틴 버틀러, 플로렌스 퓨, 데이브 바티스타</li>
+	                	<li>장르: ${movieDetail.cgenreNm}</li>
+	                	<li>감독: ${movieDetail.cdirectorNm}</li>
+	                	<li>출연: ${movieDetail.cactorNm}</li>
 	                </ul>
                 </div>
               </div>
@@ -97,11 +99,96 @@
   </div>
 
 <!-- 댓글 -->
-  <div class="section best-deal">
-
-
+<div class="container">
+      <div class="card my-4">
+      	<h5 class="card-header">댓글</h5>
+		  <div class="card-body">
+		  	<!-- 댓글 작성창: 로그인한 유저만 보이게 -->
+		  	<sec:authorize access="isAuthenticated()">
+			  	<form action="replyWrite" method="post" name="replyAdd">
+			  		<div class="form-group">
+			  			<input type="text" class="form-control" name="ccmtContent" id="ccmtContent">
+			  		</div>
+			  		<input type="hidden" name="cno" value="${movieDetail.cno}">
+			  		<input type="hidden" name="mno" value="<sec:authorize access="isAuthenticated()"><sec:authentication property="principal.mno"/></sec:authorize>">
+			  		<button type="submit" class="btn btn-danger saveBtn" onclick="replyWriteFn()">댓글 작성</button>
+			  	</form>
+		  	</sec:authorize>
+		  	<div class="card my-4">
+			  	<!-- 댓글 목록 -->
+			  	<h5 class="card-header">댓글 목록</h5>
+			  	<div class="card-body">
+				  	<ul class=" row navbar navbar-example navbar-expand-lg bg-light mb-3 list-group">
+						<c:forEach var="item" items="${replyList}">
+							<li class="list-group-item">
+								<!-- 댓글 구분가능하도록 댓글내용_댓글번호 부여 -->
+								<b>${item.mnickNm}</b> :<span id="ccmtContent_${item.ccmtno}">${item.ccmtContent}</span>
+								<span>(${item.ccmtRdadte})</span>
+								<sec:authorize access="isAuthenticated()">
+	                               <c:if test="${item.mno eq pageContext.request.userPrincipal.principal.mno}">
+	                               <span>
+	                                  <button class="btn btn-danger btn-sm float-right editBtn" data-ccmtno="${item.ccmtno}">수정</button>
+	                               </span>
+	                               	  <button class="btn btn-danger btn-sm float-right deleteBtn">삭제</button>
+	                               </c:if>
+	                            </sec:authorize>							
+	                         </li>
+						</c:forEach>
+					</ul>
+				</div>
+				<form action="replyDelete" method="post" name="replyDel">
+					<input type="hidden" name="ccmtno" id="ccmtno">
+					<input type="hidden" name="cno" value="${movieDetail.cno}">
+				</form>
+			  </div>
+			</div>
+  	</div>
   </div>
-  
+      <script>
+	    function replyWriteFn() {
+	    	document.getElementById('ccmtContent').value = document.getElementById('ccmtContent').value;
+	    	document.forms['replyAdd'].submit();
+	    }
+	    // 수정 버튼 클릭 시 수정 폼 표시
+    	 $(document).on("click", ".editBtn", function() {
+	        var ccmtno = $(this).data("ccmtno");
+	        var contentSpan = $("#ccmtContent_"+ccmtno);
+	        var currentContent = contentSpan.text().trim();
+	        contentSpan.html('<input type="text" id="editInput_'+ccmtno+'" value="'+currentContent+'">');
+	        //e.stopPropagation();
+	        $(this).parent().html('<button class="btn btn-danger btn-sm float-right confirmEdit" data-ccmtno="'+ccmtno+'">확인 </button>');
+	        $(this).remove();
+	    });
+
+	    // 확인 버튼 클릭 시 수정 내용 서버로 전송
+	    $(document).on("click", ".confirmEdit", function() {
+	        var ccmtno = $(this).data("ccmtno");
+	        var newContent = $("#editInput_"+ccmtno).val();
+	        $.ajax({
+	            url: "replyUpdate",
+	            method: "POST",
+	            data: { ccmtno: ccmtno, ccmtContent: newContent },
+	            success: function(response) {
+	                $("#ccmtContent_"+ccmtno).text(newContent);
+	                var parent = $(".confirmEdit[data-ccmtno="+ccmtno+"]").parent();
+	                $(".confirmEdit[data-ccmtno="+ccmtno+"]").remove();
+	                parent.html('<button class="btn btn-danger btn-sm float-right editBtn" data-ccmtno="'+ccmtno+'">수정</button>');
+	            },
+	            error: function(xhr, status, error) {
+	                console.error("AJAX 요청 중 오류 발생:", error);
+	            }
+	        });
+	    });
+
+	    // 삭제 버튼 클릭 시 서버로 삭제 요청
+	    $(".deleteBtn").click(function() {
+	        var ccmtno = $(this).data("ccmtno");
+	        if (confirm("삭제하시겠습니까?")) {
+	            $("#ccmtno").val(ccmtno);
+	            document.forms['replyDel'].submit();
+	        }
+	    });
+    </script>
   <%@ include file="../include/footer/userFooter.jsp" %>
 
 

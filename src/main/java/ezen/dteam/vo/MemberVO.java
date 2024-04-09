@@ -14,11 +14,10 @@ public class MemberVO {
 	private String mgender;
 	private String authority;
 	private int enabled;
-	
-	//세터를 호출하기위한 기본생성자 필요
+	private int isWithdrawn;
+
 	public MemberVO() {}
 
-	//게터세터
 	public int getMno() {
 		return mno;
 	}
@@ -116,5 +115,12 @@ public class MemberVO {
 		this.enabled = enabled;
 	}
 	
+	public int getIsWithdrawn() {
+		return isWithdrawn;
+	}
+
+	public void setIsWithdrawn(int isWithdrawn) {
+		this.isWithdrawn = isWithdrawn;
+	}
 	
 }

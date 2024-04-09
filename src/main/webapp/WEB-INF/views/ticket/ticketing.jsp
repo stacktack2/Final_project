@@ -11,6 +11,7 @@
     <title>예매 | 영화속으로 Dflix</title>
     <!-- CSS -->
     <%@ include file="../include/header/ticketingHeader.jsp" %>
+    <script src="<%=request.getContextPath() %>/resources/js/ticketing_submit.js"></script>
   </head>
 <body>
 <%@ include file="../include/nav/userNav.jsp" %>
@@ -48,7 +49,7 @@
 							<ul class="movie-list-ul">
 								<c:forEach items="${movie }" var="movie">
 								<li class="">
-									<a href="" onclick="return false;" title="${moive.cname }">
+									<a href="javascript:selCno(${movie.cno})" title="${moive.cname }">
 										<i class="movieAge">${movie.cwatchGradeNm }</i>
 										<span class="text">${movie.cname }</span>
 										<span class="sreader" style="hidden">${movie.ccode }</span>
@@ -73,7 +74,7 @@
 							<ul class="theater-list-ul">
 								<c:forEach items="${theater }" var="theater">
 								<li class="">
-									<a href="#" onclick="return false;" title="${theater.tname }">
+									<a href="javascript:selTno(${theater.tno })" title="${theater.tname }">
 										<span class="text">${theater.tname }</span>
 										<span class="sreader" style="hidden">${theater.tno }</span>
 									</a>
@@ -116,93 +117,31 @@
 						</div>
 						<div class="time-list">
 							<!-- ajax로 상영관이 나타납니다. -->
-							<div class="time-theater">
-							<span class="title">
-								<span class="name">2D</span>
-								<span class="floor">1관</span>
-								<span class="seatcount">(총303석)</span>
-							</span>
-							<ul>
-								<li data-index="0" data-remain_seat="303" play_start_tm="0730" screen_cd="009" movie_cd="20035761" play_num="1" class="morning">
-									<a class="button" href="#" onclick="return false;" title="">
-										<span class="time">
-											<span>07:30</span>
-										</span>
-										<span class="count">165석</span>
-										<span class="sreader mod"> 조조</span>
-									</a>
-								</li>
-								<li data-index="1" data-remain_seat="303" play_start_tm="1045" screen_cd="009" movie_cd="20035761" play_num="2">
-									<a class="button" href="#" onclick="return false;" title="">
-										<span class="time">
-											<span>10:45</span>
-										</span>
-										<span class="count">75석</span>
-										<span class="sreader mod"></span>
-									</a>
-								</li>
-								<li data-index="2" data-remain_seat="303" play_start_tm="1400" screen_cd="009" movie_cd="20035761" play_num="3" class="night">
-									<a class="button" href="#" onclick="return false;">
-										<span class="time">
-											<span>14:00</span>
-										</span>
-										<span class="count">52석</span>
-										<span class="sreader mod"></span>
-									</a>
-								</li>
-								<li data-index="0" data-remain_seat="303" play_start_tm="0730" screen_cd="009" movie_cd="20035761" play_num="1" class="morning">
-									<a class="button" href="#" onclick="return false;" title="">
-										<span class="time">
-											<span>07:30</span>
-										</span>
-										<span class="count">165석</span>
-										<span class="sreader mod"> 조조</span>
-									</a>
-								</li>
-								<li data-index="1" data-remain_seat="303" play_start_tm="1045" screen_cd="009" movie_cd="20035761" play_num="2">
-									<a class="button" href="#" onclick="return false;" title="">
-										<span class="time">
-											<span>10:45</span>
-										</span>
-										<span class="count">75석</span>
-										<span class="sreader mod"></span>
-									</a>
-								</li>
-								<li data-index="2" data-remain_seat="303" play_start_tm="1400" screen_cd="009" movie_cd="20035761" play_num="3" class="night">
-									<a class="button" href="#" onclick="return false;">
-										<span class="time">
-											<span>14:00</span>
-										</span>
-										<span class="count">52석</span>
-										<span class="sreader mod"></span>
-									</a>
-								</li>
-							</ul>
-							</div>
+							<span class="floor">극장을 선택해주시기 바랍니다.</span>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 			<!-- 진행버튼 -->
+			
 			<div id="ticket_tnb" class="tnb_container">
 				<div class="tnb">
+					<form action="ticketSeat" name="frm" method="post">
 					<div class="info movie">
 						<span class="movie_poster">
 						</span>
 						<div class="row movie_title colspan2" style="display: block;">
 							<span class="data letter-spacing-min ellipsis-line2">
-								<a href="http://www.cgv.co.kr/movies/detail-view/?midx=87947" 
-									title="듄-파트2" id="selectionMovieTitle"></a>
+								<a id="selectionMovieTitle" style="margin-left: 10px;"></a>
+								<input type="hidden" name="cno" id="cno">
+								<input type="hidden" name="cposter" id="cposter">
+								<input type="hidden" name="cname" id="cname">
+								<input type="hidden" name="cwatchGradeNm" id="cwatchGradeNm">
 							</span>
-						</div>
-						<!-- 무비타입은 선택값에서 못 받아오기때문에 영화데이터 api에서 받아온 값을 입력. -->
-						<div class="row movie_type" style="display: block;">
-							<span class="data ellipsis-line1" title="4DX 2D">4DX 2D</span>
 						</div>
 						<!-- 무비타입과 동일하게 관람제한나이도 api에서 받아온 값을 입력해야함. -->
 						<div class="row movie_rating" style="display: block;">
-							<span class="data" title="12세 관람가">12세 관람가</span>
 						</div>
 						<div class="placeholder" title="영화선택" style="display: none;"></div>
 					</div>
@@ -210,20 +149,35 @@
 						<div class="row name" style="display: block;">
 							<span class="header">극장</span>
 							<span class="data letter-spacing-min ellipsis-line1">
-								<a title="CGV 구로" id="selectionTheater"></a>
+								<a title="" id="selectionTheater"></a>
+								<input type="hidden" name="tname" id="tname">
+								<input type="hidden" name="tno" id="tno">
 							</span>
 						</div>
 						<div class="row date" style="display: block;">
 							<span class="header">일시</span>
-							<span class="data" title="2024.3.21(목) 12:50"><a>2024.3.21(목)</a> <a>12:50</a></span>
+							<span class="data" title="">
+								<a id="dateDay"></a>
+								<a id="dateTime"></a>
+								<input type="hidden" name="inputDateDay" id="inputDateDay">
+								<input type="hidden" name="sday" id="sday">
+								<input type="hidden" name="sstartTime" id="sstartTime">
+								<input type="hidden" name="sendTime" id="sendTime">
+							</span>
 						</div>
 						<div class="row screen" style="display: block;">
 							<span class="header">상영관</span>
-							<span class="data" title="10관 8층 (Laser)">10관 8층 (Laser)</span>
+							<span class="data" id="selectionLocation">
+								<a id="selShallType"></a>
+								<a id="selShallLocation"></a>
+							</span>
+							<input type="hidden" name="shallno" id="shallno">
+							<input type="hidden" name="shallType" id="shallType">
+							<input type="hidden" name="shallLocation" id="shallLocation">
 						</div>
 						<div class="row number" style="display: block;">
 							<span class="header">인원</span>
-							<span class="data">2명</span>
+							<span class="data"></span>
 						</div>
 						<div class="placeholder" title="극장선택" style="display: none;"></div>
 					</div>
@@ -233,11 +187,11 @@
 						<span class="path-step3" title="결제">&nbsp;</span>
 					</div>
 				</div>
-				<a onclick="seatSelectionButton(); return false;"
-					href="<%=request.getContextPath() %>/ticket/ticketSeat"
+				</form>
+				<button onclick="seatSelBtn();" type="submit"
 					class="btn-right" id="seatSelectionButton">
 					<span>좌석선택</span>
-				</a>
+				</button>
 				</div>
 			</div>
 	</div>

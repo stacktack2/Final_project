@@ -126,7 +126,7 @@
               <li>상영시간: <span>${movieChart.cshowTime }분</span></li>
             </ul>
             <div class="main-button">
-              <a href="<%=request.getContextPath() %>/movie/movieView">상세보기</a>
+              <a href="<%=request.getContextPath() %>/movie/movieView?cno=${movieChart.cno}">상세보기</a>
               <a href="#">예매하기</a>
             </div>
           </div>
@@ -161,7 +161,7 @@
               <li>개봉일: <span>${unopenMovie.copenDate }</span></li>
             </ul>
             <div class="main-button">
-              <a href="<%=request.getContextPath() %>/movie/movieView">상세보기</a>
+              <a href="<%=request.getContextPath() %>/movie/movieView?cno=${unopenMovie.cno}">상세보기</a>
               <a href="#">예매하기</a>
             </div>
           </div>

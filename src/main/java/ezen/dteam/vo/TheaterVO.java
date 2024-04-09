@@ -8,7 +8,21 @@ public class TheaterVO {
 	private String taddr;
 	private String tintro;
 	private String tcall;
+	private String sday;
 	
+	public TheaterVO() {};
+	
+	public TheaterVO(int tno, String sday) {
+		super();
+		this.tno = tno;
+		this.sday = sday;
+	}
+	public String getSday() {
+		return sday;
+	}
+	public void setSday(String sday) {
+		this.sday = sday;
+	}
 	public final int getTno() {
 		return tno;
 	}

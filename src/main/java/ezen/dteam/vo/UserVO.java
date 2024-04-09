@@ -5,28 +5,48 @@ import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 
-public class UserVO extends User{//시큐리티에서 사용할 UserVO클래스 생성, 상위에 User(시큐리티 기존)
-	
-	//User에 없는거 추가적으로 선언
+public class UserVO extends User{
+	private int mno;
 	private String mid;
 	private String mpw;
 	private String mname;
 	private String authority;
+	private String memail;
+	private String mphone;
+	private String mbirth;
+	private String mgender;
+	private int isWithdrawn;
 
-	//슈퍼생성자 호출
+
 	public UserVO(String username, String password, boolean enabled, boolean accountNonExpired,
 			boolean credentialsNonExpired, boolean accountNonLocked,
-			Collection<? extends GrantedAuthority> authorities,String authority, String mname) {//별도로 매개변수 추가
+			Collection<? extends GrantedAuthority> authorities
+			,String authority, String mname, String memail, String mphone, String mbirth, String mgender,int mno, int isWithdrawn) {
 		super(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
 		
-		//security에서 기본적으로 제공하는 것 외에 필요한 유저정보 추가
 		this.mid=username;
 		this.mpw=password;
 		this.authority=authority;
-		this.mname=mname;	
+		this.mname=mname;
+		this.memail=memail;
+		this.mphone=mphone;
+		this.mbirth=mbirth;	
+		this.mgender=mgender;
+		this.mno=mno;
+		this.isWithdrawn=isWithdrawn;
 	}
 
-	//게터세터
+	
+	public int getMno() {
+		return mno;
+	}
+
+
+	public void setMno(int mno) {
+		this.mno = mno;
+	}
+
+
 	public String getMid() {
 		return mid;
 	}
@@ -59,7 +79,53 @@ public class UserVO extends User{//시큐리티에서 사용할 UserVO클래스 생성, 상위에
 		this.authority = authority;
 	}
 	
-	
-	
+
+	public String getMemail() {
+		return memail;
+	}
+
+
+	public void setMemail(String memail) {
+		this.memail = memail;
+	}
+
+
+	public String getMphone() {
+		return mphone;
+	}
+
+
+	public void setMphone(String mphone) {
+		this.mphone = mphone;
+	}
+
+
+	public String getMbirth() {
+		return mbirth;
+	}
+
+
+	public void setMbirth(String mbirth) {
+		this.mbirth = mbirth;
+	}
+
+	public String getMgender() {
+		return mgender;
+	}
+
+
+	public void setMgender(String mgender) {
+		this.mgender = mgender;
+	}
+
+	public int getIsWithdrawn() {
+		return isWithdrawn;
+	}
+
+
+	public void setIsWithdrawn(int isWithdrawn) {
+		this.isWithdrawn = isWithdrawn;
+	}
+
 	
 }

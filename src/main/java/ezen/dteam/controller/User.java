@@ -1,10 +1,9 @@
 package ezen.dteam.controller;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.session.SqlSession;
@@ -40,33 +39,29 @@ public class User {
 		return "user/join";
 	}
 	
-	//아이디 중복확인(ajax)
 	@ResponseBody
 	@RequestMapping(value="/checkId", method=RequestMethod.POST)
 	public String checkId(String id) throws Exception {
 		return Integer.toString(service.checkId(id));
 	}
 	
-	//닉네임 중복확인(ajax)
 	@ResponseBody
 	@RequestMapping(value="/checkNickNm", method=RequestMethod.POST)
 	public String checkNickNm(String nickNm) throws Exception {
 		return Integer.toString(service.checkNickNm(nickNm));
 	}
 	
-	//이메일 중복확인(ajax)
 	@ResponseBody
 	@RequestMapping(value="/checkEmail", method=RequestMethod.POST)
 	public String checkEmail(String email) throws Exception {
 		return Integer.toString(service.checkEmail(email));
 	}
 	
-	//회원가입
 	@RequestMapping(value="/joinOk", method=RequestMethod.POST)
 	public String joinOk(String mid,String mpw, String mname,String authority, String enabled,
 			String mnickNm, String mbirth, String memail,String mgender, String mphone) {
 		
-		//BCrypt 암호화
+
 		BCryptPasswordEncoder epwe = new BCryptPasswordEncoder();
 		
 		Map<String,Object> vo = new HashMap<String,Object>();
@@ -81,8 +76,7 @@ public class User {
 		vo.put("enabled", enabled);		
 		vo.put("authority", authority);
 		
-		//db에 insert
-		int result = sqlSession.insert("ezen.dteam.mapper.userMapper.insert",vo);
+		sqlSession.insert("ezen.dteam.mapper.userMapper.insert",vo);
 		
 		return "redirect:/user/login";
 	}
@@ -94,7 +88,6 @@ public class User {
 		return "user/findId";
 	}
 	
-	//아이디 찾기(ajax)
 	@ResponseBody
 	@RequestMapping(value = "/searchId", method = RequestMethod.POST)
 	public String searchId(MemberVO vo) throws Exception{
@@ -107,23 +100,20 @@ public class User {
 		return "user/findPw";
 	}
 	
-	//비밀번호찾기(ajax)
 	@RequestMapping(value = "/updatePw", method = RequestMethod.POST)
-	public String updatePw(MemberVO vo,HttpServletResponse response) throws Exception{
+	public void sendEmail(MemberVO vo,HttpServletResponse response, HttpServletRequest request) throws Exception{
 
 		//4. 알림발송
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=utf-8");
 		if(service.updatePw(vo)==1) {
-			response.getWriter().println("<script>alert('인증번호가 발송되었습니다'); </script>");
+			response.getWriter().println("<script>alert('인증번호가 발송되었습니다'); location.href='"+request.getContextPath()+"/user/login'; </script>");
 			
 		} else {
-			response.getWriter().println("<script>alert('인증번호 발송에 실패하였습니다.'); </script>");
+			response.getWriter().println("<script>alert('인증번호 발송에 실패하였습니다.'); location.href='"+request.getContextPath()+"/user/login'; </script>");
 		}
 		response.getWriter().flush();
 		
-		//화면 리다이렉트
-		return "redirect:/user/login";
 	}
 	
 	

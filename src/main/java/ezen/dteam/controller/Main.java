@@ -39,16 +39,16 @@ public class Main {
 		
 		model.addAttribute("movieChart", movieChart);
 		
-		movieScheduler.dailyResponse();
-		
 		List<CinemaVO> unopenMovie = mainService.selectUnopen();		
 		model.addAttribute("unopenMovie", unopenMovie);
 		
 		return "index";
 	}
 	
-	@RequestMapping(value = "/test", method = RequestMethod.GET)
+	@RequestMapping(value = "/scheduler", method = RequestMethod.GET)
 	public String test(Model model, HttpServletRequest request, HttpServletResponse response) throws OpenAPIFault, Exception {
+		
+		movieScheduler.dailyResponse();
 		
 		movieScheduler.movieList();
 		

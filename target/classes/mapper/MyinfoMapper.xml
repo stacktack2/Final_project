@@ -3,4 +3,33 @@
 						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ezen.dteam.mapper.myinfoMapper">
 
+
+	<select id="selectMyinfo" parameterType="String" resultType="MemberVO">
+		 SELECT mid, mname, mpw, mnickNm, authority, enabled, mbirth, memail, mgender, mjoinDate, mphone, mno 
+		 FROM Member 
+		 WHERE mid = #{value}
+	</select>
+	<select id="checkEmail" parameterType="String" resultType="int">
+		select count(*) from Member where memail = #{memail}
+	</select>
+
+	<update id="updateMyinfo" parameterType="MemberVO"> 
+		Update member 
+			set mname =#{mname} , mpw = #{mpw}, memail =#{memail},  
+			 mphone = #{mphone} , mbirth = #{mbirth} , mgender = #{mgender} 
+			where mid = #{mid}
+	</update>
+	<update id="deleteMyinfo" parameterType="MemberVO"> 
+		Update Member 
+			set isWithdrawn = 1  
+			where mid = #{mid}
+	</update>
+	<select id="selectMyticket" parameterType="TicketVO" resultType="TicketVO">
+		SELECT * FROM MyTicketView 
+		where mno = #{value} and ticketDelyn = 0; 
+	</select>
+	<select id="selectTicketDetail" resultType="TicketDetailVO">
+		SELECT * FROM TicketDetail;
+	</select>
+	
 </mapper>

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 
 <html lang="ko" class="light-style layout-menu-fixed" dir="ltr"
@@ -36,6 +38,9 @@
 <script src="<%=request.getContextPath()%>/resources/js/helpers.js"></script>
 <script src="<%=request.getContextPath()%>/resources/js/config.js"></script>
 
+
+
+
 </head>
 
 <body>
@@ -59,7 +64,7 @@
 							극장 시간표 관리
 						</h4>
 						
-						날짜 선택: <input type="text" name="attendday" value="${attenddayParam }"/>
+						날짜 선택: <input type="text" name="attendday" id="attendday"/>
 						<div class="row mb-4">
 							
 
@@ -74,49 +79,28 @@
 									<table class="table">
 										<thead>
 											<tr>
-												<th>1관</th>
-												<th>2관</th>
-												<th>3관</th>
 											</tr>
 										</thead>
 										<tbody class="table-border-bottom-0">
-											<tr>
-												<td>
-													<div>09:40~11:40 / 파묘</div>
-													<button class="right m-1 btn btn-primary">삭제</button>
-													<button class="right m-1 btn btn-primary" data-bs-toggle="modal" data-bs-target="#backDropModal">수정</button>
-												</td>
-												<td>
-													<div>09:40~11:40 / 파묘</div>
-													<button class="right m-1 btn btn-primary">삭제</button>
-													<button class="right m-1 btn btn-primary" data-bs-toggle="modal" data-bs-target="#backDropModal">수정</button>
-												</td>
-												<td>
-													<div>09:40~11:40 / 파묘</div>
-													<button class="right m-1 btn btn-primary">삭제</button>
-													<button class="right m-1 btn btn-primary" data-bs-toggle="modal" data-bs-target="#backDropModal">수정</button>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<div>12:40~14:00 / 팜스트릭스</div>
-													<button class="right m-1 btn btn-primary">삭제</button>
-													<button class="right m-1 btn btn-primary" data-bs-toggle="modal" data-bs-target="#backDropModal">수정</button>
-												</td>
-												<td>
-													<div>12:40~14:00 / 팜스트릭스</div>
-													<button class="right m-1 btn btn-primary">삭제</button>
-													<button class="right m-1 btn btn-primary" data-bs-toggle="modal" data-bs-target="#backDropModal">수정</button>
-												</td>
-												<td>
-													<div>12:40~14:00 / 팜스트릭스</div>
-													<button class="right m-1 btn btn-primary">삭제</button>
-													<button class="right m-1 btn btn-primary" data-bs-toggle="modal" data-bs-target="#backDropModal">수정</button>
-												</td>
-											</tr>
+											<c:forEach var="ScreenHallVO" items="${ScreenHallVOList}">
+												<tr class="border-bottom">
+													<th style="height:20em; width:15px">${ScreenHallVO.shallLocation }</th>
+													<c:forEach var="screenVO" items="${ScreenHallVO.screenVO}">
+														<td style="width:30px;">
+															<span>${screenVO.sstartTime }~${screenVO.sendTime } / ${screenVO.cname }</span>
+															<button class="left m-1 btn btn-primary" onclick="screenDeleteFn(${screenVO.sno})">삭제</button>
+														</td>
+													</c:forEach>
+												</tr>
+											</c:forEach>
 										</tbody>
 
 									</table>
+									<form name="screenDeleteForm" action="screenDelete" method="post">
+										<input type="hidden" name="sno" id="sno">
+										<input type="hidden" name="tno" value="${param.tno }">
+										<input type="hidden" name="attendday" id="attendday3">
+									</form>
 								</div>
 							</div>
 						</div>
@@ -135,7 +119,9 @@
 	<div class="modal fade" id="backDropModal" data-bs-backdrop="static"
 		tabindex="-1" style="display: none;" aria-hidden="true">
 		<div class="modal-dialog">
-			<form class="modal-content">
+			<form class="modal-content" action="theatersMgViewInsert" method="post" name="modal">
+				<input type="hidden" name="attendday2" id="attendday2">
+				<input type="hidden" name="tno" value="${param.tno }">
 				<div class="modal-header">
 					<h5 class="modal-title" id="backDropModalTitle">시간표 저장</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
@@ -146,34 +132,34 @@
 						<div class="col mb-3">
 							<div class="form-label">상영관 번호</div>
 							<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                              <input type="radio" class="btn-check" name="btnradio" id="btnradio1" checked autocomplete="off">
-                              <label class="btn btn-outline-primary" for="btnradio1">1관</label>
-                              <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                              <label class="btn btn-outline-primary" for="btnradio2">2관</label>
-                              <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-                              <label class="btn btn-outline-primary" for="btnradio3">3관</label>
+							
+								<c:forEach var="ScreenHallVO" items="${ScreenHallVOList }" >
+	                              <input type="radio" class="btn-check" name="shallno" id="구분${ScreenHallVO.shallno }" value="${ScreenHallVO.shallno }">
+	                              <label class="btn btn-outline-primary" for="구분${ScreenHallVO.shallno }">${ScreenHallVO.shallLocation }</label>
+                              	</c:forEach>	
+                            
                             </div>
 						</div>
 					</div>
 					<div class="row g-2">
 						<div class="col mb-0">
 							<div class="form-label">영화목록</div>
-							<select id="selectTypeOpt" class="form-select color-dropdown">
-								<option value="bg-primary" selected>파묘</option>
-								<option value="bg-secondary">듄</option>
-								<option value="bg-success">웡카</option>
+							<select id="selectTypeOpt" class="form-select color-dropdown" name="cno">
+								<c:forEach var="item" items="${CinemaVOList }">
+									<option value="${item.cno}">${item.cname} / 상영시간(분): ${item.cshowTime}</option>
+								</c:forEach>
 							</select>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col mb-0">
 							<label for="dobBackdrop" class="form-label">시간 작성</label> 
-							<input type="time" id="dobBackdrop" class="form-control">
+							<input type="time" id="dobBackdrop" class="form-control" name="sstartTime" value="12:00">
 						</div>
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-primary">저장</button>
+					<button type="button" class="btn btn-primary" onclick="modalFn()">저장</button>
 				</div>
 			</form>
 		</div>
@@ -204,8 +190,27 @@
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-	
-	
-	
+
+	<script>
+	var attendday = <%=request.getParameter("attendday")%>;
+		$(function() { 
+			if(attendday == null || attendday == undefined || attendday == ""){
+				let today = new Date();
+				let year = today.getFullYear(); // 년도
+				let month = today.getMonth() + 1;  // 월
+				let date = today.getDate();  // 날짜
+				attendday = year + "" + month + "" + date;
+			}
+			$('input[name="attendday"]').on('apply.daterangepicker', function(ev, picker) {
+			  	var url ="theatersMgView?tno="+<%=request.getParameter("tno")%>+"&attendday="+picker.startDate.format('YYYYMMDD');
+			  	$(location).attr('href',url);
+			});
+			
+			
+		});
+		document.getElementById("attendday").value = attendday;
+		
+	</script>
+
 </body>
 </html>

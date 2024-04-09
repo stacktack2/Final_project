@@ -190,6 +190,7 @@ img {
     height: 600px;
     background-color: #d4d3c9;
     display: inline-flex;
+    flex-wrap: wrap;
 }
 
 #tikect-container .tk-section-movie{
@@ -894,7 +895,7 @@ img {
 }
 
 .tnb .info.theater {
-    width: 185px;
+    width: 200px;
 }
 
 .tnb .info .row:first-child {
@@ -912,7 +913,7 @@ img {
 }
 
 .tnb .info.theater .row .data {
-    width: 140px;
+    width: 160px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -927,7 +928,7 @@ img {
     height: 100%;
     display: inline-block;
     zoom: 1;
-    margin-left: 23px;
+    margin-left: 30px;
     background: url(../ticketImages/tnb_steps.png) no-repeat 50% -190px;
 }
 

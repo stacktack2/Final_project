@@ -17,7 +17,7 @@ public class SampleDataMaker {
 		PreparedStatement psmt = null;
 		ResultSet rs = null;
 		
-		String url = "jdbc:mysql://localhost:3306/dflix";
+		String url = "jdbc:mysql://127.0.0.1:3306/dflix";
 		String user = "dteam";
 		String pass ="ezen";
 		
@@ -26,7 +26,7 @@ public class SampleDataMaker {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e.printStackTrace(); 
 		}
 		try {
 			conn=DriverManager.getConnection(url,user,pass);

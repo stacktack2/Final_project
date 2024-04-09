@@ -139,6 +139,10 @@ Global Styles
 --------------------------------------------- 
 */
 
+/*  */
+.changeInfoFrom lable{
+	color:gray !important;
+}
 
 
 /* 내정보 컨테이너 */
@@ -151,7 +155,7 @@ Global Styles
 /* 프로필 박스*/
 .profile{
 	width: 882px;
-	height: 255px;
+	height: 150px;
 	padding: 60px 40px 0 58px;
 	background-color: #f8f8f8;
 	border-bottom-color: black;
@@ -283,6 +287,7 @@ Global Styles
 }
 
 .myinfo-detail{
+	padding-left:100px;
 	width: 752px;
     float: right;
 }
@@ -494,6 +499,7 @@ body {
 
 .section {
   margin-top: 100px;
+  min-height:500px;
 }
 
 .section-heading {

@@ -46,10 +46,10 @@
     })
 
 	function validation(){
-		console.log(1);
+		
 		if(id_check && pw_check && pwRe_check && name_check && nickNm_check && 
 				birth_check && phone_check && gender_check && email_check){
-			console.log(2);
+			
 					document.frm.submit();
 		}
 	}
@@ -112,6 +112,8 @@
 	}
 	//비밀번호 확인
 	function checkPwRe(){
+		let mpw = document.getElementById("mpw");
+		let mpwRe = document.getElementById("mpwRe");
 		let confirmPw = mpw.value == mpwRe.value;
 		let mpwReSpan = document.getElementById("mpwReSpan"); 
 		if(mpwRe.value == "" || mpwRe.value === null || mpwRe.value === undefined){
@@ -122,12 +124,10 @@
 			mpwReSpan.innerHTML = '비밀번호가 같지 않습니다.';
 			mpwReSpan.style.color = 'red';
 			pwRe_check = false;
-		}else if(confirmPw){
+		}else{
 			mpwReSpan.innerHTML = '비밀번호가 같습니다.';
 			mpwReSpan.style.color = 'green';
 			pwRe_check = true;
-		}else{
-			return !confirmPw;
 		}
 	}
 	
