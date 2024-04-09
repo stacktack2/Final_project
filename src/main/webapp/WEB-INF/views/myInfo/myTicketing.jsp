@@ -51,11 +51,53 @@
 				<!-- My 예매내역 -->
     			<div class="myTicketing-tit">
     				<h3>MY 예매내역</h3>
-					<p><em>0건</em></p>
+					<p><em>${myTicketList.size()}건</em></p>
 					<span>예매번호로만 티켓을 찾을 수 있으니 반드시 확인 부탁드립니다.</span>
 				</div>
 				<div class="myTicketing-box">
-					<div class="box-inner"> 고객님의 최근 예매내역이 존재하지 않습니다. </div>
+					<div class="box-inner"> 
+				  	<table class=" row navbar navbar-example navbar-expand-lg bg-light mb-3 list-group">
+						<c:forEach var="item" items="${myTicketList}">
+						<tr>
+							<th>예매번호:</th>
+							<td>${item.ticketno}</td>
+						</tr>
+						<tr>
+							<th>영화명:</th>
+							<td>${item.shallType}/ ${item.cname}</td>
+						</tr>
+						<tr>
+							<th>극장:</th>
+							<td>${item.tname}/${item.shallLocation} </td>
+						</tr>
+						<tr>
+							<th>일시:</th>
+							<td>${item.sday} ${item.sstartTime} ~ ${item.sendTime} </td>
+						</tr>
+						<tr>
+							<th>인원:</th>
+							<td>${ticketdetail.size()}명</td>
+						</tr>
+						<tr>
+							<th>좌석</th>
+							<td>
+								<c:forEach var="detail" items="${ticketdetail}">
+	                                <c:if test="${detail.ticketno == ticket.ticketno}">
+	                                    ${detail.sseatno} ${detail.sseatCol} ${detail.sseatRow} 
+	                                </c:if>
+                            	</c:forEach>
+							</td>
+						</tr>
+						<tr>
+							<th></th>
+							<td><button class="btn btn-danger btn-sm float-right deleteBtn">예매 취소</button></td>
+						</tr>
+						</c:forEach>
+					</table>
+					 </div>
+				<form action="myTicketDelete" method="post" name="myTicketDel">
+					<input type="hidden" name="ticketno" id="${item.ticketno}">
+				</form>
 				</div>
     		</div>
     	</div>

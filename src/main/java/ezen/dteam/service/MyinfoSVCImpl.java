@@ -1,7 +1,6 @@
 package ezen.dteam.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -9,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import ezen.dteam.dao.MyinfoDAO;
 import ezen.dteam.vo.MemberVO;
+import ezen.dteam.vo.TicketDetailVO;
 import ezen.dteam.vo.TicketVO;
 import ezen.dteam.vo.UserVO;
 
@@ -94,5 +94,10 @@ public class MyinfoSVCImpl implements MyinfoSVC{
 	@Override
 	public List<TicketVO> selectMyticket(String mno) throws Exception {
 		return myinfoDAO.selectMyticket(mno);
+	}
+	
+	@Override
+	public List<TicketDetailVO> selectTicketDetail() throws Exception{
+		return myinfoDAO.selectTicketDetail();
 	}
 }
