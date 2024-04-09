@@ -1,17 +1,24 @@
 package ezen.dteam.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import ezen.dteam.service.TicketSVC;
 import ezen.dteam.vo.CinemaVO;
 import ezen.dteam.vo.ScreenHallVO;
+import ezen.dteam.vo.ScreenSeatVO;
 import ezen.dteam.vo.ScreenVO;
 import ezen.dteam.vo.TheaterVO;
 
@@ -67,31 +74,31 @@ public class Ticket {
 		return selectScreen;
 	}
 	
-	@RequestMapping(value="/ticketInfo", method=RequestMethod.POST)
-	@ResponseBody
-	public String ticketInfo(String cnoParam, String tnoParam, String sdayParam, 
-			String dateDayParam, String sstartTimeParam, String shallLocationParam){
-		
-		int cno = Integer.parseInt(cnoParam);;
-		int tno = Integer.parseInt(tnoParam);;
-		String sday = sdayParam;
-		String dateDay = dateDayParam;
-		String sstartTime = sstartTimeParam;
-		String shallLocation = shallLocationParam;
-		
-		System.out.println("cno::"+cno);
-		System.out.println("tno::"+tno);
-		System.out.println("sday::"+sday);
-		System.out.println("dateDay::"+dateDay);
-		System.out.println("sstartTime::"+sstartTime);
-		System.out.println("shallLocation::"+shallLocation);
-		
-		
-		return "ticket/ticketSeat";
-	}
-	
 	@RequestMapping(value="/ticketSeat", method=RequestMethod.POST)
-	public String ticketSeatPOST() {
+	public String ticketSeatPOST(Model model, @RequestParam("cno") int cno,
+			@RequestParam("cposter") String cposter, @RequestParam("cname") String cname, 
+			@RequestParam("cwatchGradeNm") String cwatchGradeNm, @RequestParam("tno") int tno,
+			@RequestParam("tname") String tname, @RequestParam("inputDateDay") String dateDay,
+			@RequestParam("sday") String sday, @RequestParam("sstartTime") String sstartTime,
+			@RequestParam("shallno") int shallno, @RequestParam("shallType") String shallType,
+			@RequestParam("shallLocation") String shallLocation, Authentication authentication) {
+		
+		model.addAttribute("cno", cno);
+		model.addAttribute("cposter", cposter);
+		model.addAttribute("cname", cname);
+		model.addAttribute("cwatchGradeNm", cwatchGradeNm);
+		model.addAttribute("tno", tno);
+		model.addAttribute("tname", tname);
+		model.addAttribute("dateDay", dateDay);
+		model.addAttribute("sday", sday);
+		model.addAttribute("sstartTime", sstartTime);
+		model.addAttribute("shallno", shallno);
+		model.addAttribute("shallType", shallType);
+		model.addAttribute("shallLocation", shallLocation);
+		
+		ScreenVO ticketInfo = new ScreenVO(cno, tno, sday, sstartTime, shallno);
+		List<ScreenSeatVO> selectScreenSeat = ticketSVC.selectScreenSeat(ticketInfo);
+		
 		
 		
 		return "ticket/ticketSeat";

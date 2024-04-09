@@ -11,6 +11,7 @@
     <title>예매 | 영화속으로 Dflix</title>
     <!-- CSS -->
     <%@ include file="../include/header/ticketingHeader.jsp" %>
+    <script src="<%=request.getContextPath() %>/resources/js/ticketing_submit.js"></script>
   </head>
 <body>
 <%@ include file="../include/nav/userNav.jsp" %>
@@ -132,9 +133,11 @@
 						</span>
 						<div class="row movie_title colspan2" style="display: block;">
 							<span class="data letter-spacing-min ellipsis-line2">
-								<a id="selectionMovieTitle"></a>
-								<input type="hidden" name="cno" value="" id="cno"
-										oninput="selectionCno(this)">
+								<a id="selectionMovieTitle" style="margin-left: 10px;"></a>
+								<input type="hidden" name="cno" id="cno">
+								<input type="hidden" name="cposter" id="cposter">
+								<input type="hidden" name="cname" id="cname">
+								<input type="hidden" name="cwatchGradeNm" id="cwatchGradeNm">
 							</span>
 						</div>
 						<!-- 무비타입과 동일하게 관람제한나이도 api에서 받아온 값을 입력해야함. -->
@@ -147,7 +150,8 @@
 							<span class="header">극장</span>
 							<span class="data letter-spacing-min ellipsis-line1">
 								<a title="" id="selectionTheater"></a>
-								<input type="hidden" name="tno" value="" id="tno">
+								<input type="hidden" name="tname" id="tname">
+								<input type="hidden" name="tno" id="tno">
 							</span>
 						</div>
 						<div class="row date" style="display: block;">
@@ -155,8 +159,9 @@
 							<span class="data" title="">
 								<a id="dateDay"></a>
 								<a id="dateTime"></a>
-								<input type="hidden" name="sday" value="" id="sday">
-								<input type="hidden" name="sstartTime" value="" id="sstartTime">
+								<input type="hidden" name="inputDateDay" id="inputDateDay">
+								<input type="hidden" name="sday" id="sday">
+								<input type="hidden" name="sstartTime" id="sstartTime">
 							</span>
 						</div>
 						<div class="row screen" style="display: block;">
@@ -165,9 +170,9 @@
 								<a id="selShallType"></a>
 								<a id="selShallLocation"></a>
 							</span>
-							<input type="hidden" name="shallno" value="" id="shallno">
-							<input type="hidden" name="shallType" value="" id="shallType">
-							<input type="hidden" name="shallLocation" value="" id="shallLocation">
+							<input type="hidden" name="shallno" id="shallno">
+							<input type="hidden" name="shallType" id="shallType">
+							<input type="hidden" name="shallLocation" id="shallLocation">
 						</div>
 						<div class="row number" style="display: block;">
 							<span class="header">인원</span>
@@ -181,17 +186,16 @@
 						<span class="path-step3" title="결제">&nbsp;</span>
 					</div>
 				</div>
+				</form>
 				<button onclick="seatSelBtn();" type="submit"
 					class="btn-right" id="seatSelectionButton">
 					<span>좌석선택</span>
 				</button>
-				</form>
 				</div>
 			</div>
 	</div>
 <%@ include file="../include/footer/userFooter.jsp" %>
 <script src="<%=request.getContextPath() %>/resources/js/ticketing_event.js"></script>
 <script src="<%=request.getContextPath() %>/resources/js/ticketing_view.js"></script>
-<script src="<%=request.getContextPath() %>/resources/js/ticketing_submit.js"></script>
 </body>
 </html>
