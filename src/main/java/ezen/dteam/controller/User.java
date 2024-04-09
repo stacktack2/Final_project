@@ -1,10 +1,9 @@
 package ezen.dteam.controller;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.session.SqlSession;
@@ -77,7 +76,7 @@ public class User {
 		vo.put("enabled", enabled);		
 		vo.put("authority", authority);
 		
-		int result = sqlSession.insert("ezen.dteam.mapper.userMapper.insert",vo);
+		sqlSession.insert("ezen.dteam.mapper.userMapper.insert",vo);
 		
 		return "redirect:/user/login";
 	}
@@ -102,20 +101,19 @@ public class User {
 	}
 	
 	@RequestMapping(value = "/updatePw", method = RequestMethod.POST)
-	public String sendEmail(MemberVO vo,HttpServletResponse response) throws Exception{
+	public void sendEmail(MemberVO vo,HttpServletResponse response, HttpServletRequest request) throws Exception{
 
 		//4. 알림발송
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=utf-8");
 		if(service.updatePw(vo)==1) {
-			response.getWriter().println("<script>alert('인증번호가 발송되었습니다'); </script>");
+			response.getWriter().println("<script>alert('인증번호가 발송되었습니다'); location.href='"+request.getContextPath()+"/user/login'; </script>");
 			
 		} else {
-			response.getWriter().println("<script>alert('인증번호 발송에 실패하였습니다.'); </script>");
+			response.getWriter().println("<script>alert('인증번호 발송에 실패하였습니다.'); location.href='"+request.getContextPath()+"/user/login'; </script>");
 		}
 		response.getWriter().flush();
 		
-		return "redirect:/user/login";
 	}
 	
 	
