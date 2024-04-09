@@ -15,13 +15,13 @@ public class UserVO extends User{
 	private String mphone;
 	private String mbirth;
 	private String mgender;
-//	private int isWithdrawn;
+	private int isWithdrawn;
 
 
 	public UserVO(String username, String password, boolean enabled, boolean accountNonExpired,
 			boolean credentialsNonExpired, boolean accountNonLocked,
 			Collection<? extends GrantedAuthority> authorities
-			,String authority, String mname, String memail, String mphone, String mbirth, String mgender,int mno/*, int isWithdrawn*/) {
+			,String authority, String mname, String memail, String mphone, String mbirth, String mgender,int mno, int isWithdrawn) {
 		super(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
 		
 		this.mid=username;
@@ -33,7 +33,7 @@ public class UserVO extends User{
 		this.mbirth=mbirth;	
 		this.mgender=mgender;
 		this.mno=mno;
-//		this.isWithdrawn=isWithdrawn;
+		this.isWithdrawn=isWithdrawn;
 	}
 
 	
@@ -118,14 +118,14 @@ public class UserVO extends User{
 		this.mgender = mgender;
 	}
 
-//	public int getIsWithdrawn() {
-//		return isWithdrawn;
-//	}
-//
-//
-//	public void setIsWithdrawn(int isWithdrawn) {
-//		this.isWithdrawn = isWithdrawn;
-//	}
+	public int getIsWithdrawn() {
+		return isWithdrawn;
+	}
+
+
+	public void setIsWithdrawn(int isWithdrawn) {
+		this.isWithdrawn = isWithdrawn;
+	}
 
 	
 }
