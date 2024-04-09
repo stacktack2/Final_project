@@ -328,3 +328,20 @@ ALTER TABLE ticketDetail
 	ON UPDATE CASCADE
 	ON DELETE CASCADE
 ;
+
+-- 나의 예매내역 뷰 생성
+CREATE VIEW MyTicketView AS
+SELECT t.ticketno, t.ticketTime, t.ticketDelyn, t.mno,
+		ss.sseatno, ss.sseatCol, ss.sseatRow, ss.sseatType,
+        sh.shallno, sh.shallType, sh.shallLocation, 
+	sc.sday, 
+        th.tname, th.tno,
+        c.cname, c.cno 
+FROM ticket t
+INNER JOIN ticketDetail td ON t.ticketno = td.ticketno
+INNER JOIN screenSeat ss ON ss.sseatno = td.sseatno
+INNER JOIN screen sc ON sc.sno = td.sno
+INNER JOIN cinema c ON c.cno = sc.cno
+INNER JOIN screenHall sh ON sh.shallno = ss.shallno
+INNER JOIN theater th ON th.tno = sh.tno;
+
