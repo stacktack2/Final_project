@@ -7,10 +7,56 @@ public class ScreenSeatVO {
 	private String sseatType;
 	private int shallno;
 	
+	private int cno;
+	private int tno;
+	private String sday;
+	private String sstartTime;
+	
+	
+	public final int getCno() {
+		return cno;
+	}
+
+	public final void setCno(int cno) {
+		this.cno = cno;
+	}
+
+	public final int getTno() {
+		return tno;
+	}
+
+	public final void setTno(int tno) {
+		this.tno = tno;
+	}
+
+	public final String getSday() {
+		return sday;
+	}
+
+	public final void setSday(String sday) {
+		this.sday = sday;
+	}
+
+	public final String getSstartTime() {
+		return sstartTime;
+	}
+
+	public final void setSstartTime(String sstartTime) {
+		this.sstartTime = sstartTime;
+	}
+
 	public ScreenSeatVO() {
 		
 	}
 	
+	public ScreenSeatVO(int cno, int tno, String sday, String sstartTime, int shallno) {
+		this.cno = cno;
+		this.tno = tno;
+		this.sday = sday;
+		this.sstartTime = sstartTime;
+		this.shallno = shallno;
+	}
+
 	public final int getSseatno() {
 		return sseatno;
 	}

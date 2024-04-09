@@ -162,6 +162,7 @@
 								<input type="hidden" name="inputDateDay" id="inputDateDay">
 								<input type="hidden" name="sday" id="sday">
 								<input type="hidden" name="sstartTime" id="sstartTime">
+								<input type="hidden" name="sendTime" id="sendTime">
 							</span>
 						</div>
 						<div class="row screen" style="display: block;">
