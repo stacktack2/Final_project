@@ -24,6 +24,12 @@
 			set isWithdrawn = 1  
 			where mid = #{mid}
 	</update>
-	
+	<select id="selectMyticket" parameterType="TicketVO" resultType="TicketVO">
+		select t.*, td.*, ss.*, sc.* from ticket t 
+		inner join ticketDetail td on t.ticketno = td.ticketno 
+		inner join screenSheet ss on ss.sseatno = td.sseatno 
+		inner join screen sc on sc.sno = td.sno 
+		where t.mno = #{value} and t.ticketDelyn = 0; 
+	</select>
 	
 </mapper>

@@ -26,7 +26,7 @@ public class SampleDataMaker {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e.printStackTrace(); 
 		}
 		try {
 			conn=DriverManager.getConnection(url,user,pass);

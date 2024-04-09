@@ -1,10 +1,13 @@
 package ezen.dteam.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import ezen.dteam.vo.MemberVO;
+import ezen.dteam.vo.TicketVO;
 
 @Repository
 public class MyinfoDAO {
@@ -26,6 +29,9 @@ public class MyinfoDAO {
 	}
 	public int deleteMyinfo(MemberVO vo) throws Exception{
 		return sqlSession.update(nameSpace+".deleteMyinfo",vo);
+	}
+	public List<TicketVO> selectMyticket(String mno)throws Exception{
+		return sqlSession.selectList(nameSpace+".selectMyticket", mno);
 	}
 	
 }
