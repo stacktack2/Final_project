@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import ezen.dteam.vo.MemberVO;
+import ezen.dteam.vo.TicketDetailVO;
 import ezen.dteam.vo.TicketVO;
 
 @Repository
@@ -30,8 +31,11 @@ public class MyinfoDAO {
 	public int deleteMyinfo(MemberVO vo) throws Exception{
 		return sqlSession.update(nameSpace+".deleteMyinfo",vo);
 	}
+	//티켓
 	public List<TicketVO> selectMyticket(String mno)throws Exception{
 		return sqlSession.selectList(nameSpace+".selectMyticket", mno);
 	}
-	
+	public List<TicketDetailVO> selectTicketDetail()throws Exception{
+		return sqlSession.selectList(nameSpace+".selectTicketDetail");
+	}
 }

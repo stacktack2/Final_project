@@ -3,7 +3,7 @@ package ezen.dteam.vo;
 public class CinemaReplyVO {
 	private String ccmtno;
 	private String ccmtContent;
-	private String ccmtRdadte;
+	private String ccmtRdate;
 	private int ccmtLikeCnt;
 	private int ccmtDelyn;
 	private String cno;
@@ -33,10 +33,10 @@ public class CinemaReplyVO {
 		this.ccmtContent = ccmtContent;
 	}
 	public String getCcmtRdadte() {
-		return ccmtRdadte;
+		return ccmtRdate;
 	}
 	public void setCcmtRdadte(String ccmtRdadte) {
-		this.ccmtRdadte = ccmtRdadte;
+		this.ccmtRdate = ccmtRdadte;
 	}
 	public int getCcmtLikeCnt() {
 		return ccmtLikeCnt;

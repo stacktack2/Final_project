@@ -6,11 +6,11 @@
 
 	<select id="selectMyinfo" parameterType="String" resultType="MemberVO">
 		 SELECT mid, mname, mpw, mnickNm, authority, enabled, mbirth, memail, mgender, mjoinDate, mphone, mno 
-		 FROM member 
+		 FROM Member 
 		 WHERE mid = #{value}
 	</select>
 	<select id="checkEmail" parameterType="String" resultType="int">
-		select count(*) from member where memail = #{memail}
+		select count(*) from Member where memail = #{memail}
 	</select>
 
 	<update id="updateMyinfo" parameterType="MemberVO"> 
@@ -20,16 +20,16 @@
 			where mid = #{mid}
 	</update>
 	<update id="deleteMyinfo" parameterType="MemberVO"> 
-		Update member 
+		Update Member 
 			set isWithdrawn = 1  
 			where mid = #{mid}
 	</update>
 	<select id="selectMyticket" parameterType="TicketVO" resultType="TicketVO">
-		select t.*, td.*, ss.*, sc.* from ticket t 
-		inner join ticketDetail td on t.ticketno = td.ticketno 
-		inner join screenSheet ss on ss.sseatno = td.sseatno 
-		inner join screen sc on sc.sno = td.sno 
-		where t.mno = #{value} and t.ticketDelyn = 0; 
+		SELECT * FROM MyTicketView 
+		where mno = #{value} and ticketDelyn = 0; 
+	</select>
+	<select id="selectTicketDetail" resultType="TicketDetailVO">
+		SELECT * FROM TicketDetail;
 	</select>
 	
 </mapper>
