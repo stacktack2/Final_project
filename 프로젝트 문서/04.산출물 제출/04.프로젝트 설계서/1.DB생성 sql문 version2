@@ -334,6 +334,7 @@ CREATE VIEW MyTicketView AS
 SELECT t.ticketno, t.ticketTime, t.ticketDelyn, t.mno,
 		ss.sseatno, ss.sseatCol, ss.sseatRow, ss.sseatType,
         sh.shallno, sh.shallType, 
+	sc.sday, 
         th.tname, th.tno,
         c.cname, c.cno 
 FROM ticket t
