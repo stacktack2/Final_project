@@ -44,7 +44,7 @@ public class TicketSVCImpl implements TicketSVC{
 	}
 
 	@Override
-	public List<ScreenSeatVO> selectScreenSeat(ScreenVO ticketInfo) {
+	public List<ScreenVO> selectScreenSeat(ScreenVO ticketInfo) {
 		return ticketDAO.selectScreenSeat(ticketInfo);
 	}
 	
