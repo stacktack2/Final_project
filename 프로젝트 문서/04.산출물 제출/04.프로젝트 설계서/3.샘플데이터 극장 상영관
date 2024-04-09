@@ -29,3 +29,15 @@ INSERT INTO screenhall(shallSeat, shallType, shallLocation, tno)
    VALUES ('290','3D','3층 2관','2');
 INSERT INTO screenhall(shallSeat, shallType, shallLocation, tno)
    VALUES ('300','3D','3층 3관','2');
+   
+-- 상영정보
+INSERT INTO screen(sstartTime, sendTime, cno, shallno, sday)
+ VALUES ("12:00","13:39",1,1,(current_date));
+
+INSERT INTO screen(sstartTime, sendTime, cno, shallno, sday)
+ VALUES ("15:00","16:39",1,1,(current_date));
+ 
+INSERT INTO screen(sstartTime, sendTime, cno, shallno, sday)
+	VALUES ("15:00","16:33",2,2,(current_date));
+   
+   
