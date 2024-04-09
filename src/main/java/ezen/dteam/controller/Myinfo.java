@@ -24,18 +24,25 @@ public class Myinfo {
 		
 	@Autowired
 	MyinfoSVCImpl service;
-	
+	//나의 예매내역 조회
 	@RequestMapping(value = "/myInfo", method = RequestMethod.GET)
-	public String myinfo() {
+	public String myinfo(Authentication auth) throws Exception{
+		//로그인한 유저 가져오기
+		UserVO loginVO = (UserVO)auth.getPrincipal();
+		MemberVO user =  service.selectMyinfo(loginVO.getMid());
+		service.selectMyticket(Integer.toString(user.getMno()));
+		
+		return "myInfo/myTicketing";
+	}
+	//예매취소
+	@RequestMapping(value = "/myInfo", method = RequestMethod.POST)
+	public String myinfoPOST(Authentication auth) throws Exception{
+
+		
 		
 		return "myInfo/myTicketing";
 	}
 	
-	@RequestMapping(value = "/myInfo", method = RequestMethod.POST)
-	public String myinfoPOST() {
-		
-		return "myInfo/myTicketing";
-	}
 	//내정보변경(비밀번호 확인 페이지)
 	@RequestMapping(value = "/myInfo/changeMyinfo", method = RequestMethod.GET)
 	public String changeMyinfoPre() {		
@@ -124,6 +131,7 @@ public class Myinfo {
 			}
 		}
 		
-	}	
+	}
+	
 	
 }
