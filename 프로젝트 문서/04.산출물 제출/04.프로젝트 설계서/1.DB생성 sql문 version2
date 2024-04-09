@@ -63,7 +63,7 @@ CREATE TABLE cinemaReply
 (
 	ccmtno int unsigned NOT NULL AUTO_INCREMENT COMMENT '댓글번호',
 	ccmtContent text NOT NULL COMMENT '댓글내용',
-	ccmtRdadte timestamp DEFAULT now() NOT NULL COMMENT '댓글등록일',
+	ccmtRdate timestamp DEFAULT now() NOT NULL COMMENT '댓글등록일',
 	ccmtLikeCnt int unsigned DEFAULT 0 NOT NULL COMMENT '댓글좋아요개수',
 	ccmtDelyn tinyint unsigned DEFAULT 0 NOT NULL COMMENT '댓글삭제여부',
 	cno int unsigned NOT NULL COMMENT '영화번호',
