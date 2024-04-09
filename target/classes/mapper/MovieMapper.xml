@@ -16,12 +16,10 @@
 	</insert>
 	<update id="updateReply" parameterType="CinemaReplyVO">
 		UPDATE cinemaReply
-		SET ccmtContent = #{ccmtContent}, ccmtRdate = NOW()
-		FROM cinemaReply
-		INNER JOIN member ON cinemaReply.mno = member.mno
-		WHERE cinemaReply.mnickNm = #{mnickNm};
+		SET ccmtContent = #{value}, ccmtRdate = NOW() 
+		where ccmtno = #{ccmtno}
 	</update>
-		<delete id="deleteReply" parameterType="String">
+	<delete id="deleteReply" parameterType="String">
 		delete from cinemaReply where ccmtno = #{value}
 	</delete>
 </mapper>
