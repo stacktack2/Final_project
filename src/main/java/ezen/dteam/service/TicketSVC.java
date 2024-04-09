@@ -20,6 +20,6 @@ public interface TicketSVC {
 
 	List<ScreenVO> selectScreen(ScreenVO screenVO);
 
-	List<ScreenSeatVO> selectScreenSeat(ScreenVO ticketInfo);
+	List<ScreenVO> selectScreenSeat(ScreenVO ticketInfo);
 	
 }

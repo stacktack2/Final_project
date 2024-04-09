@@ -12,6 +12,9 @@ public class ScreenVO {
 	private String shallLocation;
 	private String shallSeat;
 	private int tno;
+	private int fillSeat;
+	
+	
 	
 	public ScreenVO() {
 		
@@ -45,6 +48,16 @@ public class ScreenVO {
 	    this.shallSeat = shallSeat;
 	}
 	
+	
+	
+	public int getFillSeat() {
+		return fillSeat;
+	}
+
+	public void setFillSeat(int fillSeat) {
+		this.fillSeat = fillSeat;
+	}
+
 	public final String getShallType() {
 		return shallType;
 	}

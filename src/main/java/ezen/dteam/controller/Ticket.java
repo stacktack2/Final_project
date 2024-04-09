@@ -97,8 +97,9 @@ public class Ticket {
 		model.addAttribute("shallLocation", shallLocation);
 		
 		ScreenVO ticketInfo = new ScreenVO(cno, tno, sday, sstartTime, shallno);
-		List<ScreenSeatVO> selectScreenSeat = ticketSVC.selectScreenSeat(ticketInfo);
-		
+		List<ScreenVO> selectScreenSeat = ticketSVC.selectScreenSeat(ticketInfo);
+		System.out.println(selectScreenSeat);
+		model.addAttribute("screenSeat", selectScreenSeat);
 		
 		
 		return "ticket/ticketSeat";
