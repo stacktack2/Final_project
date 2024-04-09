@@ -1447,7 +1447,7 @@
 										<span class="path-step3" title="결제">&nbsp;</span>
 									</div>
 								</div>
-								<button type="button"
+								<button type="button" 
 									class="btn-right-check" id="seatSelectionButton"> <span>결제하기</span>
 								</button>
 							</div>
