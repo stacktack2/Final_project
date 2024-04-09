@@ -55,8 +55,8 @@
 								<div>
 									<h5>
 										<img
-											src="<%=request.getContextPath()%>/resources/images/12age.png"
-											alt="12세" style="width: 2%" /> ${cinemaVO.cname }
+											src="<%=request.getContextPath()%>/resources/images/${cinemaVO.cwatchGradeNm }.png"
+											alt="${cinemaVO.cwatchGradeNm }" style="width: 2%" /> ${cinemaVO.cname }
 									</h5>
 									<br> <span>${cinemaVO.cgenreNm } | ${cinemaVO.cshowTime }분</span>
 								</div>
@@ -66,13 +66,15 @@
 										<span>▶  ${screenHallVO.shallLocation} | 총 ${screenHallVO.shallSeat}석</span>
 									</div>
 									<div>
+									
 										<c:forEach var="screenVO" items="${screenHallVO.screenVO }">
-											<div style="width: 100px; height: 50px; text-align: center;"
+											<div style="width: 140px; height: 50px; text-align: center;"
 												class="d-inline-block border border-grey">
-												<a href="#"> <b>${screenVO.sstartTime }~${screenVO.sendTime }</b><br> <span>남은 좌석 해야함</span>
+												<a href="#"> <b>${screenVO.sstartTime }~${screenVO.sendTime }</b><br> <span>남은 좌석 : ${screenVO.shallSeat - screenVO.fillSeat }</span>
 												</a>
 											</div>
 										</c:forEach>
+										
 									</div>
 								</c:forEach>
 								
