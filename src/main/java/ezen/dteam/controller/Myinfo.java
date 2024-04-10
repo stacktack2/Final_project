@@ -1,5 +1,7 @@
 package ezen.dteam.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -10,12 +12,15 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import ezen.dteam.service.MyinfoSVCImpl;
 import ezen.dteam.vo.MemberVO;
+import ezen.dteam.vo.TicketDetailVO;
+import ezen.dteam.vo.TicketVO;
 import ezen.dteam.vo.UserVO;
 
 
@@ -26,14 +31,19 @@ public class Myinfo {
 	MyinfoSVCImpl service;
 	//나의 예매내역 조회
 	@RequestMapping(value = "/myInfo", method = RequestMethod.GET)
-	public String myinfo(Authentication auth) throws Exception{
+	public String myinfo(Authentication auth,Model model) throws Exception{
 		//로그인한 유저 가져오기
 		UserVO loginVO = (UserVO)auth.getPrincipal();
 		MemberVO user =  service.selectMyinfo(loginVO.getMid());
-		service.selectMyticket(Integer.toString(user.getMno()));
+		List<TicketVO> myTicketList= service.selectMyticket(Integer.toString(user.getMno()));
+		List<TicketDetailVO> ticketdetail = service.selectTicketDetail();
+		 
+		model.addAttribute("myTicketList", myTicketList);
+		model.addAttribute("ticketdetail", ticketdetail);
 		
 		return "myInfo/myTicketing";
 	}
+	
 	//예매취소
 	@RequestMapping(value = "/myInfo", method = RequestMethod.POST)
 	public String myinfoPOST(Authentication auth) throws Exception{

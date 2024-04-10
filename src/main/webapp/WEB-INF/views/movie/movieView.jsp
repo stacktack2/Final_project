@@ -126,8 +126,10 @@
 								<span>(${item.ccmtRdadte})</span>
 								<sec:authorize access="isAuthenticated()">
 	                               <c:if test="${item.mno eq pageContext.request.userPrincipal.principal.mno}">
-	                                  <button class="btn btn-danger btn-sm float-right editBtn" data-ccmtno="${item.ccmtno}" onclick="replyUpdateFn(${item.ccmtno})">수정</button>
-	                               	  <button class="btn btn-danger btn-sm float-right deleteBtn" onclick="replyDeleteFn(${item.ccmtno})">삭제</button>
+	                               <span>
+	                                  <button class="btn btn-danger btn-sm float-right editBtn" data-ccmtno="${item.ccmtno}">수정</button>
+	                               </span>
+	                               	  <button class="btn btn-danger btn-sm float-right deleteBtn">삭제</button>
 	                               </c:if>
 	                            </sec:authorize>							
 	                         </li>
@@ -148,12 +150,14 @@
 	    	document.forms['replyAdd'].submit();
 	    }
 	    // 수정 버튼 클릭 시 수정 폼 표시
-	    $(".editBtn").click(function() {
+    	 $(document).on("click", ".editBtn", function() {
 	        var ccmtno = $(this).data("ccmtno");
 	        var contentSpan = $("#ccmtContent_"+ccmtno);
 	        var currentContent = contentSpan.text().trim();
 	        contentSpan.html('<input type="text" id="editInput_'+ccmtno+'" value="'+currentContent+'">');
-	        $(this).text("확인").addClass("confirmEdit").removeClass("editBtn");
+	        //e.stopPropagation();
+	        $(this).parent().html('<button class="btn btn-danger btn-sm float-right confirmEdit" data-ccmtno="'+ccmtno+'">확인 </button>');
+	        $(this).remove();
 	    });
 
 	    // 확인 버튼 클릭 시 수정 내용 서버로 전송
@@ -163,10 +167,12 @@
 	        $.ajax({
 	            url: "replyUpdate",
 	            method: "POST",
-	            data: { ccmtno: ccmtno, newContent: newContent },
+	            data: { ccmtno: ccmtno, ccmtContent: newContent },
 	            success: function(response) {
 	                $("#ccmtContent_"+ccmtno).text(newContent);
-	                $(".confirmEdit[data-ccmtno="+ccmtno+"]").text("수정").addClass("editBtn").removeClass("confirmEdit");
+	                var parent = $(".confirmEdit[data-ccmtno="+ccmtno+"]").parent();
+	                $(".confirmEdit[data-ccmtno="+ccmtno+"]").remove();
+	                parent.html('<button class="btn btn-danger btn-sm float-right editBtn" data-ccmtno="'+ccmtno+'">수정</button>');
 	            },
 	            error: function(xhr, status, error) {
 	                console.error("AJAX 요청 중 오류 발생:", error);

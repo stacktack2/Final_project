@@ -16,7 +16,7 @@
 	</insert>
 	<update id="updateReply" parameterType="CinemaReplyVO">
 		UPDATE cinemaReply
-		SET ccmtContent = #{value}, ccmtRdate = NOW() 
+		SET ccmtContent = #{ccmtContent}, ccmtRdate = NOW() 
 		where ccmtno = #{ccmtno}
 	</update>
 	<delete id="deleteReply" parameterType="String">
