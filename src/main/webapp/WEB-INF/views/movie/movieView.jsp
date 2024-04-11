@@ -133,13 +133,14 @@
 	                               </c:if>
 	                            </sec:authorize>							
 	                         </li>
+	                         	<form action="replyDelete" method="post" name="replyDel">
+								<input type="hidden" name="ccmtno" id="ccmtno" value="${item.ccmtno}">
+								<input type="hidden" name="cno" value="${movieDetail.cno}">
+							</form>
 						</c:forEach>
 					</ul>
 				</div>
-				<form action="replyDelete" method="post" name="replyDel">
-					<input type="hidden" name="ccmtno" id="ccmtno">
-					<input type="hidden" name="cno" value="${movieDetail.cno}">
-				</form>
+
 			  </div>
 			</div>
   	</div>
@@ -182,9 +183,9 @@
 
 	    // 삭제 버튼 클릭 시 서버로 삭제 요청
 	    $(".deleteBtn").click(function() {
-	        var ccmtno = $(this).data("ccmtno");
+	       
 	        if (confirm("삭제하시겠습니까?")) {
-	            $("#ccmtno").val(ccmtno);
+	       
 	            document.forms['replyDel'].submit();
 	        }
 	    });

@@ -35,8 +35,8 @@ public class CinemaReplyVO {
 	public String getCcmtRdadte() {
 		return ccmtRdate;
 	}
-	public void setCcmtRdadte(String ccmtRdadte) {
-		this.ccmtRdate = ccmtRdadte;
+	public void setCcmtRdadte(String ccmtRdate) {
+		this.ccmtRdate = ccmtRdate;
 	}
 	public int getCcmtLikeCnt() {
 		return ccmtLikeCnt;

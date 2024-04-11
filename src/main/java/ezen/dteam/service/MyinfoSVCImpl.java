@@ -97,7 +97,12 @@ public class MyinfoSVCImpl implements MyinfoSVC{
 	}
 	
 	@Override
-	public List<TicketDetailVO> selectTicketDetail() throws Exception{
-		return myinfoDAO.selectTicketDetail();
+	public List<TicketDetailVO> selectTicketDetail(String ticketno) throws Exception{
+		return myinfoDAO.selectTicketDetail(ticketno);
+	}
+
+	@Override
+	public int deleteMyticket(String ticketno) throws Exception {
+		return myinfoDAO.deleteMyticket(ticketno);
 	}
 }

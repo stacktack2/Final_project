@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -8,9 +9,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 	
     <title>내 정보 | 영화속으로 Dflix</title>
-    <%@ include file="../include/header/myinfoHeader.jsp" %>
+    
+     <script src="<%=request.getContextPath() %>/resources/jquery/jquery.min.js"></script>
   </head>
 <body>
+<%@ include file="../include/header/myinfoHeader.jsp" %>
 <%@ include file="../include/nav/userNav.jsp" %>
 
 <!-- body -->
@@ -51,56 +54,65 @@
 				<!-- My 예매내역 -->
     			<div class="myTicketing-tit">
     				<h3>MY 예매내역</h3>
-					<p><em>${myTicketList.size()}건</em></p>
+					<p><em>${list.size()}건</em></p>
 					<span>예매번호로만 티켓을 찾을 수 있으니 반드시 확인 부탁드립니다.</span>
 				</div>
 				<div class="myTicketing-box">
 					<div class="box-inner"> 
 				  	<table class=" row navbar navbar-example navbar-expand-lg bg-light mb-3 list-group">
-						<c:forEach var="item" items="${myTicketList}">
+						<c:forEach var="tVo" items="${list}">
 						<tr>
-							<th>예매번호:</th>
-							<td>${item.ticketno}</td>
+							<th>예매번호: </th>
+							<td>${tVo.ticket.ticketno}</td>
 						</tr>
 						<tr>
-							<th>영화명:</th>
-							<td>${item.shallType}/ ${item.cname}</td>
-						</tr>
+							<th>영화명: </th>
+							<td>${tVo.detail[0].cname}</td>
+ 						</tr>
 						<tr>
 							<th>극장:</th>
-							<td>${item.tname}/${item.shallLocation} </td>
+							<td>${tVo.detail[0].tname}/${tVo.detail[0].shallLocation} </td>
 						</tr>
 						<tr>
 							<th>일시:</th>
-							<td>${item.sday} ${item.sstartTime} ~ ${item.sendTime} </td>
+							<td>${tVo.detail[0].sday} ${tVo.detail[0].sstartTime} ~ ${tVo.detail[0].sendTime} </td>
 						</tr>
 						<tr>
 							<th>인원:</th>
-							<td>${ticketdetail.size()}명</td>
+							<td>${tVo.detail.size()}명</td>
 						</tr>
 						<tr>
 							<th>좌석</th>
 							<td>
-								<c:forEach var="detail" items="${ticketdetail}">
-	                                <c:if test="${detail.ticketno == ticket.ticketno}">
-	                                    ${detail.sseatno} ${detail.sseatCol} ${detail.sseatRow} 
-	                                </c:if>
+								<c:forEach var="detail" items="${tVo.detail}">
+	                                    ${detail.sseatCol}${detail.sseatRow} 
                             	</c:forEach>
 							</td>
 						</tr>
 						<tr>
 							<th></th>
-							<td><button class="btn btn-danger btn-sm float-right deleteBtn">예매 취소</button></td>
+							<td>
+								<form action="myTicketDel" method="post" name="myTicketDel">
+									<input type="hidden" name="ticketno" id="ticketno" value="${tVo.ticket.ticketno}">
+									<button class="btn btn-danger btn-sm float-right deleteBtn">예매 취소</button>
+								</form>
+							</td>
 						</tr>
 						</c:forEach>
 					</table>
 					 </div>
-				<form action="myTicketDelete" method="post" name="myTicketDel">
-					<input type="hidden" name="ticketno" id="${item.ticketno}">
-				</form>
+
 				</div>
     		</div>
     	</div>
+    	<script>
+	    // 삭제 버튼 클릭 시 서버로 삭제 요청
+	    $(".deleteBtn").click(function() {
+	        if (confirm("삭제하시겠습니까? ")) {
+	            document.forms['myTicketDel'].submit();
+	        }
+	    });
+    	</script>
     </div>
   </div>
 	<!-- 푸터 -->
