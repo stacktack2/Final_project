@@ -69,7 +69,7 @@
           <div class="item">
             <img src="${unopenMovie.cposter }" alt="${unopenMovie.cname }포스터">
             <span class="category">${unopenMovie.cwatchGradeNm }</span>
-            <h6>D${unopenMovie.dday }${unopenMovie.cgenreNm }</h6>
+            <h6>D${unopenMovie.dday }</h6>
             <h4>${unopenMovie.cname }</h4>
             <ul>
               <li>상영시간: <span>${unopenMovie.cshowTime }분</span></li>
@@ -89,10 +89,29 @@
       <div class="row">
         <div class="col-lg-12">
           <ul class="pagination">
-            <li><a href="#">1</a></li>
-            <li><a class="is_active" href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">>></a></li>
+           	<c:if test="${pagingVO.startPage > pagingVO.cntPage }">
+	        	<li>
+	               <a href="movieChart?nowPageParam=${pagingVO.startPage-1}"><i class="tf-icon bx bx-chevrons-left">&lt;</i></a>
+	            </li>
+            </c:if>
+           	<c:set var="loop_flag" value="false" />
+            <c:forEach var="i" begin="${pagingVO.startPage }" end="10">
+                            	
+               	<c:if test="${i > pagingVO.endPage }">
+                  <c:set var="loop_flag" value="true" />
+            	</c:if>
+                            	                 
+                <c:if test="${not loop_flag }">
+		           <li >
+		              <a href="movieChart?nowPageParam=${i}">${i}</a>
+		           </li>
+		        </c:if>
+            </c:forEach>
+            <c:if test="${pagingVO.endPage < pagingVO.lastPage}">
+	        	<li>
+	        		<a href="movieChart?nowPageParam=${pagingVO.endPage+1}"><i class="tf-icon bx bx-chevrons-right">&gt;</i></a>
+	        	</li>
+            </c:if>
           </ul>
         </div>
       </div>

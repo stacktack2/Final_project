@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import ezen.dteam.vo.CinemaReplyVO;
 import ezen.dteam.vo.CinemaVO;
+import ezen.dteam.vo.PagingVO;
 
 @Repository
 public class MovieDAO {
@@ -16,13 +17,21 @@ public class MovieDAO {
 	
 	private final String nameSpace = "ezen.dteam.mapper.movieMapper";
 	
-	public List<CinemaVO> selectBoxOfficeCinema(){
-		return sqlSession.selectList(nameSpace+".selectBoxOfficeCinema");
+	public List<CinemaVO> selectBoxOfficeCinema(PagingVO pagingVO){
+		return sqlSession.selectList(nameSpace+".selectBoxOfficeCinema",pagingVO);
 	}
 	
-	public List<CinemaVO> selectUnopen(){
-		return sqlSession.selectList(nameSpace+".selectUnopen");
+	public List<CinemaVO> selectUnopen(PagingVO pagingVO){
+		return sqlSession.selectList(nameSpace+".selectUnopen",pagingVO);
 	}
+	//페이징
+	public int selectAllCnt() {
+		return sqlSession.selectOne(nameSpace+".selectAllCnt");
+	}
+	public int selectAllCntUnopen() {
+		return sqlSession.selectOne(nameSpace+".selectAllCntUnopen");
+	}
+	
 	//영화 상세정보 조회
 	public CinemaVO selectMovieDetail(String cno){
 		return sqlSession.selectOne(nameSpace+".selectMovieDetail",cno);
