@@ -7,7 +7,7 @@
 	</select>
 	
 	<select id="selectAllScreenHallofTno" parameterType="String" resultType="ScreenHallVO">
-		select * from screenhall where tno = #{value}
+		select * from screenHall where tno = #{value}
 	</select>
 	
 	<select id="selectScreenofshallno" parameterType="ScreenVO" resultType="ScreenVO">
