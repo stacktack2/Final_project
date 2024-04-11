@@ -16,7 +16,7 @@
 	
 	<select id="selectfillSeatofSno" parameterType="int" resultType="int">
 		select count(td.ticketno) from ticketdetail td inner join ticket tk on td.ticketno = tk.ticketno 
-		where td.sno = (select sno from screen sc where sno = #{sno}) and tk.ticketDelyn = 1;
+		where td.sno = (select sno from screen sc where sno = #{sno}) and tk.ticketDelyn = 0;
 	</select>
 	
 	
