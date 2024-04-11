@@ -28,20 +28,27 @@ public class Movie {
 	@RequestMapping(value="/movieChart", method=RequestMethod.GET)
 	public String movieChart(Model model, String nowPageParam) throws OpenAPIFault, Exception{
 		//페이징
-//		int nowPage = 1;
-//		if(nowPageParam != null && !nowPageParam.equals("")) {
-//			nowPage = Integer.parseInt(nowPageParam);
-//		}
-//		int totalCnt = movieService.selectBoardAllCnt();
-//		PagingVO pagingVO = new PagingVO(nowPage, totalCnt, 9);
-//		model.addAttribute("pagingVO", pagingVO);
-		List<CinemaVO> movieChart = movieService.selectBoxOfficeCinema();	
+		int nowPage = 1;
+		if(nowPageParam != null && !nowPageParam.equals("")) {
+			nowPage = Integer.parseInt(nowPageParam);
+		}
+		int totalCnt = movieService.selectAllCnt();
+		PagingVO pagingVO = new PagingVO(nowPage, totalCnt, 9);
+		model.addAttribute("pagingVO", pagingVO);
+		List<CinemaVO> movieChart = movieService.selectBoxOfficeCinema(pagingVO);	
 		model.addAttribute("movieChart", movieChart);
 		return "movie/movieChart";
 	}
 	@RequestMapping(value="/movieSchedule", method=RequestMethod.GET)
-	public String movieSchedule(Model model) {
-		List<CinemaVO> unopenMovie = movieService.selectUnopen();		
+	public String movieSchedule(Model model, String nowPageParam) throws OpenAPIFault, Exception{
+		int nowPage = 1;
+		if(nowPageParam != null && !nowPageParam.equals("")) {
+			nowPage = Integer.parseInt(nowPageParam);
+		}
+		int totalCnt = movieService.selectAllCntUnopen();
+		PagingVO pagingVO = new PagingVO(nowPage, totalCnt, 9);
+		model.addAttribute("pagingVO", pagingVO);
+		List<CinemaVO> unopenMovie = movieService.selectUnopen(pagingVO);		
 		model.addAttribute("unopenMovie", unopenMovie);
 		return "movie/movieSchedule";
 	}
