@@ -44,7 +44,7 @@
 								<div class="max-personNumber">* 최대 8명 선태 가능</div>
 								<div class="group_adult" style="display: block;">
 									<span class="title">일반</span>
-									<ul class="personUl">
+									<ul class="personAdult">
 										<li data-count="0" class="selected" type="adult">
 											<a href="#" onclick="return false;" style="color: white;"> 
 												<span class="sreader mod">일반</span>0
@@ -103,7 +103,7 @@
 								</div>
 								<div class="group_youth" style="display: block;">
 									<span class="title">청소년</span>
-									<ul class="personUl">
+									<ul class="personYouth">
 										<li data-count="0" class="selected" type="youth">
 											<a href="#" onclick="return false;" style="color: white;">
 												<span class="sreader mod">일반</span>0
@@ -162,7 +162,7 @@
 								</div>
 								<div class="group_senior" style="display: block;">
 									<span class="title">경로</span>
-									<ul class="personUl">
+									<ul class="personSenior">
 										<li data-count="0" class="selected" type="senior">
 											<a href="#" onclick="return false;" style="color: white;">
 												<span class="sreader mod">일반</span>0
@@ -221,7 +221,7 @@
 								</div>
 								<div class="group_special" style="display: block;">
 									<span class="title">우대</span>
-									<ul class="personUl">
+									<ul class="personSpecial">
 										<li data-count="0" class="selected" type="special">
 											<a href="#" onclick="return false;" style="color: white;">
 												<span class="sreader mod">일반</span>0
@@ -731,7 +731,7 @@
 										</div>
 										<div class="row number" style="display: block;">
 											<span class="header">인원</span>
-											<span class="data"></span>
+											<span class="data" id="personNumber"></span>
 										</div>
 										<div class="placeholder" title="극장선택" style="display: none;"></div>
 									</div>
