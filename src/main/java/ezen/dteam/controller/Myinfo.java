@@ -1,6 +1,9 @@
 package ezen.dteam.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,125 +26,171 @@ import ezen.dteam.vo.TicketDetailVO;
 import ezen.dteam.vo.TicketVO;
 import ezen.dteam.vo.UserVO;
 
-
 @Controller
 public class Myinfo {
-		
+
 	@Autowired
 	MyinfoSVCImpl service;
-	//나의 예매내역 조회
-	@RequestMapping(value = "/myInfo", method = RequestMethod.GET)
-	public String myinfo(Authentication auth,Model model) throws Exception{
-		//로그인한 유저 가져오기
-		UserVO loginVO = (UserVO)auth.getPrincipal();
-		MemberVO user =  service.selectMyinfo(loginVO.getMid());
-		List<TicketVO> myTicketList= service.selectMyticket(Integer.toString(user.getMno()));
-		List<TicketDetailVO> ticketdetail = service.selectTicketDetail();
-		 
-		model.addAttribute("myTicketList", myTicketList);
-		model.addAttribute("ticketdetail", ticketdetail);
-		
-		return "myInfo/myTicketing";
-	}
-	
-	//예매취소
-	@RequestMapping(value = "/myInfo", method = RequestMethod.POST)
-	public String myinfoPOST(Authentication auth) throws Exception{
 
-		
-		
+	// 나의 예매내역 조회
+	@RequestMapping(value = "/myInfo", method = RequestMethod.GET)
+	public String myinfo(Authentication auth, Model model) throws Exception {
+		// 로그인한 유저 가져오기
+		UserVO loginVO = (UserVO) auth.getPrincipal();
+		MemberVO user = service.selectMyinfo(loginVO.getMid());
+		ArrayList<Map<String, Object>> allList = new ArrayList<Map<String, Object>>();
+
+		// 티켓별 내용을 가져온다
+		List<TicketVO> myTicketList = service.selectMyticket(Integer.toString(user.getMno()));
+		for (TicketVO item : myTicketList) {
+			Map<String, Object> map = new HashMap<String, Object>();
+			item.getTicketno();
+			// 각 티켓 번호로 티켓 세부내용을 DB에서 받아온다
+			List<TicketDetailVO> ticketdetail = service.selectTicketDetail(Integer.toString(item.getTicketno()));
+			/*
+			 * for(TicketDetailVO dVo : ticketdetail ) { System.out.println(dVo.toString());
+			 * }
+			 */
+			map.put("ticket", item);
+			map.put("detail", ticketdetail);
+			allList.add(map);
+		}
+//		List<TicketDetailVO> ticketdetail = service.selectTicketDetail();
+
+//		for (Map<String, Object> tVo : allList) {
+//			TicketVO ticket = (TicketVO) tVo.get("ticket");
+//			List<TicketDetailVO> tdList = (List<TicketDetailVO>) tVo.get("detail");
+//
+//			System.out.println("티겟 번호 : " + ticket.getTicketno());
+//			System.out.println("인원수 : " + tdList.size());
+//			for (TicketDetailVO dVo : tdList) {
+//				System.out.println("좌석번호 : " + dVo.getSseatno());
+//				System.out.println("영화이름 : " + dVo.getCname());
+//			}
+//
+//		}
+//		model.addAttribute("myTicketList", myTicketList);
+//		model.addAttribute("ticketdetail", ticketdetail);
+		model.addAttribute("list", allList);
+
 		return "myInfo/myTicketing";
 	}
+
+	// 예매취소
+	@RequestMapping(value = "/myTicketDel", method = RequestMethod.POST)
+	public void deleteMyticket(String ticketno, HttpServletResponse response, HttpServletRequest request) throws Exception {
+		int result = service.deleteMyticket(ticketno);
+		System.out.print(ticketno);
 	
-	//내정보변경(비밀번호 확인 페이지)
+		 response.setCharacterEncoding("UTF-8");
+		 response.setContentType("text/html; charset=utf-8"); 
+		 System.out.print(result);
+		 if(result == 1) {
+			 response.getWriter().println("<script>alert('예매가 취소되었습니다');location.href='"+request.getContextPath()+ "/myInfo'; </script>"); 
+			 response.getWriter().flush(); 
+		 }else{ 
+			 response.getWriter().println("<script>alert('예매취소에 실패하였습니다.');location.href='"+request.getContextPath()+ "/myInfo'; </script>"); 
+			 response.getWriter().flush(); 
+		}
+		 
+	}
+
+	// 내정보변경(비밀번호 확인 페이지)
 	@RequestMapping(value = "/myInfo/changeMyinfo", method = RequestMethod.GET)
-	public String changeMyinfoPre() {		
+	public String changeMyinfoPre() {
 		return "myInfo/checkPw";
 	}
-	//비밀번호 확인 로직
+
+	// 비밀번호 확인 로직
 	@RequestMapping(value = "/myInfo/confirmPw", method = RequestMethod.POST)
-	public String confirmPw(MemberVO vo, Authentication auth) throws Exception{
-		
-		UserVO loginVO = (UserVO)auth.getPrincipal();
-		MemberVO user =  service.selectMyinfo(loginVO.getMid());
-		
+	public String confirmPw(MemberVO vo, Authentication auth) throws Exception {
+
+		UserVO loginVO = (UserVO) auth.getPrincipal();
+		MemberVO user = service.selectMyinfo(loginVO.getMid());
+
 		BCryptPasswordEncoder epwe = new BCryptPasswordEncoder();
 		boolean result = epwe.matches(vo.getMpw(), user.getMpw());
-		
-		if(result) {	
+
+		if (result) {
 			return "redirect:/myInfo/updateMyinfo";
-		}else {	
+		} else {
 			return "redirect:/myInfo/checkPw";
 		}
 	}
-	//내정보변경(화면포워드)
+
+	// 내정보변경(화면포워드)
 	@RequestMapping(value = "/myInfo/updateMyinfo", method = RequestMethod.GET)
-	public String changeMyinfo() {	
+	public String changeMyinfo() {
 		return "myInfo/changeMyinfo";
 	}
+
 	@ResponseBody
-	@RequestMapping(value="/myInfo/checkEmail", method=RequestMethod.POST)
+	@RequestMapping(value = "/myInfo/checkEmail", method = RequestMethod.POST)
 	public String checkEmail(String email) throws Exception {
 		return Integer.toString(service.checkEmail(email));
 	}
-	//내정보변경(업데이트)
+
+	// 내정보변경(업데이트)
 	@RequestMapping(value = "/myInfo/changeMyinfo", method = RequestMethod.POST)
-	public void changeMyinfoPost(MemberVO vo, Authentication auth,HttpServletResponse response,HttpServletRequest request) throws Exception{
-		
-		int result = service.updateMyinfo(vo ,auth);
-		
+	public void changeMyinfoPost(MemberVO vo, Authentication auth, HttpServletResponse response,HttpServletRequest request) throws Exception {
+
+		int result = service.updateMyinfo(vo, auth);
+
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=utf-8");
-		if(result == 1) {
-			response.getWriter().println("<script>alert('회원정보가 변경되었습니다.');location.href='"+request.getContextPath()+"/myInfo'; </script>");
+		if (result == 1) {
+			response.getWriter().println("<script>alert('회원정보가 변경되었습니다.');location.href='" + request.getContextPath()+ "/myInfo'; </script>");
 			response.getWriter().flush();
-		}else {
-			response.getWriter().println("<script>alert('회원정보 변경에 실패하였습니다.');location.href='"+request.getContextPath()+"/myInfo'; </script>");
+		} else {
+			response.getWriter().println("<script>alert('회원정보 변경에 실패하였습니다.');location.href='" + request.getContextPath()+ "/myInfo'; </script>");
 			response.getWriter().flush();
 		}
-		
+
 	}
-	
-	//회원탈퇴
+
+	// 회원탈퇴
 	@RequestMapping(value = "/myInfo/withdrawal", method = RequestMethod.GET)
 	public String withdrawal() {
-		
+
 		return "myInfo/withdrawal";
 	}
-	//비밀번호 확인->탈퇴
+
+	// 비밀번호 확인->탈퇴
 	@RequestMapping(value = "/myInfo/withdrawal", method = RequestMethod.POST)
-	public void withdrawl(MemberVO vo, Authentication auth, HttpServletResponse response,HttpSession session, HttpServletRequest request) throws Exception {
-		//비밀번호 인증확인되면 
-		UserVO loginVO = (UserVO)auth.getPrincipal();
-		MemberVO user =  service.selectMyinfo(loginVO.getMid());
-		
-		if(user == null) {	
+	public void withdrawl(MemberVO vo, Authentication auth, HttpServletResponse response, HttpSession session,
+			HttpServletRequest request) throws Exception {
+		// 비밀번호 인증확인되면
+		UserVO loginVO = (UserVO) auth.getPrincipal();
+		MemberVO user = service.selectMyinfo(loginVO.getMid());
+
+		if (user == null) {
 		}
 		BCryptPasswordEncoder epwe = new BCryptPasswordEncoder();
 		boolean result = epwe.matches(vo.getMpw(), user.getMpw());
-		
-		if(result) {	
+
+		if (result) {
 			int resultDel = service.deleteMyinfo(user);
-			
+
 			response.setCharacterEncoding("UTF-8");
 			response.setContentType("text/html; charset=utf-8");
-			if(resultDel == 0) {
-				response.getWriter().println("<script>alert('회원탈퇴에 실패하였습니다.'); location.href='"+request.getContextPath()+"/myInfo'; </script>");
+			if (resultDel == 0) {
+				response.getWriter().println("<script>alert('회원탈퇴에 실패하였습니다.'); location.href='"
+						+ request.getContextPath() + "/myInfo'; </script>");
 				response.getWriter().flush();
-			}else if(resultDel == 1) {
-				response.getWriter().println("<script>alert('회원탈퇴가 성공적으로 진행되었습니다');location.href='"+request.getContextPath()+"/myInfo';  </script>");
+			} else if (resultDel == 1) {
+				response.getWriter().println("<script>alert('회원탈퇴가 성공적으로 진행되었습니다');location.href='"
+						+ request.getContextPath() + "/myInfo';  </script>");
 				response.getWriter().flush();
-				
-	            SecurityContextHolder.clearContext(); // SecurityContext 초기화
-	            session.invalidate(); // HttpSession 무효화
 
-	            // 로그아웃 처리
-	            SecurityContextLogoutHandler logoutHandler = new SecurityContextLogoutHandler();
-	            logoutHandler.logout(request, null, null);
+				SecurityContextHolder.clearContext(); // SecurityContext 초기화
+				session.invalidate(); // HttpSession 무효화
+
+				// 로그아웃 처리
+				SecurityContextLogoutHandler logoutHandler = new SecurityContextLogoutHandler();
+				logoutHandler.logout(request, null, null);
 			}
 		}
-		
+
 	}
-	
-	
+
 }

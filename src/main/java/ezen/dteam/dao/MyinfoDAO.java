@@ -35,7 +35,10 @@ public class MyinfoDAO {
 	public List<TicketVO> selectMyticket(String mno)throws Exception{
 		return sqlSession.selectList(nameSpace+".selectMyticket", mno);
 	}
-	public List<TicketDetailVO> selectTicketDetail()throws Exception{
-		return sqlSession.selectList(nameSpace+".selectTicketDetail");
+	public List<TicketDetailVO> selectTicketDetail(String ticketno)throws Exception{
+		return sqlSession.selectList(nameSpace+".selectTicketDetail",ticketno);
+	}
+	public int deleteMyticket(String ticketno)throws Exception{
+		return sqlSession.update(nameSpace+".deleteMyticket",ticketno);
 	}
 }

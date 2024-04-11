@@ -15,5 +15,6 @@ public interface MyinfoSVC {
 	public int updateMyinfo(MemberVO vo, Authentication auth) throws Exception;
 	public int deleteMyinfo(MemberVO vo) throws Exception;
 	public List<TicketVO> selectMyticket(String mno) throws Exception;
-	public List<TicketDetailVO> selectTicketDetail() throws Exception;
+	public List<TicketDetailVO> selectTicketDetail(String ticketno) throws Exception;
+	public int deleteMyticket(String ticketno) throws Exception;
 }
