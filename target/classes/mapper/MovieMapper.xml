@@ -11,7 +11,7 @@
 		where cno = #{value}
 	</select>
 	<insert id="insertReply" parameterType="CinemaReplyVO">
-		insert into cinemaReply (ccmtContent, ccmtRdadte,ccmtDelyn,cno,mno) 
+		insert into cinemaReply (ccmtContent, ccmtRdate,ccmtDelyn,cno,mno) 
 		values (#{ccmtContent}, now(), 0, #{cno}, #{mno});
 	</insert>
 	<update id="updateReply" parameterType="CinemaReplyVO">
