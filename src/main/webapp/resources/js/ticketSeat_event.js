@@ -2,6 +2,7 @@ let selectedCount = 0;
 
 let inputSeats = document.getElementById('seats');
 let inputSseatNos = document.getElementById('sseatNos');
+console.log("inputsseatnos::"+inputSseatNos)
 let inputPersonNum = document.getElementById('personNum');
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -20,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
             });
 
             selectedCount = parseInt(personNumberItem.getAttribute('data-count'));
-            console.log(selectedCount);
+            console.log("인원수::"+selectedCount);
 
             // 선택된 요소에 클래스 추가하고 스타일 변경
             personNumberItem.classList.add('selected');
@@ -39,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function() {
 let selectedSeats = [];
 let selectedSeatNos = [];
 let currentUserMno = $('#user').val();
-console.log(currentUserMno);
+console.log("user mno::"+currentUserMno);
 
 function updateSelectedCounts() {
     return selectedCount;
@@ -66,40 +67,44 @@ function handleSeatSelection(seat) {
     console.log("좌석번호::" + clickSeat);
     
     let clickSeatNo = seat.querySelector('.mod').innerText;
+    console.log("clickseatno::"+clickSeatNo);
 
     // 이미 선택된 좌석인지 확인
     let isSelected = selectedSeats.includes(clickSeat);
 
-    // 이미 선택된 좌석이 아니고, 선택된 좌석 수가 인원 수와 일치하는 경우에만 좌석 선택
-    if (!isSelected && selectedSeats.length < updateSelectedCounts()) {
-        selectedSeats.push(clickSeat);
-        // selectedSeatNos.push(clickSeatNo);
-        seatItem.classList.toggle('selected-seat');
-        console.log(selectedSeats);
-
-        inputSeats.value = selectedSeats;
-        // inputSseatNos.value = selectedSeatNos;
-
-    } else {
-        alert("이미 선택된 좌석이거나 선택된 인원 수와 일치합니다.");
-    }
-    
     $.ajax({
-      url : 'reservationCheck',
-      type: 'POST',
-      data: { sseatnoParam : clickSeatNo , mnoParam : currentUserMno},
-      success: function(data){
-      	console.log("success");
-      	console.log(data);
-      },
-      error : function(){
-      	console.log("error");
-      }
-      
-      
-   });
-      
-    
+        url : 'reservationCheck',
+        type: 'POST',
+        data: { sseatnoParam : clickSeatNo , mnoParam : currentUserMno},
+        success: function(data){
+            console.log("success");
+            console.log(data);
+            let dataSseatno = data[0] ? data[0].sseatno : null;
+            
+            // 이미 선택된 좌석이 아니고, 선택된 좌석 수가 인원 수와 일치하는 경우에만 좌석 선택
+            if (dataSseatno == clickSeatNo) {
+                alert("이미 선택된 좌석이거나 선택된 인원 수와 일치합니다.");
+            } else if (!isSelected && selectedSeats.length < updateSelectedCounts() &&
+                (dataSseatno == null || dataSseatno === undefined)) {
+                selectedSeats.push(clickSeat);
+                // selectedSeatNos.push(clickSeatNo);
+                seatItem.classList.toggle('selected-seat');
+                console.log(selectedSeats);
+            
+                selectedSeatNos.push(clickSeatNo);
+            
+                inputSeats.value = selectedSeats;
+                inputSseatNos.value = selectedSeatNos;
+            } else {
+                alert("이미 선택된 좌석이거나 선택된 인원 수와 일치합니다.");
+            }
+            
+            
+        },
+        error : function(){
+            console.log("error");
+        }
+     });
 }
 
 document.addEventListener("DOMContentLoaded", function() {

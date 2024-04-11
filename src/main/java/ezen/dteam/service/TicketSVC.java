@@ -1,6 +1,7 @@
 package ezen.dteam.service;
 
 import java.util.List;
+import java.util.Map;
 
 import ezen.dteam.vo.CinemaVO;
 import ezen.dteam.vo.ScreenHallVO;
@@ -24,5 +25,7 @@ public interface TicketSVC {
 	List<ScreenSeatVO> selectScreenSeat(ScreenSeatVO ticketInfo);
 
 	List<TicketDetailVO> selectCheckSeat(TicketDetailVO ticketDetailVO);
+
+	void reserveTicket(Map<String, Object> paramMap);
 	
 }

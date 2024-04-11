@@ -1,6 +1,7 @@
 package ezen.dteam.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -52,6 +53,11 @@ public class TicketSVCImpl implements TicketSVC{
 	@Override
 	public List<TicketDetailVO> selectCheckSeat(TicketDetailVO ticketDetailVO) {
 		return ticketDAO.selectCheckSeat(ticketDetailVO);
+	}
+
+	@Override
+	public void reserveTicket(Map<String, Object> paramMap) {
+		ticketDAO.reserveTicket(paramMap);
 	}
 	
 }

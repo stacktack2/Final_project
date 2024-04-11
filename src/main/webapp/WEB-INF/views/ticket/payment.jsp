@@ -36,67 +36,11 @@
 				<!-- seat 바디 -->
 				<div class="section-seat-body">
 					<div class="person_screen">
-						<div class="person-number">
+						<div class="person-number" style="height: 538px;">
 							<div class="pn-container">
 								<div class="max-personNumber">* 최대 8명 선태 가능</div>
 								<div class="group_adult" style="display: block;">
 									<span class="title">일반</span>
-									<ul class="personAdult">
-										<li data-count="0" class="selected" type="adult">
-											<a href="#" onclick="return false;" style="color: white;"> 
-												<span class="sreader mod">일반</span>0
-												<span class="sreader">명</span>
-											</a>
-										</li>
-										<li data-count="1" type="adult">
-											<a href="#" onclick="return false;">
-												<span class="sreader mod">일반</span>1
-												<span class="sreader">명</span>
-											</a>
-										</li>
-										<li data-count="2" type="adult">
-											<a href="#" onclick="return false;">
-												<span class="sreader mod">일반</span>2
-												<span class="sreader">명</span>
-											</a>
-										</li>
-										<li data-count="3" type="adult">
-											<a href="#" onclick="return false;">
-												<span class="sreader mod">일반</span>3
-												<span class="sreader">명</span>
-											</a>
-										</li>
-										<li data-count="4" type="adult">
-											<a href="#" onclick="return false;">
-												<span class="sreader mod">일반</span>4
-												<span class="sreader">명</span>
-											</a>
-										</li>
-										<li data-count="5" type="adult">
-											<a href="#" onclick="return false;">
-												<span class="sreader mod">일반</span>5
-												<span class="sreader">명</span>
-											</a>
-										</li>
-										<li data-count="6" type="adult">
-											<a href="#" onclick="return false;">
-												<span class="sreader mod">일반</span>6
-												<span class="sreader">명</span>
-											</a>
-										</li>
-										<li data-count="7" type="adult">
-											<a href="#" onclick="return false;">
-												<span class="sreader mod">일반</span>7
-												<span class="sreader">명</span>
-											</a>
-										</li>
-										<li data-count="8" type="adult">
-											<a href="#" onclick="return false;">
-												<span class="sreader mod">일반</span>8
-												<span class="sreader">명</span>
-											</a>
-										</li>
-									</ul>
 								</div>
 							</div>
 						</div>
@@ -119,6 +63,5 @@
 		</div>
 	</div>
 	<%@ include file="../include/footer/userFooter.jsp"%>
-<script src="<%=request.getContextPath() %>/resources/js/ticketSeat_event.js"></script>
 </body>
 </html>

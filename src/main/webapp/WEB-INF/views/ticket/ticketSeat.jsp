@@ -140,7 +140,7 @@
 							                                    <a href="#" onclick="return false;">
 							                                        <span class="no">${lineRowA.sseatRow}</span>
 							                                        <span class="sreader">${lineRowA.sseatType}</span>
-							                                        <span class="sreader mod"></span>
+							                                        <span class="sreader mod">${lineRowA.sseatno }</span>
 							                                    </a>
 							                                </div>
 							                                <c:set var="leftPosition" value="${leftPosition + 16}" />
@@ -167,7 +167,7 @@
 							                                    <a href="#" onclick="return false;">
 							                                        <span class="no">${lineRowB.sseatRow}</span>
 							                                        <span class="sreader">${lineRowB.sseatType}</span>
-							                                        <span class="sreader mod"></span>
+							                                        <span class="sreader mod">${lineRowB.sseatno }</span>
 							                                    </a>
 							                                </div>
 							                                <c:set var="leftPosition" value="${leftPosition + 16}" />
@@ -194,7 +194,7 @@
 							                                    <a href="#" onclick="return false;">
 							                                        <span class="no">${lineRowC.sseatRow}</span>
 							                                        <span class="sreader">${lineRowC.sseatType}</span>
-							                                        <span class="sreader mod"></span>
+							                                        <span class="sreader mod">${lineRowC.sseatno }</span>
 							                                    </a>
 							                                </div>
 							                                <c:set var="leftPosition" value="${leftPosition + 16}" />
@@ -221,7 +221,7 @@
 							                                    <a href="#" onclick="return false;">
 							                                        <span class="no">${lineRowD.sseatRow}</span>
 							                                        <span class="sreader">${lineRowD.sseatType}</span>
-							                                        <span class="sreader mod"></span>
+							                                        <span class="sreader mod">${lineRowD.sseatno }</span>
 							                                    </a>
 							                                </div>
 							                                <c:set var="leftPosition" value="${leftPosition + 16}" />
@@ -248,7 +248,7 @@
 							                                    <a href="#" onclick="return false;">
 							                                        <span class="no">${lineRowE.sseatRow}</span>
 							                                        <span class="sreader">${lineRowE.sseatType}</span>
-							                                        <span class="sreader mod"></span>
+							                                        <span class="sreader mod">${lineRowE.sseatno }</span>
 							                                    </a>
 							                                </div>
 							                                <c:set var="leftPosition" value="${leftPosition + 16}" />
@@ -275,7 +275,7 @@
 							                                    <a href="#" onclick="return false;">
 							                                        <span class="no">${lineRowF.sseatRow}</span>
 							                                        <span class="sreader">${lineRowF.sseatType}</span>
-							                                        <span class="sreader mod"></span>
+							                                        <span class="sreader mod">${lineRowF.sseatno }</span>
 							                                    </a>
 							                                </div>
 							                                <c:set var="leftPosition" value="${leftPosition + 16}" />
@@ -302,7 +302,7 @@
 							                                    <a href="#" onclick="return false;">
 							                                        <span class="no">${lineRowG.sseatRow}</span>
 							                                        <span class="sreader">${lineRowG.sseatType}</span>
-							                                        <span class="sreader mod"></span>
+							                                        <span class="sreader mod">${lineRowG.sseatno }</span>
 							                                    </a>
 							                                </div>
 							                                <c:set var="leftPosition" value="${leftPosition + 16}" />
@@ -329,7 +329,7 @@
 							                                    <a href="#" onclick="return false;">
 							                                        <span class="no">${lineRowH.sseatRow}</span>
 							                                        <span class="sreader">${lineRowH.sseatType}</span>
-							                                        <span class="sreader mod"></span>
+							                                        <span class="sreader mod">${lineRowH.sseatno }</span>
 							                                    </a>
 							                                </div>
 							                                <c:set var="leftPosition" value="${leftPosition + 16}" />
@@ -356,7 +356,7 @@
 							                                    <a href="#" onclick="return false;">
 							                                        <span class="no">${lineRowI.sseatRow}</span>
 							                                        <span class="sreader">${lineRowI.sseatType}</span>
-							                                        <span class="sreader mod"></span>
+							                                        <span class="sreader mod">${lineRowI.sseatno }</span>
 							                                    </a>
 							                                </div>
 							                                <c:set var="leftPosition" value="${leftPosition + 16}" />
@@ -383,7 +383,7 @@
 							                                    <a href="#" onclick="return false;">
 							                                        <span class="no">${lineRowJ.sseatRow}</span>
 							                                        <span class="sreader">${lineRowJ.sseatType}</span>
-							                                        <span class="sreader mod"></span>
+							                                        <span class="sreader mod">${lineRowJ.sseatno }</span>
 							                                    </a>
 							                                </div>
 							                                <c:set var="leftPosition" value="${leftPosition + 16}" />
@@ -410,7 +410,7 @@
 							                                    <a href="#" onclick="return false;">
 							                                        <span class="no">${lineRowK.sseatRow}</span>
 							                                        <span class="sreader">${lineRowK.sseatType}</span>
-							                                        <span class="sreader mod"></span>
+							                                        <span class="sreader mod">${lineRowK.sseatno }</span>
 							                                    </a>
 							                                </div>
 							                                <c:set var="leftPosition" value="${leftPosition + 16}" />
@@ -424,7 +424,7 @@
 							                                    <a href="#" onclick="return false;">
 							                                        <span class="no">${lineRowK.sseatRow}</span>
 							                                        <span class="sreader">${lineRowK.sseatType}</span>
-							                                        <span class="sreader mod"></span>
+							                                        <span class="sreader mod">${lineRowK.sseatno }</span>
 							                                    </a>
 							                                </div>
 							                                <c:set var="leftPosition" value="${leftPosition + 16}" />
@@ -451,7 +451,7 @@
 							                                    <a href="#" onclick="return false;">
 							                                        <span class="no">${lineRowL.sseatRow}</span>
 							                                        <span class="sreader">${lineRowL.sseatType}</span>
-							                                        <span class="sreader mod"></span>
+							                                        <span class="sreader mod">${lineRowL.sseatno }</span>
 							                                    </a>
 							                                </div>
 							                                <c:set var="leftPosition" value="${leftPosition + 16}" />
@@ -465,7 +465,7 @@
 							                                    <a href="#" onclick="return false;">
 							                                        <span class="no">${lineRowL.sseatRow}</span>
 							                                        <span class="sreader">${lineRowL.sseatType}</span>
-							                                        <span class="sreader mod"></span>
+							                                        <span class="sreader mod">${lineRowL.sseatno }</span>
 							                                    </a>
 							                                </div>
 							                                <c:set var="leftPosition" value="${leftPosition + 16}" />
@@ -495,6 +495,7 @@
 							<div class="tnb">
 							<form action="payment" name="frm" method="post">
 								<input type="hidden" name="mno" value="${mno }" id="mno">
+								<input type="hidden" name="user" value="<%= session.getAttribute("mno") %>" id="user">
 								<a type="button"
 									href="<%=request.getContextPath()%>/ticket/ticketing"
 									class="btn-backmovie-check" id="seatSelectionButton"> <span>영화선택</span>
@@ -542,6 +543,7 @@
 												<a id="selShallType">${shallType }</a>
 												<a id="selShallLocation">${shallLocation }</a>
 											</span>
+											<input type="hidden" name="sno" value="${sno }" id="sno">
 											<input type="hidden" name="shallno" value="${shallno }" id="shallno">
 											<input type="hidden" name="shallType" value="${shallType }" id="shallType">
 											<input type="hidden" name="shallLocation" value="${shallLocation }" id="shallLocation">
@@ -550,6 +552,7 @@
 											<span class="header">인원</span>
 											<span class="data" id="personNumber"></span>
 											<input type="hidden" name="personNum" value="" id="personNum">
+											<input type="hidden" name="sseatNos" value="" id="sseatNos">
 											<input type="hidden" name="seats" value="" id="seats">
 										</div>
 										<div class="placeholder" title="극장선택" style="display: none;"></div>

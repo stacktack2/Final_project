@@ -1,6 +1,8 @@
 package ezen.dteam.dao;
 
 import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -46,6 +48,10 @@ public class TicketDAO {
 
 		public List<TicketDetailVO> selectCheckSeat(TicketDetailVO ticketDetailVO) {
 			return sqlSession.selectList(nameSpace+".selectCheckSeat", ticketDetailVO);
+		}
+
+		public Object reserveTicket(Map<String, Object> paramMap) {
+			return sqlSession.insert(nameSpace+".reservoTicket", paramMap);
 		}
 		
 }
