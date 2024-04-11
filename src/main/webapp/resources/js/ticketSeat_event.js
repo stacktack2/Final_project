@@ -1,6 +1,7 @@
 let selectedCount = 0;
 
 let inputSeats = document.getElementById('seats');
+let inputPersonNum = document.getElementById('personNum');
 
 document.addEventListener("DOMContentLoaded", function() {
     let personNumbers = document.querySelectorAll('.personAdult li');
@@ -28,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
 
             clickNumber.innerText = selectedCount+"명";
-
+            inputPersonNum.value = selectedCount;
         });
     });
 });

@@ -493,7 +493,7 @@
 		<!-- 진행버튼 -->
 						<div id="ticket_tnb" class="tnb_container">
 							<div class="tnb">
-							<form action="" name="frm" method="post">
+							<form action="payment" name="frm" method="post">
 								<input type="hidden" name="mno" value="${mno }" id="mno">
 								<a type="button"
 									href="<%=request.getContextPath()%>/ticket/ticketing"
@@ -549,6 +549,7 @@
 										<div class="row number" style="display: block;">
 											<span class="header">인원</span>
 											<span class="data" id="personNumber"></span>
+											<input type="hidden" name="personNum" value="" id="personNum">
 											<input type="hidden" name="seats" value="" id="seats">
 										</div>
 										<div class="placeholder" title="극장선택" style="display: none;"></div>
@@ -556,18 +557,18 @@
 								<div class="info path">
 									<div class="row colspan4">
 										<span class="path-step2" title="좌석선택" style="color: red;">&nbsp;</span>
-										<span class="path-step3" title="결제">&nbsp;</span>
 									</div>
 								</div>
 								</form>
 								<button onclick="ticketInfo();" type="submit"
 									class="btn-right-check" id="seatSelectionButton">
-									<span>결제하기</span>
+									<span>예매하기</span>
 								</button>
 							</div>
 						</div>
 	</div>
 	<%@ include file="../include/footer/userFooter.jsp"%>
 <script src="<%=request.getContextPath() %>/resources/js/ticketSeat_event.js"></script>
+<script src="<%=request.getContextPath() %>/resources/js/ticketing_submit.js"></script>
 </body>
 </html>
