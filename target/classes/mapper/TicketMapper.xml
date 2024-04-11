@@ -20,14 +20,14 @@
 	</select>
 	
 	<select id="selectScreenHall" resultType="ScreenHallVO">
-		SELECT theater.*, screenhall.* FROM screenhall INNER JOIN theater ON theater.tno = screenhall.tno WHERE theater.tno = #{tno}
+		SELECT theater.*, screenHall.* FROM screenHall INNER JOIN theater ON theater.tno = screenHall.tno WHERE theater.tno = #{tno}
 	</select>
 
 	<select id="selectScreen" resultType="ScreenVO" parameterType="screenVO">
-		SELECT theater.*, screenhall.*, s.*, c.cno, c.cname
-		FROM screenhall
-		INNER JOIN theater ON theater.tno = screenhall.tno
-		INNER JOIN screen s ON screenhall.shallno = s.shallno
+		SELECT theater.*, screenHall.*, s.*, c.cno, c.cname
+		FROM screenHall
+		INNER JOIN theater ON theater.tno = screenHall.tno
+		INNER JOIN screen s ON screenHall.shallno = s.shallno
 		INNER JOIN cinema c ON c.cno = s.cno
 		WHERE theater.tno = #{tno} AND s.sday = #{sday} AND s.cno = #{cno}
 		AND CONCAT(s.sday, ' ', s.sstartTime) > (
@@ -38,8 +38,8 @@
 	
 	<select id="selectScreenSeat" resultType="ScreenSeatVO">
 		SELECT *
-		FROM screenseat ss
-		INNER JOIN screenhall sh
+		FROM screenSeat ss
+		INNER JOIN screenHall sh
 		ON ss.shallno = sh.shallno
 		INNER JOIN screen s
 		ON sh.shallno = s.shallno
