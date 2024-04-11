@@ -6,6 +6,8 @@ import ezen.dteam.vo.CinemaReplyVO;
 import ezen.dteam.vo.CinemaVO;
 
 public interface MovieSVC {
+	public List<CinemaVO> selectBoxOfficeCinema();
+	public List<CinemaVO> selectUnopen();
 	public CinemaVO selectMovieDetail(String cno) throws Exception;
 	public List<CinemaReplyVO> selectReplyCno(String cno) throws Exception;
 	public int insertReply(CinemaReplyVO vo) throws Exception;

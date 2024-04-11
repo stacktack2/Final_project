@@ -14,7 +14,14 @@ public class MovieSVCImpl implements MovieSVC{
 	
 	@Autowired
 	MovieDAO movieDAO;
-	//영화 상세정보 조회
+	@Override
+	public List<CinemaVO> selectBoxOfficeCinema(){
+		return movieDAO.selectBoxOfficeCinema();
+	}
+	@Override
+	public List<CinemaVO> selectUnopen() {
+		return movieDAO.selectUnopen();
+	}
 	@Override
 	public CinemaVO selectMovieDetail(String cno) throws Exception {	
 		return movieDAO.selectMovieDetail(cno);
