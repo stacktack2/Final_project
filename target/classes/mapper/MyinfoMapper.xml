@@ -6,7 +6,7 @@
 
 	<select id="selectMyinfo" parameterType="String" resultType="MemberVO">
 		 SELECT mid, mname, mpw, mnickNm, authority, enabled, mbirth, memail, mgender, mjoinDate, mphone, mno 
-		 FROM Member 
+		 FROM member 
 		 WHERE mid = #{value}
 	</select>
 	<select id="checkEmail" parameterType="String" resultType="int">
@@ -20,16 +20,30 @@
 			where mid = #{mid}
 	</update>
 	<update id="deleteMyinfo" parameterType="MemberVO"> 
-		Update Member 
+		Update member 
 			set isWithdrawn = 1  
 			where mid = #{mid}
 	</update>
-	<select id="selectMyticket" parameterType="TicketVO" resultType="TicketVO">
-		SELECT * FROM MyTicketView 
-		where mno = #{value} and ticketDelyn = 0; 
+	<select id="selectMyticket" parameterType="TicketVO" resultType="TicketVO"> 
+		SELECT
+			t.ticketno, t.ticketTime, t.ticketDelyn, t.mno
+			FROM ticket t 
+			where mno = #{value} and ticketDelyn = 0
+			group by t.ticketno;
 	</select>
-	<select id="selectTicketDetail" resultType="TicketDetailVO">
-		SELECT * FROM TicketDetail;
+	<select id="selectTicketDetail" parameterType="String" resultType="TicketDetailVO">
+		SELECT td.*,ss.*, sh.*,sc.*, 
+				th.tname, th.tno, c.cname, c.cno 
+				FROM TicketDetail td
+		inner join screenSeat ss on ss.sseatno = td.sseatno 
+		inner join screenHall sh on sh.shallno= ss.shallno 
+		inner join screen sc on sc.sno = td.sno 
+		inner join theater th on th.tno = sh.tno 
+		inner join cinema c on c.cno = sc.cno 
+		where ticketno=#{value};
 	</select>
-	
+	<update id="deleteMyticket" parameterType="String">
+		update ticket set ticketDelyn = 1   
+		where ticketno = #{value};
+	</update>
 </mapper>
