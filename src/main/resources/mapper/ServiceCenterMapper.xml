@@ -54,7 +54,7 @@
 	
 	
 	<select id="selectReplyBno" parameterType="String" resultType="IcmtReplyVO">
-		select * from icmtreply where bno = #{value}
+		select * from icmtReply where bno = #{value}
 	</select>
 	
 	<select id="midtomno" parameterType="String" resultType="int">

@@ -1,5 +1,5 @@
 delete from theater;
-delete from screenhall;
+delete from screenHall;
 
 SELECT * FROM dflix.cinema;
 

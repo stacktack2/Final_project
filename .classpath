@@ -26,7 +26,6 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
 		<attributes>
-			<attribute name="module" value="true"/>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
@@ -36,9 +35,17 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/jdh/Final_project/src/main/webapp/WEB-INF/lib/jbcrypt-0.4 (1).jar"/>
 	<classpathentry kind="lib" path="C:/jdh/Final_project/src/main/webapp/WEB-INF/lib/kobis-opcl-rest-v1.0.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+=======
+>>>>>>> branch 'master' of https://github.com/dahee2462/Final_project.git
 	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v9.0"/>
+<<<<<<< HEAD
+=======
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/jbcrypt-0.4 (1).jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/kobis-opcl-rest-v1.0.jar"/>
+>>>>>>> branch 'master' of https://github.com/dahee2462/Final_project.git
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
