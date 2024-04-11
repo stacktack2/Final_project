@@ -156,7 +156,7 @@
     	<div class="profile">
     		<div class="profile-box">
 	    		<sec:authorize access="isAuthenticated()">
-				<strong><%-- <sec:authentication property="principal.mname"/> 님 --%>${user.mname} 님</strong>
+				<strong><sec:authentication property="principal.mname"/> 님</strong>
 				<em><sec:authentication property="principal.username"/></em>
 				<br> 
 				</sec:authorize>

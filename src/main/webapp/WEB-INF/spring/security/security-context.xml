@@ -32,7 +32,9 @@
 	</security:http>
 	
 	<!-- ref와 동일한 값인 id로 빈생성 -->
-	<bean id="userLoginSuccessHandler" class="ezen.dteam.service.UserLoginSuccessHandler"/>
+	<bean id="userLoginSuccessHandler" class="ezen.dteam.service.UserLoginSuccessHandler">
+		<constructor-arg name="sqlSession" ref="sqlSession"/> <!-- 생성자 -->
+	</bean>
 	<bean id="userLoginFailureHandler" class="ezen.dteam.service.UserLoginFailureHandler"/>
 	<bean id="userDeniedHandler" class="ezen.dteam.service.UserDeniedHandler"/>
 	<bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/><!-- 비크립트는 시큐리티가 가지고있는 걸 사용-->

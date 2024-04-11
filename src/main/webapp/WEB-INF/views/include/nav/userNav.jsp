@@ -14,7 +14,11 @@
 				<div class="col-lg-8 col-md-8"></div>
 				<div class="col-lg-4 col-md-4">
 					<ul class="topmenu">
-						<li><a href="<%=request.getContextPath() %>/join">회원가입 </a> |</li>
+						<li>
+						<sec:authorize access="isAnonymous()">
+						<a href="<%=request.getContextPath() %>/join">회원가입 </a> |
+						</sec:authorize>
+						</li>
 						<li>
 							<!-- 시큐리티 로그인-->
 							<sec:authorize access="isAuthenticated()">
