@@ -94,7 +94,7 @@
 							<td>
 								<form action="myTicketDel" method="post" name="myTicketDel">
 									<input type="hidden" name="ticketno" id="ticketno" value="${tVo.ticket.ticketno}">
-									<button class="btn btn-danger btn-sm float-right deleteBtn">예매 취소</button>
+									<button type="button" class="btn btn-danger btn-sm float-right deleteBtn">예매 취소</button>
 								</form>
 							</td>
 						</tr>
@@ -108,7 +108,8 @@
     	<script>
 	    // 삭제 버튼 클릭 시 서버로 삭제 요청
 	    $(".deleteBtn").click(function() {
-	        if (confirm("삭제하시겠습니까? ")) {
+	    	let flag = confirm("삭제하시겠습니까? "); 
+	        if (flag) {
 	            document.forms['myTicketDel'].submit();
 	        }
 	    });
