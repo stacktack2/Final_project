@@ -10,6 +10,7 @@ import ezen.dteam.vo.ScreenHallVO;
 import ezen.dteam.vo.ScreenSeatVO;
 import ezen.dteam.vo.ScreenVO;
 import ezen.dteam.vo.TheaterVO;
+import ezen.dteam.vo.TicketDetailVO;
 
 @Repository
 public class TicketDAO {
@@ -41,6 +42,10 @@ public class TicketDAO {
 
 		public List<ScreenSeatVO> selectScreenSeat(ScreenSeatVO ticketInfo) {
 			return sqlSession.selectList(nameSpace+".selectScreenSeat", ticketInfo);
+		}
+
+		public List<TicketDetailVO> selectCheckSeat(TicketDetailVO ticketDetailVO) {
+			return sqlSession.selectList(nameSpace+".selectCheckSeat", ticketDetailVO);
 		}
 		
 }

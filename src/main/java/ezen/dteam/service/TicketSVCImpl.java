@@ -11,6 +11,7 @@ import ezen.dteam.vo.ScreenHallVO;
 import ezen.dteam.vo.ScreenSeatVO;
 import ezen.dteam.vo.ScreenVO;
 import ezen.dteam.vo.TheaterVO;
+import ezen.dteam.vo.TicketDetailVO;
 
 @Service
 public class TicketSVCImpl implements TicketSVC{
@@ -46,6 +47,11 @@ public class TicketSVCImpl implements TicketSVC{
 	@Override
 	public List<ScreenSeatVO> selectScreenSeat(ScreenSeatVO ticketInfo) {
 		return ticketDAO.selectScreenSeat(ticketInfo);
+	}
+
+	@Override
+	public List<TicketDetailVO> selectCheckSeat(TicketDetailVO ticketDetailVO) {
+		return ticketDAO.selectCheckSeat(ticketDetailVO);
 	}
 	
 }

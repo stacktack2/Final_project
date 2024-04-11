@@ -3,6 +3,7 @@ package ezen.dteam.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -19,6 +20,7 @@ import ezen.dteam.vo.ScreenHallVO;
 import ezen.dteam.vo.ScreenSeatVO;
 import ezen.dteam.vo.ScreenVO;
 import ezen.dteam.vo.TheaterVO;
+import ezen.dteam.vo.TicketDetailVO;
 import ezen.dteam.vo.UserVO;
 
 @RequestMapping(value="/ticket")
@@ -27,6 +29,9 @@ public class Ticket {
 	
 	@Autowired
 	TicketSVC ticketSVC;
+	
+	@Autowired
+	private HttpSession httpSession;
 
 	@RequestMapping(value="/ticketing", method=RequestMethod.GET)
 	public String ticketing(Model model) {
@@ -106,13 +111,24 @@ public class Ticket {
 		
 		model.addAttribute("mno", mno);
 		
+		httpSession.setAttribute("mno", mno);
+		
 		
 		return "ticket/ticketSeat";
 	}
 	
-	@RequestMapping(value="/ticketSeat", method=RequestMethod.GET)
-	public String movieSchedule() {
-		return "ticket/ticketSeat";
+	@RequestMapping(value="/reservationCheck", method=RequestMethod.POST)
+	@ResponseBody
+	public List<TicketDetailVO> reservationCheck(String sseatnoParam, String mnoParam) {
+		
+		int sseatno = (Integer.parseInt(sseatnoParam));
+		int mno = (Integer.parseInt(mnoParam));
+		
+		TicketDetailVO ticketDetailVO = new TicketDetailVO(sseatno, mno);
+		List<TicketDetailVO> checkSeat = ticketSVC.selectCheckSeat(ticketDetailVO);
+		
+		
+		return checkSeat;
 	}
 	@RequestMapping(value="/payment", method=RequestMethod.POST)
 	public String movieView(HttpServletRequest request) {
@@ -130,6 +146,7 @@ public class Ticket {
 		String shallType = request.getParameter("shallType");
 		String shallLocation = request.getParameter("shallLocation");
 		int personNum = (Integer.parseInt(request.getParameter("personNum")));
+		Object seatNos = request.getParameter("sseatNos");
 		Object seats = request.getParameter("seats");
 		
 		System.out.println("회원번호: "+mno);
@@ -145,6 +162,7 @@ public class Ticket {
 		System.out.println("상영관타입: "+shallType);
 		System.out.println("상영관 위치: "+shallLocation);
 		System.out.println("인원: "+personNum+"명");
+		System.out.println("좌석번호: "+seatNos);
 		System.out.println("좌석: "+seats);
 		
 		
