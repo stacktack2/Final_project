@@ -8,7 +8,7 @@
 	</select>
 
 	<select id="selectAll" parameterType="PagingVO" resultType="BoardVO">
-		select *, (select count(*) from icmtreply i where i.bno=b.bno) as replyCnt
+		select *, (select count(*) from icmtReply i where i.bno=b.bno) as replyCnt
 		 from board b inner join member m on b.mno = m.mno where btype = "문의" order by bno desc limit ${start-1},#{perPage}
 	</select>
 	
@@ -33,7 +33,7 @@
 	</select>
 	
 	<select id="selectReplyBno" parameterType="String" resultType="IcmtReplyVO">
-		select * from icmtreply where bno = #{value}
+		select * from icmtReply where bno = #{value}
 	</select>
 	
 	

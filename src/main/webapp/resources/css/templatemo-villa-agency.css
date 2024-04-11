@@ -402,6 +402,10 @@ img {
     position: relative;
 }
 
+.selected-seat{
+	background-color: red !important;
+}
+
 .selected-theater{
 	background-color: #333;
     border: 1px solid #000;
@@ -1036,7 +1040,7 @@ img {
 	width: 460px;
 	position: relative;
 	overflow: hidden;
-	height: 140px;
+	height: 90px;
 	float: left;
 	display: block;
 }

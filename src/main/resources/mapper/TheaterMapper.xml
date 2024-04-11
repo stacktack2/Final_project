@@ -7,15 +7,15 @@
 	</select>
 	
 	<select id="selectScreenofTnoSday" parameterType="TheaterVO" resultType="ScreenVO">
-		select * from screen sc where sday = #{sday} and sc.shallno in (select shallno from screenhall where tno = #{tno}) order by sstartTime
+		select * from screen sc where sday = #{sday} and sc.shallno in (select shallno from screenHall where tno = #{tno}) order by sstartTime
 	</select>
 	
 	<select id="selectShallSeatofSno" parameterType="int" resultType="String">
-		select shallSeat from screenhall sh where sh.shallno = (select shallno from screen sc where sno = #{sno});
+		select shallSeat from screenHall sh where sh.shallno = (select shallno from screen sc where sno = #{sno});
 	</select>
 	
 	<select id="selectfillSeatofSno" parameterType="int" resultType="int">
-		select count(td.ticketno) from ticketdetail td inner join ticket tk on td.ticketno = tk.ticketno 
+		select count(td.ticketno) from ticketDetail td inner join ticket tk on td.ticketno = tk.ticketno 
 		where td.sno = (select sno from screen sc where sno = #{sno}) and tk.ticketDelyn = 0;
 	</select>
 	
@@ -25,7 +25,7 @@
 	</select>
 	
 	<select id="selectScreenHallofShallno" parameterType="int" resultType="ScreenHallVO">
-		select * from screenhall where shallno = #{shallno}
+		select * from screenHall where shallno = #{shallno}
 	</select>
 	
 </mapper>

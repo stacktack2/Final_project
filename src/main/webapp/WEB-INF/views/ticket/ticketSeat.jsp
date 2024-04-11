@@ -101,183 +101,6 @@
 										</li>
 									</ul>
 								</div>
-								<div class="group_youth" style="display: block;">
-									<span class="title">청소년</span>
-									<ul class="personYouth">
-										<li data-count="0" class="selected" type="youth">
-											<a href="#" onclick="return false;" style="color: white;">
-												<span class="sreader mod">일반</span>0
-												<span class="sreader">명</span>
-											</a>
-										</li>
-										<li data-count="1" type="youth">
-											<a href="#" onclick="return false;">
-												<span class="sreader mod">일반</span>1
-												<span class="sreader">명</span>
-											</a>
-										</li>
-										<li data-count="2" type="youth">
-											<a href="#" onclick="return false;">
-												<span class="sreader mod">일반</span>2
-												<span class="sreader">명</span>
-											</a>
-										</li>
-										<li data-count="3" type="youth">
-											<a href="#" onclick="return false;">
-												<span class="sreader mod">일반</span>3
-												<span class="sreader">명</span>
-											</a>
-										</li>
-										<li data-count="4" type="youth">
-											<a href="#" onclick="return false;">
-												<span class="sreader mod">일반</span>4
-												<span class="sreader">명</span>
-											</a>
-										</li>
-										<li data-count="5" type="youth">
-											<a href="#" onclick="return false;">
-												<span class="sreader mod">일반</span>5
-												<span class="sreader">명</span>
-											</a>
-										</li>
-										<li data-count="6" type="youth">
-											<a href="#" onclick="return false;">
-												<span class="sreader mod">일반</span>6
-												<span class="sreader">명</span>
-											</a>
-										</li>
-										<li data-count="7" type="youth">
-											<a href="#" onclick="return false;">
-												<span class="sreader mod">일반</span>7
-												<span class="sreader">명</span>
-											</a>
-										</li>
-										<li data-count="8" type="youth">
-											<a href="#" onclick="return false;">
-												<span class="sreader mod">일반</span>8
-												<span class="sreader">명</span>
-											</a>
-										</li>
-									</ul>
-								</div>
-								<div class="group_senior" style="display: block;">
-									<span class="title">경로</span>
-									<ul class="personSenior">
-										<li data-count="0" class="selected" type="senior">
-											<a href="#" onclick="return false;" style="color: white;">
-												<span class="sreader mod">일반</span>0
-												<span class="sreader">명</span>
-											</a>
-										</li>
-										<li data-count="1" type="senior">
-											<a href="#" onclick="return false;">
-												<span class="sreader mod">일반</span>1
-												<span class="sreader">명</span>
-											</a>
-										</li>
-										<li data-count="2" type="senior">
-											<a href="#" onclick="return false;">
-												<span class="sreader mod">일반</span>2
-												<span class="sreader">명</span>
-											</a>
-										</li>
-										<li data-count="3" type="senior">
-											<a href="#" onclick="return false;">
-												<span class="sreader mod">일반</span>3
-												<span class="sreader">명</span>
-											</a>
-										</li>
-										<li data-count="4" type="senior">
-											<a href="#" onclick="return false;">
-												<span class="sreader mod">일반</span>4
-												<span class="sreader">명</span>
-											</a>
-										</li>
-										<li data-count="5" type="senior">
-											<a href="#" onclick="return false;">
-												<span class="sreader mod">일반</span>5
-												<span class="sreader">명</span>
-											</a>
-										</li>
-										<li data-count="6" type="senior">
-											<a href="#" onclick="return false;">
-												<span class="sreader mod">일반</span>6
-												<span class="sreader">명</span>
-											</a>
-										</li>
-										<li data-count="7" type="senior">
-											<a href="#" onclick="return false;">
-												<span class="sreader mod">일반</span>7
-												<span class="sreader">명</span>
-											</a>
-										</li>
-										<li data-count="8" type="senior">
-											<a href="#" onclick="return false;">
-												<span class="sreader mod">일반</span>8
-												<span class="sreader">명</span>
-											</a>
-										</li>
-									</ul>
-								</div>
-								<div class="group_special" style="display: block;">
-									<span class="title">우대</span>
-									<ul class="personSpecial">
-										<li data-count="0" class="selected" type="special">
-											<a href="#" onclick="return false;" style="color: white;">
-												<span class="sreader mod">일반</span>0
-												<span class="sreader">명</span>
-											</a>
-										</li>
-										<li data-count="1" type="special">
-											<a href="#" onclick="return false;">
-												<span class="sreader mod">일반</span>1
-												<span class="sreader">명</span>
-											</a>
-										</li>
-										<li data-count="2" type="special">
-											<a href="#" onclick="return false;">
-												<span class="sreader mod">일반</span>2
-												<span class="sreader">명</span>
-											</a>
-										</li>
-										<li data-count="3" type="special">
-											<a href="#" onclick="return false;">
-												<span class="sreader mod">일반</span>3
-												<span class="sreader">명</span>
-											</a>
-										</li>
-										<li data-count="4" type="special">
-											<a href="#" onclick="return false;">
-												<span class="sreader mod">일반</span>4
-												<span class="sreader">명</span>
-											</a>
-										</li>
-										<li data-count="5" type="special">
-											<a href="#" onclick="return false;">
-												<span class="sreader mod">일반</span>5
-												<span class="sreader">명</span>
-											</a>
-										</li>
-										<li data-count="6" type="special">
-											<a href="#" onclick="return false;">
-												<span class="sreader mod">일반</span>6
-												<span class="sreader">명</span>
-											</a>
-										</li>
-										<li data-count="7" type="special">
-											<a href="#" onclick="return false;">
-												<span class="sreader mod">일반</span>7
-												<span class="sreader">명</span>
-											</a>
-										</li>
-										<li data-count="8" type="special">
-											<a href="#" onclick="return false;">
-												<span class="sreader mod">일반</span>8
-												<span class="sreader">명</span>
-											</a>
-										</li>
-									</ul>
-								</div>
 							</div>
 						</div>
 						<div id="user-select-info">
@@ -313,7 +136,7 @@
 							                        <c:set var="leftPosition" value="110"/>
 							                        <c:forEach var="lineRowA" items="${screenSeat}">
 							                            <c:if test="${lineRowA.sseatCol eq 'A'}">
-							                                <div class="seat handicap" style="left: ${leftPosition}px;">
+							                                <div class="seat" style="left: ${leftPosition}px;">
 							                                    <a href="#" onclick="return false;">
 							                                        <span class="no">${lineRowA.sseatRow}</span>
 							                                        <span class="sreader">${lineRowA.sseatType}</span>
@@ -340,7 +163,7 @@
 							                        <c:set var="leftPosition" value="30"/>
 							                        <c:forEach var="lineRowB" items="${screenSeat}">
 							                            <c:if test="${lineRowB.sseatCol eq 'B'}">
-							                                <div class="seat rating_economy" style="left: ${leftPosition}px;">
+							                                <div class="seat" style="left: ${leftPosition}px;">
 							                                    <a href="#" onclick="return false;">
 							                                        <span class="no">${lineRowB.sseatRow}</span>
 							                                        <span class="sreader">${lineRowB.sseatType}</span>
@@ -663,21 +486,15 @@
 								<span class="icon reserved"><span class="icon"></span>예매완료</span>
 								<span class="icon notavail"><span class="icon"></span>선택불가</span>
 							</div>
-							<div class="seat-type">
-								<span class="radiobutton type-rating_economy" style="">Light석
-									<span class="icon"></span>
-								</span>
-								<span class="radiobutton type-handicap" style="">장애인석
-									<span class="icon"></span>
-								</span>
-							</div>
-						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 		<!-- 진행버튼 -->
 						<div id="ticket_tnb" class="tnb_container">
 							<div class="tnb">
+							<form action="" name="frm" method="post">
+								<input type="hidden" name="mno" value="${mno }" id="mno">
 								<a type="button"
 									href="<%=request.getContextPath()%>/ticket/ticketing"
 									class="btn-backmovie-check" id="seatSelectionButton"> <span>영화선택</span>
@@ -732,17 +549,20 @@
 										<div class="row number" style="display: block;">
 											<span class="header">인원</span>
 											<span class="data" id="personNumber"></span>
+											<input type="hidden" name="seats" value="" id="seats">
 										</div>
 										<div class="placeholder" title="극장선택" style="display: none;"></div>
 									</div>
 								<div class="info path">
 									<div class="row colspan4">
-										<span class="path-step2" title="좌석선택">&nbsp;</span>
+										<span class="path-step2" title="좌석선택" style="color: red;">&nbsp;</span>
 										<span class="path-step3" title="결제">&nbsp;</span>
 									</div>
 								</div>
-								<button type="button" 
-									class="btn-right-check" id="seatSelectionButton"> <span>결제하기</span>
+								</form>
+								<button onclick="ticketInfo();" type="submit"
+									class="btn-right-check" id="seatSelectionButton">
+									<span>결제하기</span>
 								</button>
 							</div>
 						</div>

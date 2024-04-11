@@ -103,6 +103,8 @@ public class Ticket {
 		int mno = loginVO.getMno();
 		System.out.println(mno);
 		
+		model.addAttribute("mno", mno);
+		
 		
 		return "ticket/ticketSeat";
 	}
