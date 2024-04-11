@@ -5,7 +5,7 @@ CREATE PROCEDURE loopInsertA()
 BEGIN
     DECLARE i INT DEFAULT 6;
     WHILE i <= 10 DO
-        INSERT INTO dflix.screenseat(sseatCol, sseatRow, sseatType, shallno)
+        INSERT INTO dflix.screenSeat(sseatCol, sseatRow, sseatType, shallno)
         VALUES ("A", i, "장애인석", "1");
         SET i = i + 1;
     END WHILE;
@@ -18,7 +18,7 @@ CREATE PROCEDURE loopInsertB()
 BEGIN
     DECLARE i INT DEFAULT 1;
     WHILE i <= 15 DO
-        INSERT INTO dflix.screenseat(sseatCol, sseatRow, sseatType, shallno)
+        INSERT INTO dflix.screenSeat(sseatCol, sseatRow, sseatType, shallno)
         VALUES ("B", i, "Light석", "1");
         SET i = i + 1;
     END WHILE;
@@ -31,7 +31,7 @@ CREATE PROCEDURE loopInsertC()
 BEGIN
     DECLARE i INT DEFAULT 1;
     WHILE i <= 15 DO
-        INSERT INTO dflix.screenseat(sseatCol, sseatRow, sseatType, shallno)
+        INSERT INTO dflix.screenSeat(sseatCol, sseatRow, sseatType, shallno)
         VALUES ("C", i, "일반석", "1");
         SET i = i + 1;
     END WHILE;
@@ -44,7 +44,7 @@ CREATE PROCEDURE loopInsertD()
 BEGIN
     DECLARE i INT DEFAULT 1;
     WHILE i <= 15 DO
-        INSERT INTO dflix.screenseat(sseatCol, sseatRow, sseatType, shallno)
+        INSERT INTO dflix.screenSeat(sseatCol, sseatRow, sseatType, shallno)
         VALUES ("D", i, "일반석", "1");
         SET i = i + 1;
     END WHILE;
@@ -57,7 +57,7 @@ CREATE PROCEDURE loopInsertE()
 BEGIN
     DECLARE i INT DEFAULT 1;
     WHILE i <= 15 DO
-        INSERT INTO dflix.screenseat(sseatCol, sseatRow, sseatType, shallno)
+        INSERT INTO dflix.screenSeat(sseatCol, sseatRow, sseatType, shallno)
         VALUES ("E", i, "일반석", "1");
         SET i = i + 1;
     END WHILE;
@@ -70,7 +70,7 @@ CREATE PROCEDURE loopInsertF()
 BEGIN
     DECLARE i INT DEFAULT 1;
     WHILE i <= 15 DO
-        INSERT INTO dflix.screenseat(sseatCol, sseatRow, sseatType, shallno)
+        INSERT INTO dflix.screenSeat(sseatCol, sseatRow, sseatType, shallno)
         VALUES ("F", i, "일반석", "1");
         SET i = i + 1;
     END WHILE;
@@ -83,7 +83,7 @@ CREATE PROCEDURE loopInsertG()
 BEGIN
     DECLARE i INT DEFAULT 1;
     WHILE i <= 15 DO
-        INSERT INTO dflix.screenseat(sseatCol, sseatRow, sseatType, shallno)
+        INSERT INTO dflix.screenSeat(sseatCol, sseatRow, sseatType, shallno)
         VALUES ("G", i, "일반석", "1");
         SET i = i + 1;
     END WHILE;
@@ -96,7 +96,7 @@ CREATE PROCEDURE loopInsertH()
 BEGIN
     DECLARE i INT DEFAULT 1;
     WHILE i <= 15 DO
-        INSERT INTO dflix.screenseat(sseatCol, sseatRow, sseatType, shallno)
+        INSERT INTO dflix.screenSeat(sseatCol, sseatRow, sseatType, shallno)
         VALUES ("H", i, "일반석", "1");
         SET i = i + 1;
     END WHILE;
@@ -109,7 +109,7 @@ CREATE PROCEDURE loopInsertI()
 BEGIN
     DECLARE i INT DEFAULT 1;
     WHILE i <= 15 DO
-        INSERT INTO dflix.screenseat(sseatCol, sseatRow, sseatType, shallno)
+        INSERT INTO dflix.screenSeat(sseatCol, sseatRow, sseatType, shallno)
         VALUES ("I", i, "일반석", "1");
         SET i = i + 1;
     END WHILE;
@@ -122,7 +122,7 @@ CREATE PROCEDURE loopInsertJ()
 BEGIN
     DECLARE i INT DEFAULT 1;
     WHILE i <= 15 DO
-        INSERT INTO dflix.screenseat(sseatCol, sseatRow, sseatType, shallno)
+        INSERT INTO dflix.screenSeat(sseatCol, sseatRow, sseatType, shallno)
         VALUES ("J", i, "일반석", "1");
         SET i = i + 1;
     END WHILE;
@@ -135,7 +135,7 @@ CREATE PROCEDURE loopInsertK()
 BEGIN
     DECLARE i INT DEFAULT 1;
     WHILE i <= 5 DO
-        INSERT INTO dflix.screenseat(sseatCol, sseatRow, sseatType, shallno)
+        INSERT INTO dflix.screenSeat(sseatCol, sseatRow, sseatType, shallno)
         VALUES ("K", i, "일반석", "1");
         SET i = i + 1;
     END WHILE;
@@ -148,7 +148,7 @@ CREATE PROCEDURE loopInsertK1()
 BEGIN
     DECLARE i INT DEFAULT 11;
     WHILE i <= 15 DO
-        INSERT INTO dflix.screenseat(sseatCol, sseatRow, sseatType, shallno)
+        INSERT INTO dflix.screenSeat(sseatCol, sseatRow, sseatType, shallno)
         VALUES ("K", i, "일반석", "1");
         SET i = i + 1;
     END WHILE;
@@ -161,7 +161,7 @@ CREATE PROCEDURE loopInsertL()
 BEGIN
     DECLARE i INT DEFAULT 1;
     WHILE i <= 5 DO
-        INSERT INTO dflix.screenseat(sseatCol, sseatRow, sseatType, shallno)
+        INSERT INTO dflix.screenSeat(sseatCol, sseatRow, sseatType, shallno)
         VALUES ("L", i, "일반석", "1");
         SET i = i + 1;
     END WHILE;
@@ -174,7 +174,7 @@ CREATE PROCEDURE loopInsertL1()
 BEGIN
     DECLARE i INT DEFAULT 12;
     WHILE i <= 15 DO
-        INSERT INTO dflix.screenseat(sseatCol, sseatRow, sseatType, shallno)
+        INSERT INTO dflix.screenSeat(sseatCol, sseatRow, sseatType, shallno)
         VALUES ("L", i, "일반석", "1");
         SET i = i + 1;
     END WHILE;
@@ -182,4 +182,4 @@ END//
 DELIMITER ;
 call loopInsertL1();
 
-select * from screenseat;
+select * from screenSeat;

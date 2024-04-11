@@ -1,5 +1,5 @@
 delete from theater;
-delete from screenhall;
+delete from screenHall;
 
 SELECT * FROM dflix.cinema;
 
@@ -17,17 +17,17 @@ INSERT INTO theater(tno, tname, tnameEn, taddr, tintro, tcall)
 
 
 -- 상영관정보 샘플 DB 추가 --
-INSERT INTO screenhall(shallSeat, shallType, shallLocation, tno)
+INSERT INTO screenHall(shallSeat, shallType, shallLocation, tno)
    VALUES ('300','2D','2층 1관','1');
-INSERT INTO screenhall(shallSeat, shallType, shallLocation, tno)
+INSERT INTO screenHall(shallSeat, shallType, shallLocation, tno)
    VALUES ('250','2D','2층 2관','1');
-INSERT INTO screenhall(shallSeat, shallType, shallLocation, tno)
+INSERT INTO screenHall(shallSeat, shallType, shallLocation, tno)
    VALUES ('300','2D','2층 3관','1');
-INSERT INTO screenhall(shallSeat, shallType, shallLocation, tno)
+INSERT INTO screenHall(shallSeat, shallType, shallLocation, tno)
    VALUES ('280','3D','3층 1관','2');
-INSERT INTO screenhall(shallSeat, shallType, shallLocation, tno)
+INSERT INTO screenHall(shallSeat, shallType, shallLocation, tno)
    VALUES ('290','3D','3층 2관','2');
-INSERT INTO screenhall(shallSeat, shallType, shallLocation, tno)
+INSERT INTO screenHall(shallSeat, shallType, shallLocation, tno)
    VALUES ('300','3D','3층 3관','2');
    
 -- 상영정보
