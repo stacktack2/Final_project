@@ -6,7 +6,7 @@
 
 	<select id="selectMyinfo" parameterType="String" resultType="MemberVO">
 		 SELECT mid, mname, mpw, mnickNm, authority, enabled, mbirth, memail, mgender, mjoinDate, mphone, mno 
-		 FROM Member 
+		 FROM member 
 		 WHERE mid = #{value}
 	</select>
 	<select id="checkEmail" parameterType="String" resultType="int">
@@ -20,7 +20,7 @@
 			where mid = #{mid}
 	</update>
 	<update id="deleteMyinfo" parameterType="MemberVO"> 
-		Update Member 
+		Update member 
 			set isWithdrawn = 1  
 			where mid = #{mid}
 	</update>

@@ -127,9 +127,9 @@
 								<sec:authorize access="isAuthenticated()">
 	                               <c:if test="${item.mno eq pageContext.request.userPrincipal.principal.mno}">
 	                               <span>
-	                                  <button class="btn btn-danger btn-sm float-right editBtn" data-ccmtno="${item.ccmtno}">수정</button>
+	                                  <button type="button" class="btn btn-danger btn-sm float-right editBtn" data-ccmtno="${item.ccmtno}">수정</button>
 	                               </span>
-	                               	  <button class="btn btn-danger btn-sm float-right deleteBtn">삭제</button>
+	                               	  <button type="button" class="btn btn-danger btn-sm float-right deleteBtn">삭제</button>
 	                               </c:if>
 	                            </sec:authorize>							
 	                         </li>
