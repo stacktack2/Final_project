@@ -16,6 +16,13 @@ public class MovieDAO {
 	
 	private final String nameSpace = "ezen.dteam.mapper.movieMapper";
 	
+	public List<CinemaVO> selectBoxOfficeCinema(){
+		return sqlSession.selectList(nameSpace+".selectBoxOfficeCinema");
+	}
+	
+	public List<CinemaVO> selectUnopen(){
+		return sqlSession.selectList(nameSpace+".selectUnopen");
+	}
 	//영화 상세정보 조회
 	public CinemaVO selectMovieDetail(String cno){
 		return sqlSession.selectOne(nameSpace+".selectMovieDetail",cno);
