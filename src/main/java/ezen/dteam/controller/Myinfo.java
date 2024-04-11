@@ -137,7 +137,10 @@ public class Myinfo {
 	// 내정보변경(업데이트)
 	@RequestMapping(value = "/myInfo/changeMyinfo", method = RequestMethod.POST)
 	public void changeMyinfoPost(MemberVO vo, Authentication auth, HttpServletResponse response,HttpServletRequest request ) throws Exception {
-
+		
+		UserVO loginVO = (UserVO)auth.getPrincipal();
+		loginVO.setMname(vo.getMname());
+		
 		int result = service.updateMyinfo(vo, auth);
 
 		response.setCharacterEncoding("UTF-8");
