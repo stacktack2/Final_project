@@ -30,6 +30,7 @@ function ticketInfo(){
   let submitShallType = document.getElementById("shallType");
   let submtShallLocation = document.getElementById("shallLocation");
   let personNum = document.getElementById("personNum");
+  let sseatNos = document.getElementById("sseatNos");
   let seats = document.getElementById("seats");
 
   if(submitMno.value != "" && submitMno.value != null && submitMno !== undefined &&
@@ -41,6 +42,7 @@ function ticketInfo(){
       submitShallType.value != "" && submitShallType.value != null && submitShallType !== undefined &&
       submtShallLocation.value != "" && submtShallLocation.value != null && submtShallLocation !== undefined &&
       personNum.value != "" && personNum.value != null && personNum !== undefined &&
+      sseatNos.value != "" && sseatNos.value != null && sseatNos !== undefined &&
       seats.value != "" && seats.value != null && seats !== undefined){
     document.frm.submit();
   }else{
