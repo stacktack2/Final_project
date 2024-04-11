@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -155,7 +156,7 @@
     	<div class="profile">
     		<div class="profile-box">
 	    		<sec:authorize access="isAuthenticated()">
-				<strong><sec:authentication property="principal.mname"/> 님</strong>
+				<strong><%-- <sec:authentication property="principal.mname"/> 님 --%>${user.mname} 님</strong>
 				<em><sec:authentication property="principal.username"/></em>
 				<br> 
 				</sec:authorize>

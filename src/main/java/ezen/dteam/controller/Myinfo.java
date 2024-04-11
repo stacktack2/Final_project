@@ -120,7 +120,11 @@ public class Myinfo {
 
 	// 내정보변경(화면포워드)
 	@RequestMapping(value = "/myInfo/updateMyinfo", method = RequestMethod.GET)
-	public String changeMyinfo() {
+	public String changeMyinfo(Model model,MemberVO vo, Authentication auth) throws Exception{
+		UserVO loginVO = (UserVO) auth.getPrincipal();
+		MemberVO user = service.selectMyinfo(loginVO.getMid());
+		model.addAttribute("user", user);
+		
 		return "myInfo/changeMyinfo";
 	}
 
@@ -132,7 +136,7 @@ public class Myinfo {
 
 	// 내정보변경(업데이트)
 	@RequestMapping(value = "/myInfo/changeMyinfo", method = RequestMethod.POST)
-	public void changeMyinfoPost(MemberVO vo, Authentication auth, HttpServletResponse response,HttpServletRequest request) throws Exception {
+	public void changeMyinfoPost(MemberVO vo, Authentication auth, HttpServletResponse response,HttpServletRequest request ) throws Exception {
 
 		int result = service.updateMyinfo(vo, auth);
 
