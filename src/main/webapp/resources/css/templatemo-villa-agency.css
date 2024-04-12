@@ -2352,16 +2352,16 @@ Banner Style
 
 .main-banner .item-1 {
   /*background-image: url(resources/images/banner-01.jpg);*/
-  background-image: url(/dflix/resources/images/dune1.jpg);
+  background-image: url(/Final_project/resources/images/dune1.jpg);
   background-position: center top 1%;
 }
 
 .main-banner .item-2 {
-  background-image: url(/dflix/resources/images/pamyo1.jpg);
+  background-image: url(/Final_project/resources/images/pamyo1.jpg);
 }
 
 .main-banner .item-3 {
-  background-image: url(/dflix/resources/images/wonka2.jpg);
+  background-image: url(/Final_project/resources/images/wonka2.jpg);
   background-position:center top 15%;
 }
 
@@ -2567,7 +2567,7 @@ Video Style
 */
 
 .video {
-  background-image: url(/dflix/resources/images/video-bg.jpg);
+  background-image: url(/final_project/resources/images/video-bg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -2831,7 +2831,7 @@ Contact Style
 */
 
 .contact {
-  background-image: url(/dflix/resources/images/contact-bg.jpg);
+  background-image: url(/final_project/resources/images/contact-bg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -2984,7 +2984,7 @@ Page Header Style
 */
 
 .page-heading {
-  background-image: url(/dflix/resources/images/page-heading-bg.jpg);
+  background-image: url(/final_project/resources/images/page-heading-bg.jpg);
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: cover;

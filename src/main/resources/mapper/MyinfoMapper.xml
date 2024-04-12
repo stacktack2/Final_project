@@ -34,7 +34,7 @@
 	<select id="selectTicketDetail" parameterType="String" resultType="TicketDetailVO">
 		SELECT td.*,ss.*, sh.*,sc.*, 
 				th.tname, th.tno, c.cname, c.cno 
-				FROM TicketDetail td
+				FROM ticketDetail td
 		inner join screenSeat ss on ss.sseatno = td.sseatno 
 		inner join screenHall sh on sh.shallno= ss.shallno 
 		inner join screen sc on sc.sno = td.sno 

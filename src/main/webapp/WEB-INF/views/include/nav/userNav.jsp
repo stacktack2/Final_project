@@ -29,7 +29,11 @@
 							<a href="<%=request.getContextPath() %>/login">로그인</a> |
 							</sec:authorize>
 						</li>
-						<li><a href="<%=request.getContextPath() %>/myInfo">내정보</a> |</li>
+						<li>
+						<sec:authorize access="isAuthenticated()">
+						<a href="<%=request.getContextPath() %>/myInfo">내정보</a> |
+						</sec:authorize>
+						</li>
 						<li><a href="<%=request.getContextPath() %>/serviceCenter/noticeList">고객센터</a></li>
 					</ul>
 				</div>
