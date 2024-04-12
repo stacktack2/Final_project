@@ -193,10 +193,10 @@ public class Ticket {
 		
 		if (seatNosArray != null && seatNosArray.length > 0) {
 			String[] noArray = seatNosArray[0].split(",");
-			for(String sseatno : noArray) {
-				
-				ticketSVC.insertTicket(mno);
-				int ticketno = ticketSVC.lastId();
+			ticketSVC.insertTicket(mno);
+			int ticketno = ticketSVC.lastId();
+			
+			for(String sseatno : noArray) {	
 				
 				TicketDetailVO paramMap = new TicketDetailVO((Integer.parseInt(sseatno)), mno, sno);
 				paramMap .setTicketno(ticketno);
