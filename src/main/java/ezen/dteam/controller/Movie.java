@@ -3,7 +3,6 @@ package ezen.dteam.controller;
 import java.io.IOException;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import ezen.dteam.service.MovieSVCImpl;
 import ezen.dteam.vo.CinemaReplyVO;
 import ezen.dteam.vo.CinemaVO;
+import ezen.dteam.vo.PagingVO;
 import ezen.dteam.vo.UserVO;
+import kr.or.kobis.kobisopenapi.consumer.rest.exception.OpenAPIFault;
 
 @RequestMapping(value="/movie")
 @Controller
@@ -25,13 +26,33 @@ public class Movie {
 	MovieSVCImpl movieService;
 	
 	@RequestMapping(value="/movieChart", method=RequestMethod.GET)
-	public String movieChart() {
+	public String movieChart(Model model, String nowPageParam) throws OpenAPIFault, Exception{
+		//페이징
+		int nowPage = 1;
+		if(nowPageParam != null && !nowPageParam.equals("")) {
+			nowPage = Integer.parseInt(nowPageParam);
+		}
+		int totalCnt = movieService.selectAllCnt();
+		PagingVO pagingVO = new PagingVO(nowPage, totalCnt, 9);
+		model.addAttribute("pagingVO", pagingVO);
+		List<CinemaVO> movieChart = movieService.selectBoxOfficeCinema(pagingVO);	
+		model.addAttribute("movieChart", movieChart);
 		return "movie/movieChart";
 	}
 	@RequestMapping(value="/movieSchedule", method=RequestMethod.GET)
-	public String movieSchedule() {
+	public String movieSchedule(Model model, String nowPageParam) throws OpenAPIFault, Exception{
+		int nowPage = 1;
+		if(nowPageParam != null && !nowPageParam.equals("")) {
+			nowPage = Integer.parseInt(nowPageParam);
+		}
+		int totalCnt = movieService.selectAllCntUnopen();
+		PagingVO pagingVO = new PagingVO(nowPage, totalCnt, 9);
+		model.addAttribute("pagingVO", pagingVO);
+		List<CinemaVO> unopenMovie = movieService.selectUnopen(pagingVO);		
+		model.addAttribute("unopenMovie", unopenMovie);
 		return "movie/movieSchedule";
 	}
+	
 	
 	@RequestMapping(value="/movieView", method=RequestMethod.GET)
 	public String movieView(String cno ,Model model, HttpServletResponse response) throws  Exception {

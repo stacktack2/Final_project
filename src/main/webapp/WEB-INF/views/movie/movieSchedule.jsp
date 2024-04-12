@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -9,10 +9,7 @@
 
     <title>상영예정작</title>
 
-    <!-- Bootstrap core CSS -->
     <link href="<%=request.getContextPath() %>/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Additional CSS Files -->
     <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/fontawesome.css">
     <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/templatemo-villa-agency.css">
     <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/owl.css">
@@ -36,193 +33,99 @@
     </div>
   </div>
 
-<div class="section properties">
+  <div class="section properties">
     <div class="container">
       <ul class="properties-filter">
         <li>
           <a class="is_active" href="#!" data-filter="*">전체</a>
         </li>
         <li>
-          <a href="#!" data-filter=".action">액션</a>
+          <a href="#!" data-filter=".액션">액션</a>
         </li>
         <li>
-          <a href="#!" data-filter=".romance">로맨스</a>
+          <a href="#!" data-filter=".로맨스 ">로맨스</a>
         </li>
         <li>
-          <a href="#!" data-filter=".drama">드라마</a>
+          <a href="#!" data-filter=".드라마">드라마</a>
         </li>
         <li>
-          <a href="#!" data-filter=".animation">애니</a>
+          <a href="#!" data-filter=".공포">공포</a>
         </li>
         <li>
-          <a href="#!" data-filter=".thriller">스릴러</a>
+          <a href="#!" data-filter=".스릴러 ">스릴러</a>
         </li>
         <li>
-          <a href="#!" data-filter=".fantasy">판타지</a>
+          <a href="#!" data-filter=".판타지">판타지</a>
+        </li>
+        <li>
+          <a href="#!" data-filter=".코메디">코메디</a>
         </li>
       </ul>
       
       <div class="row properties-box">
-      
-        <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 thriller">
+       <div class="row">
+        <c:forEach items="${unopenMovie }" var="unopenMovie">
+        <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 ${fn:replace(unopenMovie.cgenreNm,',',' ')} ">
           <div class="item">
-            <img src="<%=request.getContextPath() %>/resources/images/pamyo_p.jpg" alt="파묘포스터">
-            <span class="category">D-20</span>
-            <h6>15</h6>
-            <h4>파묘</h4>
+            <img src="${unopenMovie.cposter }" alt="${unopenMovie.cname }포스터">
+            <span class="category">${unopenMovie.cwatchGradeNm }</span>
+            <h6>D${unopenMovie.dday }</h6>
+            <h4>${unopenMovie.cname }</h4>
             <ul>
-              <li>상영시간: <span>134분</span></li>
+              <li>상영시간: <span>${unopenMovie.cshowTime }분</span></li>
+              <li>개봉일: <span>${unopenMovie.copenDate }</span></li>
             </ul>
             <div class="main-button">
-              <a href="movieView">상세보기</a>
+              <a href="<%=request.getContextPath() %>/movie/movieView?cno=${unopenMovie.cno}">상세보기</a>
               <a href="#">예매하기</a>
             </div>
           </div>
+        </div>          
+        </c:forEach> 
         </div>
-        
-        <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 fantasy">
-          <div class="item">
-            <img src="<%=request.getContextPath() %>/resources/images/wonka_p.jpg" alt="웡카포스터">
-            <span class="category">2</span>
-            <h6>ALL</h6>
-            <h4>웡카</h4>
-            <ul>
-              <li>상영시간: <span>116분</span></li>
-            </ul>
-            <div class="main-button">
-              <a href="movieView">상세보기</a>
-              <a href="#">예매하기</a>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 thriller">
-          <div class="item">
-            <img src="<%=request.getContextPath() %>/resources/images/pamyo_p.jpg" alt="파묘포스터">
-            <span class="category">1</span>
-            <h6>15</h6>
-            <h4>파묘</h4>
-            <ul>
-              <li>상영시간: <span>134분</span></li>
-            </ul>
-            <div class="main-button">
-              <a href="movieView">상세보기</a>
-              <a href="#">예매하기</a>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 fantasy">
-          <div class="item">
-            <img src="<%=request.getContextPath() %>/resources/images/wonka_p.jpg" alt="웡카포스터">
-            <span class="category">2</span>
-            <h6>ALL</h6>
-            <h4>웡카</h4>
-            <ul>
-              <li>상영시간: <span>116분</span></li>
-            </ul>
-            <div class="main-button">
-              <a href="movieView">상세보기</a>
-              <a href="#">예매하기</a>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 thriller">
-          <div class="item">
-            <img src="<%=request.getContextPath() %>/resources/images/pamyo_p.jpg" alt="파묘포스터">
-            <span class="category">1</span>
-            <h6>15</h6>
-            <h4>파묘</h4>
-            <ul>
-              <li>상영시간: <span>134분</span></li>
-            </ul>
-            <div class="main-button">
-              <a href="movieView">상세보기</a>
-              <a href="#">예매하기</a>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 fantasy">
-          <div class="item">
-            <img src="<%=request.getContextPath() %>/resources/images/wonka_p.jpg" alt="웡카포스터">
-            <span class="category">2</span>
-            <h6>ALL</h6>
-            <h4>웡카</h4>
-            <ul>
-              <li>상영시간: <span>116분</span></li>
-            </ul>
-            <div class="main-button">
-              <a href="movieView">상세보기</a>
-              <a href="#">예매하기</a>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 thriller">
-          <div class="item">
-            <img src="<%=request.getContextPath() %>/resources/images/pamyo_p.jpg" alt="파묘포스터">
-            <span class="category">1</span>
-            <h6>15</h6>
-            <h4>파묘</h4>
-            <ul>
-              <li>상영시간: <span>134분</span></li>
-            </ul>
-            <div class="main-button">
-              <a href="movieView">상세보기</a>
-              <a href="#">예매하기</a>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 fantasy">
-          <div class="item">
-            <img src="<%=request.getContextPath() %>/resources/images/wonka_p.jpg" alt="웡카포스터">
-            <span class="category">2</span>
-            <h6>ALL</h6>
-            <h4>웡카</h4>
-            <ul>
-              <li>상영시간: <span>116분</span></li>
-            </ul>
-            <div class="main-button">
-              <a href="movieView">상세보기</a>
-              <a href="#">예매하기</a>
-            </div>
-          </div>
-        </div>   
-        <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 fantasy">
-          <div class="item">
-            <img src="<%=request.getContextPath() %>/resources/images/wonka_p.jpg" alt="웡카포스터">
-            <span class="category">2</span>
-            <h6>ALL</h6>
-            <h4>웡카</h4>
-            <ul>
-              <li>상영시간: <span>116분</span></li>
-            </ul>
-            <div class="main-button">
-              <a href="movieView">상세보기</a>
-              <a href="#">예매하기</a>
-            </div>
-          </div>
-        </div>   
       </div>
       
       <!-- 페이징 -->
       <div class="row">
         <div class="col-lg-12">
           <ul class="pagination">
-            <li><a href="#">1</a></li>
-            <li><a class="is_active" href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">>></a></li>
+           	<c:if test="${pagingVO.startPage > pagingVO.cntPage }">
+	        	<li>
+	               <a href="movieChart?nowPageParam=${pagingVO.startPage-1}"><i class="tf-icon bx bx-chevrons-left">&lt;</i></a>
+	            </li>
+            </c:if>
+           	<c:set var="loop_flag" value="false" />
+            <c:forEach var="i" begin="${pagingVO.startPage }" end="10">
+                            	
+               	<c:if test="${i > pagingVO.endPage }">
+                  <c:set var="loop_flag" value="true" />
+            	</c:if>
+                            	                 
+                <c:if test="${not loop_flag }">
+		           <li >
+		              <a href="movieChart?nowPageParam=${i}">${i}</a>
+		           </li>
+		        </c:if>
+            </c:forEach>
+            <c:if test="${pagingVO.endPage < pagingVO.lastPage}">
+	        	<li>
+	        		<a href="movieChart?nowPageParam=${pagingVO.endPage+1}"><i class="tf-icon bx bx-chevrons-right">&gt;</i></a>
+	        	</li>
+            </c:if>
           </ul>
         </div>
       </div>
     </div>
   </div>
-  
-  <%@ include file="../include/footer/adminFooter.jsp" %>
+  <script>
+	$(document).ready(function(){
+	  $(".pagination li a").click(function(){
+	    $(".pagination li a").removeClass("is_active"); // 모든 페이지 링크에서 is_active 클래스 제거
+	    $(this).addClass("is_active"); // 클릭한 페이지 링크에 is_active 클래스 추가
+	  });
+	});
+	</script>
+  <%@ include file="../include/footer/userFooter.jsp" %>
 
 
   </body>

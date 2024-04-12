@@ -182,4 +182,4 @@ END//
 DELIMITER ;
 call loopInsertL1();
 
-select * from screenseat;
+select * from screenSeat;

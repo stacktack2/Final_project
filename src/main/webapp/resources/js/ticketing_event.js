@@ -273,6 +273,7 @@ function selDay(ticketDay){
                         html += '<a class="button" href="" onclick="return false;" title="">';
                         html += '<span class="time">';
                         html += '<span id="dataSstartTime">' + data[i].sstartTime + '</span>';
+                        html += '<input type="hidden" id="inputSno" value="'+data[i].sno+'">';
                         html += '<input type="hidden" id="inputShallno" value="'+data[i].shallno+'">';
                         html += '<input type="hidden" id="inputSendTime" value="'+data[i].sendTime+'">';
                         html += '</span>';
@@ -327,6 +328,7 @@ function selDay(ticketDay){
                         selShallLocation.innerText = currentShallLocation;
 
                         let clickShallno = timeItem.querySelector('#inputShallno').value;
+                        let clickSno = timeItem.querySelector('#inputSno').value;
                         let clickSendTime = timeItem.querySelector('#inputSendTime').value;
 
                         let sstartTime = document.getElementById("sstartTime");
@@ -337,6 +339,9 @@ function selDay(ticketDay){
                         
                         let inputShallno = document.getElementById("shallno");
                         inputShallno.value = clickShallno;
+
+                        let inputSno = document.getElementById("sno");
+                        inputSno.value = clickSno;
                         
                         let inputShallType = document.getElementById("shallType");
                         inputShallType.value = currentShallType;

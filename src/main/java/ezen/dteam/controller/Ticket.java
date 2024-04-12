@@ -2,6 +2,9 @@ package ezen.dteam.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -17,6 +20,7 @@ import ezen.dteam.vo.ScreenHallVO;
 import ezen.dteam.vo.ScreenSeatVO;
 import ezen.dteam.vo.ScreenVO;
 import ezen.dteam.vo.TheaterVO;
+import ezen.dteam.vo.TicketDetailVO;
 import ezen.dteam.vo.UserVO;
 
 @RequestMapping(value="/ticket")
@@ -25,6 +29,9 @@ public class Ticket {
 	
 	@Autowired
 	TicketSVC ticketSVC;
+	
+	@Autowired
+	private HttpSession httpSession;
 
 	@RequestMapping(value="/ticketing", method=RequestMethod.GET)
 	public String ticketing(Model model) {
@@ -101,20 +108,64 @@ public class Ticket {
 		
 		UserVO loginVO = (UserVO) authentication.getPrincipal();
 		int mno = loginVO.getMno();
-		System.out.println(mno);
 		
 		model.addAttribute("mno", mno);
+		
+		httpSession.setAttribute("mno", mno);
 		
 		
 		return "ticket/ticketSeat";
 	}
 	
-	@RequestMapping(value="/ticketSeat", method=RequestMethod.GET)
-	public String movieSchedule() {
-		return "ticket/ticketSeat";
+	@RequestMapping(value="/reservationCheck", method=RequestMethod.POST)
+	@ResponseBody
+	public List<TicketDetailVO> reservationCheck(String sseatnoParam, String mnoParam) {
+		
+		int sseatno = (Integer.parseInt(sseatnoParam));
+		int mno = (Integer.parseInt(mnoParam));
+		
+		TicketDetailVO ticketDetailVO = new TicketDetailVO(sseatno, mno);
+		List<TicketDetailVO> checkSeat = ticketSVC.selectCheckSeat(ticketDetailVO);
+		
+		
+		return checkSeat;
 	}
-	@RequestMapping(value="/payment", method=RequestMethod.GET)
-	public String movieView() {
+	@RequestMapping(value="/payment", method=RequestMethod.POST)
+	public String movieView(HttpServletRequest request) {
+		
+		int mno = (Integer.parseInt(request.getParameter("mno")));
+		int cno = (Integer.parseInt(request.getParameter("cno")));
+		String cposter = request.getParameter("cposter");
+		String cname = request.getParameter("cname");
+		String cwatchGradeNm = request.getParameter("cwatchGradeNm");
+		int tno = (Integer.parseInt(request.getParameter("tno")));
+		String tnmae = request.getParameter("tname");
+		String sday = request.getParameter("sday");
+		String sstartTime = request.getParameter("sstartTime");
+		int shallno = (Integer.parseInt(request.getParameter("shallno")));
+		String shallType = request.getParameter("shallType");
+		String shallLocation = request.getParameter("shallLocation");
+		int personNum = (Integer.parseInt(request.getParameter("personNum")));
+		Object seatNos = request.getParameter("sseatNos");
+		Object seats = request.getParameter("seats");
+		
+		System.out.println("회원번호: "+mno);
+		System.out.println("영화번호: "+cno);
+		System.out.println("영화포스터: "+cposter);
+		System.out.println("영화이름: "+cname);
+		System.out.println("관람등급: "+cwatchGradeNm);
+		System.out.println("극장번호: "+tno);
+		System.out.println("극장이름: "+tnmae);
+		System.out.println("상영관날짜: "+sday);
+		System.out.println("상영시작시간: "+sstartTime);
+		System.out.println("상영관번호: "+shallno);
+		System.out.println("상영관타입: "+shallType);
+		System.out.println("상영관 위치: "+shallLocation);
+		System.out.println("인원: "+personNum+"명");
+		System.out.println("좌석번호: "+seatNos);
+		System.out.println("좌석: "+seats);
+		
+		
 		return "ticket/payment";
 	}
 
