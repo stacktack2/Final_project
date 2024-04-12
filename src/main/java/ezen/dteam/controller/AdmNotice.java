@@ -61,9 +61,9 @@ public class AdmNotice {
 		response.setCharacterEncoding("UTF-8");
 		
 		if(result>0) {
-			response.getWriter().append("<script>alert('»èÁ¦µÇ¾ú½À´Ï´Ù.');location.href='noticeList';</script>");
+			response.getWriter().append("<script>alert('ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.');location.href='noticeList';</script>");
 		}else {
-			response.getWriter().append("<script>alert('»èÁ¦µÇÁö ¾Ê¾Ò½À´Ï´Ù.');location.href='noticeList';</script>");			
+			response.getWriter().append("<script>alert('ì‚­ì œë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.');location.href='noticeList';</script>");			
 		}
 		response.getWriter().flush();
 		
@@ -79,7 +79,7 @@ public class AdmNotice {
 	public void noticeWriteOk(Authentication authentication, HttpServletResponse response, String btitle, String bcontent) throws IOException {
 		
 		if(btitle == null || btitle.equals("")) {
-			btitle = "Á¦¸ñ ¾øÀ½";
+			btitle = "ì œëª© ì—†ìŒ";
 		}
 		
 		UserVO loginUser = (UserVO)authentication.getPrincipal();
@@ -94,9 +94,9 @@ public class AdmNotice {
 		response.setContentType("text/html; charset=utf-8");
 		response.setCharacterEncoding("UTF-8");
 		if(result>0) {
-			response.getWriter().append("<script>alert('°øÁö¸¦ ÀÛ¼ºÇß½À´Ï´Ù.');location.href='noticeList';</script>");
+			response.getWriter().append("<script>alert('ê³µì§€ë¥¼ ì‘ì„±í–ˆìŠµë‹ˆë‹¤.');location.href='noticeList';</script>");
 		}else {
-			response.getWriter().append("<script>alert('°øÁö°¡ ÀÛ¼ºµÇÁö ¾Ê¾Ò½À´Ï´Ù.');location.href='noticeList';</script>");			
+			response.getWriter().append("<script>alert('ê³µì§€ê°€ ì‘ì„±ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.');location.href='noticeList';</script>");			
 		}
 		response.getWriter().flush();
 	}
@@ -115,7 +115,7 @@ public class AdmNotice {
 		
 		String btitle = boardVO.getBtitle();
 		if(btitle == null || btitle.equals("")) {
-			boardVO.setBtitle("Á¦¸ñ ¾øÀ½");
+			boardVO.setBtitle("ì œëª© ì—†ìŒ");
 		}
 		
 		
@@ -124,9 +124,9 @@ public class AdmNotice {
 		response.setContentType("text/html; charset=utf-8");
 		response.setCharacterEncoding("UTF-8");
 		if(result>0) {
-			response.getWriter().append("<script>alert('°øÁö¸¦ ¼öÁ¤Çß½À´Ï´Ù.');location.href='noticeList';</script>");
+			response.getWriter().append("<script>alert('ê³µì§€ë¥¼ ìˆ˜ì •í–ˆìŠµë‹ˆë‹¤.');location.href='noticeList';</script>");
 		}else {
-			response.getWriter().append("<script>alert('°øÁö°¡ ¼öÁ¤µÇÁö ¾Ê¾Ò½À´Ï´Ù.');location.href='noticeList';</script>");			
+			response.getWriter().append("<script>alert('ê³µì§€ê°€ ìˆ˜ì •ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.');location.href='noticeList';</script>");			
 		}
 		response.getWriter().flush();
 		

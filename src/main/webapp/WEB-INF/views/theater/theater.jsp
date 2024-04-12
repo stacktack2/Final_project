@@ -72,7 +72,7 @@
 												class="d-inline-block border border-grey">
 												<a href="javascript:void(0);" onclick="callFunction('${cinemaVO.cno }','${screenHallVO.shallno }',
 												'${screenVO.sstartTime }','${cinemaVO.cposter }','${cinemaVO.cname }','${cinemaVO.cwatchGradeNm }',
-												'${screenHallVO.shallType }','${screenHallVO.shallLocation }','${screenVO.sday }');"> 
+												'${screenHallVO.shallType }','${screenHallVO.shallLocation }','${screenVO.sday }','${screenVO.sendTime }');"> 
 												<b>${screenVO.sstartTime }~${screenVO.sendTime }</b><br> 
 												<span>남은 좌석 : ${screenVO.shallSeat - screenVO.fillSeat }</span>
 												</a>
@@ -99,6 +99,7 @@
 							<input type="hidden" name="shallType" id="ticketShallType">
 							<input type="hidden" name="shallLocation" id="ticketShallLocation">
 							<input type="hidden" name="inputDateDay" id="ticketInputDateDay">
+							<input type="hidden" name="sendTime" id="ticketSendTime">
 						</form>
 
 					</div>
@@ -136,7 +137,8 @@
 		});
 		document.getElementById("attendday").value = attendday;
 		
-		function callFunction(cno,shallno,sstartTime,cposter,cname,cwatchGradeNm,shallType,shallLocation,sday){
+		function callFunction(cno,shallno,sstartTime,cposter,cname,cwatchGradeNm,shallType,shallLocation,sday,sendTime){
+			
 			document.getElementById("ticketInputDateDay").value = document.getElementById("attendday").value;
 			
 			document.getElementById("ticketCno").value = cno;
@@ -149,6 +151,7 @@
 			document.getElementById("ticketShallLocation").value = shallLocation;
 			document.getElementById("ticketShallLocation").value = shallLocation;
 			document.getElementById("ticketSday").value = sday;
+			document.getElementById("ticketSendTime").value = sendTime;
 			
 			document.forms['ticket'].submit();
 		}

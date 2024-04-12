@@ -95,7 +95,7 @@ public class ServiceCenter {
 	public String inquiryWriteOk(Authentication authentication, HttpServletResponse response, String btitle, String bcontent) throws IOException {
 		
 		if(btitle == null || btitle.equals("")) {
-			btitle = "Á¦¸ñ ¾øÀ½";
+			btitle = "ì œëª© ì—†ìŒ";
 		}
 		
 		
@@ -111,9 +111,9 @@ public class ServiceCenter {
 		response.setContentType("text/html; charset=utf-8");
 		response.setCharacterEncoding("UTF-8");
 		if(result>0) {
-			response.getWriter().append("<script>alert('¹®ÀÇ¸¦ ÀÛ¼ºÇß½À´Ï´Ù.');location.href='inquiryList';</script>");
+			response.getWriter().append("<script>alert('ë¬¸ì˜ë¥¼ ì‘ì„±í–ˆìŠµë‹ˆë‹¤.');location.href='inquiryList';</script>");
 		}else {
-			response.getWriter().append("<script>alert('¹®ÀÇ°¡ ÀÛ¼ºµÇÁö ¾Ê¾Ò½À´Ï´Ù.');location.href='inquiryList';</script>");			
+			response.getWriter().append("<script>alert('ë¬¸ì˜ê°€ ì‘ì„±ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.');location.href='inquiryList';</script>");			
 		}
 		response.getWriter().flush();
 		return "serviceCenter/inquiryList";
