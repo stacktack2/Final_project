@@ -77,7 +77,7 @@
             </ul>
             <div class="main-button">
               <a href="<%=request.getContextPath() %>/movie/movieView?cno=${movieChart.cno}">상세보기</a>
-              <a href="#">예매하기</a>
+              <a href="<%=request.getContextPath() %>/ticket/ticketing">예매하기</a>
             </div>
           </div>
         </div>
@@ -117,14 +117,7 @@
       </div>
     </div>
   </div>
-  <script>
-	$(document).ready(function(){
-	  $(".pagination li a").click(function(){
-	    $(".pagination li a").removeClass("is_active"); // 모든 페이지 링크에서 is_active 클래스 제거
-	    $(this).addClass("is_active"); // 클릭한 페이지 링크에 is_active 클래스 추가
-	  });
-	});
-	</script>
+
 <%@ include file="../include/footer/userFooter.jsp" %>
 
   </body>
