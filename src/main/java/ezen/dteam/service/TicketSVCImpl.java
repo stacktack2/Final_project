@@ -56,8 +56,18 @@ public class TicketSVCImpl implements TicketSVC{
 	}
 
 	@Override
-	public void reserveTicket(Map<String, Object> paramMap) {
-		ticketDAO.reserveTicket(paramMap);
+	public int reserveTicket(TicketDetailVO paramMap) {
+		return ticketDAO.reserveTicket(paramMap);
+	}
+
+	@Override
+	public int insertTicket(int mno) {
+		return ticketDAO.insertTicket(mno);
 	}
 	
+	@Override
+	public int lastId() {
+		return ticketDAO.lastId();
+	}
+
 }

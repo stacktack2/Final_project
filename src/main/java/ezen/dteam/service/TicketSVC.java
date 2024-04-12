@@ -26,6 +26,9 @@ public interface TicketSVC {
 
 	List<TicketDetailVO> selectCheckSeat(TicketDetailVO ticketDetailVO);
 
-	void reserveTicket(Map<String, Object> paramMap);
+	int insertTicket(int mno);
 	
+	int reserveTicket(TicketDetailVO paramMap);
+
+	int lastId();
 }

@@ -13,6 +13,7 @@ import ezen.dteam.vo.ScreenSeatVO;
 import ezen.dteam.vo.ScreenVO;
 import ezen.dteam.vo.TheaterVO;
 import ezen.dteam.vo.TicketDetailVO;
+import ezen.dteam.vo.TicketVO;
 
 @Repository
 public class TicketDAO {
@@ -49,9 +50,20 @@ public class TicketDAO {
 		public List<TicketDetailVO> selectCheckSeat(TicketDetailVO ticketDetailVO) {
 			return sqlSession.selectList(nameSpace+".selectCheckSeat", ticketDetailVO);
 		}
-
-		public Object reserveTicket(Map<String, Object> paramMap) {
-			return sqlSession.insert(nameSpace+".reservoTicket", paramMap);
+		
+		public int insertTicket(int mno) {
+			return sqlSession.insert(nameSpace+".insertTicket", mno);
 		}
+
+		public int reserveTicket(TicketDetailVO paramMap) {
+			return sqlSession.insert(nameSpace+".reserveTicket", paramMap);
+		}
+
+		public int lastId() {
+			return sqlSession.selectOne(nameSpace+".last_id");
+		}
+		
+		
+
 		
 }

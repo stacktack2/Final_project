@@ -1,6 +1,8 @@
 package ezen.dteam.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -22,6 +24,7 @@ import ezen.dteam.vo.ScreenVO;
 import ezen.dteam.vo.TheaterVO;
 import ezen.dteam.vo.TicketDetailVO;
 import ezen.dteam.vo.UserVO;
+import ezen.dteam.vo.TicketVO;
 
 @RequestMapping(value="/ticket")
 @Controller
@@ -86,6 +89,7 @@ public class Ticket {
 			@RequestParam("sday") String sday, @RequestParam("sstartTime") String sstartTime,
 			@RequestParam("shallno") int shallno, @RequestParam("shallType") String shallType,
 			@RequestParam("shallLocation") String shallLocation, @RequestParam("sendTime") String sendTime, 
+			@RequestParam("sno") int sno,
 			Authentication authentication) throws Exception {
 		
 		model.addAttribute("cno", cno);
@@ -97,6 +101,7 @@ public class Ticket {
 		model.addAttribute("dateDay", dateDay);
 		model.addAttribute("sday", sday);
 		model.addAttribute("sstartTime", sstartTime);
+		model.addAttribute("sno", sno);
 		model.addAttribute("shallno", shallno);
 		model.addAttribute("shallType", shallType);
 		model.addAttribute("shallLocation", shallLocation);
@@ -127,11 +132,11 @@ public class Ticket {
 		TicketDetailVO ticketDetailVO = new TicketDetailVO(sseatno, mno);
 		List<TicketDetailVO> checkSeat = ticketSVC.selectCheckSeat(ticketDetailVO);
 		
-		
 		return checkSeat;
 	}
+	
 	@RequestMapping(value="/payment", method=RequestMethod.POST)
-	public String movieView(HttpServletRequest request) {
+	public String movieView(Model model, HttpServletRequest request) {
 		
 		int mno = (Integer.parseInt(request.getParameter("mno")));
 		int cno = (Integer.parseInt(request.getParameter("cno")));
@@ -139,15 +144,33 @@ public class Ticket {
 		String cname = request.getParameter("cname");
 		String cwatchGradeNm = request.getParameter("cwatchGradeNm");
 		int tno = (Integer.parseInt(request.getParameter("tno")));
-		String tnmae = request.getParameter("tname");
+		String tname = request.getParameter("tname");
 		String sday = request.getParameter("sday");
 		String sstartTime = request.getParameter("sstartTime");
+		int sno = (Integer.parseInt(request.getParameter("sno")));
 		int shallno = (Integer.parseInt(request.getParameter("shallno")));
 		String shallType = request.getParameter("shallType");
 		String shallLocation = request.getParameter("shallLocation");
 		int personNum = (Integer.parseInt(request.getParameter("personNum")));
-		Object seatNos = request.getParameter("sseatNos");
+		String[] seatNosArray = request.getParameterValues("sseatNos");
 		Object seats = request.getParameter("seats");
+		
+		model.addAttribute("mno", mno);
+		model.addAttribute("cno", cno);
+		model.addAttribute("cposter", cposter);
+		model.addAttribute("cname", cname);
+		model.addAttribute("cwatchGradeNm", cwatchGradeNm);
+		model.addAttribute("tno", tno);
+		model.addAttribute("tname", tname);
+		model.addAttribute("sday", sday);
+		model.addAttribute("sstartTime", sstartTime);
+		model.addAttribute("sno", sno);
+		model.addAttribute("shallno", shallno);
+		model.addAttribute("shallType", shallType);
+		model.addAttribute("shallLocation", shallLocation);
+		model.addAttribute("personNum", personNum);
+		model.addAttribute("seatNosArray", seatNosArray);
+		model.addAttribute("seats", seats);
 		
 		System.out.println("회원번호: "+mno);
 		System.out.println("영화번호: "+cno);
@@ -155,15 +178,39 @@ public class Ticket {
 		System.out.println("영화이름: "+cname);
 		System.out.println("관람등급: "+cwatchGradeNm);
 		System.out.println("극장번호: "+tno);
-		System.out.println("극장이름: "+tnmae);
+		System.out.println("극장이름: "+tname);
 		System.out.println("상영관날짜: "+sday);
 		System.out.println("상영시작시간: "+sstartTime);
+		System.out.println("상영관테이블번호: "+sno);
 		System.out.println("상영관번호: "+shallno);
 		System.out.println("상영관타입: "+shallType);
 		System.out.println("상영관 위치: "+shallLocation);
 		System.out.println("인원: "+personNum+"명");
-		System.out.println("좌석번호: "+seatNos);
+		System.out.println("좌석번호: "+seatNosArray);
 		System.out.println("좌석: "+seats);
+		
+		System.out.println(seatNosArray[0]);
+		
+		if (seatNosArray != null && seatNosArray.length > 0) {
+			String[] noArray = seatNosArray[0].split(",");
+			for(String sseatno : noArray) {
+				
+				ticketSVC.insertTicket(mno);
+				int ticketno = ticketSVC.lastId();
+				
+				TicketDetailVO paramMap = new TicketDetailVO((Integer.parseInt(sseatno)), mno, sno);
+				paramMap .setTicketno(ticketno);
+				
+				int result = ticketSVC.reserveTicket(paramMap);
+				
+				if( result < 1) {
+					System.out.println("작성하지 못했습니다");
+				}
+			}
+		}else {
+			System.out.println("선택된 좌석이 없습니다.");
+		}
+		
 		
 		
 		return "ticket/payment";

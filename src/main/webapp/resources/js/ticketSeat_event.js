@@ -83,7 +83,7 @@ function handleSeatSelection(seat) {
             
             // 이미 선택된 좌석이 아니고, 선택된 좌석 수가 인원 수와 일치하는 경우에만 좌석 선택
             if (dataSseatno == clickSeatNo) {
-                alert("이미 선택된 좌석이거나 선택된 인원 수와 일치합니다.");
+                alert("이미 선택된 좌석이거나 선택된 인원 수와 일치하지 않습니다.");
             } else if (!isSelected && selectedSeats.length < updateSelectedCounts() &&
                 (dataSseatno == null || dataSseatno === undefined)) {
                 selectedSeats.push(clickSeat);
@@ -96,7 +96,7 @@ function handleSeatSelection(seat) {
                 inputSeats.value = selectedSeats;
                 inputSseatNos.value = selectedSeatNos;
             } else {
-                alert("이미 선택된 좌석이거나 선택된 인원 수와 일치합니다.");
+                alert("이미 선택된 좌석이거나 선택된 인원 수와 일치하지 않습니다.");
             }
             
             
