@@ -23,6 +23,13 @@ public class TicketDetailVO {
 		
 	}
 	
+	public TicketDetailVO(int sseatno, int mno, int sno) {
+		super();
+		this.sseatno = sseatno;
+		this.mno = mno;
+		this.sno = sno;
+	}
+	
 	public TicketDetailVO(int sseatno, int mno) {
 		super();
 		this.sseatno = sseatno;

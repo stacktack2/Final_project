@@ -170,6 +170,7 @@
 								<a id="selShallType"></a>
 								<a id="selShallLocation"></a>
 							</span>
+							<input type="hidden" name="sno" id="sno">
 							<input type="hidden" name="shallno" id="shallno">
 							<input type="hidden" name="shallType" id="shallType">
 							<input type="hidden" name="shallLocation" id="shallLocation">

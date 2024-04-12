@@ -59,6 +59,23 @@
 	]]>
 	</select>
 	
+<<<<<<< HEAD
+	<insert id="insertTicket" parameterType="int" >
+		INSERT INTO ticket (ticketTime, ticketDelyn, mno) 
+        VALUES (NOW(), 0, #{mno})
+	</insert>
+	
+	<select id="last_id" resultType="int">
+		SELECT ticketno from ticket order by ticketno desc limit 0,1
+	</select>
+		
+	<insert id="reserveTicket" parameterType="TicketDetailVO">
+        <![CDATA[
+            INSERT INTO ticketDetail(ticketno, sno, sseatno, ticketDate)
+            VALUES (#{ticketno}, #{sno}, #{sseatno}, date(NOW()));
+        ]]>
+    </insert>
+=======
 
 	<insert id="reserveTicket" parameterType="map">
 	<![CDATA[
@@ -74,5 +91,6 @@
 	]]>
 	</insert>
 	
+>>>>>>> branch 'master' of https://github.com/cotaek2/Final_project.git
 	
 </mapper>

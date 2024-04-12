@@ -10,6 +10,7 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
 	rel="stylesheet">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/templatemo-villa-agency.css">
 
 <title>예매 | 영화속으로 Dflix</title>
 <!-- CSS -->
@@ -35,27 +36,45 @@
 				</div>
 				<!-- seat 바디 -->
 				<div class="section-seat-body">
-					<div class="person_screen">
-						<div class="person-number" style="height: 538px;">
-							<div class="pn-container">
-								<div class="max-personNumber">* 최대 8명 선태 가능</div>
-								<div class="group_adult" style="display: block;">
-									<span class="title">일반</span>
+					<div class="movie_screen">
+						<div class="ticketInfo-left">
+							<div class="ticketInfo-container">
+								<div class="ticketMovieInfo">
+									<img src="${cposter}">
+								</div>
+								<div class="movieInfo" style="display: block;">
+									<span class="movieName">${cname }</span>
+									<span class="movieWatchGrade">${cwatchGradeNm }</span>
 								</div>
 							</div>
 						</div>
-						<div id="user-select-info">
-							<p class="theater-info">
-								<span class="site">${cname }</span>
-								<span class="screen">${shallLocation }</span>
-								<span class="seatNum">남은좌석
-									<b class="restNum">231</b>/
-									<b class="totalNum">231</b>
-								</span>
-							</p>
-							<p class="playYMD-info">
-								<b>${dateDay }</b> <b>${sstartTime }~${sendTime }</b>
-							</p>
+						<div class="ticketInfo-right">
+							<table class="ticketInfoTable">
+								<tr>
+									<th>극장이름<th>
+									<td>${tname }</td>
+								</tr>
+								<tr>
+									<th>상영관날짜<th>
+									<td>${sday } | ${sstartTime }</td>
+								</tr>
+								<tr>
+									<th>상영관타입<th>
+									<td>${shallType }</td>
+								</tr>
+								<tr>
+									<th>상영관 위치<th>
+									<td>${shallLocation }</td>
+								</tr>
+								<tr>
+									<th>인원<th>
+									<td>${personNum }명</td>
+								</tr>
+								<tr>
+									<th>좌석<th>
+									<td>${seats }</td>
+								</tr>
+							</table>
 						</div>
 					</div>
 				</div>

@@ -4,7 +4,7 @@ public class TicketVO {
 	private int ticketno;		//예매번호
 	private String ticketTime;	//예매시간
 	private int ticketDelyn;	//예매취소여부
-	private String mno;			//회원번호
+	private int mno;			//회원번호
 	//추가된 것
 	private int sno;			//상영번호
 	private int sseatno;		//좌석번호
@@ -38,10 +38,10 @@ public class TicketVO {
 	public final void setTicketDelyn(int ticketDelyn) {
 		this.ticketDelyn = ticketDelyn;
 	}
-	public final String getMno() {
+	public final int getMno() {
 		return mno;
 	}
-	public final void setMno(String mno) {
+	public final void setMno(int mno) {
 		this.mno = mno;
 	}
 	public int getSno() {
