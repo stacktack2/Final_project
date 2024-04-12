@@ -99,6 +99,14 @@ public class ScreenVO {
 		this.sday = sday;
 	}
 	
+	public ScreenVO(String sstartTime, int cno, String sday, int shallno) {
+		super();
+		this.sstartTime = sstartTime;
+		this.cno = cno;
+		this.sday = sday;
+		this.shallno = shallno;
+	}
+
 	public String getSday() {
 		return sday;
 	}

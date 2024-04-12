@@ -17,8 +17,23 @@ public class TicketDetailVO {
 	private String shallType;	//상영관타입
 	private String shallLocation; //상영관정보
 	private String sday; //예약일
+	private int mno;
 	
+	public TicketDetailVO() {
+		
+	}
 	
+	public TicketDetailVO(int sseatno, int mno) {
+		super();
+		this.sseatno = sseatno;
+		this.mno = mno;
+	}
+	public final int getMno() {
+		return mno;
+	}
+	public final void setMno(int mno) {
+		this.mno = mno;
+	}
 	public int getShallno() {
 		return shallno;
 	}

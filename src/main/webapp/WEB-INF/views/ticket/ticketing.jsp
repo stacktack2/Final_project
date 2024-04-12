@@ -11,7 +11,6 @@
     <title>예매 | 영화속으로 Dflix</title>
     <!-- CSS -->
     <%@ include file="../include/header/ticketingHeader.jsp" %>
-    <script src="<%=request.getContextPath() %>/resources/js/ticketing_submit.js"></script>
   </head>
 <body>
 <%@ include file="../include/nav/userNav.jsp" %>
@@ -198,5 +197,6 @@
 <%@ include file="../include/footer/userFooter.jsp" %>
 <script src="<%=request.getContextPath() %>/resources/js/ticketing_event.js"></script>
 <script src="<%=request.getContextPath() %>/resources/js/ticketing_view.js"></script>
+<script src="<%=request.getContextPath() %>/resources/js/ticketing_submit.js"></script>
 </body>
 </html>

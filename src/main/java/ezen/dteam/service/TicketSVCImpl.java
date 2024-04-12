@@ -1,6 +1,7 @@
 package ezen.dteam.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,7 @@ import ezen.dteam.vo.ScreenHallVO;
 import ezen.dteam.vo.ScreenSeatVO;
 import ezen.dteam.vo.ScreenVO;
 import ezen.dteam.vo.TheaterVO;
+import ezen.dteam.vo.TicketDetailVO;
 
 @Service
 public class TicketSVCImpl implements TicketSVC{
@@ -46,6 +48,16 @@ public class TicketSVCImpl implements TicketSVC{
 	@Override
 	public List<ScreenSeatVO> selectScreenSeat(ScreenSeatVO ticketInfo) {
 		return ticketDAO.selectScreenSeat(ticketInfo);
+	}
+
+	@Override
+	public List<TicketDetailVO> selectCheckSeat(TicketDetailVO ticketDetailVO) {
+		return ticketDAO.selectCheckSeat(ticketDetailVO);
+	}
+
+	@Override
+	public void reserveTicket(Map<String, Object> paramMap) {
+		ticketDAO.reserveTicket(paramMap);
 	}
 	
 }
