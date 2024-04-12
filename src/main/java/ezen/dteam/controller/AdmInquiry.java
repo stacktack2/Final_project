@@ -64,9 +64,9 @@ public class AdmInquiry {
 		response.setCharacterEncoding("UTF-8");
 		
 		if(result>0) {
-			response.getWriter().append("<script>alert('»èÁ¦µÇ¾ú½À´Ï´Ù.');location.href='inquiryList';</script>");
+			response.getWriter().append("<script>alert('ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.');location.href='inquiryList';</script>");
 		}else {
-			response.getWriter().append("<script>alert('»èÁ¦µÇÁö ¾Ê¾Ò½À´Ï´Ù.');location.href='inquiryList';</script>");			
+			response.getWriter().append("<script>alert('ì‚­ì œë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.');location.href='inquiryList';</script>");			
 		}
 		response.getWriter().flush();
 		
@@ -87,9 +87,9 @@ public class AdmInquiry {
 		response.setContentType("text/html; charset=utf-8");
 		response.setCharacterEncoding("UTF-8");
 		if(result>0) {
-			response.getWriter().append("<script>alert('´ñ±ÛÀ» ÀÛ¼ºÇß½À´Ï´Ù.');location.href='inquiryView?bno="+bno+"';</script>");
+			response.getWriter().append("<script>alert('ëŒ“ê¸€ì„ ì‘ì„±í–ˆìŠµë‹ˆë‹¤.');location.href='inquiryView?bno="+bno+"';</script>");
 		}else {
-			response.getWriter().append("<script>alert('´ñ±ÛÀÌ ÀÛ¼ºµÇÁö ¾Ê¾Ò½À´Ï´Ù.');location.href='inquiryView?bno="+bno+"';</script>");			
+			response.getWriter().append("<script>alert('ëŒ“ê¸€ì´ ì‘ì„±ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.');location.href='inquiryView?bno="+bno+"';</script>");			
 		}
 		response.getWriter().flush();
 		
@@ -103,9 +103,9 @@ public class AdmInquiry {
 		response.setContentType("text/html; charset=utf-8");
 		response.setCharacterEncoding("UTF-8");
 		if(result>0) {
-			response.getWriter().append("<script>alert('´ñ±ÛÀÌ »èÁ¦µÇ¾ú½À´Ï´Ù.');location.href='inquiryView?bno="+bno+"';</script>");
+			response.getWriter().append("<script>alert('ëŒ“ê¸€ì´ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.');location.href='inquiryView?bno="+bno+"';</script>");
 		}else {
-			response.getWriter().append("<script>alert('´ñ±ÛÀÌ »èÁ¦µÇÁö ¾Ê¾Ò½À´Ï´Ù.');location.href='inquiryView?bno="+bno+"';</script>");			
+			response.getWriter().append("<script>alert('ëŒ“ê¸€ì´ ì‚­ì œë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.');location.href='inquiryView?bno="+bno+"';</script>");			
 		}
 		response.getWriter().flush();
 		

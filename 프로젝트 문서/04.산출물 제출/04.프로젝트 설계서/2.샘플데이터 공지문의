@@ -1,3 +1,5 @@
+사용금지 맴버가 없이 이것만 추가하면 고장남
+
 DELIMITER $$
 DROP PROCEDURE IF EXISTS loopInsert$$
  
