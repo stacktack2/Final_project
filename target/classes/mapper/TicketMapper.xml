@@ -47,6 +47,32 @@
 		ON c.cno = s.cno
 		INNER JOIN theater t
 		ON t.tno = sh.tno
-		WHERE  t.tno = #{tno} AND s.sday = #{sday} AND s.cno = #{cno} AND s.shallno = #{shallno} AND s.sstartTime = #{sstartTime};
+		WHERE  t.tno = #{tno} AND s.sday = #{sday} AND s.cno = #{cno} AND s.shallno = #{shallno} AND s.sstartTime = #{sstartTime}
 	</select>
+	
+	<select id="selectCheckSeat" resultType="TicketDetailVO">
+	<![CDATA[
+		SELECT * FROM ticketDetail td
+		INNER JOIN ticket t ON td.ticketno = t.ticketno
+		INNER JOIN screenseat ss ON td.sseatno = ss.sseatno
+		WHERE td.sseatno = #{sseatno} AND t.mno = #{mno}
+	]]>
+	</select>
+	
+	<insert id="insertTicket" parameterType="int" >
+		INSERT INTO ticket (ticketTime, ticketDelyn, mno) 
+        VALUES (NOW(), 0, #{mno})
+	</insert>
+	
+	<select id="last_id" resultType="int">
+		SELECT ticketno from ticket order by ticketno desc limit 0,1
+	</select>
+		
+	<insert id="reserveTicket" parameterType="TicketDetailVO">
+        <![CDATA[
+            INSERT INTO ticketDetail(ticketno, sno, sseatno, ticketDate)
+            VALUES (#{ticketno}, #{sno}, #{sseatno}, date(NOW()));
+        ]]>
+    </insert>
+	
 </mapper>

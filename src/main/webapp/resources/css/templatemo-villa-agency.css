@@ -1750,6 +1750,72 @@ body {
 	--bs-dropdown-link-hover-bg: #dee2e5 !important;
 }
 
+.ticketInfo-left {
+  width: 400px;
+  position: relative;
+  overflow: hidden;
+  height: 538px;
+  float: left;
+  display: block;
+  width: 29rem;
+}
+
+.ticketInfo-container{
+  margin-left: 215px;
+  margin-top: 50px;
+}
+
+.ticketMovieInfo{
+  width: 213px;
+  height: 315px;
+}
+
+.movieInfo{
+  width: 213px;
+  text-align: center;
+}
+
+.movieName{
+  display: flex;
+  justify-content: center;
+  font-size: x-large;
+  font-weight: 600;
+}
+
+.ticketInfo-right {
+  width: 400px;
+  position: relative;
+  overflow: hidden;
+  display: block;
+  width: 350px;
+  float: right;
+  margin-top: 50px;
+  margin-right: 170px;
+}
+
+.ticketInfoTable{
+  border-spacing: 20px;
+  border-collapse: separate;
+  font-size: 16px;
+}
+
+.movie_screen{
+  position: relative;
+  border-bottom: 2px solid #d4d3c9;
+  display: inline-block;
+  padding: 17px 0 10px 0;
+  height: 567px;
+  width: 100%;
+}
+
+.ticketInfoTable tr{
+  margin: 5px;
+}
+
+.ticketInfoTable tr th{
+  text-align: right;
+}
+
 /* 
 ---------------------------------------------
 Pre-loader Style
