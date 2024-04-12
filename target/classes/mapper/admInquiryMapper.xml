@@ -44,13 +44,13 @@
 	</delete>
 	
 	<delete id="deleteReply" parameterType="String">
-		delete from icmtreply where icmtno = #{value}
+		delete from icmtReply where icmtno = #{value}
 	</delete>
 	
 	
 	
 	<insert id="updateReply" parameterType="IcmtReplyVO">
-		insert into icmtreply(icmtContent, bno, mno) 
+		insert into icmtReply(icmtContent, bno, mno) 
 		values(#{icmtContent}, #{bno}, #{mno}) 
 	</insert>
 	
