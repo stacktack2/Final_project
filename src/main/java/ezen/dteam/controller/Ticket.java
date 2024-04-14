@@ -1,9 +1,6 @@
 package ezen.dteam.controller;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -24,7 +21,6 @@ import ezen.dteam.vo.ScreenVO;
 import ezen.dteam.vo.TheaterVO;
 import ezen.dteam.vo.TicketDetailVO;
 import ezen.dteam.vo.UserVO;
-import ezen.dteam.vo.TicketVO;
 
 @RequestMapping(value="/ticket")
 @Controller

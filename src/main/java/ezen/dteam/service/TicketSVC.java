@@ -1,8 +1,6 @@
 package ezen.dteam.service;
 
 import java.util.List;
-import java.util.Map;
-
 import ezen.dteam.vo.CinemaVO;
 import ezen.dteam.vo.ScreenHallVO;
 import ezen.dteam.vo.ScreenSeatVO;
