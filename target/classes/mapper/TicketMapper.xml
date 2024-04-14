@@ -59,7 +59,6 @@
 	]]>
 	</select>
 	
-<<<<<<< HEAD
 	<insert id="insertTicket" parameterType="int" >
 		INSERT INTO ticket (ticketTime, ticketDelyn, mno) 
         VALUES (NOW(), 0, #{mno})
@@ -75,22 +74,5 @@
             VALUES (#{ticketno}, #{sno}, #{sseatno}, date(NOW()));
         ]]>
     </insert>
-=======
-
-	<insert id="reserveTicket" parameterType="map">
-	<![CDATA[
-	    START TRANSACTION
-	    SELECT * FROM ticket WHERE mno = #{mno} FOR UPDATE;
-	    INSERT INTO ticket (ticketTime, ticketDelyn, mno) 
-	    VALUES (NOW(), 0, #{mno})
-	    ON DUPLICATE KEY UPDATE tickettime = NOW()
-	    SET @ticketId = LAST_INSERT_ID()
-	    INSERT INTO ticketDetail(ticketno, sno, sseatno, ticketDate)
-	    VALUES (@ticketId, #{sno}, #{sseatno}, NOW())
-	    COMMIT
-	]]>
-	</insert>
-	
->>>>>>> branch 'master' of https://github.com/cotaek2/Final_project.git
 	
 </mapper>
