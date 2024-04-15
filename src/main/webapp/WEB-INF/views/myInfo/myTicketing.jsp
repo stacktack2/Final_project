@@ -108,9 +108,13 @@
     	<script>
 	    // 삭제 버튼 클릭 시 서버로 삭제 요청
 	    $(".deleteBtn").click(function() {
-	    	let flag = confirm("삭제하시겠습니까? "); 
+	    	console.log(this);
+	    	console.log($(this));
+	    	console.log($(this).parent());
+	    	let flag = confirm("삭제하시겠습니까?"); 
 	        if (flag) {
-	            document.forms['myTicketDel'].submit();
+	        	$(this).parent().submit()
+//	            document.forms['myTicketDel'].submit();
 	        }
 	    });
     	</script>
