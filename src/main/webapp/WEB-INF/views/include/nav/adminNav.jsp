@@ -21,16 +21,6 @@
           <ul class="menu-inner py-1">
             <!-- 관리자메인 -->
             <li class="menu-item active">
-              <a href="<%=request.getContextPath() %>/admin/main" class="menu-link">
-               		 관리자 메인
-              </a>
-            </li>
-<%-- 			<li class="menu-item">
-              <a href="<%=request.getContextPath() %>/admin/movieMg/movieMgList" class="menu-link menu-toggle">
-                	영화 관리
-              </a>
-            </li> --%>
-            <li class="menu-item">
               <a href="<%=request.getContextPath() %>/admin/theaters/theatersMgList" class="menu-link menu-toggle">
                 	극장 관리
               </a>
@@ -41,11 +31,13 @@
               </a>
             </li>
             <li class="menu-item">
-              <a href="<%=request.getContextPath() %>/admin/inquiry/inquiryList" class="menu-link menu-toggle">
+              <a href="<%=request.getContextPath() %>/admin/inquiry/inquiryList" class="menu-link menu-toggle"">
                 	문의관리
               </a>
             </li>
           </ul>
         </aside>
+        
+      	
 </body>
 </html>
