@@ -26,8 +26,8 @@
     <div class="owl-carousel owl-banner">
       <div class="item item-1">
         <div class="header-text">
-          <span class="category">2024.02.28 <em>듄:파트2</em></span>
-          <h2>2월,<br> 운명의 반격이 시작된다!</h2>
+          <span class="category">2024.04.10 <em>쿵푸팬더4</em></span>
+          <h2>4월,<br> 오랜만이지! 드림웍스 레전드 시리즈 컴백!</h2>
         </div>
       </div>
       <div class="item item-2">
@@ -38,8 +38,8 @@
       </div>
       <div class="item item-3">
         <div class="header-text">
-          <span class="category">2024.01.31 <em>웡카</em></span>
-          <h2>세상에서 가장 달콤한 여정<br>좋은 일은 모두 꿈에서부터 시작된다!</h2>
+          <span class="category">2024.04.16 <em>사랑은 빛</em></span>
+          <h2>'사랑을 하는 여성에게는 빛이 보인다'<br>특이한 체질을 가진 대학생 사이조.</h2>
         </div>
       </div>
     </div>
@@ -52,7 +52,7 @@
         <div class="col-lg-4 offset-lg-4">
           <div class="section-heading text-center">
             <h6>| Tiser View</h6>
-            <h2>듄:파트2 티저 <br>보러가기</h2>
+            <h2>쿵푸팬더4 티저 <br>보러가기</h2>
           </div>
         </div>
       </div>
@@ -63,8 +63,8 @@
       <div class="row">
         <div class="col-lg-10 offset-lg-1">
           <div class="video-frame">
-            <img src="<%=request.getContextPath() %>/resources/images/dune5.jpg" alt="듄">
-            <a href="https://youtu.be/81JOj5-xNGc?si=XlZvYAZQJjee7N6d" target="_blank"><i class="fa fa-play"></i></a>
+            <img src="<%=request.getContextPath() %>/resources/images/쿵푸팬더4_2.jpg" alt="듄">
+            <a href="https://youtu.be/b0yAOYIvP1Y" target="_blank"><i class="fa fa-play"></i></a>
           </div>
         </div>
       </div>
