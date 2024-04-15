@@ -10,6 +10,6 @@ public class AdmMain {
 	@RequestMapping(value = "/main", method = RequestMethod.GET)
 	public String inquiryList() {
 		
-		return "/admin/main";
+		return "redirect:/admin/theaters/theatersMgList";
 	}
 }
