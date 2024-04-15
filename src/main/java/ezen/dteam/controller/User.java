@@ -100,17 +100,19 @@ public class User {
 		return "user/findPw";
 	}
 	
+	
+	
 	@RequestMapping(value = "/updatePw", method = RequestMethod.POST)
 	public void sendEmail(MemberVO vo,HttpServletResponse response, HttpServletRequest request) throws Exception{
 
 		//4. 알림발송
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=utf-8");
-		if(service.updatePw(vo)==1) {
-			response.getWriter().println("<script>alert('인증번호가 발송되었습니다'); location.href='"+request.getContextPath()+"/user/login'; </script>");
+		if(service.updatePw(vo)!= null && service.updatePw(vo) != "") {
+			response.getWriter().println("<script>alert('임시비밀번호는 '"+service.updatePw(vo)+"' 입니다'); location.href='"+request.getContextPath()+"/user/login'; </script>");
 			
 		} else {
-			response.getWriter().println("<script>alert('인증번호 발송에 실패하였습니다.'); location.href='"+request.getContextPath()+"/user/login'; </script>");
+			response.getWriter().println("<script>alert('임시비밀번호 발급에 실패하였습니다.'); location.href='"+request.getContextPath()+"/user/login'; </script>");
 		}
 		response.getWriter().flush();
 		

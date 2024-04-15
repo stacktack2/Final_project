@@ -42,15 +42,14 @@ public class UserSVCImpl implements UserSVC{
 	}
 
 	@Override
-	public int updatePw(MemberVO vo) throws Exception {
-		
-		System.out.println("updatePw CALL");
-		
+	public String updatePw(MemberVO vo) throws Exception {
+				
 		//1.임시 비밀번호 생성
 		String pw = "";
 		for (int i = 0; i < 12; i++) {
 			pw += (char) ((Math.random() * 26) + 97);
 		}
+		String rawPw = pw;
 		BCryptPasswordEncoder epwe = new BCryptPasswordEncoder();
 		pw = epwe.encode(pw);
 		
@@ -58,7 +57,7 @@ public class UserSVCImpl implements UserSVC{
 		MemberVO newvo = new MemberVO();
 		newvo.setMid(vo.getMid());
 		newvo.setMpw(pw);
-		
+		/*
 		//2. 임시비밀번호 메일 전송
 		String charSet = "utf-8";
 		String hostSMTP = "smtp.gmail.com"; 
@@ -103,6 +102,13 @@ public class UserSVCImpl implements UserSVC{
 		} catch (Exception e) {
 			System.out.println("메일발송 실패 : " + e);
 			return 0;
+		}
+		*/
+		int result = userDAO.updatePw(newvo);
+		if(result == 1) {
+			return rawPw;
+		}else {
+			return "";
 		}
 				 
 	}
