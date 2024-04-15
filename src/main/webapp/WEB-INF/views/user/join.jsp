@@ -212,7 +212,7 @@
 	
 	//휴대폰번호
 	function checkPhone(obj){
-		let regId = /^\d{10,11}/g;
+		let regId = /^\d{10,11}$/g;
 		let regRs = regId.test(obj.value); 
 		let mphoneSpan = document.getElementById("mphoneSpan"); 
 		if(obj.value == "" || obj.value === null || obj.value === undefined){

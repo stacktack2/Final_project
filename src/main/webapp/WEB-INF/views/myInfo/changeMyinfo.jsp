@@ -19,131 +19,7 @@
 		}
 		form h3{padding:20px 0; color:#444; }
     </style>
-    <script>
-		//이름
-		let inputNm = document.getElementById("mname");
-	   	if(inputNm == "" ||inputNm == null ){
-	   		name_check = true;
-	   	}
-		function checkName(obj){
-			let regId = /^[가-힣]{2,8}$/;
-			let regRs = regId.test(obj.value); 
-			let mnameSpan = document.getElementById("mnameSpan"); 
-			if(obj.value == "" || obj.value === null || obj.value === undefined){
-				name_check = true;
-			}else if(regRs){
-				mnameSpan.innerHTML = '사용가능합니다.';
-				mnameSpan.style.color = 'green';
-				name_check = true;
-			}else{
-				mnameSpan.innerHTML = '2글자 ~ 8글자의 한글만 사용가능합니다.';
-				mnameSpan.style.color = 'red';
-				name_check = false;
-			}
-		}
-    	//비밀번호
-    	let inputPw = document.getElementById("mpw");
-    	if(inputPw == "" ||inputPw == null){
-    		pw_check = true;
-    	}
-    	function checkPw(obj){
-    		let regId = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^&*]{8,}$/g;
-    		let regRs = regId.test(obj.value); 
-    		let mpwSpan = document.getElementById("mpwSpan");
-    		
-    		if(obj.value == "" || obj.value == null || obj.value == undefined){
-    			pw_check = true;
-    		}else if(!regRs){
-    			mpwSpan.innerHTML ='비밀번호는 8자 이상 영문 소문자, 영문 대문자, 숫자, 특수문자를 사용해야합니다.<br>특수문자는 !,@,#,$,%,^,&,* 만 가능합니다.';
-    			mpwSpan.style.color = 'red';
-    			pw_check = false;
-    		}else{
-    			mpwSpan.innerHTML = '사용가능합니다.';
-    			mpwSpan.style.color = 'green';
-    			pw_check = true;
-    		}
-    	}
-    	//비밀번호 확인
-    	let inputPwRe = document.getElementById("mpwRe");
-    	if(inputPwRe == "" ||inputPwRe == null){
-    		pwRe_check = true;
-    	}
-    	function checkPwRe(){
-    		let confirmPw = inputPw == inputPwRe;
-    		let mpwReSpan = document.getElementById("mpwReSpan"); 
-    		if(inputPwRe == "" || inputPwRe == null || inputPwRe == undefined){
-    			pwRe_check = true;
-    		}else if(confirmPw){
-    			mpwReSpan.innerHTML = '비밀번호가 같습니다.';
-    			mpwReSpan.style.color = 'green';
-    			pwRe_check = true;
-    		}else if(!confirmPw){
-    			mpwReSpan.innerHTML = '비밀번호가 같지 않습니다.';
-    			mpwReSpan.style.color = 'red';
-    			pwRe_check = false;
-    		}else{
-    			return !confirmPw;
-    		}
-    	}
-    	//생년월일
-    	let inputBirth = document.getElementById("mbirth");
-    	if(inputBirth == "" ||inputBirth == null){
-    		birth_check = true;
-    	}
-    	function checkBirth(obj){
-    		let regId = /^(19|20)\d\d(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01])$/;
-    		let regRs = regId.test(obj.value); 
-    		let mbirthSpan = document.getElementById("mbirthSpan"); 
-    		if(inputBirth == "" || inputBirth === null || inputBirth === undefined){
-    			birth_check =  true;
-    		}else if(regRs){
-    			mbirthSpan.innerHTML = '사용가능합니다.';
-    			mbirthSpan.style.color = 'green';
-    			birth_check = true;
 
-    		}else{
-    			mbirthSpan.innerHTML = '생년월일 8자리를 숫자로 입력해주세요.';
-    			mbirthSpan.style.color = 'red';
-    			birth_check = false;
-    		}
-    	}
-    	//휴대폰번호
-    	let inputPhone = document.getElementById("mphone");
-    	if(inputPhone == "" ||inputPhone == null){
-    		phone_check = true;
-    	}
-    	function checkPhone(obj){
-    		let regId = /^\d{10,11}/g;
-    		let regRs = regId.test(obj.value); 
-    		let mphoneSpan = document.getElementById("mphoneSpan"); 
-    		if(inputPhone == "" || inputPhone === null || inputPhone === undefined){
-    			phone_check = true;
-    		}else if(regRs){
-    			mphoneSpan.innerHTML = '사용가능합니다.';
-    			mphoneSpan.style.color = 'green';
-    			phone_check = true;
-    		}else{
-    			mphoneSpan.innerHTML = '10~11자리 숫자를 입력해주세요.';
-    			mphoneSpan.style.color = 'red';
-    			phone_check = false;
-    		}
-    	}
-    	
-      	function validation(){
-           	let pw_check = false;
-           	let pwRe_check = false;
-           	let name_check = false;
-           	let birth_check = false;
-           	let phone_check = false;
-           	let gender_check = false;
-           	let email_check = false;
-
-           	if(pw_check && pwRe_check && name_check && 
-       				birth_check && phone_check && gender_check && email_check){
-       					document.frm.submit();
-       		}
-       	}	
-</script>  
 </head>
 <body>
 <%@ include file="../include/header/myinfoHeader.jsp" %>
@@ -228,18 +104,6 @@
                             <span id="mpwReSpan"></span>
                           </div>
                           
-                          <div class="mb-3 col-md-8">
-                            <label for="memail" class="form-label block fw-semibold">E-mail</label>
-                            <input
-                              class="form-control reinput"
-                              type="email"
-                              id="memail"
-                              name="memail"
-                              oninput="checkEmail(this);"
-                              
-                            />
-                            <span id="memailSpan"></span>
-                          </div>
                           
                           <div class="mb-3 col-md-8">
                             <label class="form-label block fw-semibold" for="mphone">휴대폰번호</label>
@@ -306,6 +170,147 @@
                       </form>
                       </div>
 				</div>
+				    <script>
+    $(document).ready(function(){
+    	let pw_check = false;
+    	let pwRe_check = false;
+    	let name_check = false;
+    	let birth_check = false;
+    	let phone_check = false;
+    	let gender_check = false;
+    	
+    })
+
+	function validation(){
+		
+		if(pw_check && pwRe_check && name_check && 
+				birth_check && phone_check && gender_check ){
+			
+					document.frm.submit();
+		}else{
+			alert("입력양식을 확인해주세요.");
+		}
+	}
+  	
+	
+	//비밀번호
+	function checkPw(obj){
+		let regId = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^&*]{8,}$/g;
+		let regRs = regId.test(obj.value); 
+		let mpwSpan = document.getElementById("mpwSpan"); 
+		if(obj.value == "" || obj.value === null || obj.value === undefined){
+			mpwSpan.innerHTML = '비밀번호를 입력해주세요';
+			mpwSpan.style.color = 'red';
+			pw_check = false;
+		}else if(!regRs){
+			mpwSpan.innerHTML ='비밀번호는 8자 이상 영문 소문자, 영문 대문자, 숫자, 특수문자를 사용해야합니다.<br>특수문자는 !,@,#,$,%,^,&,* 만 가능합니다.';
+			mpwSpan.style.color = 'red';
+			pw_check = false;
+		}else{
+			mpwSpan.innerHTML = '사용가능합니다.';
+			mpwSpan.style.color = 'green';
+			pw_check = true;
+		}
+	}
+	//비밀번호 확인
+	function checkPwRe(){
+		let mpw = document.getElementById("mpw");
+		let mpwRe = document.getElementById("mpwRe");
+		let confirmPw = mpw.value == mpwRe.value;
+		let mpwReSpan = document.getElementById("mpwReSpan"); 
+		if(mpwRe.value == "" || mpwRe.value === null || mpwRe.value === undefined){
+			mpwReSpan.innerHTML = '비밀번호를 입력해주세요';
+			mpwReSpan.style.color = 'red';
+			pwRe_check = false;
+		}else if(!confirmPw){
+			mpwReSpan.innerHTML = '비밀번호가 같지 않습니다.';
+			mpwReSpan.style.color = 'red';
+			pwRe_check = false;
+		}else{
+			mpwReSpan.innerHTML = '비밀번호가 같습니다.';
+			mpwReSpan.style.color = 'green';
+			pwRe_check = true;
+		}
+	}
+
+	
+	//이름
+	function checkName(obj){
+		let regId = /^[가-힣]{2,8}$/;
+		let regRs = regId.test(obj.value); 
+		let mnameSpan = document.getElementById("mnameSpan"); 
+		if(obj.value == "" || obj.value === null || obj.value === undefined){
+			mnameSpan.innerHTML = '이름을 입력해주세요';
+			mnameSpan.style.color = 'red';
+			name_check = false;
+		}else if(!regRs){
+			mnameSpan.innerHTML = '한글만 사용가능합니다.';
+			mnameSpan.style.color = 'red';
+			name_check = false;
+		}else{
+			mnameSpan.innerHTML = '사용가능합니다.';
+			mnameSpan.style.color = 'green';
+			name_check = true;
+		}
+	}
+	
+	//생년월일
+	function checkBirth(obj){
+		let regId = /^(19|20)\d\d(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01])$/;
+		let regRs = regId.test(obj.value); 
+		let mbirthSpan = document.getElementById("mbirthSpan"); 
+		if(obj.value == "" || obj.value === null || obj.value === undefined){
+			mbirthSpan.innerHTML = '생년월일 8자리를 입력해주세요.';
+			mbirthSpan.style.color = 'red';
+			birth_check =  false;
+		}else if(!regRs){
+			mbirthSpan.innerHTML = '생년월일 8자리를 숫자로 입력해주세요.';
+			mbirthSpan.style.color = 'red';
+			birth_check = false;
+		}else{
+			mbirthSpan.innerHTML = '사용가능합니다.';
+			mbirthSpan.style.color = 'green';
+			birth_check = true;
+		}
+	}
+	
+	//휴대폰번호
+	function checkPhone(obj){
+		let regId = /^\d{10,11}$/g;
+		let regRs = regId.test(obj.value); 
+		let mphoneSpan = document.getElementById("mphoneSpan"); 
+		if(obj.value == "" || obj.value === null || obj.value === undefined){
+			mphoneSpan.innerHTML = '휴대폰번호번호를 입력해주세요.';
+			mphoneSpan.style.color = 'red';
+			phone_check = false;
+		}else if(!regRs){
+			mphoneSpan.innerHTML = '10~11자리 숫자를 입력해주세요.';
+			mphoneSpan.style.color = 'red';
+			phone_check = false;
+		}else{
+			mphoneSpan.innerHTML = '사용가능합니다.';
+			mphoneSpan.style.color = 'green';
+			phone_check = true;
+		}
+	}
+	
+	//성별
+	function checkGender(obj){
+		let mgender = document.frm.mgender;
+		let mgenderSpan = document.getElementById("mgenderSpan"); 
+		if(mgender.value == "" || mgender.value === null || mgender.value === undefined){
+			mgenderSpan.innerHTML = '성별을 선택해주세요.';
+			mgenderSpan.style.color = 'red';
+			gender_check = false;
+		}else{
+			mgenderSpan.innerHTML = '';
+			gender_check = true; 
+		}
+	}
+
+    	
+	
+</script>  
     		</div>
     	</div>
     </div>
