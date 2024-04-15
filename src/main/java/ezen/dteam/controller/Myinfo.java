@@ -101,9 +101,10 @@ public class Myinfo {
 		return "myInfo/checkPw";
 	}
 
+
 	// 비밀번호 확인 로직
 	@RequestMapping(value = "/myInfo/confirmPw", method = RequestMethod.POST)
-	public String confirmPw(MemberVO vo, Authentication auth) throws Exception {
+	public void confirmPw(MemberVO vo, Authentication auth, HttpServletResponse response,HttpServletRequest request) throws Exception {
 
 		UserVO loginVO = (UserVO) auth.getPrincipal();
 		MemberVO user = service.selectMyinfo(loginVO.getMid());
@@ -111,11 +112,34 @@ public class Myinfo {
 		BCryptPasswordEncoder epwe = new BCryptPasswordEncoder();
 		boolean result = epwe.matches(vo.getMpw(), user.getMpw());
 
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=utf-8");
 		if (result) {
-			return "redirect:/myInfo/updateMyinfo";
+			response.getWriter().println("<script>location.href='" + request.getContextPath()+ "/myInfo/updateMyinfo'; </script>");
+			response.getWriter().flush();
+			
 		} else {
-			return "redirect:/myInfo/checkPw";
+			response.getWriter().println("<script>alert('비밀번호가 일치하기 않습니다.');location.href='" + request.getContextPath()+ "/myInfo/changeMyinfo'; </script>");
+			response.getWriter().flush();
+			
 		}
+	}
+	// 비밀번호 확인 로직
+	@ResponseBody
+	@RequestMapping(value = "/myInfo/confirmPw2", method = RequestMethod.POST)
+	public int confirmPw2(MemberVO vo, Authentication auth, HttpServletResponse response,HttpServletRequest request) throws Exception {
+		
+		UserVO loginVO = (UserVO) auth.getPrincipal();
+		MemberVO user = service.selectMyinfo(loginVO.getMid());
+		
+		BCryptPasswordEncoder epwe = new BCryptPasswordEncoder();
+		boolean result = epwe.matches(vo.getMpw(), user.getMpw());
+		if(result) {
+			return 1;
+		}else {
+			return 0;
+		}
+		
 	}
 
 	// 내정보변경(화면포워드)
@@ -133,6 +157,7 @@ public class Myinfo {
 	public String checkEmail(String email) throws Exception {
 		return Integer.toString(service.checkEmail(email));
 	}
+
 
 	// 내정보변경(업데이트)
 	@RequestMapping(value = "/myInfo/changeMyinfo", method = RequestMethod.POST)
@@ -166,25 +191,17 @@ public class Myinfo {
 	@RequestMapping(value = "/myInfo/withdrawal", method = RequestMethod.POST)
 	public void withdrawl(MemberVO vo, Authentication auth, HttpServletResponse response, HttpSession session,
 			HttpServletRequest request) throws Exception {
-		// 비밀번호 인증확인되면
 		UserVO loginVO = (UserVO) auth.getPrincipal();
 		MemberVO user = service.selectMyinfo(loginVO.getMid());
 
-		if (user == null) {
-		}
-		BCryptPasswordEncoder epwe = new BCryptPasswordEncoder();
-		boolean result = epwe.matches(vo.getMpw(), user.getMpw());
-
-		if (result) {
-			int resultDel = service.deleteMyinfo(user);
-
-			response.setCharacterEncoding("UTF-8");
-			response.setContentType("text/html; charset=utf-8");
-			if (resultDel == 0) {
-				response.getWriter().println("<script>alert('회원탈퇴에 실패하였습니다.'); location.href='"
+		int resultDel = service.deleteMyinfo(user);
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=utf-8");
+		if (resultDel == 0) {
+			response.getWriter().println("<script>alert('회원탈퇴에 실패하였습니다.'); location.href='"
 						+ request.getContextPath() + "/myInfo'; </script>");
 				response.getWriter().flush();
-			} else if (resultDel == 1) {
+		} else if (resultDel == 1) {
 				response.getWriter().println("<script>alert('회원탈퇴가 성공적으로 진행되었습니다');location.href='"
 						+ request.getContextPath() + "/myInfo';  </script>");
 				response.getWriter().flush();
@@ -195,9 +212,12 @@ public class Myinfo {
 				// 로그아웃 처리
 				SecurityContextLogoutHandler logoutHandler = new SecurityContextLogoutHandler();
 				logoutHandler.logout(request, null, null);
-			}
+			
+		} 
+
+
 		}
 
 	}
 
-}
+

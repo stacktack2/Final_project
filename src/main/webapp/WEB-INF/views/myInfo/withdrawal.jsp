@@ -8,13 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 	
     <title>회원탈퇴</title>
-    <script>
-    	function validation(){
-    		if(confirm("정말 탈퇴하시겠습니까?")){
-    			document.frm.submit();	
-    		}
-    	}
-    </script>
+
   </head>
 <body>
 <%@ include file="../include/header/myinfoHeader.jsp" %>
@@ -68,11 +62,36 @@
                            />
                        </div>
                         <div class="mt-2">
-                          <button type="submit" onclick="validation();"
+                          <button type="button" onclick="validation();"
                           	class="btn btn-primary" style="margin-left:340px;" >탈퇴하기</button>
                         </div>
 				</form>
 				</div>
+				<script>
+				
+		    	function validation(){
+		    		//에이작스처리
+		    		$.ajax({
+						url : "confirmPw2",
+						type : "post",
+						data : {mpw : $("#mpw").val()},
+						success : function(data){
+							let result = data;
+							
+							if(result==1){
+								if(confirm("정말 탈퇴하시겠습니까?")){
+					    			document.frm.submit();	
+					    		}
+							}else{
+								alert("비밀번호가 일치하지 않습니다");
+							}
+						},error:function(){
+							console.log("error");
+							
+						}
+					});		    		
+		    	}
+		    </script>
     		</div>
     	</div>
     </div>
