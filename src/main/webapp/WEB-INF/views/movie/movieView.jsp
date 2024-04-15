@@ -44,7 +44,7 @@
             <br>
             <p>${movieDetail.cintro}</p><br>
 			<div class="icon-button">
-               <a href="#"><i class="fa fa-calendar"></i>예매하기</a>
+               <a href="<%=request.getContextPath() %>/ticket/ticketing"><i class="fa fa-calendar"></i>예매하기</a>
             </div>
           </div>
            
@@ -68,7 +68,7 @@
               </div>
             </div>
             
-            <div class="accordion-item">
+<!--             <div class="accordion-item">
               <h2 class="accordion-header" id="headingTwo">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                   <b>스틸컷</b>
@@ -92,7 +92,7 @@
                 	영상들
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
       </div>
     </div>
