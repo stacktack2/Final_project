@@ -1,5 +1,14 @@
 package ezen.dteam.service;
 
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+
 import org.apache.commons.mail.HtmlEmail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -35,6 +44,8 @@ public class UserSVCImpl implements UserSVC{
 	@Override
 	public int updatePw(MemberVO vo) throws Exception {
 		
+		System.out.println("updatePw CALL");
+		
 		//1.임시 비밀번호 생성
 		String pw = "";
 		for (int i = 0; i < 12; i++) {
@@ -52,7 +63,7 @@ public class UserSVCImpl implements UserSVC{
 		String charSet = "utf-8";
 		String hostSMTP = "smtp.gmail.com"; 
 		String hostSMTPid = "dahee930321@gmail.com";
-		String hostSMTPpwd = "jeonjudahee930321!!";
+		String hostSMTPpwd = "vlfskqkibvislcnq";
 		
 		// 보내는 사람 Email, 제목, 내용
 		String fromEmail = "dahee930321@gmail.com";
@@ -67,11 +78,12 @@ public class UserSVCImpl implements UserSVC{
 		
 		// 받는 사람 E-Mail 주소
 		String mail = vo.getMemail();
+		System.out.println("이메일 보낼 준비를 마쳤습니다");
 		try {
 			HtmlEmail email = new HtmlEmail();
 			email.setDebug(true);
 			email.setCharset(charSet);
-			email.setSSL(true);
+			email.setSSL(false);
 			email.setHostName(hostSMTP);
 			email.setSmtpPort(465); 
 			email.setAuthentication(hostSMTPid, hostSMTPpwd);
@@ -80,6 +92,7 @@ public class UserSVCImpl implements UserSVC{
 			email.setFrom(fromEmail, fromName, charSet);
 			email.setSubject(subject);
 			email.setHtmlMsg(msg);
+			System.out.println("send");
 			email.send();
 			
 			//3. 메일전송 성공시 임시 비밀 번호  db update

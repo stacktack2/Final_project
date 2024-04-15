@@ -25,11 +25,11 @@
                		 관리자 메인
               </a>
             </li>
-			<li class="menu-item">
+<%-- 			<li class="menu-item">
               <a href="<%=request.getContextPath() %>/admin/movieMg/movieMgList" class="menu-link menu-toggle">
                 	영화 관리
               </a>
-            </li>
+            </li> --%>
             <li class="menu-item">
               <a href="<%=request.getContextPath() %>/admin/theaters/theatersMgList" class="menu-link menu-toggle">
                 	극장 관리
