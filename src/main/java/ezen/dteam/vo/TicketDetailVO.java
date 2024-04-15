@@ -18,7 +18,10 @@ public class TicketDetailVO {
 	private String shallLocation; //상영관정보
 	private String sday; //예약일
 	private int mno;
+	private int ticketDelyn;
 	
+	
+
 	public TicketDetailVO() {
 		
 	}
@@ -35,6 +38,15 @@ public class TicketDetailVO {
 		this.sseatno = sseatno;
 		this.mno = mno;
 	}
+	
+	public final int getTicketDelyn() {
+		return ticketDelyn;
+	}
+
+	public final void setTicketDelyn(int ticketDelyn) {
+		this.ticketDelyn = ticketDelyn;
+	}
+	
 	public final int getMno() {
 		return mno;
 	}

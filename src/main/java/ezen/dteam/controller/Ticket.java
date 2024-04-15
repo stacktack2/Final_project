@@ -1,9 +1,6 @@
 package ezen.dteam.controller;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -24,7 +21,6 @@ import ezen.dteam.vo.ScreenVO;
 import ezen.dteam.vo.TheaterVO;
 import ezen.dteam.vo.TicketDetailVO;
 import ezen.dteam.vo.UserVO;
-import ezen.dteam.vo.TicketVO;
 
 @RequestMapping(value="/ticket")
 @Controller
@@ -107,7 +103,13 @@ public class Ticket {
 		model.addAttribute("shallLocation", shallLocation);
 		model.addAttribute("sendTime", sendTime);
 		
-		ScreenSeatVO ticketInfo = new ScreenSeatVO(cno, tno, sday, sstartTime, shallno);
+		int selectShallSeatAll = ticketSVC.selectShallSeatAll(sno);
+		model.addAttribute("selectShallSeatAll", selectShallSeatAll);
+		
+		int selectShallSeatUseing = ticketSVC.selectShallSeatUseing(sno);
+		model.addAttribute("selectShallSeatUseing", selectShallSeatUseing);
+		
+		ScreenSeatVO ticketInfo = new ScreenSeatVO(cno, tno, sday, sstartTime, shallno, sno);
 		List<ScreenSeatVO> selectScreenSeat = ticketSVC.selectScreenSeat(ticketInfo);
 		model.addAttribute("screenSeat", selectScreenSeat);
 		
@@ -196,6 +198,7 @@ public class Ticket {
 			ticketSVC.insertTicket(mno);
 			int ticketno = ticketSVC.lastId();
 			
+			
 			for(String sseatno : noArray) {	
 				
 				TicketDetailVO paramMap = new TicketDetailVO((Integer.parseInt(sseatno)), mno, sno);
@@ -204,7 +207,7 @@ public class Ticket {
 				int result = ticketSVC.reserveTicket(paramMap);
 				
 				if( result < 1) {
-					System.out.println("작성하지 못했습니다");
+					System.out.println("좌석 정보가 잘못된 정보입니다.");
 				}
 			}
 		}else {

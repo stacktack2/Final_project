@@ -1,8 +1,6 @@
 package ezen.dteam.service;
 
 import java.util.List;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -68,6 +66,16 @@ public class TicketSVCImpl implements TicketSVC{
 	@Override
 	public int lastId() {
 		return ticketDAO.lastId();
+	}
+
+	@Override
+	public int selectShallSeatAll(int sno) {
+		return ticketDAO.selectShallSeatAll(sno);
+	}
+	
+	@Override
+	public int selectShallSeatUseing(int sno) {
+		return ticketDAO.selectShallSeatUseing(sno);
 	}
 
 }

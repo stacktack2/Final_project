@@ -80,6 +80,12 @@ function handleSeatSelection(seat) {
             console.log("success");
             console.log(data);
             let dataSseatno = data[0] ? data[0].sseatno : null;
+
+            let dataTicketDeyln = data[0] ? data[0].ticketDelyn : null;
+            console.log("dataTicketDeyln::"+dataTicketDeyln);
+            
+            let dataTicketDeatilNo = data[0] ? data[0].ticketdetailno : null;
+            console.log("dataTicketDeatilNo::"+dataTicketDeatilNo);
             
             // 이미 선택된 좌석이 아니고, 선택된 좌석 수가 인원 수와 일치하는 경우에만 좌석 선택
             if (dataSseatno == clickSeatNo) {
@@ -87,7 +93,7 @@ function handleSeatSelection(seat) {
             } else if (!isSelected && selectedSeats.length < updateSelectedCounts() &&
                 (dataSseatno == null || dataSseatno === undefined)) {
                 selectedSeats.push(clickSeat);
-                // selectedSeatNos.push(clickSeatNo);
+
                 seatItem.classList.toggle('selected-seat');
                 console.log(selectedSeats);
             

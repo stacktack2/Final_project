@@ -30,6 +30,23 @@ document.addEventListener("DOMContentLoaded", function() {
             movieItem.classList.add('selected-movie');
             // class 변경(추가 / 제거)
 
+            if(tno > 0 && sday == ""){
+                let previousSelectedDate = document.querySelector('.selected-date-day');
+                let whiteSpans = previousSelectedDate ? previousSelectedDate.querySelectorAll('.white') : [];
+
+                divTimelist = document.querySelector(".time-list");
+
+                // 이전에 선택된 요소의 클래스와 하위 요소 클래스 제거
+                if (previousSelectedDate) {
+                    previousSelectedDate.classList.remove('selected-date-day');
+                    whiteSpans.forEach(span => span.classList.remove('white'));
+                }
+
+                divTimelist.innerHTML = "날짜를 선택해주시기 바랍니다.";
+            }else if(cno > 0 && tno > 0 && sday != ""){
+                selDay(sday);
+            }
+
             $.ajax({
                 url: 'movieCode',
                 type: 'POST',
@@ -95,8 +112,22 @@ document.addEventListener("DOMContentLoaded", function() {
                 // class 변경(추가 / 제거)
 
                 let inputTname = document.getElementById("tname");
+                let inputTno = document.getElementById("tno");
                 inputTname.value = ticketTheater;
+                inputTno.value = ticketTheaterNo;
 
+                if(sday == ""){
+                    let previousSelectedDate = document.querySelector('.selected-date-day');
+                    let whiteSpans = previousSelectedDate ? previousSelectedDate.querySelectorAll('.white') : [];
+
+                    // 이전에 선택된 요소의 클래스와 하위 요소 클래스 제거
+                    if (previousSelectedDate) {
+                        previousSelectedDate.classList.remove('selected-date-day');
+                        whiteSpans.forEach(span => span.classList.remove('white'));
+                    }
+                }
+
+                
                 $.ajax({
                     url: 'tiketTheaterNo',
                     type: 'POST',
@@ -104,24 +135,36 @@ document.addEventListener("DOMContentLoaded", function() {
                     success: function(data){
                         console.log(data);
                         let html = "";
-                        for (let i = 0; i < data.length; i++) {
-                            html += '<div class="time-theater">';
-                            html += '<span class="title">';
-                            html += '<span class="name">' + data[i].shallType + '</span>';
-                            html += '<span class="floor">' + data[i].shallLocation + '</span>';
-                            html += '<span class="seatcount">(총' + data[i].shallSeat + '석)</span>';
-                            html += '</span>';
-                            html += '</div>';
+                        if(cno > 0 ){
+                            for (let i = 0; i < data.length; i++) {
+                                html += '<div class="time-theater">';
+                                html += '<span class="title">';
+                                html += '<span class="name">' + data[i].shallType + '</span>';
+                                html += '<span class="floor">' + data[i].shallLocation + '</span>';
+                                html += '<span class="seatcount">(총' + data[i].shallSeat + '석)</span>';
+                                html += '</span>';
+                                html += '</div>';
 
-                            $("#tno").val(data[i].tno);
+                                
+                            }
+                            $(".time-list").html(html);    
+                        }else if(cno == 0 && sday != ""){
+                            divTimelist = document.querySelector(".time-list");
+
+                            divTimelist.innerHTML = "영화를 선택해주시기 바랍니다.";
+                        }else{
+                            divTimelist = document.querySelector(".time-list");
+
+                            divTimelist.innerHTML = "영화, 날짜를 선택해주시기 바랍니다.";
                         }
-                        $(".time-list").html(html);
+
                     },
                     error: function(){
                         console.log("error");
                     }
                 });
-                
+            
+
                 selTno(ticketTheaterNo);
             });
         });
@@ -181,6 +224,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
             let inputSday = document.getElementById("sday");
             inputSday.value = ticketDay;
+
+            if(tno > 0 && cno == 0){
+                divTimelist = document.querySelector(".time-list");
+
+                divTimelist.innerHTML = "영화를 선택해주시기 바랍니다.";
+            }
             
             selDay(ticketDay);
             
@@ -213,7 +262,7 @@ const yesterday = `${getYear}-`+
                   `${getYesterDay >= 10 ? getYesterDay : '0' + getYesterDay}`;
 
 let cno = 0; //영화번호 
-let shallno = 0;
+let tno = 0;
 let sday = "";
 
 
@@ -228,7 +277,6 @@ function selTno(value){
 function selDay(ticketDay){
     sday = ticketDay;
     console.log(sday);
-    
     
     if(cno > 0 && tno > 0 && sday > yesterday){
         console.log("cno : "+cno);
@@ -245,7 +293,7 @@ function selDay(ticketDay){
                 let html = "";
                 let previousShallType = "";
                 let previousShallLocation = "";
-
+                if(data.length > 0){
                 for (let i = 0; i < data.length; i++) {
                     let currentShallType = data[i].shallType;
                     let currentShallLocation = data[i].shallLocation;
@@ -350,7 +398,15 @@ function selDay(ticketDay){
                         inputShallLocation.value = currentShallLocation;
                     });
                 });
-            },
+            }else{
+                let divTimelist = document.querySelector(".time-list");
+
+                divTimelist.innerHTML = "해당 날짜에 상영 영화는 없습니다."
+                                        +"<br>"
+                                        +"다른 날짜를 선택해주시기 바랍니다.";
+            }
+        
+        },
             error: function () {
                 console.log("error");
             }

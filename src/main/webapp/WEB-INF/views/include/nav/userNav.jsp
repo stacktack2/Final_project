@@ -57,7 +57,8 @@
 								<ul class="dropdown-menu dropdown-menu-dark ulbg-whtie">
 									<li><a class="dropdown-item item-hover" href="<%=request.getContextPath() %>/movie/movieChart">무비차트</a></li>
 									<li><a class="dropdown-item item-hover" href="<%=request.getContextPath() %>/movie/movieSchedule">상영예정작</a></li>
-								</ul></li>
+								</ul>
+							</li>
 							<li class="dropdown"><a href="<%=request.getContextPath() %>/ticket/ticketing" role="button"
 								data-bs-toggle="dropdown" aria-expanded="false">예매</a>
 								<ul class="dropdown-menu dropdown-menu-dark ulbg-whtie">
@@ -70,15 +71,9 @@
 								<ul class="dropdown-menu dropdown-menu-dark ulbg-whtie">
 									<li><a class="dropdown-item item-hover" href="<%=request.getContextPath() %>/theater?tno=1">전주극장</a></li>
 									<li><a class="dropdown-item item-hover" href="<%=request.getContextPath() %>/theater?tno=2">익산극장</a></li>
-								</ul></li>
-							<li></li>
+								</ul>
+							</li>
 						</ul>
-						<!-- 검색 -->
-						<form class="d-flex" role="search">
-							<input class="form-control me-2 searchinput" type="search"
-								placeholder="Search" aria-label="Search">
-							<button class="btn btn-outline-success searchbtn" type="submit">Search</button>
-						</form>
 					</nav>
 				</div>
 			</div>

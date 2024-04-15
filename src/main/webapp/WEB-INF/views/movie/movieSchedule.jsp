@@ -26,7 +26,6 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <span class="breadcrumb">영화</span>
           <h3>상영예정작</h3>
         </div>
       </div>
@@ -91,7 +90,7 @@
           <ul class="pagination">
            	<c:if test="${pagingVO.startPage > pagingVO.cntPage }">
 	        	<li>
-	               <a href="movieChart?nowPageParam=${pagingVO.startPage-1}"><i class="tf-icon bx bx-chevrons-left">&lt;</i></a>
+	               <a href="movieSchedule?nowPageParam=${pagingVO.startPage-1}"><i class="tf-icon bx bx-chevrons-left">&lt;</i></a>
 	            </li>
             </c:if>
            	<c:set var="loop_flag" value="false" />
@@ -103,13 +102,13 @@
                             	                 
                 <c:if test="${not loop_flag }">
 		           <li >
-		              <a href="movieChart?nowPageParam=${i}">${i}</a>
+		              <a href="movieSchedule?nowPageParam=${i}">${i}</a>
 		           </li>
 		        </c:if>
             </c:forEach>
             <c:if test="${pagingVO.endPage < pagingVO.lastPage}">
 	        	<li>
-	        		<a href="movieChart?nowPageParam=${pagingVO.endPage+1}"><i class="tf-icon bx bx-chevrons-right">&gt;</i></a>
+	        		<a href="movieSchedule?nowPageParam=${pagingVO.endPage+1}"><i class="tf-icon bx bx-chevrons-right">&gt;</i></a>
 	        	</li>
             </c:if>
           </ul>

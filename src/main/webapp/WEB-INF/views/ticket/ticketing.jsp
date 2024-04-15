@@ -19,7 +19,7 @@
 		<!-- 네비 -->
 		<div class="tk-navi">
 			<div class="right">
-				<a class="button-schedule" href="<%=request.getContextPath()%>/theater">
+				<a class="button-schedule" href="<%=request.getContextPath()%>/theater?tno=1">
 					<span>상영시간표</span>
 				</a>
 				<a href="" class="button-reset" onclick="return false;">
@@ -116,7 +116,7 @@
 						</div>
 						<div class="time-list">
 							<!-- ajax로 상영관이 나타납니다. -->
-							<span class="floor">극장을 선택해주시기 바랍니다.</span>
+							<span class="floor">영화, 극장, 날짜를 선택해주시기 바랍니다.</span>
 						</div>
 					</div>
 				</div>

@@ -27,7 +27,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <span class="breadcrumb">영화</span>
+          <!-- <span class="breadcrumb">영화</span> -->
           <h3>무비차트</h3>
         </div>
       </div>
@@ -70,7 +70,14 @@
           <div class="item">
             <img src="${movieChart.cposter }" alt="${movieChart.cname }포스터">
             <span class="category">${movieChart.cwatchGradeNm }</span>
-            <h6>${movieChart.crank }위</h6>
+            <c:choose>
+            	<c:when test="${movieChart.crank != null}">
+	            	<h6>${movieChart.crank }위</h6>
+	            </c:when>
+	            <c:otherwise>
+	            	<h6>${movieChart.crank }</h6>
+	            </c:otherwise>
+            </c:choose>
             <h4>${movieChart.cname }</h4>
             <ul>
               <li>상영시간: <span>${movieChart.cshowTime }분</span></li>

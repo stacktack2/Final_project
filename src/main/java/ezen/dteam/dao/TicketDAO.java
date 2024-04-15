@@ -1,8 +1,6 @@
 package ezen.dteam.dao;
 
 import java.util.List;
-import java.util.Map;
-
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -13,7 +11,6 @@ import ezen.dteam.vo.ScreenSeatVO;
 import ezen.dteam.vo.ScreenVO;
 import ezen.dteam.vo.TheaterVO;
 import ezen.dteam.vo.TicketDetailVO;
-import ezen.dteam.vo.TicketVO;
 
 @Repository
 public class TicketDAO {
@@ -62,7 +59,14 @@ public class TicketDAO {
 		public int lastId() {
 			return sqlSession.selectOne(nameSpace+".last_id");
 		}
+
+		public int selectShallSeatAll(int sno) {
+			return sqlSession.selectOne(nameSpace+".selectShallSeatAll", sno);
+		}
 		
+		public int selectShallSeatUseing(int sno) {
+			return sqlSession.selectOne(nameSpace+".selectShallSeatUseing", sno);
+		}
 		
 
 		
