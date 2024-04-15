@@ -24,7 +24,9 @@
 			<div class="right">
 				<a class="button-schedule"
 					href="<%=request.getContextPath()%>/theater"> <span>상영시간표</span>
-				</a> <a class="button-reset"> <span>예매 다시하기</span>
+				</a>
+				<a href="" class="button-reset" onclick="return false;">
+					<span>예매 다시하기</span>
 				</a>
 			</div>
 		</div>

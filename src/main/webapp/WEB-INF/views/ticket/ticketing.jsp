@@ -19,7 +19,7 @@
 		<!-- 네비 -->
 		<div class="tk-navi">
 			<div class="right">
-				<a class="button-schedule" href="<%=request.getContextPath()%>/theater">
+				<a class="button-schedule" href="<%=request.getContextPath()%>/theater?tno=1">
 					<span>상영시간표</span>
 				</a>
 				<a href="" class="button-reset" onclick="return false;">

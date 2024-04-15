@@ -15,3 +15,11 @@ inputTicketNo.forEach((element, index) => { // 수정: index를 명시적으로 
         noSpan.style.backgroundColor = "black"; 
     }
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    let resetButton = document.querySelector('.button-reset');
+    
+    resetButton.addEventListener('click', function() {
+        location.reload();
+    });
+});

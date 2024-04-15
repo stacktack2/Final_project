@@ -46,7 +46,7 @@
 		    INNER JOIN screen s ON sh.shallno = s.shallno
 		    INNER JOIN cinema c ON c.cno = s.cno
 		    INNER JOIN theater t ON t.tno = sh.tno
-		    LEFT JOIN TicketDetail td ON ss.sseatno = td.sseatno
+		    LEFT JOIN ticketDetail td ON ss.sseatno = td.sseatno
 		    LEFT JOIN screen sc ON sc.sno = td.sno
 		    LEFT JOIN theater th ON th.tno = sh.tno
 		    LEFT JOIN ticket tk ON td.ticketno = tk.ticketno
