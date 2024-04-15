@@ -109,6 +109,10 @@ public class Ticket {
 		int selectShallSeatUseing = ticketSVC.selectShallSeatUseing(sno);
 		model.addAttribute("selectShallSeatUseing", selectShallSeatUseing);
 		
+		ScreenSeatVO useingSeat = new ScreenSeatVO(cno, sstartTime, sno);
+		List<ScreenSeatVO> selectUseingSeat = ticketSVC.selectUseingSeat(useingSeat);
+		model.addAttribute("useingSeat", selectUseingSeat);
+		
 		ScreenSeatVO ticketInfo = new ScreenSeatVO(cno, tno, sday, sstartTime, shallno, sno);
 		List<ScreenSeatVO> selectScreenSeat = ticketSVC.selectScreenSeat(ticketInfo);
 		model.addAttribute("screenSeat", selectScreenSeat);
@@ -126,15 +130,16 @@ public class Ticket {
 	
 	@RequestMapping(value="/reservationCheck", method=RequestMethod.POST)
 	@ResponseBody
-	public List<TicketDetailVO> reservationCheck(String sseatnoParam, String mnoParam) {
+	public List<ScreenSeatVO> reservationCheck(String cnoParam, String sstartTimeParam, String snoParam) {
 		
-		int sseatno = (Integer.parseInt(sseatnoParam));
-		int mno = (Integer.parseInt(mnoParam));
+		int cno = (Integer.parseInt(cnoParam));
+		int sno = (Integer.parseInt(snoParam));
+		String sstartTime = sstartTimeParam;
 		
-		TicketDetailVO ticketDetailVO = new TicketDetailVO(sseatno, mno);
-		List<TicketDetailVO> checkSeat = ticketSVC.selectCheckSeat(ticketDetailVO);
+		ScreenSeatVO useingSeat = new ScreenSeatVO(cno, sstartTime, sno);
+		List<ScreenSeatVO> selectUseingSeat = ticketSVC.selectUseingSeat(useingSeat);
 		
-		return checkSeat;
+		return selectUseingSeat;
 	}
 	
 	@RequestMapping(value="/payment", method=RequestMethod.POST)

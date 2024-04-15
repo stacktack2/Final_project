@@ -67,6 +67,10 @@ public class TicketDAO {
 		public int selectShallSeatUseing(int sno) {
 			return sqlSession.selectOne(nameSpace+".selectShallSeatUseing", sno);
 		}
+
+		public List<ScreenSeatVO> selectUseingSeat(ScreenSeatVO useingSeat) {
+			return sqlSession.selectList(nameSpace+".selectUseingSeat", useingSeat);
+		}
 		
 
 		

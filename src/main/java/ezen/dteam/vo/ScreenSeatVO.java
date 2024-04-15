@@ -76,6 +76,13 @@ public class ScreenSeatVO {
 		
 	}
 	
+	public ScreenSeatVO(int cno, String sstartTime, int sno) {
+		this.cno = cno;
+		this.sstartTime = sstartTime;
+		this.sno = sno;
+	}
+
+	
 	public ScreenSeatVO(int cno, int tno, String sday, String sstartTime, int shallno, int sno) {
 		this.cno = cno;
 		this.tno = tno;

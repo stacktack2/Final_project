@@ -78,4 +78,9 @@ public class TicketSVCImpl implements TicketSVC{
 		return ticketDAO.selectShallSeatUseing(sno);
 	}
 
+	@Override
+	public List<ScreenSeatVO> selectUseingSeat(ScreenSeatVO useingSeat) {
+		return ticketDAO.selectUseingSeat(useingSeat);
+	}
+
 }

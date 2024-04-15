@@ -39,15 +39,16 @@ document.addEventListener("DOMContentLoaded", function() {
 // 좌석 정보를 담을 배열
 let selectedSeats = [];
 let selectedSeatNos = [];
-let currentUserMno = $('#user').val();
-console.log("user mno::"+currentUserMno);
+let selectCno = $('#cno').val();
+let selectSstartTime = $('#sstartTime').val();
+let selectSno = $('#sno').val();
 
 function updateSelectedCounts() {
     return selectedCount;
 }
 
 // 좌석 선택 핸들러 함수
-function handleSeatSelection(seat) {
+function handleSeatSelection(seat, data) {
     let seatItem = seat.querySelector('.no');
     if (!seatItem) {
         console.error("Seat number element not found.");
@@ -63,54 +64,36 @@ function handleSeatSelection(seat) {
     let seatCol = rowElement.querySelector('.label').innerText;
 
     let clickSeat = seatCol + seatNo;
-    
-    console.log("좌석번호::" + clickSeat);
-    
     let clickSeatNo = seat.querySelector('.mod').innerText;
-    console.log("clickseatno::"+clickSeatNo);
 
     // 이미 선택된 좌석인지 확인
     let isSelected = selectedSeats.includes(clickSeat);
 
-    $.ajax({
-        url : 'reservationCheck',
-        type: 'POST',
-        data: { sseatnoParam : clickSeatNo , mnoParam : currentUserMno},
-        success: function(data){
-            console.log("success");
-            console.log(data);
-            let dataSseatno = data[0] ? data[0].sseatno : null;
+    // 서버로부터 받은 데이터와 선택된 좌석의 번호를 비교하여 이미 예약된 좌석인지 확인
+    let isReserved = data.some(function(seatData) {
+        return seatData.sseatno === clickSeatNo;
+    });
 
-            let dataTicketDeyln = data[0] ? data[0].ticketDelyn : null;
-            console.log("dataTicketDeyln::"+dataTicketDeyln);
-            
-            let dataTicketDeatilNo = data[0] ? data[0].ticketdetailno : null;
-            console.log("dataTicketDeatilNo::"+dataTicketDeatilNo);
-            
-            // 이미 선택된 좌석이 아니고, 선택된 좌석 수가 인원 수와 일치하는 경우에만 좌석 선택
-            if (dataSseatno == clickSeatNo) {
-                alert("이미 선택된 좌석이거나 선택된 인원 수와 일치하지 않습니다.");
-            } else if (!isSelected && selectedSeats.length < updateSelectedCounts() &&
-                (dataSseatno == null || dataSseatno === undefined)) {
-                selectedSeats.push(clickSeat);
-
-                seatItem.classList.toggle('selected-seat');
-                console.log(selectedSeats);
-            
-                selectedSeatNos.push(clickSeatNo);
-            
-                inputSeats.value = selectedSeats;
-                inputSseatNos.value = selectedSeatNos;
-            } else {
-                alert("이미 선택된 좌석이거나 선택된 인원 수와 일치하지 않습니다.");
-            }
-            
-            
-        },
-        error : function(){
-            console.log("error");
+    // 선택된 좌석이 아니라면 선택 상태로 변경하고 선택된 좌석 배열에 추가
+    if (!isReserved && !isSelected && selectedSeats.length < updateSelectedCounts()) {
+        selectedSeats.push(clickSeat);
+        seatItem.classList.add('selected-seat');
+        selectedSeatNos.push(clickSeatNo);
+        inputSeats.value = selectedSeats;
+        inputSseatNos.value = selectedSeatNos;
+    } else if (isSelected) {
+        // 이미 선택된 좌석이라면 선택 상태를 해제하고 선택된 좌석 배열에서 제거
+        let index = selectedSeats.indexOf(clickSeat);
+        if (index !== -1) {
+            selectedSeats.splice(index, 1);
+            seatItem.classList.remove('selected-seat');
+            selectedSeatNos.splice(selectedSeatNos.indexOf(clickSeatNo), 1);
+            inputSeats.value = selectedSeats;
+            inputSseatNos.value = selectedSeatNos;
         }
-     });
+    } else {
+        alert("이미 선택된 좌석이거나 선택된 인원 수와 일치하지 않습니다.");
+    }
 }
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -118,7 +101,23 @@ document.addEventListener("DOMContentLoaded", function() {
     let seats = document.querySelectorAll(".seat");
     seats.forEach(function(seat) {
         seat.addEventListener('click', function() {
-            handleSeatSelection(seat);
+            // 좌석을 클릭할 때 서버로부터 좌석 예약 정보를 가져옴
+            $.ajax({
+                url: 'reservationCheck',
+                type: 'POST',
+                data: { 
+                    cnoParam: selectCno, 
+                    sstartTimeParam: selectSstartTime,
+                    snoParam: selectSno
+                },
+                success: function(data) {
+                    // 좌석 선택 핸들러 함수 호출
+                    handleSeatSelection(seat, data);
+                },
+                error: function() {
+                    console.log("error");
+                }
+            });
         });
     });
 });

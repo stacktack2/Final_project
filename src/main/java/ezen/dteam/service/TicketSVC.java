@@ -33,4 +33,6 @@ public interface TicketSVC {
 	int selectShallSeatAll(int sno);
 	
 	int selectShallSeatUseing(int sno);
+
+	List<ScreenSeatVO> selectUseingSeat(ScreenSeatVO useingSeat);
 }
