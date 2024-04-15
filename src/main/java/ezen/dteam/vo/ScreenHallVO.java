@@ -10,6 +10,15 @@ public class ScreenHallVO {
 	private int tno;
 	private List<ScreenVO> screenVO;
 	
+	private int sno;
+	
+	
+	public final int getSno() {
+		return sno;
+	}
+	public final void setSno(int sno) {
+		this.sno = sno;
+	}
 	public ScreenHallVO(List<ScreenVO> screenVO) {
 		super();
 		this.screenVO = screenVO;

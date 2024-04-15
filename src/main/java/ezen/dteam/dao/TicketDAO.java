@@ -59,7 +59,14 @@ public class TicketDAO {
 		public int lastId() {
 			return sqlSession.selectOne(nameSpace+".last_id");
 		}
+
+		public int selectShallSeatAll(int sno) {
+			return sqlSession.selectOne(nameSpace+".selectShallSeatAll", sno);
+		}
 		
+		public int selectShallSeatUseing(int sno) {
+			return sqlSession.selectOne(nameSpace+".selectShallSeatUseing", sno);
+		}
 		
 
 		

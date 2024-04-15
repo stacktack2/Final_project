@@ -11,8 +11,35 @@ public class ScreenSeatVO {
 	private int tno;
 	private String sday;
 	private String sstartTime;
+	private int ticketdetailno;
+	private int ticketDelyn;
+	private int sno;
 	
 	
+	public final int getSno() {
+		return sno;
+	}
+
+	public final void setSno(int sno) {
+		this.sno = sno;
+	}
+
+	public final int getTicketDelyn() {
+		return ticketDelyn;
+	}
+
+	public final void setTicketDelyn(int ticketDelyn) {
+		this.ticketDelyn = ticketDelyn;
+	}
+
+	public final int getTicketdetailno() {
+		return ticketdetailno;
+	}
+
+	public final void setTicketdetailno(int ticketdetailno) {
+		this.ticketdetailno = ticketdetailno;
+	}
+
 	public final int getCno() {
 		return cno;
 	}
@@ -49,12 +76,13 @@ public class ScreenSeatVO {
 		
 	}
 	
-	public ScreenSeatVO(int cno, int tno, String sday, String sstartTime, int shallno) {
+	public ScreenSeatVO(int cno, int tno, String sday, String sstartTime, int shallno, int sno) {
 		this.cno = cno;
 		this.tno = tno;
 		this.sday = sday;
 		this.sstartTime = sstartTime;
 		this.shallno = shallno;
+		this.sno = sno;
 	}
 
 	public final int getSseatno() {

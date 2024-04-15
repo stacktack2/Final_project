@@ -29,4 +29,8 @@ public interface TicketSVC {
 	int reserveTicket(TicketDetailVO paramMap);
 
 	int lastId();
+
+	int selectShallSeatAll(int sno);
+	
+	int selectShallSeatUseing(int sno);
 }

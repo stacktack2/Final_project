@@ -103,7 +103,13 @@ public class Ticket {
 		model.addAttribute("shallLocation", shallLocation);
 		model.addAttribute("sendTime", sendTime);
 		
-		ScreenSeatVO ticketInfo = new ScreenSeatVO(cno, tno, sday, sstartTime, shallno);
+		int selectShallSeatAll = ticketSVC.selectShallSeatAll(sno);
+		model.addAttribute("selectShallSeatAll", selectShallSeatAll);
+		
+		int selectShallSeatUseing = ticketSVC.selectShallSeatUseing(sno);
+		model.addAttribute("selectShallSeatUseing", selectShallSeatUseing);
+		
+		ScreenSeatVO ticketInfo = new ScreenSeatVO(cno, tno, sday, sstartTime, shallno, sno);
 		List<ScreenSeatVO> selectScreenSeat = ticketSVC.selectScreenSeat(ticketInfo);
 		model.addAttribute("screenSeat", selectScreenSeat);
 		
@@ -192,6 +198,7 @@ public class Ticket {
 			ticketSVC.insertTicket(mno);
 			int ticketno = ticketSVC.lastId();
 			
+			
 			for(String sseatno : noArray) {	
 				
 				TicketDetailVO paramMap = new TicketDetailVO((Integer.parseInt(sseatno)), mno, sno);
@@ -200,7 +207,7 @@ public class Ticket {
 				int result = ticketSVC.reserveTicket(paramMap);
 				
 				if( result < 1) {
-					System.out.println("작성하지 못했습니다");
+					System.out.println("좌석 정보가 잘못된 정보입니다.");
 				}
 			}
 		}else {

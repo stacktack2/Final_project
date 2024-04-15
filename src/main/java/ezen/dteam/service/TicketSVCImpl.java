@@ -68,4 +68,14 @@ public class TicketSVCImpl implements TicketSVC{
 		return ticketDAO.lastId();
 	}
 
+	@Override
+	public int selectShallSeatAll(int sno) {
+		return ticketDAO.selectShallSeatAll(sno);
+	}
+	
+	@Override
+	public int selectShallSeatUseing(int sno) {
+		return ticketDAO.selectShallSeatUseing(sno);
+	}
+
 }

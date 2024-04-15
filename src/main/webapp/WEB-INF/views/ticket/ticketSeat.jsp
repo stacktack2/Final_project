@@ -108,8 +108,8 @@
 								<span class="site">${cname }</span>
 								<span class="screen">${shallLocation }</span>
 								<span class="seatNum">남은좌석
-									<b class="restNum">231</b>/
-									<b class="totalNum">231</b>
+									<b class="restNum">${selectShallSeatUseing }</b>/
+									<b class="totalNum">${selectShallSeatAll }</b>
 								</span>
 							</p>
 							<p class="playYMD-info">
@@ -141,6 +141,8 @@
 							                                        <span class="no">${lineRowA.sseatRow}</span>
 							                                        <span class="sreader">${lineRowA.sseatType}</span>
 							                                        <span class="sreader mod">${lineRowA.sseatno }</span>
+							                                        <input type="hidden" value="${lineRowA.ticketdetailno  }" id="ticketNo">
+							                                        <input type="hidden" value="${lineRowA.ticketDelyn  }" id="ticketDeyln">
 							                                    </a>
 							                                </div>
 							                                <c:set var="leftPosition" value="${leftPosition + 16}" />
@@ -168,6 +170,8 @@
 							                                        <span class="no">${lineRowB.sseatRow}</span>
 							                                        <span class="sreader">${lineRowB.sseatType}</span>
 							                                        <span class="sreader mod">${lineRowB.sseatno }</span>
+							                                        <input type="hidden" value="${lineRowB.ticketdetailno  }" id="ticketNo">
+							                                        <input type="hidden" value="${lineRowB.ticketDelyn  }" id="ticketDeyln">
 							                                    </a>
 							                                </div>
 							                                <c:set var="leftPosition" value="${leftPosition + 16}" />
@@ -195,6 +199,8 @@
 							                                        <span class="no">${lineRowC.sseatRow}</span>
 							                                        <span class="sreader">${lineRowC.sseatType}</span>
 							                                        <span class="sreader mod">${lineRowC.sseatno }</span>
+							                                        <input type="hidden" value="${lineRowC.ticketdetailno  }" id="ticketNo">
+							                                        <input type="hidden" value="${lineRowC.ticketDelyn  }" id="ticketDeyln">
 							                                    </a>
 							                                </div>
 							                                <c:set var="leftPosition" value="${leftPosition + 16}" />
@@ -222,6 +228,8 @@
 							                                        <span class="no">${lineRowD.sseatRow}</span>
 							                                        <span class="sreader">${lineRowD.sseatType}</span>
 							                                        <span class="sreader mod">${lineRowD.sseatno }</span>
+							                                        <input type="hidden" value="${lineRowD.ticketdetailno  }" id="ticketNo">
+							                                        <input type="hidden" value="${lineRowD.ticketDelyn  }" id="ticketDeyln">
 							                                    </a>
 							                                </div>
 							                                <c:set var="leftPosition" value="${leftPosition + 16}" />
@@ -249,6 +257,8 @@
 							                                        <span class="no">${lineRowE.sseatRow}</span>
 							                                        <span class="sreader">${lineRowE.sseatType}</span>
 							                                        <span class="sreader mod">${lineRowE.sseatno }</span>
+							                                        <input type="hidden" value="${lineRowE.ticketdetailno  }" id="ticketNo">
+							                                        <input type="hidden" value="${lineRowE.ticketDelyn  }" id="ticketDeyln">
 							                                    </a>
 							                                </div>
 							                                <c:set var="leftPosition" value="${leftPosition + 16}" />
@@ -276,6 +286,8 @@
 							                                        <span class="no">${lineRowF.sseatRow}</span>
 							                                        <span class="sreader">${lineRowF.sseatType}</span>
 							                                        <span class="sreader mod">${lineRowF.sseatno }</span>
+							                                        <input type="hidden" value="${lineRowF.ticketdetailno  }" id="ticketNo">
+							                                        <input type="hidden" value="${lineRowF.ticketDelyn  }" id="ticketDeyln">
 							                                    </a>
 							                                </div>
 							                                <c:set var="leftPosition" value="${leftPosition + 16}" />
@@ -303,6 +315,8 @@
 							                                        <span class="no">${lineRowG.sseatRow}</span>
 							                                        <span class="sreader">${lineRowG.sseatType}</span>
 							                                        <span class="sreader mod">${lineRowG.sseatno }</span>
+							                                        <input type="hidden" value="${lineRowG.ticketdetailno  }" id="ticketNo">
+							                                        <input type="hidden" value="${lineRowG.ticketDelyn  }" id="ticketDeyln">
 							                                    </a>
 							                                </div>
 							                                <c:set var="leftPosition" value="${leftPosition + 16}" />
@@ -330,6 +344,8 @@
 							                                        <span class="no">${lineRowH.sseatRow}</span>
 							                                        <span class="sreader">${lineRowH.sseatType}</span>
 							                                        <span class="sreader mod">${lineRowH.sseatno }</span>
+							                                        <input type="hidden" value="${lineRowH.ticketdetailno  }" id="ticketNo">
+							                                        <input type="hidden" value="${lineRowH.ticketDelyn  }" id="ticketDeyln">
 							                                    </a>
 							                                </div>
 							                                <c:set var="leftPosition" value="${leftPosition + 16}" />
@@ -357,6 +373,8 @@
 							                                        <span class="no">${lineRowI.sseatRow}</span>
 							                                        <span class="sreader">${lineRowI.sseatType}</span>
 							                                        <span class="sreader mod">${lineRowI.sseatno }</span>
+							                                        <input type="hidden" value="${lineRowI.ticketdetailno  }" id="ticketNo">
+							                                        <input type="hidden" value="${lineRowI.ticketDelyn  }" id="ticketDeyln">
 							                                    </a>
 							                                </div>
 							                                <c:set var="leftPosition" value="${leftPosition + 16}" />
@@ -384,6 +402,8 @@
 							                                        <span class="no">${lineRowJ.sseatRow}</span>
 							                                        <span class="sreader">${lineRowJ.sseatType}</span>
 							                                        <span class="sreader mod">${lineRowJ.sseatno }</span>
+							                                        <input type="hidden" value="${lineRowJ.ticketdetailno  }" id="ticketNo">
+							                                        <input type="hidden" value="${lineRowJ.ticketDelyn  }" id="ticketDeyln">
 							                                    </a>
 							                                </div>
 							                                <c:set var="leftPosition" value="${leftPosition + 16}" />
@@ -411,6 +431,8 @@
 							                                        <span class="no">${lineRowK.sseatRow}</span>
 							                                        <span class="sreader">${lineRowK.sseatType}</span>
 							                                        <span class="sreader mod">${lineRowK.sseatno }</span>
+							                                        <input type="hidden" value="${lineRowK.ticketdetailno  }" id="ticketNo">
+							                                        <input type="hidden" value="${lineRowK.ticketDelyn  }" id="ticketDeyln">
 							                                    </a>
 							                                </div>
 							                                <c:set var="leftPosition" value="${leftPosition + 16}" />
@@ -425,6 +447,8 @@
 							                                        <span class="no">${lineRowK.sseatRow}</span>
 							                                        <span class="sreader">${lineRowK.sseatType}</span>
 							                                        <span class="sreader mod">${lineRowK.sseatno }</span>
+							                                        <input type="hidden" value="${lineRowK.ticketdetailno  }" id="ticketNo">
+							                                        <input type="hidden" value="${lineRowK.ticketDelyn  }" id="ticketDeyln">
 							                                    </a>
 							                                </div>
 							                                <c:set var="leftPosition" value="${leftPosition + 16}" />
@@ -452,6 +476,8 @@
 							                                        <span class="no">${lineRowL.sseatRow}</span>
 							                                        <span class="sreader">${lineRowL.sseatType}</span>
 							                                        <span class="sreader mod">${lineRowL.sseatno }</span>
+							                                        <input type="hidden" value="${lineRowL.ticketdetailno  }" id="ticketNo">
+							                                        <input type="hidden" value="${lineRowL.ticketDelyn  }" id="ticketDeyln">
 							                                    </a>
 							                                </div>
 							                                <c:set var="leftPosition" value="${leftPosition + 16}" />
@@ -466,6 +492,8 @@
 							                                        <span class="no">${lineRowL.sseatRow}</span>
 							                                        <span class="sreader">${lineRowL.sseatType}</span>
 							                                        <span class="sreader mod">${lineRowL.sseatno }</span>
+							                                        <input type="hidden" value="${lineRowL.ticketdetailno  }" id="ticketNo">
+							                                        <input type="hidden" value="${lineRowL.ticketDelyn  }" id="ticketDeyln">
 							                                    </a>
 							                                </div>
 							                                <c:set var="leftPosition" value="${leftPosition + 16}" />
@@ -571,6 +599,7 @@
 						</div>
 	</div>
 	<%@ include file="../include/footer/userFooter.jsp"%>
+<script src="<%=request.getContextPath() %>/resources/js/ticketSeat_view.js"></script>
 <script src="<%=request.getContextPath() %>/resources/js/ticketSeat_event.js"></script>
 <script src="<%=request.getContextPath() %>/resources/js/ticketing_submit.js"></script>
 </body>
