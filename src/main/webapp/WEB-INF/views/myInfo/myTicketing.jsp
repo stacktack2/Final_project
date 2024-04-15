@@ -93,7 +93,7 @@
 							<th></th>
 							<td>
 								<form action="myTicketDel" method="post" name="myTicketDel">
-									<input type="text" name="ticketno" id="ticketno" value="${tVo.ticket.ticketno}">
+									<input type="hidden" name="ticketno" id="ticketno" value="${tVo.ticket.ticketno}">
 									<button type="button" class="btn btn-danger btn-sm float-right deleteBtn">예매 취소</button>
 								</form>
 							</td>
