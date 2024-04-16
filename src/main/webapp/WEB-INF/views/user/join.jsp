@@ -32,25 +32,24 @@
     	form span{display:block;}
     </style>
     <script>
-	
-    $(document).ready(function(){
-    	let id_check = false;
-    	let pw_check = false;
-    	let pwRe_check = false;
-    	let name_check = false;
-    	let nickNm_check = false;
-    	let birth_check = false;
-    	let phone_check = false;
-    	let gender_check = false;
-    	let email_check = false;
-    })
-
+    var id_check = false;
+	var pw_check = false;
+	var pwRe_check = false;
+	var name_check = false;
+	var nickNm_check = false;
+	var birth_check = false;
+	var phone_check = false;
+	var gender_check = false;
+	var email_check = false;
+   
 	function validation(){
 		
 		if(id_check && pw_check && pwRe_check && name_check && nickNm_check && 
 				birth_check && phone_check && gender_check && email_check){
 			
-					document.frm.submit();
+				document.frm.submit();
+		}else{
+			alert("입력양식을 모두 입력해주세요");
 		}
 	}
 	
