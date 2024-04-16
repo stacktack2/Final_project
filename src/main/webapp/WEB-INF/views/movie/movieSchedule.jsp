@@ -66,7 +66,7 @@
         <c:forEach items="${unopenMovie }" var="unopenMovie">
         <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 ${fn:replace(unopenMovie.cgenreNm,',',' ')} ">
           <div class="item">
-            <img src="${unopenMovie.cposter }" alt="${unopenMovie.cname }포스터">
+            <img src="${unopenMovie.cposter }" alt="${unopenMovie.cname }포스터" style="height: 510px;">
             <span class="category">${unopenMovie.cwatchGradeNm }</span>
             <h6>D${unopenMovie.dday }</h6>
             <h4>${unopenMovie.cname }</h4>

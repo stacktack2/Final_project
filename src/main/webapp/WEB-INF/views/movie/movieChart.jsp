@@ -68,7 +68,7 @@
       	<c:forEach items="${movieChart }" var="movieChart">
         <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 ${fn:replace(movieChart.cgenreNm,',',' ')} ">
           <div class="item">
-            <img src="${movieChart.cposter }" alt="${movieChart.cname }포스터">
+            <img src="${movieChart.cposter }" alt="${movieChart.cname }포스터" style="height: 510px;">
             <span class="category">${movieChart.cwatchGradeNm }</span>
             <c:choose>
             	<c:when test="${movieChart.crank != null}">
