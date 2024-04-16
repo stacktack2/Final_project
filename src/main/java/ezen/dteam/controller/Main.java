@@ -38,6 +38,7 @@ public class Main {
 		List<CinemaVO> movieChart = mainService.selectBoxOfficeCinema();
 		
 		model.addAttribute("movieChart", movieChart);
+		System.out.println(movieChart);
 		
 		List<CinemaVO> unopenMovie = mainService.selectUnopen();		
 		model.addAttribute("unopenMovie", unopenMovie);

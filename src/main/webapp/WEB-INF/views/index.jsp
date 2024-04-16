@@ -118,7 +118,7 @@
       	<c:forEach items="${movieChart }" var="movieChart">
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <img src="${movieChart.cposter }" alt="${movieChart.cname }포스터">
+            <img src="${movieChart.cposter }" alt="${movieChart.cname }포스터" style="height: 510px;">
             <span class="category">${movieChart.cwatchGradeNm }</span>
             <h6>${movieChart.crank }위</h6>
             <h4>${movieChart.cname }</h4>
@@ -152,7 +152,7 @@
         <c:forEach items="${unopenMovie }" var="unopenMovie">
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <img src="${unopenMovie.cposter }" alt="${unopenMovie.cname }">
+            <img src="${unopenMovie.cposter }" alt="${unopenMovie.cname }" style="height: 510px;">
             <span class="category">${unopenMovie.cwatchGradeNm }</span>
             <h6>D${unopenMovie.dday }</h6>
             <h4>${unopenMovie.cname }</h4>

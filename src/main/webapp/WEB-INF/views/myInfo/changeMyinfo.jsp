@@ -171,16 +171,14 @@
                       </div>
 				</div>
 				    <script>
-    $(document).ready(function(){
-    	let pw_check = false;
-    	let pwRe_check = false;
-    	let name_check = false;
-    	let birth_check = false;
-    	let phone_check = false;
-    	let gender_check = false;
-    	
-    })
 
+    var pw_check = false;
+    var pwRe_check = false;
+    var name_check = false;
+    var birth_check = false;
+    var phone_check = false;
+    var gender_check = false;
+    	
 	function validation(){
 		
 		if(pw_check && pwRe_check && name_check && 
@@ -188,11 +186,10 @@
 			
 					document.frm.submit();
 		}else{
-			alert("입력양식을 확인해주세요.");
+			alert("입력양식을 모두 입력해주세요.");
 		}
 	}
   	
-	
 	//비밀번호
 	function checkPw(obj){
 		let regId = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^&*]{8,}$/g;
