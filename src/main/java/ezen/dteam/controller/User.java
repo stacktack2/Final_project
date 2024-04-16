@@ -100,6 +100,8 @@ public class User {
 		return "user/findPw";
 	}
 	
+	
+	
 	@RequestMapping(value = "/updatePw", method = RequestMethod.POST)
 	public void sendEmail(MemberVO vo,HttpServletResponse response, HttpServletRequest request) throws Exception{
 

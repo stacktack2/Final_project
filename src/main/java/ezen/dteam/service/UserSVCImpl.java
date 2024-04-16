@@ -43,8 +43,8 @@ public class UserSVCImpl implements UserSVC{
 
 	@Override
 	public int updatePw(MemberVO vo) throws Exception {
-		
-		System.out.println("updatePw CALL");
+				
+System.out.println("updatePw CALL");
 		
 		//1.임시 비밀번호 생성
 		String pw = "";
