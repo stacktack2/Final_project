@@ -15,7 +15,7 @@
 개발도구 : spring-tool-suite-3.9.13, StarUML, ERMaster, docker, Filezila, AWS
 
 #### PPT 주소
-https://www.canva.com/design/DAF9eQkK28Q/dQ3eTfLGYHlYETJ9mqbNwQ/edit?utm_content=DAF9eQkK28Q&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+[https://www.canva.com/design/DAF9eQkK28Q/dQ3eTfLGYHlYETJ9mqbNwQ/edit?utm_content=DAF9eQkK28Q&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton](https://www.canva.com/design/DAGCoKjQ8uQ/Xkabym6dCp_GPSYxnSToNg/edit?utm_content=DAGCoKjQ8uQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
 <br>
 <br>
