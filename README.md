@@ -22,28 +22,23 @@
 <b>팀원 전용휘 기여 내용</b><br>
 <br>
 <b>설계 및 DB-</b><br>
-화면설계서 작성, DB설계서 작성 및 ermaster, mysql을 활용한 DB구현<br>
+화면설계서 작성<br>
+DB 설계 및 개발<br>
+시퀀스 다이어그램 작성<br>
 <br>
 
-<b>MVC 패턴 설계-</b><br>
-WEB-INF 하위 view 위치로 직접 접근 차단, 프론트 컨트롤러 설계 및 구현<br>
 
-<b>util-</b><br>
-Thread-safe 를 고려한 싱글톤을 이용한 DB매니저 구현<br>
-커넥션 풀 구현<br>
-BCrypt 암호화 구현<br>
-
-<b>로그인 페이지 전체-</b><br>
-비밀번호 찾기 시 이메일 API를 활용한 인증 구현<br>
-쿠키를 활용한 아이디 저장 구현<br>
+<b>고객센터 게시판 CRUD ( jstl, mybatis 활용 )</b><br>
+페이징, 댓글, 이전/다음글 기능 개발, NPE더블체크<br>
 
 
-<b>관리자 페이지 전체-</b><br>
-조회,작성,수정,삭제 기본 페이지 구현<br>
-ajax 통신을 활용한 DB 업데이트 구현
+<b>극장 시간표 CRUD 페이지 ( modal, 달력API, selectAPI 활용 )</b><br>
+날짜 데이터 변환<br>
 
 
+<b>극장 상영정보 조회 페이지</b><br>
+VO의 List타입 필드를 사용한 3중 forEach문을 활용한 데이터 조회 페이지<br>
 
 
-
+<b>AWS EC2에서 docker를 활용한 배포</b><br>
 
